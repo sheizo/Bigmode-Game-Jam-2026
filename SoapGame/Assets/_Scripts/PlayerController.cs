@@ -14,7 +14,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _airSteerStrength = 5;
     [SerializeField] private float _groundSteerStrength = 10;
     [SerializeField] private float _minimumSteerMultiplier = 0.1f;
-    [SerializeField] private Vector2 _rampHitBonusAccel = new Vector2(-1f, 1f); 
+    [SerializeField] private Vector2 _rampHitBonusAccel = new Vector2(-1f, 1f);
+    [SerializeField] private float _rampHitDotMax = 0.7f;
 
     [SerializeField] private float smoothTime = 0.05f;
     
@@ -82,12 +83,13 @@ public class PlayerController : MonoBehaviour
                 
                 Vector3 normal = hit.normal;
                 float dot = Vector3.Dot(normal, transform.forward.normalized);
-
-                float tDot = Mathf.InverseLerp(-1, 1, dot);
+                
+                Debug.Log("Hit ramp at a dot of: " + dot);
+                
+                float tDot = Mathf.InverseLerp(-_rampHitDotMax, _rampHitDotMax, dot);
                 float multiplier = Mathf.Lerp(_rampHitBonusAccel.x, _rampHitBonusAccel.y, tDot);
                 
                 _rb.AddForce(transform.forward.normalized*multiplier, ForceMode.Impulse);
-                print(multiplier);
             }
         }
         else if(!IsOnRamp()){
