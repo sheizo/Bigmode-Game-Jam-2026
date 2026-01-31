@@ -15,9 +15,8 @@ GameObject:
   - component: {fileID: 7965744279491166906}
   - component: {fileID: 3740002284147589510}
   - component: {fileID: 2006182879044950881}
-  - component: {fileID: 4821682443981898869}
   m_Layer: 0
-  m_Name: Ramp_UpDown
+  m_Name: Ramp_DownUp
   m_TagString: Ramp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,9 +52,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ramp
   _rampParticlesTransform: {fileID: 3848597466069960389}
   _particleEasing: 2
-  _particlePathDuration: 0.4
+  _particlePathDuration: 0.2
+  _pathAppearMultiplier: 1.5
   _startPointOffset: {x: 0, y: 0, z: 0}
-  _connectedRamp: {fileID: 0}
+  _despawnTime: 8
+  _startingDirection: 0
+  length: 0
 --- !u!114 &5032288016603521678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,7 +173,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7685670598692501741}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -266,19 +268,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 266b54ba7465d3440853bcdebbd5aec6, type: 2}
---- !u!114 &4821682443981898869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7685670598692501741}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7f9eb17c683b474f836b297d808de3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Despawn
-  _timeToDespawn: 5
 --- !u!1001 &2921759818169850257
 PrefabInstance:
   m_ObjectHideFlags: 0
