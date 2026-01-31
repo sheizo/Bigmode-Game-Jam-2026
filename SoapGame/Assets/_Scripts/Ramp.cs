@@ -69,7 +69,8 @@ public class Ramp : MonoBehaviour
         
         Sequence sequence = DOTween.Sequence();
         sequence.Append(_rampMaterial.DOFloat(1f, "_Appear", _particlePathDuration * _pathAppearMultiplier));    //animates alpha on material along spline
-        sequence.Append(_rampMaterial.DOFloat(0f, "_Appear", _despawnTime));
+        sequence.AppendInterval(_despawnTime / 2);
+        sequence.Append(_rampMaterial.DOFloat(0f, "_Appear", _despawnTime ));
         sequence.AppendCallback(()=>Destroy(this.gameObject));
 
     }

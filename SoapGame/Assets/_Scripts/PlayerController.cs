@@ -24,7 +24,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private CinemachineCamera _playerCamera;
 
     [Header("Camera")] [SerializeField] private float _maxAddedFov = 20f;
-    [SerializeField] private float _maxFOVSpeed = 30f;
     [Range(0, 0.5f)] [SerializeField] private float _cameraFOVSmoothing;
 
     [Header("Movement")] 
@@ -36,8 +35,6 @@ public class PlayerController : MonoBehaviour
     [Range(0, 1)] [SerializeField] private float _airSteerMultiplier = 5;
     [Range(0, 1)] [SerializeField] private float _groundSteerMultiplier = 10;
     [Range(0, 1)] [SerializeField] private float _minForwardSpeedSteerMultiplier = 0.1f;
-    [SerializeField] private Vector2 _rampHitBonusAccel = new Vector2(-1f, 1f);
-    [SerializeField] private float _rampHitDotMax = 0.7f;
     [SerializeField] private float _rampForceDown, _rampForceForward;
 
     [Header("Ramp Spawning")] 
@@ -64,9 +61,12 @@ public class PlayerController : MonoBehaviour
     private SphereCollider _collider;
 
     private bool _isMoving;
+    private bool _isGrounded;
+    private bool _isOnRamp;
+    private Ramp _rampPlayerIsOn;
+    
     private bool _isSlamPressed, _pressedSpawnRampThisFrame, _pressedDiscardRampThisFrame;
     private float _horizontalInput;
-    private bool _wasPreviouslyNotOnRamp = true;
 
     private float _originalCameraFov;
     private Vector3 _originalPosition;
@@ -103,13 +103,14 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Update(){
+        
+        
         SetInputVariables();
         HandleCameraFOV();
         
         HandleRampSpawning();
         HandleRampDespawning();
         
-
         if (Keyboard.current.rKey.wasPressedThisFrame){
             _playerCamera.Lens.FieldOfView += 10;
 
@@ -123,6 +124,9 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate(){
         _currentSpeed = _rb.linearVelocity.magnitude;
         _playerVisual.transform.position = _playerCollision.transform.position;
+        
+        _isGrounded = IsGrounded();
+        _rampPlayerIsOn = IsOnRamp();
     
         
         _ySpeed = Vector3.Dot(_rb.linearVelocity, transform.up);
@@ -133,44 +137,27 @@ public class PlayerController : MonoBehaviour
         HandleVisualRotations();
 
         // Horizontal control -  force based on if ground or air with a clamped multiplier by forward speed
-        float steerStrength = _steerStrength * (IsGrounded() ? _groundSteerMultiplier : _airSteerMultiplier);
+        float steerStrength = _steerStrength * (_isGrounded ? _groundSteerMultiplier : _airSteerMultiplier);
         float forwardSpeedSteerMult = Mathf.Max(Mathf.Max(0, _zSpeed), _minForwardSpeedSteerMultiplier);
-        print(forwardSpeedSteerMult);
+        //forwardSpeedSteerMult *=  (_isGrounded ? 0 : 1);
         _rb.AddForce(new Vector3(_horizontalInput, 0, 0) * (forwardSpeedSteerMult * steerStrength), ForceMode.Force);
 
         // Slam Control, only when in air
-        if (_isSlamPressed && !IsGrounded()){
+        if (_isSlamPressed && !_isGrounded){
             _rb.AddForce(new Vector3(0, -1, 0) * _slamStrength, ForceMode.Force);
         }
         
-        Ramp currentRamp = IsOnRamp();
-        /*
-        //Good landing reward //maybe change to also work on ground
-        if (currentRamp && _wasPreviouslyNotOnRamp && _isSlamPressed){ //rewards slamming on good angles, right now slamming while on ramp also gives boost maybe keep
-            if (Physics.Raycast(_playerCollision.position, -Vector3.up, out RaycastHit hit)){
-                _wasPreviouslyNotOnRamp = false;
-
-                Vector3 normal = hit.normal;
-                float dot = Vector3.Dot(normal, transform.forward);
-
-                Debug.Log("Hit ramp at a dot of: " + dot);
-
-                float tDot = Mathf.InverseLerp(-_rampHitDotMax, _rampHitDotMax, dot);
-                float multiplier = Mathf.Lerp(_rampHitBonusAccel.x, _rampHitBonusAccel.y, tDot);
-
-                _rb.AddForce(transform.forward * multiplier, ForceMode.Impulse);
-            }
-        }
-        else if (!IsOnRamp()){
-            _wasPreviouslyNotOnRamp = true;
-        }
-        */
         
-        if (Physics.Raycast(_playerCollision.transform.position, -Vector3.up, out RaycastHit hit, _groundedThreshold) && currentRamp)
+        // Good angle check -0.7 - to 0.7 +, good angle is anything above 0
+        // Vector3 normal = hit.normal;
+        // float dot = Vector3.Dot(normal, transform.forward);
+               
+        
+        if (Physics.Raycast(_playerCollision.transform.position, -Vector3.up, out RaycastHit hit, _groundedThreshold) && _rampPlayerIsOn)
         {
             Vector3 stickDirection = -hit.normal; 
 
-            Vector3 slopeForward = Vector3.ProjectOnPlane(currentRamp.transform.forward, hit.normal).normalized;
+            Vector3 slopeForward = Vector3.ProjectOnPlane(_rampPlayerIsOn.transform.forward, hit.normal).normalized;
 
             Vector3 force = (stickDirection * _rampForceDown) + (slopeForward * _rampForceForward);
             _rb.AddForce(force, ForceMode.Force);
@@ -192,7 +179,6 @@ public class PlayerController : MonoBehaviour
         
         _pressedSpawnRampThisFrame = Mouse.current.leftButton.wasPressedThisFrame;
         _pressedDiscardRampThisFrame = Mouse.current.rightButton.wasPressedThisFrame;
-
     }
 
     private void HandleSpeedCapping(){
@@ -214,8 +200,7 @@ public class PlayerController : MonoBehaviour
     private void HandleRampSpawning(){
         if (!_pressedSpawnRampThisFrame) return;
         
-        Ramp playerOnRamp = IsOnRamp();
-        Ramp attachRamp = playerOnRamp ? GetLastRamp(playerOnRamp) : null;
+        Ramp attachRamp = _rampPlayerIsOn ? GetLastRamp(_rampPlayerIsOn) : null;
         
         Vector3 velocityYNegative = new Vector3(_rb.linearVelocity.x, -Mathf.Abs(_rb.linearVelocity.y), _rb.linearVelocity.z);
         Vector3 predictedPlayerPosition = _playerCollision.position + (velocityYNegative * _predictionTime);
@@ -233,9 +218,8 @@ public class PlayerController : MonoBehaviour
                 
             };
         }
-        
         //Check for ground
-        if (Physics.Raycast(_playerCollision.position, toRampSpawnPoint.normalized, out RaycastHit groundHit, toRampSpawnPoint.magnitude)){ //prevent ramp spawning below ground
+        if (!attachRamp && Physics.Raycast(_playerCollision.position, toRampSpawnPoint.normalized, out RaycastHit groundHit, toRampSpawnPoint.magnitude)){ //prevent ramp spawning below ground
             rampSpawnPoint = groundHit.point;
             Debug.DrawRay(_playerCollision.position, toRampSpawnPoint.normalized * groundHit.distance, Color.red, 10f);
             if (_rampQueue.Peek().StartingDirection == RampStartingDirection.Down){
@@ -243,6 +227,7 @@ public class PlayerController : MonoBehaviour
                 return;
             }
         }
+        
         
         // set ramp rotation to movement, don't if player isnt moving forwards
         Vector3 moveDir = new Vector3(_xSpeed,0 ,_zSpeed).normalized;
@@ -270,7 +255,7 @@ public class PlayerController : MonoBehaviour
     private void HandleCameraFOV(){
         float maxFOV = _originalCameraFov + _maxAddedFov;
 
-        float targetFov = Mathf.Lerp(_originalCameraFov, maxFOV, _currentSpeed / _maxFOVSpeed);
+        float targetFov = Mathf.Lerp(_originalCameraFov, maxFOV, _currentSpeed / _maxSpeed);
         float smoothedTarget = Mathf.SmoothDamp(_playerCamera.Lens.FieldOfView, targetFov, ref _currentFOV, 0.1f);
 
         _playerCamera.Lens.FieldOfView = smoothedTarget;
