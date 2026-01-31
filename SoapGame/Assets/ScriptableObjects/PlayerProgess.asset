@@ -13,9 +13,12 @@ MonoBehaviour:
   m_Name: PlayerProgess
   m_EditorClassIdentifier: Assembly-CSharp::PlayerProgressHub
   LiveData:
-    Money: 1
+    Money: 0
     MaxSpeed: 0
-    LaunchSpeed: 0
-    TurnSpeed: 0
+    LaunchForce: 0
+    TurnStrength: 0
+    MaxSoap: 0
     SoapRefillOnClean: 0
     RampBoostSpeed: 0
+    SlamForce: 0
+    Bounciness: 0

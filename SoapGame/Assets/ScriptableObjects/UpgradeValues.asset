@@ -12,8 +12,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83fe7ecdab364d54a7fe1b193bc3e970, type: 3}
   m_Name: UpgradeValues
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeValuesSO
-  MaxSpeed: []
-  LaunchSpeed: []
-  TurnSpeed: []
-  SoapRefillOnClean: []
-  RampBoostSpeed: []
+  MaxSpeed:
+  - 10
+  - 20
+  - 30
+  - 40
+  LaunchForce: []
+  TurnStrength:
+  - 0.5
+  - 1
+  - 1.5
+  - 2
+  - 3
+  MaxSoap: 03000000060000000e00000014000000
+  SoapRefillOnClean:
+  - 0.05
+  - 0.1
+  - 0.2
+  RampBoostSpeed:
+  - {x: 10, y: 20}
+  - {x: 25, y: 50}
+  - {x: 37.5, y: 75}
+  - {x: 50, y: 100}
+  SlamForce:
+  - 10
+  - 15
+  - 20
+  Bounciness:
+  - 0.1
+  - 0.3
+  - 0.6

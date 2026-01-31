@@ -8,8 +8,8 @@ public class PlayerStats : ICloneable
     public int Money;
     
     //upgrade counts
-    public int MaxSpeed, LaunchSpeed, TurnSpeed;
-    public int SoapRefillOnClean;
+    public int MaxSpeed, LaunchForce, TurnStrength;
+    public int MaxSoap, SoapRefillOnClean;
     public int RampBoostSpeed;
     public int SlamForce;    
     public int Bounciness;

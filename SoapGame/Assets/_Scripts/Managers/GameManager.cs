@@ -28,7 +28,7 @@ public class GameManager : Singleton<GameManager>
 
     private void Update(){
         if (Keyboard.current.rKey.wasPressedThisFrame){
-            _playerStats.LaunchSpeed++;
+            _playerStats.LaunchForce++;
         }
         SaveSystem.Save(_playerStats);
         

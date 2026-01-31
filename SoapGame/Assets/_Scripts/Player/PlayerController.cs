@@ -11,12 +11,11 @@ using Sequence = DG.Tweening.Sequence;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] public float _currentSpeed;
-    [SerializeField] public float _zSpeed;
-    [SerializeField] public float _xSpeed;
-    [SerializeField] public float _ySpeed;
+
+    [SerializeField] private bool _useUpgrades; 
     
-    [SerializeField] private int _maxSoapPower = 10;
+    [SerializeField] private float _soapRefillOnClean = 0.1f;
+    [SerializeField] private int _maxSoap = 10;
     [SerializeField] private int _rampSoapCost = 1;
     
     [Header("Prefabs")]
@@ -25,7 +24,7 @@ public class PlayerController : MonoBehaviour
     
     [Header("References")] 
     [SerializeField] private PlayerProgressHubSO _playerHubSO;
-    [SerializeField] private UpgradeValuesSO upgradeValuesSo;
+    [SerializeField] private UpgradeValuesSO _upgradeValuesSo;
     [SerializeField] private Transform _playerVisual;
     [SerializeField] private CinemachineCamera _playerCamera;
 
@@ -42,7 +41,7 @@ public class PlayerController : MonoBehaviour
     [Range(0, 1)] [SerializeField] private float _airSteerMultiplier = 5;
     [Range(0, 1)] [SerializeField] private float _groundSteerMultiplier = 10;
     [Range(0, 1)] [SerializeField] private float _minForwardSpeedSteerMultiplier = 0.1f;
-    [SerializeField] private float _rampForceDown, _rampForceForward;
+    [SerializeField] private float _rampForceForward, _rampForceDown;
 
     [Header("Ramp Spawning")] 
     [SerializeField] private float _rampSpawnParticlesTravelTime = 0.2f; 
@@ -62,6 +61,7 @@ public class PlayerController : MonoBehaviour
     private Queue<Ramp> _rampQueue;
     private Rigidbody _rb;
     private SphereCollider _collider;
+    private PhysicsMaterial _physicsMaterial;
     
     private Quaternion _currentRotation;
     private float _currentFOV;
@@ -77,6 +77,10 @@ public class PlayerController : MonoBehaviour
     private Ramp _rampPlayerIsOn;
     private bool _isSlamPressed, _pressedSpawnRampThisFrame, _pressedDiscardRampThisFrame;
     private float _horizontalInput;
+    private float _currentSpeed;
+    private float _zSpeed;
+    private float _xSpeed;
+    private float _ySpeed;
     
 
     bool IsGrounded() => Physics.Raycast(transform.position, -Vector3.up, _groundedThreshold);
@@ -93,7 +97,8 @@ public class PlayerController : MonoBehaviour
     private void Awake(){
         _rb = GetComponent<Rigidbody>();
         _collider = GetComponent<SphereCollider>();
-
+        _physicsMaterial = _collider.material;
+            
         _originalPosition = transform.position;
         _originalCameraFov = _playerCamera.Lens.FieldOfView;
 
@@ -105,12 +110,13 @@ public class PlayerController : MonoBehaviour
         for (int i = 0; i < _rampQueueSize; i++){
             EnqueueRandomRamp();
         }
-        
+
+        if(_useUpgrades) UpdateUpgrades();
         RefillSoap();
     }
 
     private void Update(){
-        print(_playerHubSO.LiveData.LaunchSpeed);
+        print(_playerHubSO.LiveData.LaunchForce);
         
         SetInputVariables();
         HandleCameraFOV();
@@ -329,8 +335,20 @@ public class PlayerController : MonoBehaviour
             smoothTime, true);
     }
 
+    public void UpdateUpgrades(){
+        PlayerStats stats = _playerHubSO.LiveData;
+        _maxSpeed = _upgradeValuesSo.MaxSpeed[stats.MaxSpeed];
+        _steerStrength = _upgradeValuesSo.TurnStrength[stats.TurnStrength];
+        _maxSoap = _upgradeValuesSo.MaxSoap[stats.MaxSoap];
+        _soapRefillOnClean = _upgradeValuesSo.SoapRefillOnClean[stats.SoapRefillOnClean];
+        _rampForceDown = _upgradeValuesSo.RampBoostSpeed[stats.RampBoostSpeed].x;
+        _rampForceForward = _upgradeValuesSo.RampBoostSpeed[stats.RampBoostSpeed].y;
+        _slamStrength = _upgradeValuesSo.SlamForce[stats.SlamForce];
+        _physicsMaterial.bounciness = _upgradeValuesSo.Bounciness[stats.Bounciness];
+    }
+
     public void RefillSoap() => AddSoapPower(1);
-    public void AddSoapPower(float normalizedAmount) => _currentSoapPower = Mathf.Lerp(0, _maxSoapPower, normalizedAmount).CeilToInt();
+    public void AddSoapPower(float normalizedAmount) => _currentSoapPower = Mathf.Lerp(0, _maxSoap, normalizedAmount).CeilToInt();
     
     private Ramp GetLastAttachedRamp(Ramp start){
         while (start.ConnectedRamp){
@@ -341,6 +359,11 @@ public class PlayerController : MonoBehaviour
     
     private void EnqueueRandomRamp() => _rampQueue.Enqueue(_rampPrefabs[Random.Range(0, _rampPrefabs.Count)]);
 
+    [ContextMenu("Force Update Upgrades")]
+    private void ForceUpdateUpgrades(){
+        if (!Application.isPlaying) return;
+        UpdateUpgrades();
+    }
     
     private void OnDrawGizmos(){
         if(!Application.isPlaying) SetPlayerVisualPosition();
