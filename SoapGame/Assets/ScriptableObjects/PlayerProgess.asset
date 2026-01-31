@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69c51542efb3489c9a0cc867d0fd2dc6, type: 3}
+  m_Name: PlayerProgess
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerProgressHub
+  LiveData:
+    Money: 1
+    MaxSpeed: 0
+    LaunchSpeed: 0
+    TurnSpeed: 0
+    SoapRefillOnClean: 0
+    RampBoostSpeed: 0

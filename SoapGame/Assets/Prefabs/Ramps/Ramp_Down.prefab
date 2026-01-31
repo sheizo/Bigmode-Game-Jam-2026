@@ -55,9 +55,8 @@ MonoBehaviour:
   _particlePathDuration: 0.2
   _pathAppearMultiplier: 1.5
   _startPointOffset: {x: 0, y: 0, z: 0}
-  _despawnTime: 5
   _startingDirection: 0
-  length: 0
+  length: 8.322132
 --- !u!114 &2108683691154321107
 MonoBehaviour:
   m_ObjectHideFlags: 0
