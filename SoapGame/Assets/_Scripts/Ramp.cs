@@ -20,7 +20,6 @@ public class Ramp : MonoBehaviour
     [SerializeField] private SplineAnimate.EasingMode _particleEasing;
     [SerializeField] private float _particlePathDuration = 1, _pathAppearMultiplier = 0.3f;
     [SerializeField] private Vector3 _startPointOffset;
-    [SerializeField] private float _despawnTime;
     [SerializeField] private RampStartingDirection _startingDirection;
 
     [SerializeField]private float length;
@@ -34,7 +33,6 @@ public class Ramp : MonoBehaviour
     
     private MeshRenderer _rampMeshRenderer;
     private Material _rampMaterial;
-    private float _despawnTimer;
 
     public Vector3 StartPointOffset => _startPointOffset;
     public Vector3 StartPoint => _startPoint;
@@ -66,11 +64,12 @@ public class Ramp : MonoBehaviour
     private void Start(){
         _rampMaterial.SetFloat(MaterialObjectLength, _rampSpline.CalculateLength());
         _rampMaterial.SetFloat("_Appear", 0);
-        
+
+        float despawnTime = _rampParticles.main.startLifetime.constantMax;
         Sequence sequence = DOTween.Sequence();
         sequence.Append(_rampMaterial.DOFloat(1f, "_Appear", _particlePathDuration * _pathAppearMultiplier));    //animates alpha on material along spline
-        sequence.AppendInterval(_despawnTime / 2);
-        sequence.Append(_rampMaterial.DOFloat(0f, "_Appear", _despawnTime ));
+        //sequence.AppendInterval(despawnTime / 2);
+        sequence.Append(_rampMaterial.DOFloat(0f, "_Appear", despawnTime ));
         sequence.AppendCallback(()=>Destroy(this.gameObject));
 
     }
