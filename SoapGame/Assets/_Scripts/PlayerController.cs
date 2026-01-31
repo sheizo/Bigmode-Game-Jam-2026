@@ -38,12 +38,14 @@ public class PlayerController : MonoBehaviour
     [Range(0, 1)] [SerializeField] private float _minForwardSpeedSteerMultiplier = 0.1f;
     [SerializeField] private Vector2 _rampHitBonusAccel = new Vector2(-1f, 1f);
     [SerializeField] private float _rampHitDotMax = 0.7f;
+    [SerializeField] private float _rampForceDown, _rampForceForward;
 
     [Header("Ramp Spawning")] 
     [SerializeField] private Vector3 _rampSpawnOffset = new Vector3(0f, -1, 0f);
-
     [SerializeField] private float _predictionTime = 0.25f;
     [SerializeField] private int _rampQueueSize;
+    [SerializeField] private float _rampCheckRaycastLength = 20;
+    [SerializeField] private float _rampCheckRaycastRadius = 0.2f;
 
     [Header("Visual rotations")] 
     [SerializeField] private float _maxXAngle = 20f;
@@ -54,7 +56,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _maxRotationXSpeed = 40;
     [SerializeField] private float _maxRotationYSpeed = 8;
 
-
+    
     private Quaternion _currentRotation;
     private float _currentFOV;
 
@@ -106,6 +108,7 @@ public class PlayerController : MonoBehaviour
         
         HandleRampSpawning();
         HandleRampDespawning();
+        
 
         if (Keyboard.current.rKey.wasPressedThisFrame){
             _playerCamera.Lens.FieldOfView += 10;
@@ -114,12 +117,14 @@ public class PlayerController : MonoBehaviour
             _rb.angularVelocity = Vector3.zero;
             _playerCollision.transform.position = _originalPosition;
         }
+        
     }
 
     private void FixedUpdate(){
         _currentSpeed = _rb.linearVelocity.magnitude;
         _playerVisual.transform.position = _playerCollision.transform.position;
     
+        
         _ySpeed = Vector3.Dot(_rb.linearVelocity, transform.up);
         _xSpeed = Vector3.Dot(_rb.linearVelocity, transform.right);
         _zSpeed = Vector3.Dot(_rb.linearVelocity, transform.forward);
@@ -130,15 +135,18 @@ public class PlayerController : MonoBehaviour
         // Horizontal control -  force based on if ground or air with a clamped multiplier by forward speed
         float steerStrength = _steerStrength * (IsGrounded() ? _groundSteerMultiplier : _airSteerMultiplier);
         float forwardSpeedSteerMult = Mathf.Max(Mathf.Max(0, _zSpeed), _minForwardSpeedSteerMultiplier);
+        print(forwardSpeedSteerMult);
         _rb.AddForce(new Vector3(_horizontalInput, 0, 0) * (forwardSpeedSteerMult * steerStrength), ForceMode.Force);
 
         // Slam Control, only when in air
         if (_isSlamPressed && !IsGrounded()){
             _rb.AddForce(new Vector3(0, -1, 0) * _slamStrength, ForceMode.Force);
         }
-
+        
+        Ramp currentRamp = IsOnRamp();
+        /*
         //Good landing reward //maybe change to also work on ground
-        if (IsOnRamp() && _wasPreviouslyNotOnRamp && _isSlamPressed){ //rewards slamming on good angles, right now slamming while on ramp also gives boost maybe keep
+        if (currentRamp && _wasPreviouslyNotOnRamp && _isSlamPressed){ //rewards slamming on good angles, right now slamming while on ramp also gives boost maybe keep
             if (Physics.Raycast(_playerCollision.position, -Vector3.up, out RaycastHit hit)){
                 _wasPreviouslyNotOnRamp = false;
 
@@ -156,7 +164,18 @@ public class PlayerController : MonoBehaviour
         else if (!IsOnRamp()){
             _wasPreviouslyNotOnRamp = true;
         }
+        */
+        
+        if (Physics.Raycast(_playerCollision.transform.position, -Vector3.up, out RaycastHit hit, _groundedThreshold) && currentRamp)
+        {
+            Vector3 stickDirection = -hit.normal; 
 
+            Vector3 slopeForward = Vector3.ProjectOnPlane(currentRamp.transform.forward, hit.normal).normalized;
+
+            Vector3 force = (stickDirection * _rampForceDown) + (slopeForward * _rampForceForward);
+            _rb.AddForce(force, ForceMode.Force);
+        }
+        
     }
     
     private Ramp GetLastRamp(Ramp start){
@@ -198,42 +217,49 @@ public class PlayerController : MonoBehaviour
         Ramp playerOnRamp = IsOnRamp();
         Ramp attachRamp = playerOnRamp ? GetLastRamp(playerOnRamp) : null;
         
+        Vector3 velocityYNegative = new Vector3(_rb.linearVelocity.x, -Mathf.Abs(_rb.linearVelocity.y), _rb.linearVelocity.z);
+        Vector3 predictedPlayerPosition = _playerCollision.position + (velocityYNegative * _predictionTime);
+        
+        Vector3 rampSpawnPoint = predictedPlayerPosition + _rampSpawnOffset;
+        Vector3 toRampSpawnPoint = rampSpawnPoint - _playerCollision.position;
+        
+        // Check for ramp 
+        if (Physics.SphereCast(_playerCollision.position, _rampCheckRaycastRadius, toRampSpawnPoint.normalized, out RaycastHit rampHit, _rampCheckRaycastLength)){ //prevent ramp spawning below ground
+            if (rampHit.transform.CompareTag("Ramp")){
+                Debug.DrawRay(_playerCollision.position, toRampSpawnPoint.normalized * rampHit.distance, Color.green, 10f);
+
+                if (rampHit.transform.TryGetComponent(out Ramp hitRamp))
+                    attachRamp = GetLastRamp(hitRamp);
+                
+            };
+        }
+        
+        //Check for ground
+        if (Physics.Raycast(_playerCollision.position, toRampSpawnPoint.normalized, out RaycastHit groundHit, toRampSpawnPoint.magnitude)){ //prevent ramp spawning below ground
+            rampSpawnPoint = groundHit.point;
+            Debug.DrawRay(_playerCollision.position, toRampSpawnPoint.normalized * groundHit.distance, Color.red, 10f);
+            if (_rampQueue.Peek().StartingDirection == RampStartingDirection.Down){
+                Debug.Log("cant spawn that");
+                return;
+            }
+        }
+        
         // set ramp rotation to movement, don't if player isnt moving forwards
         Vector3 moveDir = new Vector3(_xSpeed,0 ,_zSpeed).normalized;
         Quaternion rampRotation = (attachRamp) 
-                ? attachRamp.transform.rotation 
-                : (_zSpeed < 0.1f) ? Quaternion.identity : Quaternion.LookRotation(moveDir, Vector3.up);
-        
-        Vector3 anchorPoint;
-        if (attachRamp){
-            anchorPoint = attachRamp.transform.TransformPoint(attachRamp.EndPoint);
-        }else {
-            Vector3 velocityYNegative = new Vector3(_rb.linearVelocity.x, -Mathf.Abs(_rb.linearVelocity.y), _rb.linearVelocity.z);
-            Vector3 predictedPlayerPosition = _playerCollision.position + (velocityYNegative * _predictionTime);
-            anchorPoint = predictedPlayerPosition + _rampSpawnOffset;
-            
-            Vector3 toAnchor = anchorPoint - _playerCollision.position;
-            if (Physics.Raycast(_playerCollision.position, toAnchor.normalized, out RaycastHit hit, toAnchor.magnitude)){ //prevent ramp spawning below ground
-                anchorPoint = hit.point;
-                Debug.DrawRay(_playerCollision.position, toAnchor.normalized * hit.distance, Color.red, 10f);
+            ? attachRamp.transform.rotation 
+            : (_zSpeed < 0.1f) ? Quaternion.identity : Quaternion.LookRotation(moveDir, Vector3.up);
 
-                if (_rampQueue.Peek().StartingDirection == RampStartingDirection.Down){
-                   Debug.Log("cant spawn that");
-                   return;
-                }
-                
-            }
-        }
+        if (attachRamp) rampSpawnPoint = attachRamp.transform.TransformPoint(attachRamp.EndPoint);
+        
         
         Ramp rampPrefab = _rampQueue.Dequeue();
         EnqueueRandomRamp();
         
-        Matrix4x4 spawnMatrix = Matrix4x4.TRS(anchorPoint, rampRotation, Vector3.one);
+        Matrix4x4 spawnMatrix = Matrix4x4.TRS(rampSpawnPoint, rampRotation, Vector3.one);
         Vector3 spawnPosition = spawnMatrix.MultiplyPoint(-rampPrefab.StartPoint); //Vector.zero gives position in previous ramp start point
         
         Ramp spawnedRamp = Instantiate(rampPrefab, spawnPosition, rampRotation );
-
-
         
         if (attachRamp){
             attachRamp.ConnectedRamp = spawnedRamp;
@@ -298,7 +324,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void EnqueueRandomRamp() =>
-        _rampQueue.Enqueue(_rampPrefabs[Random.Range(0, _rampPrefabs.Count - 1)]);
+        _rampQueue.Enqueue(_rampPrefabs[Random.Range(0, _rampPrefabs.Count)]);
 
 
 
