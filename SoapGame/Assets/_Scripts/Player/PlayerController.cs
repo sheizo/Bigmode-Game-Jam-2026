@@ -15,9 +15,13 @@ public class PlayerController : MonoBehaviour
     
     [Header("Soap Usage")]
     [SerializeField] private float _soapRefillOnClean = 0.1f;
-    [SerializeField] private int _maxSoap = 10;
-    [SerializeField] private int _rampSoapCost = 1;
-    [SerializeField] private float _minPlayerScale = 0.2f;
+    [SerializeField] private float _maxSoapPower = 10;
+    [SerializeField] private float _rampSoapCost = 2;
+    [SerializeField] private float _groundSoapUsageSec = 0.1f;
+    [SerializeField] private float _currentSoapPower;
+    [SerializeField] private AnimationCurve _soapScaleCurve;
+    [SerializeField] private float _scaleTweenDuration = 0.2f;
+    
     
     [Header("Prefabs")]
     [SerializeField] private List<Ramp> _rampPrefabs;
@@ -64,12 +68,12 @@ public class PlayerController : MonoBehaviour
     private Rigidbody _rb;
     private SphereCollider _collider;
     private PhysicsMaterial _physicsMaterial;
-    
+
+    private Vector3 _startingPosition;
     private Quaternion _currentRotation;
     private float _currentFOV;
     private float _originalCameraFov;
     private Vector3 _originalPosition;
-    private int _currentSoapPower;
 
     private float _lastTimeOnGround, _timeOnGround;
 
@@ -88,9 +92,11 @@ public class PlayerController : MonoBehaviour
     private List<Ramp> _upFacingRamps = new List<Ramp>();
     private List<Ramp> _downFacingRamps = new List<Ramp>();
     private List<Ramp> _straightFacingRamps = new List<Ramp>();
-    
-    
 
+    public bool SoapDepleted => _currentSoapPower <= 0;
+    
+    // float - distance travelled
+    public Action<float> OnSoapDeplete;
 
     bool IsGrounded() => Physics.Raycast(transform.position, -Vector3.up, _groundedThreshold);
 
@@ -124,26 +130,30 @@ public class PlayerController : MonoBehaviour
         }
         //populate ramp queue
         for (int i = 0; i < _rampQueueSize; i++){
-            EnqueueRandomRamp();
+            EnqueueRandomRamp(false);
         }
 
-        if(_useUpgrades) UpdateUpgrades();
+        _startingPosition = transform.position;
+        
+        UpdateUpgrades();
         RefillSoap();
     }
 
     private void Update(){
-        if(GameManager.Instance.CurrentGameState == GameState.GAMEPLAY) SetControlVariables();
+        if (GameManager.Instance.CurrentGameState == GameState.GAMEPLAY && _currentSoapPower > 0){
+            SetControlVariables();
+            HandleGroundSoapDeplete();
+        }
         
         HandleCameraFOV();
         
         HandleRampSpawning();
-        HandleRampDespawning();
+        HandleRampDiscarding();
         
         
         //TODO: delete
         if (Keyboard.current.rKey.wasPressedThisFrame){
-            if (_useUpgrades) UpdateUpgrades();           
-
+            UpdateUpgrades();           
             RefillSoap();
 
             _playerCamera.Lens.FieldOfView += 10;
@@ -167,12 +177,37 @@ public class PlayerController : MonoBehaviour
         
         _isGrounded = IsGrounded();
         _rampPlayerIsOn = IsOnRamp();
+        _isOnRamp = _rampPlayerIsOn;
         
         HandleSpeedCapping();
         HandleVisualRotations();
         HandleMovement();
         
-        SetPlayerVisualPosition();
+        if(!SoapDepleted) SetPlayerVisualPosition();
+    }
+    
+    private void TakeSoap(float amount){
+        if (SoapDepleted){
+            OnSoapDeplete?.Invoke(transform.position.z - _startingPosition.z);
+            return;
+        }
+        _currentSoapPower-=amount;
+
+        UIManager.Instance.UpdateSoapMeter(_currentSoapPower/_maxSoapPower);
+        UpdatePlayerSize(amount >= 1);
+    }
+    
+    private void UpdatePlayerSize(bool animate){
+        float scale = _soapScaleCurve.Evaluate(_currentSoapPower/_maxSoapPower);
+        
+        if (animate){
+            transform.DOScale(scale, _scaleTweenDuration).SetEase(Ease.OutCubic);
+            _playerVisual.transform.DOScale(scale, _scaleTweenDuration).SetEase(Ease.OutCubic);
+        }
+        else{
+            transform.localScale = Vector3.one * scale;
+            _playerVisual.transform.localScale = Vector3.one * scale;
+        }
     }
 
     private void SetPlayerVisualPosition(){
@@ -188,6 +223,11 @@ public class PlayerController : MonoBehaviour
         _pressedDiscardRampThisFrame = Mouse.current.rightButton.wasPressedThisFrame;
     }
 
+    private void HandleGroundSoapDeplete(){
+        if (!_isGrounded || _isOnRamp) return;
+        
+        TakeSoap(_groundSoapUsageSec * Time.deltaTime);
+    }
 
     private void HandleMovement(){
         // Horizontal control -  force based on if ground or air with a clamped multiplier by forward speed
@@ -219,7 +259,7 @@ public class PlayerController : MonoBehaviour
         if (_ySpeed < _minYSpeed)
             _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, _minYSpeed, _rb.linearVelocity.z);
         
-        if (_currentSpeed > _maxGroundSpeed && _isGrounded && !_rampPlayerIsOn){
+        if (_currentSpeed > _maxGroundSpeed && (_isGrounded && !_isOnRamp)){
             _rb.linearVelocity = _rb.linearVelocity.normalized * _maxGroundSpeed;
             return; // exit early so maxSeed doesn't cap air speed
         }
@@ -231,17 +271,16 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    private void HandleRampDespawning(){
+    private void HandleRampDiscarding(){
         if (!_pressedDiscardRampThisFrame) return;
         
         _rampQueue.Dequeue();
-        EnqueueRandomRamp();
+        EnqueueRandomRamp(true);
     }
     
     private void HandleRampSpawning(){
-        if (!_pressedSpawnRampThisFrame || _currentSoapPower <= 0) return;
-
-        _currentSoapPower--;
+        if (!_pressedSpawnRampThisFrame || _currentSoapPower <= _rampSoapCost) return;
+        
         
         Ramp attachRamp = _rampPlayerIsOn ? GetLastAttachedRamp(_rampPlayerIsOn) : null;
         
@@ -283,7 +322,7 @@ public class PlayerController : MonoBehaviour
         
         
         Ramp rampPrefab = _rampQueue.Dequeue();
-        EnqueueRandomRamp();
+        EnqueueRandomRamp(false);
         
         Matrix4x4 spawnMatrix = Matrix4x4.TRS(rampSpawnPoint, rampRotation, Vector3.one);
         Vector3 spawnPosition = spawnMatrix.MultiplyPoint(-rampPrefab.StartPoint); //Vector.zero gives position in previous ramp start point
@@ -298,6 +337,8 @@ public class PlayerController : MonoBehaviour
         Vector3 startPos = transform.position;
         Vector3 endPos = spawnPosition;
 
+        TakeSoap(_rampSoapCost);
+        
         ParticleSystem spawnedParticles = Instantiate(_rampSpawnParticlesPrefab, startPos, Quaternion.identity);
         
         Sequence particleSequence = DOTween.Sequence();
@@ -308,8 +349,10 @@ public class PlayerController : MonoBehaviour
 
     private void HandleCameraFOV(){
         float maxFOV = _originalCameraFov + _maxAddedFov;
-
+        
+        float soapAmountMult = Mathf.Lerp(0.5f, 1f,_currentSoapPower / _maxSoapPower);
         float targetFov = Mathf.Lerp(_originalCameraFov, maxFOV, _currentSpeed / _maxAirSpeed);
+        targetFov *= soapAmountMult;
         float smoothedTarget = Mathf.SmoothDamp(_playerCamera.Lens.FieldOfView, targetFov, ref _currentFOV, 0.1f);
 
         _playerCamera.Lens.FieldOfView = smoothedTarget;
@@ -363,11 +406,13 @@ public class PlayerController : MonoBehaviour
     }
 
     public void UpdateUpgrades(){
+        if (!_useUpgrades) return;
+        
         PlayerUpgradeManager upgrades = PlayerUpgradeManager.Instance;
 
         _maxAirSpeed = upgrades.MaxAirSpeed.CurrentValue;
         _steerStrength = upgrades.TurnStrength.CurrentValue;
-        _maxSoap = upgrades.MaxSoap.CurrentValue;
+        _maxSoapPower = upgrades.MaxSoap.CurrentValue;
         _soapRefillOnClean = upgrades.SoapRefillOnClean.CurrentValue;
         _rampForceDown = upgrades.RampBoostSpeed.CurrentValue.x;
         _rampForceForward = upgrades.RampBoostSpeed.CurrentValue.y;
@@ -376,8 +421,14 @@ public class PlayerController : MonoBehaviour
     }
 
     public void RefillSoap() => AddSoapPower(1);
-    public void AddSoapPower(float normalizedAmount) => _currentSoapPower = Mathf.Lerp(0, _maxSoap, normalizedAmount).CeilToInt();
-    
+
+    public void AddSoapPower(float normalizedAmount){
+        _currentSoapPower = Mathf.Lerp(0, _maxSoapPower, normalizedAmount).CeilToInt();
+        
+        UpdatePlayerSize(true); //works right now but beware if added soap is too little
+        //TODO: Update UI
+    }
+
     private Ramp GetLastAttachedRamp(Ramp start){
         while (start.ConnectedRamp){
             start = start.ConnectedRamp;
@@ -385,7 +436,7 @@ public class PlayerController : MonoBehaviour
         return start;
     }
 
-    private void EnqueueRandomRamp(){
+    private void EnqueueRandomRamp(bool discarding){
         List<Ramp> ramps;
         
         
@@ -412,7 +463,7 @@ public class PlayerController : MonoBehaviour
         Ramp ramp = ramps[randomIndex];
         
         _rampQueue.Enqueue(ramp);
-        UIManager.Instance.SetRampSprites(_rampQueue,true);
+        UIManager.Instance.SetRampSprites(_rampQueue,discarding ? RampSelectionAnimation.DISCARD : RampSelectionAnimation.PLACE);
         _lastRampEndDirection = ramp.EndingDirection;
     }
 

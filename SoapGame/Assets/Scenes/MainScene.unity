@@ -788,17 +788,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd6c45c081f6a6946aad8ca74d84c8ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
+  _globalVolume: {fileID: 832575518}
+  _selectedRamp: {fileID: 215044671}
+  _waitingRamp: {fileID: 334148722}
   _launchCanvasGroup: {fileID: 1465378679}
   _gameplayCanvasGroup: {fileID: 1877813688}
   _shopCanvasGroup: {fileID: 2115883741}
-  _rampSelection: {fileID: 1318500152}
   _launchBarSlider: {fileID: 790324588}
   _launchBarImage: {fileID: 719997905}
+  _vignetteSmoothTime: 0.67
+  _maxVignetteIntensity: 1
   _canvasGroupFadeTime: 0.5
-  _selectedRampScaleAniAmount: 1
-  _selectedRampScaleAniDuration: 0.1
-  _wrongSelectionShakeDuration: 0.4
-  _wrongSelectionShakeAmount: 30
+  _selectedAnimStrength: 1.5
+  _selectedAnimDuration: 0.1
+  _discardAnimStrength: 20
+  _discardAnimDuration: 0.1
+  _invalidSelectionAnimDuration: 0.4
+  _invalidSelectionShakeAmount: 30
 --- !u!4 &157158181
 Transform:
   m_ObjectHideFlags: 0
@@ -1094,7 +1100,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 228553434}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.30191693, y: 0.000000040180034, z: -0.000000012724847, w: 0.9533343}
+  m_LocalRotation: {x: 0.30191693, y: 5.4198897e-23, z: -5.904373e-23, w: 0.9533343}
   m_LocalPosition: {x: 0.68, y: 14.5, z: 8.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2169,7 +2175,7 @@ GameObject:
   - component: {fileID: 334148725}
   - component: {fileID: 334148726}
   m_Layer: 5
-  m_Name: Ramp 2
+  m_Name: Ramp Waiting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2627,9 +2633,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   _useUpgrades: 0
   _soapRefillOnClean: 0.1
-  _maxSoap: 999
-  _rampSoapCost: 1
-  _minPlayerScale: 0.2
+  _maxSoapPower: 20
+  _rampSoapCost: 2
+  _groundSoapUsageSec: 1
+  _currentSoapPower: 0
+  _soapScaleCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 3.5714283
+      outSlope: 3.5714283
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.033333335
+    - serializedVersion: 3
+      time: 0.29196453
+      value: 0.6999868
+      inSlope: 1.0095625
+      outSlope: 1.0095625
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.24235345
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.24166667
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _scaleTweenDuration: 0.1
   _rampPrefabs:
   - {fileID: -5440860826036322769, guid: 8820b0cfa4130444daa7da3b185c38fe, type: 3}
   - {fileID: 3895616200562081976, guid: da6668363e9ed574da1d2cda0974353c, type: 3}
@@ -5346,8 +5387,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 215044671}
   - {fileID: 334148722}
+  - {fileID: 215044671}
   m_Father: {fileID: 1877813687}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -8518,6 +8559,7 @@ MeshFilter:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 832575519}
   - {fileID: 60765921}
   - {fileID: 330585546}
   - {fileID: 1138871759}
@@ -8527,7 +8569,6 @@ SceneRoots:
   - {fileID: 94402550}
   - {fileID: 856085880}
   - {fileID: 54647770}
-  - {fileID: 832575519}
   - {fileID: 26495350}
   - {fileID: 489717990}
   - {fileID: 986828694}
