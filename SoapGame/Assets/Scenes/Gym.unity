@@ -720,9 +720,9 @@ RectTransform:
   - {fileID: 78623298}
   m_Father: {fileID: 1318500152}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1534.3, y: 182}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &215044672
@@ -1249,9 +1249,9 @@ RectTransform:
   - {fileID: 287745797}
   m_Father: {fileID: 1318500152}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1746, y: 182}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &334148723
@@ -1267,7 +1267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1633,6 +1633,7 @@ MonoBehaviour:
   _minYSpeed: -70
   _groundedThreshold: 0.8
   _slamStrength: 18
+  _slamForwardMult: 0.1
   _steerStrength: 2.5
   _airSteerMultiplier: 1
   _groundSteerMultiplier: 0.72
@@ -1640,7 +1641,7 @@ MonoBehaviour:
   _rampForceForward: 100
   _rampForceDown: 67
   _rampSpawnParticlesTravelTime: 0.2
-  _rampSpawnOffset: {x: 0, y: -4.85, z: 0}
+  _rampSpawnOffset: {x: 0, y: -4.85, z: -0.1}
   _predictionTime: 0.5
   _rampQueueSize: 2
   _rampCheckRaycastLength: 20
@@ -3055,6 +3056,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
   _rampSelection: {fileID: 1318500152}
+  _selectedRampScaleAniAmount: 1
+  _selectedRampScaleAniDuration: 0.1
+  _wrongSelectionShakeDuration: 0.4
+  _wrongSelectionShakeAmount: 30
 --- !u!1 &1190846025
 GameObject:
   m_ObjectHideFlags: 0
@@ -3213,7 +3218,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1318500151}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
   m_Name: 
@@ -3224,12 +3229,12 @@ MonoBehaviour:
     m_Top: 15
     m_Bottom: 132
   m_ChildAlignment: 8
-  m_Spacing: 39.2
+  m_Spacing: 111.7
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
-  m_ChildScaleWidth: 1
+  m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
 --- !u!225 &1318500154

@@ -20,8 +20,8 @@ public class Shop : MonoBehaviour
     }
 
 
-    private bool TryBuying(Upgrade upgrade){
-        string upgradeName = upgrade.ToString();
+    private bool TryBuying(UpgradeType upgradeType){
+        string upgradeName = upgradeType.ToString();
         FieldInfo upgradeLevelField = typeof(PlayerStats).GetField(upgradeName);
         FieldInfo upgradeValuesField = typeof(UpgradeValuesSO).GetField(upgradeName);
 

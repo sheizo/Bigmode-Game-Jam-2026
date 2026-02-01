@@ -38,8 +38,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _minYSpeed = -90;
     [SerializeField] private float _groundedThreshold = 0.5f;
     [SerializeField] private float _slamStrength = 10;
+    [Range(0,1)] [SerializeField] private float _slamForwardMult = 0.1f;
     [SerializeField] private float _steerStrength = 5;
-    [Range(0, 1)] [SerializeField] private float _airSteerMultiplier = 5;
+    [Range(0, 1)] [SerializeField] private float _airSteerMultiplier = 1;
     [Range(0, 1)] [SerializeField] private float _groundSteerMultiplier = 10;
     [Range(0, 1)] [SerializeField] private float _minForwardSpeedSteerMultiplier = 0.1f;
     [SerializeField] private float _rampForceForward, _rampForceDown;
@@ -183,7 +184,7 @@ public class PlayerController : MonoBehaviour
         _pressedSpawnRampThisFrame = Mouse.current.leftButton.wasPressedThisFrame;
         _pressedDiscardRampThisFrame = Mouse.current.rightButton.wasPressedThisFrame;
     }
-    
+
 
     private void HandleMovement(){
         // Horizontal control -  force based on if ground or air with a clamped multiplier by forward speed
@@ -192,7 +193,7 @@ public class PlayerController : MonoBehaviour
         _rb.AddForce(new Vector3(_horizontalInput, 0, 0) * (forwardSpeedSteerMult * steerStrength), ForceMode.Force);
         // Slam Control, only when in air
         if (_isSlamPressed && !_isGrounded){
-            _rb.AddForce(new Vector3(0, -1, 0) * _slamStrength, ForceMode.Force);
+            _rb.AddForce(new Vector3(0, -1, _slamForwardMult) * _slamStrength, ForceMode.Force);
         }
         // Good angle check -0.7 - to 0.7 +, good angle is anything above 0
         // Vector3 normal = hit.normal;
@@ -261,8 +262,10 @@ public class PlayerController : MonoBehaviour
         if (!attachRamp && Physics.Raycast(transform.position, toRampSpawnPoint.normalized, out RaycastHit groundHit, toRampSpawnPoint.magnitude)){ //prevent ramp spawning below ground
             rampSpawnPoint = groundHit.point;
             Debug.DrawRay(transform.position, toRampSpawnPoint.normalized * groundHit.distance, Color.red, 10f);
-            if (_rampQueue.Peek().StartingDirection == RampDirection.Down){
-                print("cant spawn that");
+
+            
+            if (_rampQueue.Peek().StartingDirection is RampDirection.Down or RampDirection.Straight){
+                UIManager.Instance.CantPlaceRamp();
                 return;
             }
         }
@@ -358,7 +361,7 @@ public class PlayerController : MonoBehaviour
 
     public void UpdateUpgrades(){
         PlayerStats stats = _playerHubSO.LiveData;
-        _maxAirSpeed = _upgradeValuesSo.MaxSpeed[stats.MaxSpeed];
+        _maxAirSpeed = _upgradeValuesSo.MaxAirSpeed[stats.MaxAirSpeed];
         _steerStrength = _upgradeValuesSo.TurnStrength[stats.TurnStrength];
         _maxSoap = _upgradeValuesSo.MaxSoap[stats.MaxSoap];
         _soapRefillOnClean = _upgradeValuesSo.SoapRefillOnClean[stats.SoapRefillOnClean];
@@ -398,12 +401,14 @@ public class PlayerController : MonoBehaviour
             ramps = _straightFacingRamps;
         }
         
+        if (_isGrounded) ramps = _upFacingRamps;
+        
         int totalCount = ramps.Count;
         int randomIndex = Random.Range(0, totalCount);
         Ramp ramp = ramps[randomIndex];
         
         _rampQueue.Enqueue(ramp);
-        UIManager.Instance.SetRampSprites(_rampQueue);
+        UIManager.Instance.SetRampSprites(_rampQueue,true);
         _lastRampEndDirection = ramp.EndingDirection;
     }
 

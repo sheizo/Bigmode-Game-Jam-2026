@@ -5,10 +5,11 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Game/Upgrade Values Asset")]
 public class UpgradeValuesSO : ScriptableObject
 {
-    public List<float> MaxSpeed, LaunchForce, TurnStrength;
+    public List<float> MaxAirSpeed, MaxGroundSpeed, LaunchForce, TurnStrength;
     public List<int> MaxSoap;
-    public List<float> SoapRefillOnClean;
+    [Range(0,1)] public List<float> SoapRefillOnClean;
     [Tooltip("X: Down, Y: Forwards")] public List<Vector2> RampBoostSpeed;    
     public List<float> SlamForce;    
-    public List<float> Bounciness;    
+    [Range(0,1)] public List<float> Bounciness;
+    [Range(0,1)] public List<float> BadRampChance;
 }
