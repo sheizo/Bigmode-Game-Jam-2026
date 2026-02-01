@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4257914555507885258
+--- !u!1 &4319943470129277221
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,62 +8,63 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 9198399456853318421}
-  - component: {fileID: -5440860826036322769}
-  - component: {fileID: 2108683691154321107}
-  - component: {fileID: 6320767768052970203}
-  - component: {fileID: 5993915668270811403}
-  - component: {fileID: 7221242614861002834}
-  - component: {fileID: 6480521386559636410}
+  - component: {fileID: 5170166084939759761}
+  - component: {fileID: -1537289505182624051}
+  - component: {fileID: 9034924975229556013}
+  - component: {fileID: 2282970734788733285}
+  - component: {fileID: 8554925447202399513}
+  - component: {fileID: 2474826037309105860}
+  - component: {fileID: 985866173879678606}
   m_Layer: 0
-  m_Name: Ramp_Down
+  m_Name: Ramp_StraightUp
   m_TagString: Ramp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &9198399456853318421
+--- !u!4 &5170166084939759761
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4257914555507885258}
+  m_GameObject: {fileID: 4319943470129277221}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8948789997330535749}
+  - {fileID: 5558618388132307359}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-5440860826036322769
+--- !u!114 &-1537289505182624051
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4257914555507885258}
+  m_GameObject: {fileID: 4319943470129277221}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bb7e5aaaa75ff14d8e7542b2272e454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ramp
-  _rampParticlesTransform: {fileID: 8948789997330535749}
+  _rampParticlesTransform: {fileID: 5558618388132307359}
   _particleEasing: 2
   _particlePathDuration: 0.2
   _pathAppearMultiplier: 1.5
-  _startPointOffset: {x: 0, y: 0, z: 0}
-  _startingDirection: 0
-  length: 8.322132
---- !u!114 &2108683691154321107
+  _startingDirection: 1
+  endingDirection: 2
+  _rampSprite: {fileID: 21300000, guid: 85058189de06e9e4d8d02a68f353cd9f, type: 3}
+  length: 5.724227
+--- !u!114 &9034924975229556013
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4257914555507885258}
+  m_GameObject: {fileID: 4319943470129277221}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
@@ -90,58 +91,38 @@ MonoBehaviour:
         y: 0
         z: 0
       TangentIn:
-        x: -0
-        y: -0
-        z: -0.49507272
+        x: 0
+        y: 0
+        z: -0.56062907
       TangentOut:
         x: 0
         y: 0
-        z: 0.49507272
+        z: 2.4462729
       Rotation:
         value:
-          x: 0.29139227
-          y: -0.000022028154
-          z: 0.00007231562
-          w: 0.95660365
+          x: 0.003327352
+          y: 0.018801568
+          z: -0.009946287
+          w: 0.99976814
     - Position:
         x: 0
-        y: -2.76
-        z: 4.11
+        y: 2.12
+        z: 5.19
       TangentIn:
         x: 0
         y: 0
-        z: -2.3625777
-      TangentOut:
-        x: 0
-        y: 0
-        z: 1.8674661
-      Rotation:
-        value:
-          x: -0
-          y: 0
-          z: -7.1054274e-15
-          w: 1
-    - Position:
-        x: 0
-        y: -2.4
-        z: 7.27
-      TangentIn:
-        x: 0
-        y: 0
-        z: -0.6029929
+        z: -0.8259038
       TangentOut:
         x: 0
         y: 0
         z: 0.6450147
       Rotation:
         value:
-          x: 0
+          x: -0.36735526
           y: 0
-          z: 0
-          w: 1
+          z: -0
+          w: 0.9300807
     m_MetaData:
-    - Mode: 0
-      Tension: 0.5
     - Mode: 3
       Tension: 0.5
     - Mode: 3
@@ -157,21 +138,21 @@ MonoBehaviour:
       m_Data: []
   m_Knots:
     m_KnotsLink: []
---- !u!33 &6320767768052970203
+--- !u!33 &2282970734788733285
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4257914555507885258}
-  m_Mesh: {fileID: 4300000, guid: 18098bc1db938a149a45cc78b099bc9d, type: 2}
---- !u!23 &5993915668270811403
+  m_GameObject: {fileID: 4319943470129277221}
+  m_Mesh: {fileID: 4300000, guid: 68003e6593d389f4bad30c4f92e8de97, type: 2}
+--- !u!23 &8554925447202399513
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4257914555507885258}
+  m_GameObject: {fileID: 4319943470129277221}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -214,20 +195,20 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7221242614861002834
+--- !u!114 &2474826037309105860
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4257914555507885258}
+  m_GameObject: {fileID: 4319943470129277221}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 222dc08d484f16869bdd89edd9d368fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Splines::UnityEngine.Splines.SplineExtrude
-  m_Container: {fileID: 2108683691154321107}
-  m_TargetMesh: {fileID: 4300000, guid: 18098bc1db938a149a45cc78b099bc9d, type: 2}
+  m_Container: {fileID: 9034924975229556013}
+  m_TargetMesh: {fileID: 4300000, guid: 68003e6593d389f4bad30c4f92e8de97, type: 2}
   m_RebuildOnSplineChange: 0
   m_RebuildFrequency: 30
   m_UpdateColliders: 1
@@ -245,13 +226,13 @@ MonoBehaviour:
     - rid: 389508168668413961
       type: {class: Road, ns: UnityEngine.Splines.ExtrusionShapes, asm: Unity.Splines}
       data: 
---- !u!64 &6480521386559636410
+--- !u!64 &985866173879678606
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4257914555507885258}
+  m_GameObject: {fileID: 4319943470129277221}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -266,14 +247,14 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 18098bc1db938a149a45cc78b099bc9d, type: 2}
---- !u!1001 &7049442957226871313
+  m_Mesh: {fileID: 4300000, guid: 68003e6593d389f4bad30c4f92e8de97, type: 2}
+--- !u!1001 &5818923307302600395
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 9198399456853318421}
+    m_TransformParent: {fileID: 5170166084939759761}
     m_Modifications:
     - target: {fileID: 2154086293197791060, guid: c78f2cdf3cd646946b3699b4838c491b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -289,19 +270,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2154086293197791060, guid: c78f2cdf3cd646946b3699b4838c491b, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.95660365
+      value: 0.99996454
       objectReference: {fileID: 0}
     - target: {fileID: 2154086293197791060, guid: c78f2cdf3cd646946b3699b4838c491b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.29139224
+      value: 0.008421108
       objectReference: {fileID: 0}
     - target: {fileID: 2154086293197791060, guid: c78f2cdf3cd646946b3699b4838c491b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000022028153
+      value: -0.0000005481773
       objectReference: {fileID: 0}
     - target: {fileID: 2154086293197791060, guid: c78f2cdf3cd646946b3699b4838c491b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00007231562
+      value: 0.000065093336
       objectReference: {fileID: 0}
     - target: {fileID: 2154086293197791060, guid: c78f2cdf3cd646946b3699b4838c491b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -318,10 +299,10 @@ PrefabInstance:
     - target: {fileID: 6420540639015308116, guid: c78f2cdf3cd646946b3699b4838c491b, type: 3}
       propertyPath: m_Target
       value: 
-      objectReference: {fileID: 2108683691154321107}
+      objectReference: {fileID: 9034924975229556013}
     - target: {fileID: 6420540639015308116, guid: c78f2cdf3cd646946b3699b4838c491b, type: 3}
       propertyPath: m_MaxSpeed
-      value: 8.322132
+      value: 5.724227
       objectReference: {fileID: 0}
     - target: {fileID: 7881914098244900883, guid: c78f2cdf3cd646946b3699b4838c491b, type: 3}
       propertyPath: m_Name
@@ -332,8 +313,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c78f2cdf3cd646946b3699b4838c491b, type: 3}
---- !u!4 &8948789997330535749 stripped
+--- !u!4 &5558618388132307359 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2154086293197791060, guid: c78f2cdf3cd646946b3699b4838c491b, type: 3}
-  m_PrefabInstance: {fileID: 7049442957226871313}
+  m_PrefabInstance: {fileID: 5818923307302600395}
   m_PrefabAsset: {fileID: 0}

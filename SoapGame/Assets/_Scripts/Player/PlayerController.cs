@@ -33,7 +33,8 @@ public class PlayerController : MonoBehaviour
     [Range(0, 1f)] [SerializeField] private float _cameraFOVSmoothing;
 
     [Header("Movement")] 
-    [SerializeField] private float _maxSpeed = 20;
+    [SerializeField] private float _maxAirSpeed = 20;
+    [SerializeField] private float _maxGroundSpeed = 10;
     [SerializeField] private float _minYSpeed = -90;
     [SerializeField] private float _groundedThreshold = 0.5f;
     [SerializeField] private float _slamStrength = 10;
@@ -50,6 +51,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int _rampQueueSize;
     [SerializeField] private float _rampCheckRaycastLength = 20;
     [SerializeField] private float _rampCheckRaycastRadius = 0.2f;
+    [Range(0,1)] [SerializeField] private float _badRampChance = 0.5f;
 
     [Header("Visual rotations")] 
     [SerializeField] private float _maxXAngle = 20f;
@@ -81,7 +83,14 @@ public class PlayerController : MonoBehaviour
     private float _zSpeed;
     private float _xSpeed;
     private float _ySpeed;
+
+    private RampDirection _lastRampEndDirection = RampDirection.Down;
+    private List<Ramp> _upFacingRamps = new List<Ramp>();
+    private List<Ramp> _downFacingRamps = new List<Ramp>();
+    private List<Ramp> _straightFacingRamps = new List<Ramp>();
     
+    
+
 
     bool IsGrounded() => Physics.Raycast(transform.position, -Vector3.up, _groundedThreshold);
 
@@ -103,9 +112,16 @@ public class PlayerController : MonoBehaviour
         _originalCameraFov = _playerCamera.Lens.FieldOfView;
 
         _rampQueue = new Queue<Ramp>(_rampQueueSize);
+
+        
     }
 
     private void Start(){
+        foreach (Ramp ramp in _rampPrefabs){
+            if(ramp.StartingDirection == RampDirection.Down) _downFacingRamps.Add(ramp);
+            else if(ramp.StartingDirection == RampDirection.Up) _upFacingRamps.Add(ramp);
+            else if(ramp.StartingDirection == RampDirection.Straight) _straightFacingRamps.Add(ramp);
+        }
         //populate ramp queue
         for (int i = 0; i < _rampQueueSize; i++){
             EnqueueRandomRamp();
@@ -173,7 +189,6 @@ public class PlayerController : MonoBehaviour
         // Horizontal control -  force based on if ground or air with a clamped multiplier by forward speed
         float steerStrength = _steerStrength * (_isGrounded ? _groundSteerMultiplier : _airSteerMultiplier);
         float forwardSpeedSteerMult = Mathf.Max(Mathf.Max(0, _zSpeed), _minForwardSpeedSteerMultiplier);
-        //forwardSpeedSteerMult *=  (_isGrounded ? 0 : 1);
         _rb.AddForce(new Vector3(_horizontalInput, 0, 0) * (forwardSpeedSteerMult * steerStrength), ForceMode.Force);
         // Slam Control, only when in air
         if (_isSlamPressed && !_isGrounded){
@@ -196,12 +211,20 @@ public class PlayerController : MonoBehaviour
     }
 
     private void HandleSpeedCapping(){
-        if(_rb.linearVelocity.magnitude > _maxSpeed)
-            _rb.linearVelocity = _rb.linearVelocity.normalized * _maxSpeed;
-        
         // maybe not needed
         if (_ySpeed < _minYSpeed)
             _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, _minYSpeed, _rb.linearVelocity.z);
+        
+        if (_currentSpeed > _maxGroundSpeed && _isGrounded && !_rampPlayerIsOn){
+            _rb.linearVelocity = _rb.linearVelocity.normalized * _maxGroundSpeed;
+            return; // exit early so maxSeed doesn't cap air speed
+        }
+
+        if (_currentSpeed > _maxAirSpeed){
+            _rb.linearVelocity = _rb.linearVelocity.normalized * _maxAirSpeed;
+            return;
+        }
+        
     }
 
     private void HandleRampDespawning(){
@@ -238,7 +261,7 @@ public class PlayerController : MonoBehaviour
         if (!attachRamp && Physics.Raycast(transform.position, toRampSpawnPoint.normalized, out RaycastHit groundHit, toRampSpawnPoint.magnitude)){ //prevent ramp spawning below ground
             rampSpawnPoint = groundHit.point;
             Debug.DrawRay(transform.position, toRampSpawnPoint.normalized * groundHit.distance, Color.red, 10f);
-            if (_rampQueue.Peek().StartingDirection == RampStartingDirection.Down){
+            if (_rampQueue.Peek().StartingDirection == RampDirection.Down){
                 print("cant spawn that");
                 return;
             }
@@ -280,7 +303,7 @@ public class PlayerController : MonoBehaviour
     private void HandleCameraFOV(){
         float maxFOV = _originalCameraFov + _maxAddedFov;
 
-        float targetFov = Mathf.Lerp(_originalCameraFov, maxFOV, _currentSpeed / _maxSpeed);
+        float targetFov = Mathf.Lerp(_originalCameraFov, maxFOV, _currentSpeed / _maxAirSpeed);
         float smoothedTarget = Mathf.SmoothDamp(_playerCamera.Lens.FieldOfView, targetFov, ref _currentFOV, 0.1f);
 
         _playerCamera.Lens.FieldOfView = smoothedTarget;
@@ -299,7 +322,7 @@ public class PlayerController : MonoBehaviour
             }
         } //else apply air rotation
         else{
-            float normalizedVerticalSpeed = Mathf.Clamp(_ySpeed / _maxSpeed, -1, 1);
+            float normalizedVerticalSpeed = Mathf.Clamp(_ySpeed / _maxAirSpeed, -1, 1);
             Vector2 upDirection = new Vector2(normalizedVerticalSpeed, 0);
             float airPitchAngle =
                 -normalizedVerticalSpeed *
@@ -323,7 +346,7 @@ public class PlayerController : MonoBehaviour
         finalRotation *= turnRotation;
 
         // Horizontal - Y rotation
-        float normalizedHorizontalSpeed = Mathf.Clamp(_xSpeed / _maxSpeed, -1, 1);
+        float normalizedHorizontalSpeed = Mathf.Clamp(_xSpeed / _maxAirSpeed, -1, 1);
         float horizontalPitchAngle = normalizedHorizontalSpeed * _maxYAngle;
 
         Quaternion horizontalRotation = Quaternion.Euler(0, horizontalPitchAngle, 0);
@@ -335,7 +358,7 @@ public class PlayerController : MonoBehaviour
 
     public void UpdateUpgrades(){
         PlayerStats stats = _playerHubSO.LiveData;
-        _maxSpeed = _upgradeValuesSo.MaxSpeed[stats.MaxSpeed];
+        _maxAirSpeed = _upgradeValuesSo.MaxSpeed[stats.MaxSpeed];
         _steerStrength = _upgradeValuesSo.TurnStrength[stats.TurnStrength];
         _maxSoap = _upgradeValuesSo.MaxSoap[stats.MaxSoap];
         _soapRefillOnClean = _upgradeValuesSo.SoapRefillOnClean[stats.SoapRefillOnClean];
@@ -354,8 +377,35 @@ public class PlayerController : MonoBehaviour
         }
         return start;
     }
-    
-    private void EnqueueRandomRamp() => _rampQueue.Enqueue(_rampPrefabs[Random.Range(0, _rampPrefabs.Count)]);
+
+    private void EnqueueRandomRamp(){
+        List<Ramp> ramps;
+        
+        
+        //chance to queue a bad ramp
+        if (Random.Value < _badRampChance){ 
+            RampDirection[] values = (RampDirection[])System.Enum.GetValues(typeof(RampDirection));
+            _lastRampEndDirection = values[Random.Range(0, values.Length)];
+        } 
+        
+        if (_lastRampEndDirection == RampDirection.Down){
+            ramps = _downFacingRamps;
+        }
+        else if(_lastRampEndDirection == RampDirection.Up){
+            ramps = _upFacingRamps;
+        }
+        else{
+            ramps = _straightFacingRamps;
+        }
+        
+        int totalCount = ramps.Count;
+        int randomIndex = Random.Range(0, totalCount);
+        Ramp ramp = ramps[randomIndex];
+        
+        _rampQueue.Enqueue(ramp);
+        UIManager.Instance.SetRampSprites(_rampQueue);
+        _lastRampEndDirection = ramp.EndingDirection;
+    }
 
     [ContextMenu("Force Update Upgrades")]
     private void ForceUpdateUpgrades(){

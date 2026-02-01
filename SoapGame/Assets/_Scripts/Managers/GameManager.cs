@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 
 public class GameManager : Singleton<GameManager>
 {
-    
     [SerializeField] private AudioMixer _audioMixer;
     
     [SerializeField] private PlayerProgressHubSO _playerProgressHubSo;
@@ -24,16 +23,6 @@ public class GameManager : Singleton<GameManager>
         
         _playerStats = _playerProgressHubSo.LiveData;
     }
-
-
-    private void Update(){
-        if (Keyboard.current.rKey.wasPressedThisFrame){
-            _playerStats.LaunchForce++;
-            SaveGame();
-        }
-        
-    }
-
 
     private void SaveGame() {
         SaveSystem.Save(_playerStats);

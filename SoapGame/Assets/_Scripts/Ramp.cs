@@ -5,9 +5,10 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Splines;
 
-public enum RampStartingDirection
+public enum RampDirection
 {
     Down,
+    Straight,
     Up
 }
 
@@ -19,12 +20,11 @@ public class Ramp : MonoBehaviour
     [SerializeField] private Transform _rampParticlesTransform;
     [SerializeField] private SplineAnimate.EasingMode _particleEasing;
     [SerializeField] private float _particlePathDuration = 1, _pathAppearMultiplier = 0.3f;
-    [SerializeField] private Vector3 _startPointOffset;
-    [SerializeField] private RampStartingDirection _startingDirection;
-
-    [SerializeField]private float length;
+    [SerializeField] private RampDirection _startingDirection, endingDirection;
+    [SerializeField] private Sprite _rampSprite;
     
-    private Ramp _connectedRamp;
+    [SerializeField]private float length;
+
     private Vector3 _startPoint;
     private Vector3 _endPoint;
     private ParticleSystem _rampParticles;
@@ -34,16 +34,14 @@ public class Ramp : MonoBehaviour
     private MeshRenderer _rampMeshRenderer;
     private Material _rampMaterial;
 
-    public Vector3 StartPointOffset => _startPointOffset;
     public Vector3 StartPoint => _startPoint;
     public Vector3 EndPoint => _endPoint;
-    public RampStartingDirection StartingDirection => _startingDirection;
+    public RampDirection StartingDirection => _startingDirection;
+    public RampDirection EndingDirection => endingDirection;
 
-    public Ramp ConnectedRamp{
-        get => _connectedRamp;
-        set => _connectedRamp = value;
-    }
+    public Ramp ConnectedRamp{ get; set; }
 
+    public Sprite RampSprite => _rampSprite;
 
 
     private void Awake(){
@@ -89,7 +87,7 @@ public class Ramp : MonoBehaviour
         Gizmos.matrix = transform.localToWorldMatrix;
         
         Gizmos.color = Color.green;
-        Gizmos.DrawSphere((Vector3)knots[0].Position + - _startPointOffset, 0.4f);
+        Gizmos.DrawSphere((Vector3)knots[0].Position, 0.4f);
         Gizmos.color = Color.red;
         Gizmos.DrawSphere((Vector3)knots[^1].Position , 0.4f);
 
