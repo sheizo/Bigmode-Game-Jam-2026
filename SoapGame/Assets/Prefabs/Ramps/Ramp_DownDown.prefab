@@ -20,7 +20,7 @@ GameObject:
   m_TagString: Ramp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7530744735022410553
 Transform:
@@ -270,19 +270,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2154086293197791060, guid: c78f2cdf3cd646946b3699b4838c491b, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9976464
+      value: 0.9727905
       objectReference: {fileID: 0}
     - target: {fileID: 2154086293197791060, guid: c78f2cdf3cd646946b3699b4838c491b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.06856916
+      value: 0.2316868
       objectReference: {fileID: 0}
     - target: {fileID: 2154086293197791060, guid: c78f2cdf3cd646946b3699b4838c491b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0000051040697
+      value: -0.000017851613
       objectReference: {fileID: 0}
     - target: {fileID: 2154086293197791060, guid: c78f2cdf3cd646946b3699b4838c491b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000074261654
+      value: 0.00007495412
       objectReference: {fileID: 0}
     - target: {fileID: 2154086293197791060, guid: c78f2cdf3cd646946b3699b4838c491b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

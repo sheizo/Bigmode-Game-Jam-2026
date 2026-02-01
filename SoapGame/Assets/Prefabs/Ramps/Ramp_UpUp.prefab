@@ -20,7 +20,7 @@ GameObject:
   m_TagString: Ramp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5170166084939759761
 Transform:
@@ -118,10 +118,10 @@ MonoBehaviour:
         z: 0
       Rotation:
         value:
-          x: -0.20644951
+          x: -0.28175563
           y: 0
           z: -0
-          w: 0.9784572
+          w: 0.9594862
     m_MetaData:
     - Mode: 1
       Tension: 0.5
@@ -145,7 +145,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4319943470129277221}
-  m_Mesh: {fileID: 4300000, guid: f22e950491a5f4b48bb1eacc015ba4c9, type: 2}
+  m_Mesh: {fileID: 4300000, guid: 84e971f6ced37234583ad0ecf386eeb2, type: 2}
 --- !u!23 &8554925447202399513
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.Splines::UnityEngine.Splines.SplineExtrude
   m_Container: {fileID: 9034924975229556013}
-  m_TargetMesh: {fileID: 4300000, guid: f22e950491a5f4b48bb1eacc015ba4c9, type: 2}
+  m_TargetMesh: {fileID: 4300000, guid: 84e971f6ced37234583ad0ecf386eeb2, type: 2}
   m_RebuildOnSplineChange: 0
   m_RebuildFrequency: 30
   m_UpdateColliders: 1
@@ -247,7 +247,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: f22e950491a5f4b48bb1eacc015ba4c9, type: 2}
+  m_Mesh: {fileID: 4300000, guid: 84e971f6ced37234583ad0ecf386eeb2, type: 2}
 --- !u!1001 &5818923307302600395
 PrefabInstance:
   m_ObjectHideFlags: 0

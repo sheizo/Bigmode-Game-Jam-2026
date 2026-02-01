@@ -1222,7 +1222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e53683cf407e36048b17b0c0aa2180fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickableObject
-  _upgrade: 0
+  upgradeType: 0
   _inputActionAsset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   _outline: {fileID: 298093368}
   _objectToHighlight: {fileID: 298093366}
@@ -1915,7 +1915,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 75
+  field of view: 60.000004
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -1941,8 +1941,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.301917, y: 0.000000028330243, z: -0.000000008972068, w: 0.9533343}
-  m_LocalPosition: {x: -11.2, y: 20.8, z: 12.57}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.56, y: 0.74, z: 1.29}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2498,6 +2498,7 @@ MonoBehaviour:
   _soapRefillOnClean: 0.1
   _maxSoap: 999
   _rampSoapCost: 1
+  _minPlayerScale: 0.2
   _rampPrefabs:
   - {fileID: -5440860826036322769, guid: 8820b0cfa4130444daa7da3b185c38fe, type: 3}
   - {fileID: 3895616200562081976, guid: da6668363e9ed574da1d2cda0974353c, type: 3}
@@ -2992,8 +2993,9 @@ MonoBehaviour:
   _playerProgressHubSo: {fileID: 11400000, guid: ec441c71ba326fd4fa6e7a8cc262b322, type: 2}
   _playerStats:
     Money: 0
-    MaxSpeed: 0
-    LaunchForce: 0
+    MaxAirSpeed: 0
+    MaxGroundSpeed: 0
+    LaunchForce: 2
     TurnStrength: 0
     MaxSoap: 0
     SoapRefillOnClean: 0
@@ -4231,8 +4233,9 @@ MonoBehaviour:
   _playerProgressHubSo: {fileID: 11400000, guid: ec441c71ba326fd4fa6e7a8cc262b322, type: 2}
   _playerStats:
     Money: 0
-    MaxSpeed: 0
-    LaunchForce: 0
+    MaxAirSpeed: 0
+    MaxGroundSpeed: 0
+    LaunchForce: 2
     TurnStrength: 0
     MaxSoap: 0
     SoapRefillOnClean: 0
@@ -4399,7 +4402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e53683cf407e36048b17b0c0aa2180fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickableObject
-  _upgrade: 2
+  upgradeType: 0
   _inputActionAsset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   _outline: {fileID: 1246204299}
   _objectToHighlight: {fileID: 1246204297}
@@ -5178,7 +5181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e53683cf407e36048b17b0c0aa2180fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickableObject
-  _upgrade: 4
+  upgradeType: 0
   _inputActionAsset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   _outline: {fileID: 1341083753}
   _objectToHighlight: {fileID: 1341083751}
@@ -5418,7 +5421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e53683cf407e36048b17b0c0aa2180fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickableObject
-  _upgrade: 1
+  upgradeType: 0
   _inputActionAsset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   _outline: {fileID: 1365823536}
   _objectToHighlight: {fileID: 1365823534}
@@ -5895,7 +5898,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 1558476862}
-  m_VersionIndex: 612
+  m_VersionIndex: 615
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -6251,7 +6254,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 2127444170}
-  m_VersionIndex: 612
+  m_VersionIndex: 615
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
