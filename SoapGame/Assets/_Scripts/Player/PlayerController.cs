@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using DG.Tweening;
 using Freya;
 using Unity.Cinemachine;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = Freya.Random;
@@ -23,8 +22,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private ParticleSystem _rampSpawnParticlesPrefab;
     
     [Header("References")] 
-    [SerializeField] private PlayerProgressHubSO _playerHubSO;
-    [SerializeField] private UpgradeValuesSO _upgradeValuesSo;
     [SerializeField] private Transform _playerVisual;
     [SerializeField] private CinemachineCamera _playerCamera;
 
@@ -142,8 +139,11 @@ public class PlayerController : MonoBehaviour
         
         //TODO: delete
         if (Keyboard.current.rKey.wasPressedThisFrame){
-            _playerCamera.Lens.FieldOfView += 10;
+            if (_useUpgrades) UpdateUpgrades();           
 
+            RefillSoap();
+
+            _playerCamera.Lens.FieldOfView += 10;
             _rb.linearVelocity = Vector3.zero;
             _rb.angularVelocity = Vector3.zero;
             transform.position = _originalPosition;
@@ -360,15 +360,16 @@ public class PlayerController : MonoBehaviour
     }
 
     public void UpdateUpgrades(){
-        PlayerStats stats = _playerHubSO.LiveData;
-        _maxAirSpeed = _upgradeValuesSo.MaxAirSpeed[stats.MaxAirSpeed];
-        _steerStrength = _upgradeValuesSo.TurnStrength[stats.TurnStrength];
-        _maxSoap = _upgradeValuesSo.MaxSoap[stats.MaxSoap];
-        _soapRefillOnClean = _upgradeValuesSo.SoapRefillOnClean[stats.SoapRefillOnClean];
-        _rampForceDown = _upgradeValuesSo.RampBoostSpeed[stats.RampBoostSpeed].x;
-        _rampForceForward = _upgradeValuesSo.RampBoostSpeed[stats.RampBoostSpeed].y;
-        _slamStrength = _upgradeValuesSo.SlamForce[stats.SlamForce];
-        _physicsMaterial.bounciness = _upgradeValuesSo.Bounciness[stats.Bounciness];
+        PlayerUpgradeManager upgrades = PlayerUpgradeManager.Instance;
+
+        _maxAirSpeed = upgrades.MaxAirSpeed.CurrentValue;
+        _steerStrength = upgrades.TurnStrength.CurrentValue;
+        _maxSoap = upgrades.MaxSoap.CurrentValue;
+        _soapRefillOnClean = upgrades.SoapRefillOnClean.CurrentValue;
+        _rampForceDown = upgrades.RampBoostSpeed.CurrentValue.x;
+        _rampForceForward = upgrades.RampBoostSpeed.CurrentValue.y;
+        _slamStrength = upgrades.SlamForce.CurrentValue;
+        _physicsMaterial.bounciness = upgrades.Bounciness.CurrentValue;
     }
 
     public void RefillSoap() => AddSoapPower(1);
