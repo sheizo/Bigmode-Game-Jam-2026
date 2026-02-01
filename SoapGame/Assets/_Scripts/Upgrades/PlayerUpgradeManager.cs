@@ -33,7 +33,7 @@ public class PlayerUpgradeManager : Singleton<PlayerUpgradeManager>
     }
 
     // Automatically find all UpgradeBase fields
-    private IEnumerable<FieldInfo> GetAllUpgradeFields()
+    public IEnumerable<FieldInfo> GetAllUpgradeFields()
     {
         var fields = this.GetType().GetFields(BindingFlags.Public | BindingFlags.Instance);
         foreach (var field in fields)

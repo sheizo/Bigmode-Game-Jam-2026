@@ -1,30 +1,43 @@
-﻿using UnityEngine;
+﻿using System;
+using Newtonsoft.Json;
+using UnityEngine;
+
+
+[Serializable]
+public class PlayerStats
+{
+    public int Money;
+}
 
 public static class SaveSystem
 {
-    private const string PrefName = "PlayerStats";
-
-
-    public static PlayerStats GetExistingSave(){
-        if (PlayerPrefs.HasKey(PrefName)){
-            string json = PlayerPrefs.GetString(PrefName);
-            return JsonUtility.FromJson<PlayerStats>(json);
-        }
-
-        return null;
-    }
+    private const string SavePlayerStatsKey = "PlayerStats";
     
-    public static void Save(PlayerStats stats)
+    public static void Save(PlayerStats playerStats)
     {
-        string json = JsonUtility.ToJson(stats);
-        PlayerPrefs.SetString(PrefName, json);
+        PlayerUpgradeManager.Instance.SaveAllUpgrades();
+    
+        string json = JsonConvert.SerializeObject(playerStats);
+        PlayerPrefs.SetString(SavePlayerStatsKey, json);
         PlayerPrefs.Save();
+        
         Debug.Log("Progress Saved.");
     }
 
-    public static void Clear()
-    {
-        PlayerPrefs.DeleteKey(PrefName);
+    public static PlayerStats LoadGame(){
+        PlayerUpgradeManager.Instance.LoadAllUpgrades();
+        string json = PlayerPrefs.GetString(SavePlayerStatsKey);
+        PlayerStats stats = JsonConvert.DeserializeObject<PlayerStats>(json);
+        
+        Debug.Log("Progress Loaded.");
+        
+        return stats ?? new PlayerStats();
+    }
+
+    public static void SavePlayerStats(PlayerStats playerStats){
+        string json = JsonConvert.SerializeObject(playerStats);
+        PlayerPrefs.SetString(SavePlayerStatsKey, json);
         PlayerPrefs.Save();
     }
+
 }

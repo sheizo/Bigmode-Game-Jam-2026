@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 // Base class with common fields and level logic
 [Serializable]
-public abstract class UpgradeBase
+public abstract class UpgradeBase 
 {
     [Tooltip("Unique ID used for saving/loading")]
     public string Id;
@@ -12,14 +14,18 @@ public abstract class UpgradeBase
 
     public int CurrentLevel = 0;
 
+
+    public abstract int NextLevelCost();
     public abstract int MaxLevel { get; }
 
     public bool CanUpgrade => CurrentLevel < MaxLevel - 1;
 
-    public void Upgrade()
+    public bool Upgrade()
     {
         if (CanUpgrade)
             CurrentLevel++;
+        
+        return CanUpgrade;
     }
 }
 
@@ -39,10 +45,11 @@ public class UpgradeFloat : UpgradeBase
     public float CurrentValue =>
         Levels.Count == 0 ? 0f : Levels[Mathf.Clamp(CurrentLevel, 0, Levels.Count - 1)].Value;
 
-    public int NextLevelCost =>
+    public override int NextLevelCost() =>
         CanUpgrade ? Levels[CurrentLevel + 1].Cost : 0;
 
     public override int MaxLevel => Levels.Count;
+    
 }
 
 // Float upgrade constrained 0–1
@@ -62,7 +69,7 @@ public class UpgradeRange : UpgradeBase
     public float CurrentValue =>
         Levels.Count == 0 ? 0f : Levels[Mathf.Clamp(CurrentLevel, 0, Levels.Count - 1)].Value;
 
-    public int NextLevelCost =>
+    public override int NextLevelCost() =>
         CanUpgrade ? Levels[CurrentLevel + 1].Cost : 0;
 
     public override int MaxLevel => Levels.Count;
@@ -84,7 +91,7 @@ public class UpgradeInt : UpgradeBase
     public int CurrentValue =>
         Levels.Count == 0 ? 0 : Levels[Mathf.Clamp(CurrentLevel, 0, Levels.Count - 1)].Value;
 
-    public int NextLevelCost =>
+    public override int NextLevelCost() =>
         CanUpgrade ? Levels[CurrentLevel + 1].Cost : 0;
 
     public override int MaxLevel => Levels.Count;
@@ -106,7 +113,7 @@ public class UpgradeVector2 : UpgradeBase
     public Vector2 CurrentValue =>
         Levels.Count == 0 ? Vector2.zero : Levels[Mathf.Clamp(CurrentLevel, 0, Levels.Count - 1)].Value;
 
-    public int NextLevelCost =>
+    public override int NextLevelCost() =>
         CanUpgrade ? Levels[CurrentLevel + 1].Cost : 0;
 
     public override int MaxLevel => Levels.Count;

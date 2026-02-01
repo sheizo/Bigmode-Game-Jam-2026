@@ -5,10 +5,16 @@ using UnityEngine.UI;
 
 public class UIManager : Singleton<UIManager>
 {
+    [SerializeField] private CanvasGroup _launchCanvasGroup, _gameplayCanvasGroup, _shopCanvasGroup;
     [SerializeField] private RectTransform _rampSelection;
+    [SerializeField] private Slider _launchBarSlider;
+    [SerializeField] private Image _launchBarImage;
+
+    [SerializeField] private float _canvasGroupFadeTime = 0.5f;
     [SerializeField] private float _selectedRampScaleAniAmount;
     [SerializeField] private float _selectedRampScaleAniDuration = 0.1f;
     [SerializeField] private float _wrongSelectionShakeDuration = 0.4f, _wrongSelectionShakeAmount = 30;
+    
     
     private RectTransform _selectedRamp;
     private float _selectedRampOrigScale;
@@ -23,8 +29,18 @@ public class UIManager : Singleton<UIManager>
         CreateSequences();
     }
 
+    public void UpdateGameStateCanvas(GameState gameState){
+        if (gameState == GameState.GAMEPLAY){
+            _gameplayCanvasGroup?.DOFade(1, _canvasGroupFadeTime);
+            _launchCanvasGroup?.DOFade(0, _canvasGroupFadeTime);
+            _shopCanvasGroup?.DOFade(0, _canvasGroupFadeTime);
+        }
+    }
     
     
+    public void SetLaunchBar(float tNormalized){
+        _launchBarSlider.value = tNormalized;
+    }
 
     public void SetRampSprites(Queue<Ramp> ramps, bool animate){
         int i = 0;

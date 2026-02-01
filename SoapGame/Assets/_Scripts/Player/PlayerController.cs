@@ -132,7 +132,8 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Update(){
-        SetInputVariables();
+        if(GameManager.Instance.CurrentGameState == GameState.GAMEPLAY) SetControlVariables();
+        
         HandleCameraFOV();
         
         HandleRampSpawning();
@@ -179,7 +180,7 @@ public class PlayerController : MonoBehaviour
     }
 
     //TODO: Migrate to InputSystem, maybe
-    private void SetInputVariables(){
+    private void SetControlVariables(){
         _horizontalInput = Keyboard.current.aKey.isPressed ? -1f : Keyboard.current.dKey.isPressed ? 1f : 0f;
         _isSlamPressed = Keyboard.current.spaceKey.isPressed;
         
@@ -219,7 +220,6 @@ public class PlayerController : MonoBehaviour
             _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, _minYSpeed, _rb.linearVelocity.z);
         
         if (_currentSpeed > _maxGroundSpeed && _isGrounded && !_rampPlayerIsOn){
-            print("bruh");
             _rb.linearVelocity = _rb.linearVelocity.normalized * _maxGroundSpeed;
             return; // exit early so maxSeed doesn't cap air speed
         }

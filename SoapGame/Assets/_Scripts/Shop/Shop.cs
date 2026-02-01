@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
-    [SerializeField] private PlayerProgressHubSO _playerProgressHub;
     [SerializeField] private UpgradeValuesSO _upgradeValues;
     [SerializeField] private List<BuyableUpgrade> _buyableUpgrades;
-
-    
-    
     
     private void OnEnable(){
         foreach (BuyableUpgrade buyableUpgrade in _buyableUpgrades){
@@ -19,30 +16,22 @@ public class Shop : MonoBehaviour
         }
     }
 
-
-    private bool TryBuying(UpgradeType upgradeType){
-        string upgradeName = upgradeType.ToString();
-        FieldInfo upgradeLevelField = typeof(PlayerStats).GetField(upgradeName);
-        FieldInfo upgradeValuesField = typeof(UpgradeValuesSO).GetField(upgradeName);
-
-        if (upgradeValuesField == null || upgradeLevelField == null){
-            Debug.LogError("Invalid upgrade field");
-            return false;
+    private bool TryBuying(string upgradeID){
+        PlayerUpgradeManager upgradeManager = PlayerUpgradeManager.Instance;
+        GameManager gameManager = GameManager.Instance;
+        int money = gameManager.PlayerStats.Money;
+        
+        UpgradeBase selectedUpgradeBase = null;
+        foreach (FieldInfo upgradeBaseField in upgradeManager.GetAllUpgradeFields()){
+            UpgradeBase upgradeBase = upgradeBaseField.GetValue(upgradeManager) as UpgradeBase;
+            if(upgradeBase?.Id == upgradeID) selectedUpgradeBase = upgradeBase;
         }
+        int upgradeCost = selectedUpgradeBase.NextLevelCost();
         
-        int upgradeLevel = (int) upgradeLevelField.GetValue(_playerProgressHub.LiveData);
-        IList upgradeValues = (IList) upgradeValuesField.GetValue(_upgradeValues);
+        if(money < upgradeCost) print("broke ass nigga");
+        gameManager.PlayerStats.Money-= upgradeCost;
         
-        if (upgradeLevel >= upgradeValues.Count){
-            Debug.Log($"Upgrade {upgradeName} maxed out");
-            return false;
-        }
-
-        upgradeLevel++;
-        upgradeLevelField.SetValue(_playerProgressHub.LiveData, upgradeLevel);
-        
-        _playerProgressHub.Save();
-        
+        gameManager.SaveGame();
         return true;
     }
 
@@ -52,6 +41,12 @@ public class Shop : MonoBehaviour
             if(child.TryGetComponent(out BuyableUpgrade buyableUpgrade))
                 _buyableUpgrades.Add(buyableUpgrade);
         }
+    }
+
+    [ContextMenu("Test")]
+    private void Test(){
+        TryBuying("max_soap");
+        
     }
     
     private void OnDisable(){

@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class BuyableUpgrade : MonoBehaviour
 {
-    [SerializeField] private UpgradeType upgradeType;
+    [SerializeField] private string _upgradeId;
     [SerializeField] private InputActionAsset _inputActionAsset;  // The object to be highlighted and clicked.
     [SerializeField] private Outline _outline;
     [SerializeField] private GameObject _objectToHighlight;  // The object to be highlighted and clicked.
@@ -15,7 +15,7 @@ public class BuyableUpgrade : MonoBehaviour
     private bool _isMouseHovered = false;
     private Camera _mainCamera;
 
-    public Func<UpgradeType, bool> OnClicked;
+    public Func<string, bool> OnClicked;
 
 
     void Awake()
@@ -55,7 +55,7 @@ public class BuyableUpgrade : MonoBehaviour
     {
         // Perform the desired action when the object is clicked
         Debug.Log("Object clicked: " + _objectToHighlight.name);
-        bool sucess = OnClicked?.Invoke(upgradeType) ?? false;
+        bool sucess = OnClicked?.Invoke(_upgradeId) ?? false;
         if(sucess) Debug.Log("Success on: " + _objectToHighlight.name);
         
     }

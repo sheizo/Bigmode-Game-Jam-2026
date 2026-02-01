@@ -5,7 +5,8 @@ public enum GameState
 {
     LAUNCH = 0,
     SHOP = 1,
-    GAMEPLAY = 2
+    GAMEPLAY = 2,
+    MENU = 3,
 }
 
 public class GameStateManager : MonoBehaviour
@@ -17,6 +18,8 @@ public class GameStateManager : MonoBehaviour
 
     private GameState _currentGameState;
 
+    public GameState CurrentGameState => _currentGameState;
+    
     void Awake()
     {
         _currentGameState = _initialGameState;
@@ -47,6 +50,7 @@ public class GameStateManager : MonoBehaviour
         if (_gameStateDict.ContainsKey(_currentGameState))
         {
             _gameStateDict[_currentGameState].OnEntered();
+            UIManager.Instance.UpdateGameStateCanvas(_currentGameState);
         }
         else
         {

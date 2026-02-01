@@ -5,42 +5,58 @@ using UnityEngine.InputSystem;
 
 public class GameManager : Singleton<GameManager>
 {
-    [SerializeField] private AudioMixer _audioMixer;
-    
-    [SerializeField] private PlayerProgressHubSO _playerProgressHubSo;
-    
-    [SerializeField]private PlayerStats _playerStats;
-    
+    [SerializeField] private GameStateManager _gameStateManager;
+    [SerializeField] private PlayerStats _playerStats;
+    [SerializeField] private Launcher _launcher;
+
+    public GameState CurrentGameState => _gameStateManager.CurrentGameState;
+
+    public PlayerStats PlayerStats => _playerStats;
+
+    private void OnEnable(){
+        _launcher.OnLaunched += SwitchToGameplay;
+    }
+
     protected override void Awake(){
         base.Awake();
         
-        _playerProgressHubSo.LoadOrInitialize();
-    }
-    
-    private void Start(){
-        PlayerStats existingStats = SaveSystem.GetExistingSave();
-        _playerProgressHubSo.LiveData = existingStats ?? new PlayerStats();
-        
-        _playerStats = _playerProgressHubSo.LiveData;
+
     }
 
-    private void SaveGame() {
+    private void Start(){
+        LoadGame();
+        SaveGame(); 
+        
+    }
+
+    private void SwitchToGameplay(){
+        _gameStateManager.SwitchGameState(GameState.GAMEPLAY);
+    }
+
+    public void SaveGame() {
         SaveSystem.Save(_playerStats);
     }
 
-    [ContextMenu("Reset Player Values")]
-    private void ResetPlayerValues(){
-        _playerProgressHubSo.ResetToDefault();
-        _playerStats = _playerProgressHubSo.LiveData;
+    private void LoadGame(){
+        _playerStats = SaveSystem.LoadGame();
     }
 
-    private void OnValidate(){
-        _playerStats = _playerProgressHubSo.LiveData;
+    [ContextMenu("Save Game")]
+    public void SaveGameContext(){
         SaveGame();
     }
 
-    protected override void OnApplicationQuit() {
-        base.OnApplicationQuit();
-        SaveGame(); 
+    [ContextMenu("Add Money")]
+    public void AddMoney(){
+        _playerStats.Money+=50;
+        SaveGame();
+    }
+
+    private void OnValidate(){
+        SaveSystem.SavePlayerStats(_playerStats);
+    }
+
+    private void OnDisable(){
+        _launcher.OnLaunched -= SwitchToGameplay;
     }
 }
