@@ -8,35 +8,46 @@ public class GameManager : Singleton<GameManager>
     
     [SerializeField] private AudioMixer _audioMixer;
     
-    [SerializeField] private PlayerProgressHubSO playerProgressHubSo;
+    [SerializeField] private PlayerProgressHubSO _playerProgressHubSo;
     
     [SerializeField]private PlayerStats _playerStats;
     
     protected override void Awake(){
         base.Awake();
         
-        playerProgressHubSo.LoadOrInitialize();
+        _playerProgressHubSo.LoadOrInitialize();
     }
     
     private void Start(){
         PlayerStats existingStats = SaveSystem.GetExistingSave();
-        playerProgressHubSo.LiveData = existingStats ?? new PlayerStats();
+        _playerProgressHubSo.LiveData = existingStats ?? new PlayerStats();
         
-        _playerStats = playerProgressHubSo.LiveData;
+        _playerStats = _playerProgressHubSo.LiveData;
     }
 
 
     private void Update(){
         if (Keyboard.current.rKey.wasPressedThisFrame){
             _playerStats.LaunchForce++;
+            SaveGame();
         }
-        SaveSystem.Save(_playerStats);
         
     }
 
 
     private void SaveGame() {
         SaveSystem.Save(_playerStats);
+    }
+
+    [ContextMenu("Reset Player Values")]
+    private void ResetPlayerValues(){
+        _playerProgressHubSo.ResetToDefault();
+        _playerStats = _playerProgressHubSo.LiveData;
+    }
+
+    private void OnValidate(){
+        _playerStats = _playerProgressHubSo.LiveData;
+        SaveGame();
     }
 
     protected override void OnApplicationQuit() {

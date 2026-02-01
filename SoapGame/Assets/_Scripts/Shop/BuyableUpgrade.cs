@@ -1,10 +1,11 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class ClickableObject : MonoBehaviour
+public class BuyableUpgrade : MonoBehaviour
 {
-
+    [SerializeField] private Upgrade _upgrade;
     [SerializeField] private InputActionAsset _inputActionAsset;  // The object to be highlighted and clicked.
     [SerializeField] private Outline _outline;
     [SerializeField] private GameObject _objectToHighlight;  // The object to be highlighted and clicked.
@@ -12,6 +13,9 @@ public class ClickableObject : MonoBehaviour
 
     private InputAction _clickAction;
     private bool _isMouseHovered = false;
+    private Camera _mainCamera;
+
+    public Func<Upgrade, bool> OnClicked;
 
 
     void Awake()
@@ -20,12 +24,14 @@ public class ClickableObject : MonoBehaviour
         _clickAction.Enable();
 
         _outline.enabled = false;
+        
+        _mainCamera = Camera.main;
     }
 
     private void Update()
     {
         // Perform raycast to detect mouse over the object.
-        Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+        Ray ray = _mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
         RaycastHit hit;
 
         _isMouseHovered = false;
@@ -43,11 +49,16 @@ public class ClickableObject : MonoBehaviour
 
         _outline.enabled = _isMouseHovered;
     }
-
+    
     // Custom method to handle the click event
     private void OnObjectClicked()
     {
         // Perform the desired action when the object is clicked
         Debug.Log("Object clicked: " + _objectToHighlight.name);
+        bool sucess = OnClicked?.Invoke(_upgrade) ?? false;
+        if(sucess) Debug.Log("Success on: " + _objectToHighlight.name);
+        
     }
+    
+    
 }

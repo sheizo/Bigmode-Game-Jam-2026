@@ -1130,7 +1130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae09c4ba65f7ca34bab2c114c8ea102c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  _useUpgrades: 1
+  _useUpgrades: 0
   _soapRefillOnClean: 0.1
   _maxSoap: 10
   _rampSoapCost: 1
@@ -2394,8 +2394,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1138871759}
   - component: {fileID: 1138871758}
+  - component: {fileID: 1138871761}
+  - component: {fileID: 1138871760}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: Managers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2414,11 +2416,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   _audioMixer: {fileID: 0}
-  playerProgressHubSo: {fileID: 11400000, guid: ec441c71ba326fd4fa6e7a8cc262b322, type: 2}
+  _playerProgressHubSo: {fileID: 11400000, guid: ec441c71ba326fd4fa6e7a8cc262b322, type: 2}
   _playerStats:
     Money: 0
     MaxSpeed: 0
-    LaunchForce: 0
+    LaunchForce: 2
     TurnStrength: 0
     MaxSoap: 0
     SoapRefillOnClean: 0
@@ -2440,6 +2442,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1138871760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138871757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625de9231f4a4e73bc7b2ec90044180f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradeManager
+  _playerProgressHub: {fileID: 11400000, guid: ec441c71ba326fd4fa6e7a8cc262b322, type: 2}
+  _upgradeValues: {fileID: 11400000, guid: de0c01dcf9a818f4f805ad759d8461b9, type: 2}
+--- !u!114 &1138871761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138871757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de190108afeb2a24ba89fdb238ddae1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  soundEffects: []
+  music: []
 --- !u!1 &1190846025
 GameObject:
   m_ObjectHideFlags: 0

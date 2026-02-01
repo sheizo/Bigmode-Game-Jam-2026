@@ -116,8 +116,6 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Update(){
-        print(_playerHubSO.LiveData.LaunchForce);
-        
         SetInputVariables();
         HandleCameraFOV();
         

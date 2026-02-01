@@ -17,7 +17,11 @@ MonoBehaviour:
   - 20
   - 30
   - 40
-  LaunchForce: []
+  LaunchForce:
+  - 0
+  - 0
+  - 0
+  - 0
   TurnStrength:
   - 0.5
   - 1

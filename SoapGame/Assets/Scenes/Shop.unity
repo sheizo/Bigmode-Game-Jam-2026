@@ -206,8 +206,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 233690865}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.56, y: 0.74, z: 1.29}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -1.7, y: 0, z: -0.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -474,6 +474,7 @@ GameObject:
   - component: {fileID: 419050589}
   - component: {fileID: 419050588}
   - component: {fileID: 419050590}
+  - component: {fileID: 419050591}
   m_Layer: 0
   m_Name: GameStateManager
   m_TagString: Untagged
@@ -525,6 +526,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameStateTest
   _gameStateManager: {fileID: 419050588}
+--- !u!114 &419050591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419050587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0acef1b9f723c8543a691cd9bbbbd1ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  _audioMixer: {fileID: 0}
+  _playerProgressHubSo: {fileID: 11400000, guid: ec441c71ba326fd4fa6e7a8cc262b322, type: 2}
+  _playerStats:
+    Money: 0
+    MaxSpeed: 0
+    LaunchForce: 0
+    TurnStrength: 0
+    MaxSoap: 0
+    SoapRefillOnClean: 0
+    RampBoostSpeed: 0
+    SlamForce: 0
+    Bounciness: 0
 --- !u!1 &975878800
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,10 +559,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 975878801}
+  - component: {fileID: 975878803}
   - component: {fileID: 975878806}
   - component: {fileID: 975878805}
   - component: {fileID: 975878804}
-  - component: {fileID: 975878803}
   - component: {fileID: 975878802}
   m_Layer: 0
   m_Name: Capsule
@@ -1143,6 +1168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e53683cf407e36048b17b0c0aa2180fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickableObject
+  _upgrade: 2
   _inputActionAsset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   _outline: {fileID: 975878802}
   _objectToHighlight: {fileID: 975878800}
@@ -1235,10 +1261,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1074531950}
+  - component: {fileID: 1074531952}
   - component: {fileID: 1074531955}
   - component: {fileID: 1074531954}
   - component: {fileID: 1074531953}
-  - component: {fileID: 1074531952}
   - component: {fileID: 1074531951}
   m_Layer: 0
   m_Name: Sphere
@@ -1809,6 +1835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e53683cf407e36048b17b0c0aa2180fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickableObject
+  _upgrade: 0
   _inputActionAsset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   _outline: {fileID: 1074531951}
   _objectToHighlight: {fileID: 1074531949}
@@ -2096,10 +2123,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1703192722}
+  - component: {fileID: 1703192724}
   - component: {fileID: 1703192727}
   - component: {fileID: 1703192726}
   - component: {fileID: 1703192725}
-  - component: {fileID: 1703192724}
   - component: {fileID: 1703192723}
   m_Layer: 0
   m_Name: Cylinder
@@ -2243,6 +2270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e53683cf407e36048b17b0c0aa2180fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickableObject
+  _upgrade: 4
   _inputActionAsset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   _outline: {fileID: 1703192723}
   _objectToHighlight: {fileID: 1703192721}
@@ -2335,6 +2363,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1910806960}
+  - component: {fileID: 1910806961}
   m_Layer: 0
   m_Name: SHOP
   m_TagString: Untagged
@@ -2355,12 +2384,31 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1981959208}
   - {fileID: 1074531950}
+  - {fileID: 1981959208}
   - {fileID: 975878801}
   - {fileID: 1703192722}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1910806961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910806959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d0d6ea9841548d0872fc9142a3d1822, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Shop
+  _playerProgressHub: {fileID: 11400000, guid: ec441c71ba326fd4fa6e7a8cc262b322, type: 2}
+  _upgradeValues: {fileID: 11400000, guid: de0c01dcf9a818f4f805ad759d8461b9, type: 2}
+  _buyableUpgrades:
+  - {fileID: 1074531952}
+  - {fileID: 1981959207}
+  - {fileID: 975878803}
+  - {fileID: 1703192724}
 --- !u!1 &1981959203
 GameObject:
   m_ObjectHideFlags: 0
@@ -2472,6 +2520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e53683cf407e36048b17b0c0aa2180fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickableObject
+  _upgrade: 1
   _inputActionAsset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   _outline: {fileID: 1981959209}
   _objectToHighlight: {fileID: 1981959203}

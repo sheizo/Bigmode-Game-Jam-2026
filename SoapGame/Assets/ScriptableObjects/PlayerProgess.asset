@@ -15,7 +15,7 @@ MonoBehaviour:
   LiveData:
     Money: 0
     MaxSpeed: 0
-    LaunchForce: 0
+    LaunchForce: 2
     TurnStrength: 0
     MaxSoap: 0
     SoapRefillOnClean: 0
