@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using DG.Tweening;
 using Freya;
 using Unity.Cinemachine;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = Freya.Random;
@@ -14,9 +13,11 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private bool _useUpgrades; 
     
+    [Header("Soap Usage")]
     [SerializeField] private float _soapRefillOnClean = 0.1f;
     [SerializeField] private int _maxSoap = 10;
     [SerializeField] private int _rampSoapCost = 1;
+    [SerializeField] private float _minPlayerScale = 0.2f;
     
     [Header("Prefabs")]
     [SerializeField] private List<Ramp> _rampPrefabs;
@@ -217,6 +218,7 @@ public class PlayerController : MonoBehaviour
             _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, _minYSpeed, _rb.linearVelocity.z);
         
         if (_currentSpeed > _maxGroundSpeed && _isGrounded && !_rampPlayerIsOn){
+            print("bruh");
             _rb.linearVelocity = _rb.linearVelocity.normalized * _maxGroundSpeed;
             return; // exit early so maxSeed doesn't cap air speed
         }
