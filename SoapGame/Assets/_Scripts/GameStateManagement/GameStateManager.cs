@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -32,6 +33,10 @@ public class GameStateManager : MonoBehaviour
 
             _gameStateDict.Add(gameState.GameState, gameState);
         }
+    }
+
+    private void Start(){
+        UIManager.Instance.UpdateGameStateCanvas(_currentGameState);
     }
 
     public void SwitchGameState(GameState gameState)

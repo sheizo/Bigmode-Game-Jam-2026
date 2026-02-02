@@ -14,6 +14,7 @@ public enum RampSelectionAnimation
 }
 public class UIManager : Singleton<UIManager>
 {
+    private static readonly int Fill = Shader.PropertyToID("_Fill");
     [SerializeField] private Volume _globalVolume;
     
     [Header("UI References")]
@@ -21,9 +22,11 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private CanvasGroup _launchCanvasGroup, _gameplayCanvasGroup, _shopCanvasGroup;
     [SerializeField] private Slider _launchBarSlider;
     [SerializeField] private Image _launchBarImage;
+    [SerializeField] private Image _soapFill;
 
     [Header("Effects")]
-    [Range(0,1)] [SerializeField] private float _vignetteSmoothTime = 0.5f;
+    [Range(0,1)][SerializeField] private float _soapFillDuration;
+    [Range(0,1)][SerializeField] private float _vignetteSmoothTime = 0.5f;
     [SerializeField] private float _maxVignetteIntensity;
     
     [Space(15)]
@@ -43,6 +46,8 @@ public class UIManager : Singleton<UIManager>
     private float _startingVignetteIntensity;
 
 
+    private Material _soapFillMat;
+
     protected override void Awake(){
         base.Awake();
         
@@ -51,15 +56,21 @@ public class UIManager : Singleton<UIManager>
         _waitingRampOrigPos = _waitingRamp.anchoredPosition;
         _waitingRampOrigScale = _waitingRamp.localScale.x;
         
-        
-        CreateSequences();
-
         _globalVolume.profile.TryGet<Vignette>(out _vignette);
         _startingVignetteIntensity = _vignette.intensity.value;
+        
+        _soapFillMat = _soapFill.materialForRendering;
+        CreateSequences();
+    }
+
+    private void Update(){
+        
     }
 
 
     private float _vignetteSpeed = 0;
+    private float _soapMeterSpeed = 0;
+
     public void UpdateSoapMeter(float tNormalized){
         _vignette.intensity.value = Mathf.SmoothDamp(
             _vignette.intensity.value,
@@ -67,14 +78,28 @@ public class UIManager : Singleton<UIManager>
             ref _vignetteSpeed,
             _vignetteSmoothTime
         );
-        //Mathf.SmoothDamp()
+        
+        _soapFillMat.DOFloat(tNormalized,"_Fill", _soapFillDuration).SetEase(Ease.OutExpo);    
+        //_soapFill.SetMaterialDirty();
     }
     
     public void UpdateGameStateCanvas(GameState gameState){
-        if (gameState == GameState.GAMEPLAY){
-            _gameplayCanvasGroup?.DOFade(1, _canvasGroupFadeTime);
-            _launchCanvasGroup?.DOFade(0, _canvasGroupFadeTime);
-            _shopCanvasGroup?.DOFade(0, _canvasGroupFadeTime);
+        switch (gameState){
+            case GameState.GAMEPLAY:
+                _gameplayCanvasGroup?.DOFade(1, _canvasGroupFadeTime);
+                _launchCanvasGroup?.DOFade(0, _canvasGroupFadeTime);
+                _shopCanvasGroup?.DOFade(0, _canvasGroupFadeTime);
+                break;
+            case GameState.SHOP:
+                _gameplayCanvasGroup?.DOFade(0, _canvasGroupFadeTime);
+                _shopCanvasGroup?.DOFade(1, _canvasGroupFadeTime);
+                _launchCanvasGroup?.DOFade(0, _canvasGroupFadeTime);
+                break;
+            case GameState.LAUNCH:
+                _gameplayCanvasGroup?.DOFade(0, _canvasGroupFadeTime);
+                _shopCanvasGroup?.DOFade(0, _canvasGroupFadeTime);
+                _launchCanvasGroup?.DOFade(1, _canvasGroupFadeTime);
+                break;
         }
     }
     
@@ -136,5 +161,7 @@ public class UIManager : Singleton<UIManager>
 
     private void OnDisable(){
         _vignette.intensity.value = _startingVignetteIntensity;
+        
+        _soapFillMat.SetFloat(Fill, 1);
     }
 }

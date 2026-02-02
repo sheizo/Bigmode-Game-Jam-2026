@@ -199,6 +199,7 @@ public class PlayerController : MonoBehaviour
     
     private void UpdatePlayerSize(bool animate){
         float scale = _soapScaleCurve.Evaluate(_currentSoapPower/_maxSoapPower);
+        scale += 0.01f;
         
         if (animate){
             transform.DOScale(scale, _scaleTweenDuration).SetEase(Ease.OutCubic);
@@ -290,21 +291,20 @@ public class PlayerController : MonoBehaviour
         Vector3 rampSpawnPoint = predictedPlayerPosition + _rampSpawnOffset;
         Vector3 toRampSpawnPoint = rampSpawnPoint - transform.position;
         
-        // Check for ramp 
+        // Check for ramp and ramp ground clipping
         if (Physics.SphereCast(transform.position, _rampCheckRaycastRadius, toRampSpawnPoint.normalized, out RaycastHit rampHit, _rampCheckRaycastLength)){ //prevent ramp spawning below ground
             if (rampHit.transform.CompareTag("Ramp")){
                 Debug.DrawRay(transform.position, toRampSpawnPoint.normalized * rampHit.distance, Color.green, 10f);
-
+                
                 if (rampHit.transform.TryGetComponent(out Ramp hitRamp))
                     attachRamp = GetLastAttachedRamp(hitRamp);
-                
             };
+            
         }
         //Check for ground
         if (!attachRamp && Physics.Raycast(transform.position, toRampSpawnPoint.normalized, out RaycastHit groundHit, toRampSpawnPoint.magnitude)){ //prevent ramp spawning below ground
             rampSpawnPoint = groundHit.point;
             Debug.DrawRay(transform.position, toRampSpawnPoint.normalized * groundHit.distance, Color.red, 10f);
-
             
             if (_rampQueue.Peek().StartingDirection is RampDirection.Down or RampDirection.Straight){
                 UIManager.Instance.CantPlaceRamp();
@@ -318,7 +318,21 @@ public class PlayerController : MonoBehaviour
             ? attachRamp.transform.rotation 
             : (_zSpeed < 0.1f) ? Quaternion.identity : Quaternion.LookRotation(moveDir, Vector3.up);
 
-        if (attachRamp) rampSpawnPoint = attachRamp.transform.TransformPoint(attachRamp.EndPoint);
+        // final check if ramp will spawn under ground
+        if (attachRamp){
+            Vector3 attachPoint = attachRamp.transform.TransformPoint(attachRamp.EndPoint);
+            Vector3 playerToAttachPoint = (attachPoint - transform.position);
+            if (Physics.Raycast(transform.position, playerToAttachPoint.normalized, out RaycastHit hitSpawn)){
+                Debug.DrawLine(transform.position, hitSpawn.point , Color.magenta, 10f);
+                if (!hitSpawn.transform.CompareTag("Ground"))
+                    rampSpawnPoint = attachRamp.transform.TransformPoint(attachRamp.EndPoint);
+                else{
+                    UIManager.Instance.CantPlaceRamp();
+                    return; //dont spawn anything
+                }
+            }
+        }
+
         
         
         Ramp rampPrefab = _rampQueue.Dequeue();
