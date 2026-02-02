@@ -17,7 +17,8 @@ public class PlayerUpgradeManager : Singleton<PlayerUpgradeManager>
     public UpgradeRange SoapRefillOnClean;
     public UpgradeRange Bounciness;
     public UpgradeRange BadRampChance;
-
+    public UpgradeRange GroundSoapUsage;
+    
     [Header("Int Upgrades")]
     public UpgradeInt MaxSoap;
 

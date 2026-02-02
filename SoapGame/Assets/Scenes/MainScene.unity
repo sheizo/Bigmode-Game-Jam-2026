@@ -7879,6 +7879,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8184864211268113093, guid: 7397b335ce24e4844b4a6045330e9059, type: 3}
+      propertyPath: m_MaxSpeed
+      value: 17.397806
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9095,6 +9099,17 @@ MonoBehaviour:
     - Value: 0.1
       Cost: 0
     - Value: 0
+      Cost: 0
+  GroundSoapUsage:
+    Id: ground_soap_usage
+    Name: Ground Soap Usage
+    CurrentLevel: 0
+    Levels:
+    - Value: 0.323
+      Cost: 0
+    - Value: 0.164
+      Cost: 0
+    - Value: 0.077
       Cost: 0
   MaxSoap:
     Id: max_soap

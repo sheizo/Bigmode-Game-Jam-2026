@@ -329,7 +329,7 @@ public class PlayerController : MonoBehaviour
         if (attachRamp){
             Vector3 attachPoint = attachRamp.transform.TransformPoint(attachRamp.EndPoint);
             Vector3 playerToAttachPoint = (attachPoint - transform.position);
-            if (Physics.Raycast(transform.position, playerToAttachPoint.normalized, out RaycastHit hitSpawn)){
+            if (Physics.SphereCast(transform.position, _rampCheckRaycastRadius, playerToAttachPoint.normalized, out RaycastHit hitSpawn)){
                 Debug.DrawLine(transform.position, hitSpawn.point , Color.magenta, 10f);
                 if (!hitSpawn.transform.CompareTag("Ground"))
                     rampSpawnPoint = attachRamp.transform.TransformPoint(attachRamp.EndPoint);
@@ -433,8 +433,11 @@ public class PlayerController : MonoBehaviour
         if (!_useUpgrades) return;
         
         PlayerUpgradeManager upgrades = PlayerUpgradeManager.Instance;
-
+        
+        _groundSoapUsageSecPercent = upgrades.GroundSoapUsage.CurrentValue;
+        _badRampChance = upgrades.BadRampChance.CurrentValue;
         _maxAirSpeed = upgrades.MaxAirSpeed.CurrentValue;
+        _maxGroundSpeed = upgrades.MaxGroundSpeed.CurrentValue;
         _steerStrength = upgrades.TurnStrength.CurrentValue;
         _maxSoapPower = upgrades.MaxSoap.CurrentValue;
         _soapRefillOnClean = upgrades.SoapRefillOnClean.CurrentValue;
