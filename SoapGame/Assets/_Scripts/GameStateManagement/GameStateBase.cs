@@ -10,11 +10,11 @@ public class GameStateBase : MonoBehaviour
 
     public virtual void OnEntered() 
     {
-        _camera.enabled = true;
+        if(_camera) _camera.enabled = true;
     }
 
     public virtual void OnExited()
     {
-        _camera.enabled = false;
+        if(_camera) _camera.enabled = false;
     }
 }

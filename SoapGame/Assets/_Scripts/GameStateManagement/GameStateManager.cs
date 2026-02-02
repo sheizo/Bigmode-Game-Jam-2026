@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public enum GameState
@@ -7,7 +8,8 @@ public enum GameState
     LAUNCH = 0,
     SHOP = 1,
     GAMEPLAY = 2,
-    MENU = 3,
+    LOSSSCREEN = 3,
+    MENU = 4,
 }
 
 public class GameStateManager : MonoBehaviour
@@ -28,7 +30,7 @@ public class GameStateManager : MonoBehaviour
         _gameStateDict = new Dictionary<GameState, GameStateBase>();
         foreach(GameStateBase gameState in _gameStates)
         {
-            if (gameState.GameState != _currentGameState)
+            if (gameState.GameState != _currentGameState && gameState._camera)
                 gameState._camera.enabled = false;
 
             _gameStateDict.Add(gameState.GameState, gameState);
@@ -62,4 +64,5 @@ public class GameStateManager : MonoBehaviour
             Debug.LogError("Trying to enter invalid game state. (new gameState not present in dict)");
         }
     }
+
 }

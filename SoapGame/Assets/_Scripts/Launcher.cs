@@ -12,13 +12,12 @@ public class Launcher : MonoBehaviour
     [SerializeField] private float _timeToChargeLaunch=2;
     [SerializeField] private AnimationCurve _chargeBarCurve;
     
-    private float _chargeReleased;
     private float _chargeTimer;
     private float _evaluatedChargeTimer;
     private bool _isLaunchPressed, _wasLaunchReleased;
     private bool _reachedPeak;
 
-    public Action OnLaunched;
+    public Action<float> OnLaunched;
         
         
     private void Awake(){
@@ -27,7 +26,7 @@ public class Launcher : MonoBehaviour
 
     private void Start(){
 
-        UpdateUpgrades();
+        ResetLauncher();
     }
 
     private void Update(){
@@ -55,12 +54,19 @@ public class Launcher : MonoBehaviour
     }
 
     private void Launch(){
-        float finalLaunchForce = Mathf.Lerp(_maxLaunchForce*_minLaunchForceMult, _maxLaunchForce, _evaluatedChargeTimer);
-        _playerRb.AddForce(_launchDirection * finalLaunchForce, ForceMode.Impulse);
+        float launchForce = Mathf.Lerp(_maxLaunchForce*_minLaunchForceMult, _maxLaunchForce, _evaluatedChargeTimer);
+        _playerRb.AddForce(_launchDirection * launchForce, ForceMode.Impulse);
         
         _chargeTimer = 0;
 
-        OnLaunched();
+        OnLaunched?.Invoke(launchForce);
+    }
+
+    public void ResetLauncher(){
+        _reachedPeak = false;
+        _chargeTimer = 0;
+        UpdateUpgrades();
+        UIManager.Instance.SetLaunchBar(0);
     }
 
     private void UpdateUpgrades(){

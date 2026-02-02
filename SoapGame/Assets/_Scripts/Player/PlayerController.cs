@@ -17,10 +17,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _soapRefillOnClean = 0.1f;
     [SerializeField] private float _maxSoapPower = 10;
     [SerializeField] private float _rampSoapCost = 2;
-    [SerializeField] private float _groundSoapUsageSec = 0.1f;
+    [Range(0,1)] [SerializeField] private float _groundSoapUsageSecPercent = 0.1f;
     [SerializeField] private float _currentSoapPower;
     [SerializeField] private AnimationCurve _soapScaleCurve;
     [SerializeField] private float _scaleTweenDuration = 0.2f;
+    [Range(0,1)] [SerializeField] private float _minSoapPercentForRamp = 0.1f;
     
     
     [Header("Prefabs")]
@@ -32,6 +33,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private CinemachineCamera _playerCamera;
 
     [Header("Camera")] 
+    [Range(0, 1)] [SerializeField] private float _minSoapFOVMultiplier = 0.6f; 
     [SerializeField] private float _maxAddedFov = 20f;
     [Range(0, 1f)] [SerializeField] private float _cameraFOVSmoothing;
 
@@ -95,8 +97,8 @@ public class PlayerController : MonoBehaviour
 
     public bool SoapDepleted => _currentSoapPower <= 0;
     
-    // float - distance travelled
-    public Action<float> OnSoapDeplete;
+    private RunStats _runStats;
+    public Action<RunStats> OnSoapDeplete;
 
     bool IsGrounded() => Physics.Raycast(transform.position, -Vector3.up, _groundedThreshold);
 
@@ -128,38 +130,22 @@ public class PlayerController : MonoBehaviour
             else if(ramp.StartingDirection == RampDirection.Up) _upFacingRamps.Add(ramp);
             else if(ramp.StartingDirection == RampDirection.Straight) _straightFacingRamps.Add(ramp);
         }
-        //populate ramp queue
-        for (int i = 0; i < _rampQueueSize; i++){
-            EnqueueRandomRamp(false);
-        }
-
         _startingPosition = transform.position;
         
-        UpdateUpgrades();
-        RefillSoap();
+        ResetPlayer();
     }
 
     private void Update(){
-        if (GameManager.Instance.CurrentGameState == GameState.GAMEPLAY && _currentSoapPower > 0){
-            SetControlVariables();
-            HandleGroundSoapDeplete();
-        }
+        if (GameManager.Instance.CurrentGameState != GameState.GAMEPLAY) return;
         
+        SetControlVariables();
+        HandleGroundSoapDeplete();
         HandleCameraFOV();
-        
-        HandleRampSpawning();
-        HandleRampDiscarding();
-        
+        HandleRampSpawningAndDiscarding();
         
         //TODO: delete
         if (Keyboard.current.rKey.wasPressedThisFrame){
-            UpdateUpgrades();           
-            RefillSoap();
-
-            _playerCamera.Lens.FieldOfView += 10;
-            _rb.linearVelocity = Vector3.zero;
-            _rb.angularVelocity = Vector3.zero;
-            transform.position = _originalPosition;
+            ResetPlayer();
         }
 
         //count the time on ground
@@ -185,10 +171,28 @@ public class PlayerController : MonoBehaviour
         
         if(!SoapDepleted) SetPlayerVisualPosition();
     }
+
+    public void ResetPlayer(){
+        //populate ramp queue
+        _rampQueue.Clear();
+        for (int i = 0; i < _rampQueueSize; i++){
+            EnqueueRandomRamp(false);
+        }
+        
+        _runStats = new RunStats();
+        
+        UpdateUpgrades();
+        RefillSoap();
+        
+        _rb.linearVelocity = Vector3.zero;
+        _rb.angularVelocity = Vector3.zero;
+        transform.position = _originalPosition;
+    }
     
     private void TakeSoap(float amount){
         if (SoapDepleted){
-            OnSoapDeplete?.Invoke(transform.position.z - _startingPosition.z);
+            _runStats.SetDistanceTravelled(transform.position.z - _startingPosition.z);
+            OnSoapDeplete?.Invoke(_runStats);
             return;
         }
         _currentSoapPower-=amount;
@@ -227,7 +231,8 @@ public class PlayerController : MonoBehaviour
     private void HandleGroundSoapDeplete(){
         if (!_isGrounded || _isOnRamp) return;
         
-        TakeSoap(_groundSoapUsageSec * Time.deltaTime);
+        //Take soap percentage
+        TakeSoap(_maxSoapPower * _groundSoapUsageSecPercent * Time.deltaTime);
     }
 
     private void HandleMovement(){
@@ -272,16 +277,19 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    private void HandleRampDiscarding(){
-        if (!_pressedDiscardRampThisFrame) return;
-        
+    private void DiscardRamp(){
         _rampQueue.Dequeue();
         EnqueueRandomRamp(true);
     }
     
-    private void HandleRampSpawning(){
-        if (!_pressedSpawnRampThisFrame || _currentSoapPower <= _rampSoapCost) return;
-        
+    private void HandleRampSpawningAndDiscarding(){
+        if (_pressedDiscardRampThisFrame){
+            DiscardRamp();
+            return;
+        }
+        if (!_pressedSpawnRampThisFrame || _currentSoapPower <= _rampSoapCost || _currentSoapPower/_maxSoapPower <= _minSoapPercentForRamp ) return;
+
+        bool canPlaceRamp = true;
         
         Ramp attachRamp = _rampPlayerIsOn ? GetLastAttachedRamp(_rampPlayerIsOn) : null;
         
@@ -307,8 +315,7 @@ public class PlayerController : MonoBehaviour
             Debug.DrawRay(transform.position, toRampSpawnPoint.normalized * groundHit.distance, Color.red, 10f);
             
             if (_rampQueue.Peek().StartingDirection is RampDirection.Down or RampDirection.Straight){
-                UIManager.Instance.CantPlaceRamp();
-                return;
+                canPlaceRamp = false;
             }
         }
         
@@ -327,13 +334,16 @@ public class PlayerController : MonoBehaviour
                 if (!hitSpawn.transform.CompareTag("Ground"))
                     rampSpawnPoint = attachRamp.transform.TransformPoint(attachRamp.EndPoint);
                 else{
-                    UIManager.Instance.CantPlaceRamp();
-                    return; //dont spawn anything
+                    canPlaceRamp = false;
                 }
             }
         }
 
-        
+        if (!canPlaceRamp){
+            DiscardRamp(); // discards automatically if you can't place
+            UIManager.Instance.CantPlaceRamp();
+            return;
+        }
         
         Ramp rampPrefab = _rampQueue.Dequeue();
         EnqueueRandomRamp(false);
@@ -364,8 +374,8 @@ public class PlayerController : MonoBehaviour
     private void HandleCameraFOV(){
         float maxFOV = _originalCameraFov + _maxAddedFov;
         
-        float soapAmountMult = Mathf.Lerp(0.5f, 1f,_currentSoapPower / _maxSoapPower);
         float targetFov = Mathf.Lerp(_originalCameraFov, maxFOV, _currentSpeed / _maxAirSpeed);
+        float soapAmountMult = Mathf.Lerp(_minSoapFOVMultiplier, 1f,_currentSoapPower / _maxSoapPower);
         targetFov *= soapAmountMult;
         float smoothedTarget = Mathf.SmoothDamp(_playerCamera.Lens.FieldOfView, targetFov, ref _currentFOV, 0.1f);
 
@@ -419,7 +429,7 @@ public class PlayerController : MonoBehaviour
             smoothTime, true);
     }
 
-    public void UpdateUpgrades(){
+    private void UpdateUpgrades(){
         if (!_useUpgrades) return;
         
         PlayerUpgradeManager upgrades = PlayerUpgradeManager.Instance;
@@ -440,7 +450,7 @@ public class PlayerController : MonoBehaviour
         _currentSoapPower = Mathf.Lerp(0, _maxSoapPower, normalizedAmount).CeilToInt();
         
         UpdatePlayerSize(true); //works right now but beware if added soap is too little
-        //TODO: Update UI
+        UIManager.Instance.UpdateSoapMeter(normalizedAmount);
     }
 
     private Ramp GetLastAttachedRamp(Ramp start){

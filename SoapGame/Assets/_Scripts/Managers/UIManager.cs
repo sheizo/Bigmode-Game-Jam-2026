@@ -19,7 +19,7 @@ public class UIManager : Singleton<UIManager>
     
     [Header("UI References")]
     [SerializeField] private RectTransform _selectedRamp, _waitingRamp;
-    [SerializeField] private CanvasGroup _launchCanvasGroup, _gameplayCanvasGroup, _shopCanvasGroup;
+    [SerializeField] private CanvasGroup _launchCanvasGroup, _gameplayCanvasGroup, _shopCanvasGroup, _lossCanvasGroup;
     [SerializeField] private Slider _launchBarSlider;
     [SerializeField] private Image _launchBarImage;
     [SerializeField] private Image _soapFill;
@@ -45,8 +45,12 @@ public class UIManager : Singleton<UIManager>
     private Vignette _vignette;
     private float _startingVignetteIntensity;
 
-
     private Material _soapFillMat;
+
+    public Action OnPlayerRestart;
+    public Action OnPlayerGotoShop;
+    public Action OnShopExit;
+    
 
     protected override void Awake(){
         base.Awake();
@@ -68,8 +72,12 @@ public class UIManager : Singleton<UIManager>
     }
 
 
+    public void SetLossScreen(bool active){
+        float canvasAlphaTarget = active ? 1f : 0f;
+        _lossCanvasGroup.DOFade(canvasAlphaTarget, 0.1f).SetEase(Ease.InCubic);
+    }
+    
     private float _vignetteSpeed = 0;
-    private float _soapMeterSpeed = 0;
 
     public void UpdateSoapMeter(float tNormalized){
         _vignette.intensity.value = Mathf.SmoothDamp(
@@ -81,6 +89,12 @@ public class UIManager : Singleton<UIManager>
         
         _soapFillMat.DOFloat(tNormalized,"_Fill", _soapFillDuration).SetEase(Ease.OutExpo);    
         //_soapFill.SetMaterialDirty();
+    }
+
+    public void ResetSoapMeter(){
+        _vignette.intensity.value = _startingVignetteIntensity;
+        
+        _soapFillMat.SetFloat("_Fill", 1);
     }
     
     public void UpdateGameStateCanvas(GameState gameState){
@@ -99,6 +113,12 @@ public class UIManager : Singleton<UIManager>
                 _gameplayCanvasGroup?.DOFade(0, _canvasGroupFadeTime);
                 _shopCanvasGroup?.DOFade(0, _canvasGroupFadeTime);
                 _launchCanvasGroup?.DOFade(1, _canvasGroupFadeTime);
+                break;
+            case GameState.LOSSSCREEN:
+                _lossCanvasGroup?.DOFade(1, _canvasGroupFadeTime);
+                _gameplayCanvasGroup?.DOFade(0, _canvasGroupFadeTime);
+                _shopCanvasGroup?.DOFade(0, _canvasGroupFadeTime);
+                _launchCanvasGroup?.DOFade(0, _canvasGroupFadeTime);
                 break;
         }
     }
@@ -157,6 +177,20 @@ public class UIManager : Singleton<UIManager>
         _invalidSeq.AppendCallback(()=>_selectedRamp.anchoredPosition = Vector3.zero);
         _invalidSeq.Append(_selectedRamp.DOShakeAnchorPos(_invalidSelectionAnimDuration, new Vector2(1, 0)*_invalidSelectionShakeAmount, 10, 0, false, true,
             ShakeRandomnessMode.Harmonic));
+    }
+    
+    [ContextMenu("Player Restart")]
+    private void Test1(){
+        OnPlayerRestart?.Invoke();
+        
+    }
+    [ContextMenu("Goto shop")]
+    private void Test3(){
+        OnPlayerGotoShop?.Invoke();
+    }
+    [ContextMenu("Exit shop")]
+    private void Test2(){
+        OnShopExit?.Invoke();
     }
 
     private void OnDisable(){

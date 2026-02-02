@@ -9,7 +9,7 @@ public class Shop : MonoBehaviour
 {
     [SerializeField] private UpgradeValuesSO _upgradeValues;
     [SerializeField] private List<BuyableUpgrade> _buyableUpgrades;
-    
+
     private void OnEnable(){
         foreach (BuyableUpgrade buyableUpgrade in _buyableUpgrades){
             buyableUpgrade.OnClicked += TryBuying;
@@ -43,11 +43,6 @@ public class Shop : MonoBehaviour
         }
     }
 
-    [ContextMenu("Test")]
-    private void Test(){
-        TryBuying("max_soap");
-        
-    }
     
     private void OnDisable(){
         foreach (BuyableUpgrade buyableUpgrade in _buyableUpgrades){
