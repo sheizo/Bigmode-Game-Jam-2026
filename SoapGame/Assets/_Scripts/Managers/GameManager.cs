@@ -53,14 +53,24 @@ public class GameManager : Singleton<GameManager>
         _gameStateManager.OnGameStateChange += _uiManager.UpdateGameStateCanvas;
     }
 
-    private void Start(){
+    protected override void Awake(){
+        base.Awake();
+#if DEVELOPMENT_BUILD
+        PlayerPrefs.DeleteAll();
+#endif
+        
         LoadGame();
-        SaveGame(); 
+        
+    }
+    
+    private void Start(){
+        _uiManager.UpdateMoney(_playerStats.Money);
     }
 
     private void PlayerGotoShop(){
         print("shop");
         
+        _uiManager.UpdateMoney(_playerStats.Money);
         _gameStateManager.SwitchGameState(GameState.SHOP);
     }
     private void PlayerEndRun(RunStats runStats){
@@ -92,24 +102,30 @@ public class GameManager : Singleton<GameManager>
     }
 
     private void LoadGame(){
-        _playerStats = SaveSystem.LoadGame();
+        _playerStats = SaveSystem.LoadGame() ?? _playerStats;
+        
+        //_playerUpgradeManager.LoadAllUpgrades();
     }
 
     
-    [ContextMenu("Save Game")]
+    
+    [ContextMenu("Save Stats")]
     private void SaveGameContext(){
-        SaveGame();
-    }
-
-    [ContextMenu("Add Money")]
-    private void AddMoney(){
-        _playerStats.Money+=50;
-        SaveGame();
-    }
-
-    private void OnValidate(){
         SaveSystem.SavePlayerStats(_playerStats);
     }
+    
+
+    [ContextMenu("Nuke PlayerPrefs")]
+    private void AddMoney(){
+        PlayerPrefs.DeleteAll();
+    }
+
+    
+    // private void OnValidate(){
+    //     if (!Application.isPlaying){
+    //         SaveSystem.SavePlayerStats(_playerStats);
+    //     }
+    // }
 
     private void OnDisable(){
         _launcher.OnLaunched -= PlayerGotoGameplay;
@@ -121,4 +137,6 @@ public class GameManager : Singleton<GameManager>
         
         
     }
+    
+    
 }

@@ -331,7 +331,7 @@ GameObject:
   - component: {fileID: 1304100628529085753}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1569,11 +1569,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::World
   _levelPrefab: {fileID: 3234871616794824951}
-  _backWallPrefab: {fileID: 7181399462426007311}
-  _player: {fileID: 0}
-  _playerVisual: {fileID: 0}
-  _copyAmount: 5
-  _segmentDistanceDisappearance: 2
+  _backWall: {fileID: 0}
+  _segmentPoolCount: 0
+  _minimumSegmentsAhead: 2
 --- !u!1 &5563495757777885900
 GameObject:
   m_ObjectHideFlags: 0

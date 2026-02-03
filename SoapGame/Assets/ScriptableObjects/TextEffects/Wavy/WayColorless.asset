@@ -13,10 +13,6 @@ MonoBehaviour:
   m_Name: WayColorless
   m_EditorClassIdentifier: 
   applyColor: 0
-  cos: 1
-  sin: 1
-  speed: 20
-  height: 10
   topLeft:
     serializedVersion: 2
     rgba: 4291786239
@@ -29,3 +25,10 @@ MonoBehaviour:
   bottomRight:
     serializedVersion: 2
     rgba: 4286984703
+  amplitude: 1
+  cos: 1
+  sin: 1
+  byWord: 0
+  wiggly: 0
+  speed: 10
+  height: 2

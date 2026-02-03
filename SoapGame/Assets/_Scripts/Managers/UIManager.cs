@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -24,6 +25,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Image _launchBarImage;
     [SerializeField] private Image _soapFill;
     [SerializeField] private Button _restartButton, _enterShopButton, _exitShopButton;
+    [SerializeField] private TextMeshProUGUI _moneyCount;
     
     
     [Header("Effects")]
@@ -81,6 +83,10 @@ public class UIManager : MonoBehaviour
     
     private float _vignetteSpeed = 0;
 
+    public void UpdateMoney(int money){
+        _moneyCount.text = money.ToString();
+    }
+    
     public void UpdateSoapMeter(float tNormalized){
         _vignette.intensity.value = Mathf.SmoothDamp(
             _vignette.intensity.value,

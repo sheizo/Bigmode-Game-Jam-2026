@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dfcfe89875b555744afe9cae66bbb88a, type: 3}
-  m_Name: BobbingRed
+  m_Name: BobbingGreen
   m_EditorClassIdentifier: 
-  applyColor: 0
-  cos: 1
-  sin: 1
-  speed: 15
-  height: 1.6
+  applyColor: 1
   topLeft:
     serializedVersion: 2
-    rgba: 4278190309
+    rgba: 4278771717
   topRight:
     serializedVersion: 2
-    rgba: 4278190309
+    rgba: 4278762499
   bottomLeft:
     serializedVersion: 2
-    rgba: 4278190309
+    rgba: 4278429696
   bottomRight:
     serializedVersion: 2
-    rgba: 4278190309
+    rgba: 4278422784
+  cos: 0
+  sin: 1
+  speed: 2.57
+  height: 7.36
