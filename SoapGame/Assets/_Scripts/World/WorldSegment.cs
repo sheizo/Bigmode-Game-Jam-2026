@@ -1,10 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
 public class WorldSegment : MonoBehaviour
 {
-    [SerializeField] private GameObject _npcSpawnPoints;
-    [SerializeField] private GameObject _npcs;
+    [SerializeField] private List<NpcSpawnPoint> _npcSpawnPoints;
+
     [SerializeField] private GameObject _stainSpawnPoints;
     [SerializeField] private GameObject _stains;
     [SerializeField] private float decalSize = 5;
@@ -12,18 +13,15 @@ public class WorldSegment : MonoBehaviour
     private float _stainSpawnRate = 0.6f;
     private float _npcSpawnRate = 0.75f;
 
-    private float _uncommonNpcRate = 0.75f;
-    private float _rareNpcRate = 0.25f;
-
     private float _colliderGroundOffset = 0.1f;
     
 
     public void Reset()
     {
         //disable all npcs
-        foreach (Transform npcChild in _npcs.transform)
+        foreach (NpcSpawnPoint npcSpawnPoint in _npcSpawnPoints)
         {
-            npcChild.gameObject.SetActive(false);
+            npcSpawnPoint.Reset();
         }
 
         //disable all stains
@@ -38,27 +36,15 @@ public class WorldSegment : MonoBehaviour
 
     public void SpawnNpc()
     {
-        float spawnRate = Random.value;
-        if (spawnRate < _npcSpawnRate)
+        // float spawnRate = Random.value;
+        // if (spawnRate < _npcSpawnRate)
+        // {
+        //     int randomSpawnPoint = Random.Range(0, _npcSpawnPoints.Count);
+        //     _npcSpawnPoints[randomSpawnPoint].SpawnRandom();
+        // }
+        foreach (NpcSpawnPoint npcSpawnPoint in _npcSpawnPoints)
         {
-            // get random spawn point
-            int randomNpcSpawnPointIndex = Random.Range(0, _npcSpawnPoints.transform.childCount);
-            Transform npcSpawnPoint = _npcSpawnPoints.transform.GetChild(randomNpcSpawnPointIndex);
-
-            Transform npc = _npcs.transform.GetChild(0);
-            float randomValue = Random.value;
-
-            if (randomValue < _rareNpcRate)
-            {
-                npc = _npcs.transform.GetChild(2);
-            }
-            else if (randomValue < _uncommonNpcRate)
-            {
-                npc = _npcs.transform.GetChild(1);
-            }
-            
-            npc.transform.position = npcSpawnPoint.transform.position;
-            npc.gameObject.SetActive(true);
+            npcSpawnPoint.SpawnRandom();
         }
     }
 
