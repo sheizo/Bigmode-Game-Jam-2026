@@ -120,8 +120,6 @@ public class PlayerController : MonoBehaviour
         _originalCameraFov = _playerCamera.Lens.FieldOfView;
 
         _rampQueue = new Queue<Ramp>(_rampQueueSize);
-
-        
     }
 
     private void Start(){
@@ -167,12 +165,37 @@ public class PlayerController : MonoBehaviour
         HandleSpeedCapping();
         HandleVisualRotations();
         HandleMovement();
+
         
         if(!SoapDepleted) SetPlayerVisualPosition();
         
         if (GameManager.CurrentGameState is GameState.LAUNCH) {
             _rb.linearVelocity = Vector3.zero; 
             _rb.angularVelocity = Vector3.zero;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == GameManager.InteractableTag)
+        {
+            PlayerInteractable interactable = other.GetComponent<PlayerInteractable>();
+            HandleInteraction(interactable);
+        }
+    }
+
+    private void HandleInteraction(PlayerInteractable interactable)
+    {
+        print("TRIGGER ENTER INTERACTION TYPE: " + interactable.InteractionType);
+        float forceAmount = 10f;
+        float upForceAmount = 20f;
+        switch(interactable.InteractionType)
+        {
+            case InteractionType.SPEED:
+                _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, 0, _rb.linearVelocity.z);
+                Vector3 combinedForce = Vector3.forward * forceAmount + Vector3.up * upForceAmount;
+                _rb.AddForce(combinedForce, ForceMode.Impulse);
+                break;
         }
     }
 

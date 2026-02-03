@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7907632797837544367}
+  - component: {fileID: 5301815152850513732}
   - component: {fileID: 6203067319547677488}
   - component: {fileID: 2233854001330683987}
   - component: {fileID: 3745348888977661363}
@@ -34,6 +35,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6244871341384609257}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5301815152850513732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247202234646522515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a653e18d028d56b4eb7c527dad95d09d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
+  _interactionType: 2
 --- !u!33 &6203067319547677488
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -106,7 +120,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -121,6 +135,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7445648745869052614}
+  - component: {fileID: 1916988390672195245}
   - component: {fileID: 7781552301369806178}
   - component: {fileID: 932472268227083963}
   - component: {fileID: 6726170491531384375}
@@ -146,6 +161,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6244871341384609257}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1916988390672195245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2644514044883459473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a653e18d028d56b4eb7c527dad95d09d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
+  _interactionType: 2
 --- !u!33 &7781552301369806178
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -218,7 +246,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -233,12 +261,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5087874784121016693}
+  - component: {fileID: 9065365202761742217}
   - component: {fileID: 7948285724673062902}
   - component: {fileID: 2151597814553396776}
   - component: {fileID: 4021737450743090851}
   m_Layer: 0
   m_Name: Npc1
-  m_TagString: Npc
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -258,6 +287,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6244871341384609257}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9065365202761742217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3645131572668654219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a653e18d028d56b4eb7c527dad95d09d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
+  _interactionType: 2
 --- !u!33 &7948285724673062902
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -330,7 +372,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

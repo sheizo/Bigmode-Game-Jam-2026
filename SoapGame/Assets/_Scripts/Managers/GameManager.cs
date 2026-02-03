@@ -7,6 +7,8 @@ using UnityEngine.InputSystem;
 
 public class GameManager : Singleton<GameManager>
 {
+    public const string InteractableTag = "PlayerInteractable";
+
     [SerializeField] private CinemachineBrain _cinemachineBrain;
     [SerializeField] private PlayerStats _playerStats;
     [SerializeField] private PlayerController _playerController;

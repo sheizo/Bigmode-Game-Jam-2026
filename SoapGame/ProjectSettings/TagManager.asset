@@ -5,8 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Ramp
-  - Npc
   - Ground
+  - PlayerInteractable
   layers:
   - Default
   - TransparentFX
