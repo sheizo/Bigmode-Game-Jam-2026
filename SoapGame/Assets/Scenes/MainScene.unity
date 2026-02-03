@@ -2562,7 +2562,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 355479532}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -5419,7 +5419,7 @@ MonoBehaviour:
   _playerController: {fileID: 426236810}
   _launcher: {fileID: 2048482420}
   _shop: {fileID: 1132490137}
-  _worldPrefab: {fileID: 0}
+  _worldPrefab: {fileID: 372920021074634092, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
   _gameStateManager: {fileID: 614309124}
   _uiManager: {fileID: 157158180}
   _playerUpgradeManager: {fileID: 5947617887105368612}
@@ -8610,7 +8610,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1877813686}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
