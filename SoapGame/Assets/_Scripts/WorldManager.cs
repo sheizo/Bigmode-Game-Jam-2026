@@ -2,32 +2,34 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
-using UnityEngine.InputSystem;
 
 public class WorldManager : MonoBehaviour
 {
-    [SerializeField] private Level _levelPrefab;
-    [SerializeField] private GameObject _backWallPrefab;
-    [SerializeField] private int _copyAmount = 3;
-    [SerializeField] private int _segmentDistanceDisappearance = 2;
+    [SerializeField] private WorldSegment _levelPrefab;
+    [SerializeField] private GameObject _backWall;
+    [SerializeField] private int _segmentPoolCount;
+
+    [Range(2f, 5f)]
+    [SerializeField] private int _minimumSegmentsAhead = 2;
 
     private Transform _playerTransform;
-    private List<Level> _levelInstances;
-    private GameObject _backWall;
-    private float _backWallPosZ;
-    private float _backWallPosY;
-    private float _zPos;
-    private LayerMask _stainMask;
+    private MoveToEndFIFO<WorldSegment> _worldSegmentPool;
+
+    private float _segmentInitialZPos;
+    private float _backWallInitialZPos;
+    private float _maxZPos;
 
     private Bounds _levelBounds;
-    public Bounds LevelBounds => _levelBounds;
+    private LayerMask _stainMask;
+
+    private float _zPosThreshold => _maxZPos - ((_segmentPoolCount - _minimumSegmentsAhead) * _levelBounds.size.z) + _levelBounds.size.z/2;
 
     public void Init()
     {
-        _stainMask  = LayerMask.GetMask("Stain");
+        _stainMask = LayerMask.GetMask("Stain");
         _playerTransform = GameManager.PlayerTransform;
 
-        _levelInstances = new List<Level>();
+        _worldSegmentPool = new MoveToEndFIFO<WorldSegment>();
         GameObject container = new GameObject("LevelCopies");
         
         //Store all _levelPrefab children components renderers
@@ -40,88 +42,83 @@ public class WorldManager : MonoBehaviour
             _levelBounds.Encapsulate(renderers[i].bounds);
         }
 
+        _segmentInitialZPos = _levelPrefab.transform.position.z;
+        _backWallInitialZPos = _backWall.transform.position.z;
+
+        _levelPrefab.transform.parent = container.transform;
+        _worldSegmentPool.Enqueue(_levelPrefab);
+
         //Create x copies of _levelPrefab 
-        for (int i = 0; i < _copyAmount; i++)
+        for (int i = 1; i < _segmentPoolCount; i++)
         {
-            _zPos = i * _levelBounds.size.z;
-            Level level = Instantiate(_levelPrefab, new Vector3(0, 0, _zPos), Quaternion.identity, container.transform);
-            level.SpawnNpc();
-            level.SpawnStains();
-            _levelInstances.Add(level);
-        }
-        
-        // offset from centers 
-        _backWallPosZ = -(_levelBounds.size.z / 2);
-        _backWallPosY = _backWallPrefab.transform.localScale.y / 2;
-
-        _backWall = Instantiate(_backWallPrefab, new Vector3(0, _backWallPosY, _backWallPosZ), Quaternion.identity);
-
-        //Disable original objects
-        _levelPrefab.gameObject.SetActive(false);
-        _backWallPrefab.SetActive(false);
-    }
-
-    void Start()
-    {
-        //Set all level objects as static
-        foreach (Level instance in _levelInstances)
-        {
-            instance.gameObject.isStatic = true;
-
-            foreach (Transform child in instance.transform)
-            {
-                child.gameObject.isStatic = true;
-            }
+            _maxZPos += _levelBounds.size.z;
+            WorldSegment level = Instantiate(_levelPrefab, new Vector3(0, 0, _maxZPos), Quaternion.identity, container.transform);
+            level.Init();
+            _worldSegmentPool.Enqueue(level);
         }
     }
 
     void Update()
     {
-        if (Keyboard.current.bKey.wasPressedThisFrame)
-        {
-            return;
-        }
-        
-        IsPlayerOnStain();
-        ChangeSegmentPos();
+        HandleStainCollision();
+        HandleSegmentPositions();
     }
 
-    private void ChangeSegmentPos()
+    private void HandleSegmentPositions()
     {
-        for (int i = 0; i < _copyAmount; i++)
+        if (_playerTransform.position.z >=_zPosThreshold)
         {
-            if (_playerTransform.position.z >= _levelInstances[i].transform.position.z + (_levelBounds.size.z * _segmentDistanceDisappearance))
-            {
-                // increase zPos by bounds so we know where to transition next level copy
-                _zPos += _levelBounds.size.z;
-                _backWallPosZ += _levelBounds.size.z;
-                _backWall.transform.position = new Vector3(0, _backWallPosY, _backWallPosZ);
-                _levelInstances[i].transform.position = new Vector3(0,0, _zPos);
-                _levelInstances[i].SpawnNpc();
-                _levelInstances[i].SpawnStains();
-            } 
-        }
+            WorldSegment worldSegment = _worldSegmentPool.Dequeue();
+            // increase zPos by bounds so we know where to transition next level copy
+            _maxZPos += _levelBounds.size.z;
+            worldSegment.transform.position = new Vector3(worldSegment.transform.position.x, worldSegment.transform.position.y, _maxZPos);
+            worldSegment.Reset();
+            worldSegment.Init();
+
+            //Move the back wall
+            Vector3 currWallPos = _backWall.transform.position;
+            _backWall.transform.position = new Vector3(currWallPos.x, currWallPos.y, currWallPos.z + _levelBounds.size.z);
+        } 
     }
 
-    public bool IsPlayerOnStain() 
+    public void HandleStainCollision() 
     {
-        RaycastHit hit;
-
-        if (Physics.Raycast(_playerTransform.position, Vector3.down, out hit, 1f, _stainMask))
+        if (Physics.Raycast(_playerTransform.position, Vector3.down, out RaycastHit hit, 1f, _stainMask))
         {
             DecalProjector stainHit = hit.collider.gameObject.GetComponent<DecalProjector>();
             DOTween.To(() => stainHit.fadeFactor, x => stainHit.fadeFactor = x, 0f, 0.5f); 
-            return true;
-        }
-        else
-        {
-            return false;
         }
     }
 
-    public void SpawnLevelAtPos(Vector3 pos)
+    public void ResetWorld()
     {
-        Level level = Instantiate(_levelPrefab, pos, Quaternion.identity);
-        level.gameObject.SetActive(true);
+        //Reset the back wall
+        Vector3 currWallPos = _backWall.transform.position;
+        _backWall.transform.position = new Vector3(currWallPos.x, currWallPos.y, _backWallInitialZPos);
+
+        _maxZPos = _segmentInitialZPos;
+        bool first = true;
+        foreach(WorldSegment worldSegment in _worldSegmentPool)
+        {
+            worldSegment.Reset();
+            worldSegment.Init();
+
+            worldSegment.transform.position = new Vector3(worldSegment.transform.position.x, worldSegment.transform.position.y, _maxZPos);
+            if (first)
+            {
+                first = false;
+                continue;
+            }
+            _maxZPos += _levelBounds.size.z;
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        // Set the Gizmo color
+        Gizmos.color = Color.red;
+
+        Vector3 planePosition = new Vector3(transform.position.x, transform.position.y, _zPosThreshold);
+        Gizmos.DrawWireCube(planePosition, new Vector3(100f, 100f, 0.1f));  // Z=0.1 to make it thin
     }
 }

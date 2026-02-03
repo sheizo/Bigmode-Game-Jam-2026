@@ -49,9 +49,9 @@ public class UIManager : MonoBehaviour
 
     private Material _soapFillMat;
 
-    public Action OnPlayerRestart;
-    public Action OnPlayerGotoShop;
-    public Action OnPlayerExitShop;
+    public Action OnRestartClick;
+    public Action OnShopClick;
+    public Action OnExitShopClick;
     
 
     public void Init(){
@@ -68,9 +68,9 @@ public class UIManager : MonoBehaviour
     }
 
     private void Start(){
-        _restartButton.onClick.AddListener(()=> OnPlayerRestart?.Invoke());
-        _enterShopButton.onClick.AddListener(()=> OnPlayerGotoShop?.Invoke());
-        _exitShopButton.onClick.AddListener(()=> OnPlayerExitShop?.Invoke());
+        _restartButton.onClick.AddListener(()=> OnRestartClick?.Invoke());
+        _enterShopButton.onClick.AddListener(()=> OnShopClick?.Invoke());
+        _exitShopButton.onClick.AddListener(()=> OnExitShopClick?.Invoke());
     }
 
 
@@ -191,16 +191,16 @@ public class UIManager : MonoBehaviour
     
     [ContextMenu("Player Restart")]
     private void Test1(){
-        OnPlayerRestart?.Invoke();
+        OnRestartClick?.Invoke();
         
     }
     [ContextMenu("Goto shop")]
     private void Test3(){
-        OnPlayerGotoShop?.Invoke();
+        OnShopClick?.Invoke();
     }
     [ContextMenu("Exit shop")]
     private void Test2(){
-        OnPlayerExitShop?.Invoke();
+        OnExitShopClick?.Invoke();
     }
 
     private void OnDisable(){

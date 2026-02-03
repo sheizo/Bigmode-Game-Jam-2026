@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class Level : MonoBehaviour
+public class WorldSegment : MonoBehaviour
 {
     [SerializeField] private GameObject _npcSpawnPoints;
     [SerializeField] private GameObject _npcs;
@@ -18,16 +18,30 @@ public class Level : MonoBehaviour
     private float _colliderGroundOffset = 0.1f;
     
 
-    public void SpawnNpc()
+    public void Reset()
     {
-        //disable previous npc
+        //disable all npcs
         foreach (Transform npcChild in _npcs.transform)
         {
             npcChild.gameObject.SetActive(false);
         }
 
-        float spawnRate = Random.value;
+        //disable all stains
+        foreach (Transform stainChild in _stains.transform)
+        {
+            stainChild.gameObject.SetActive(false);
+        }
+    }
 
+    public void Init()
+    {
+        SpawnNpc();
+        SpawnStains();
+    }
+
+    public void SpawnNpc()
+    {
+        float spawnRate = Random.value;
         if (spawnRate < _npcSpawnRate)
         {
             // get random spawn point
@@ -53,13 +67,7 @@ public class Level : MonoBehaviour
 
     public void SpawnStains()
     {
-        foreach (Transform stainChild in _stains.transform)
-        {
-            stainChild.gameObject.SetActive(false);
-        }
-        
         float spawnRate = Random.value;
-
         if (spawnRate < _stainSpawnRate)
         {
             int randomStainSpawnPointIndex = Random.Range(0, _stainSpawnPoints.transform.childCount);

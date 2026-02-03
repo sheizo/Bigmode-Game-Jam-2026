@@ -45,9 +45,9 @@ public class GameManager : Singleton<GameManager>
         _launcher.OnLaunched += PlayerGotoGameplay;
         _playerController.OnSoapDeplete += PlayerEndRun;
         
-        _uiManager.OnPlayerExitShop += PlayerRestart;
-        _uiManager.OnPlayerRestart += PlayerRestart;
-        _uiManager.OnPlayerGotoShop += PlayerGotoShop;
+        _uiManager.OnExitShopClick += PlayerRestart;
+        _uiManager.OnRestartClick += PlayerRestart;
+        _uiManager.OnShopClick += PlayerGotoShop;
 
         _uiManager.UpdateGameStateCanvas(_gameStateManager.CurrentGameState);
         _gameStateManager.OnGameStateChange += _uiManager.UpdateGameStateCanvas;
@@ -71,25 +71,20 @@ public class GameManager : Singleton<GameManager>
         _uiManager.ResetSoapMeter();
         
     }
+
     private void PlayerGotoGameplay(float strength){
         print("gameplay");
         
         _gameStateManager.SwitchGameState(GameState.GAMEPLAY);
     }
-    private void PlayerRestart(){
+
+    public void PlayerRestart() { 
         print("restart");
         
-        ResetWorld();
+        _worldManager.ResetWorld();
         _playerController.ResetPlayer();
         _launcher.ResetLauncher();
-        
-        
         _gameStateManager.SwitchGameState(GameState.LAUNCH);
-    }
-
-    private void ResetWorld()
-    {
-        //TODO
     }
 
     public static void SaveGame() {
@@ -120,9 +115,9 @@ public class GameManager : Singleton<GameManager>
         _launcher.OnLaunched -= PlayerGotoGameplay;
         _playerController.OnSoapDeplete -= PlayerEndRun;
         
-        _uiManager.OnPlayerExitShop -= PlayerRestart;
-        _uiManager.OnPlayerRestart -= PlayerRestart;
-        _uiManager.OnPlayerGotoShop -= PlayerGotoShop;
+        _uiManager.OnExitShopClick -= PlayerRestart;
+        _uiManager.OnRestartClick -= PlayerRestart;
+        _uiManager.OnShopClick -= PlayerGotoShop;
         
         
     }

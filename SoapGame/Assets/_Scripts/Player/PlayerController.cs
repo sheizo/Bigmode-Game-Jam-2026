@@ -144,9 +144,8 @@ public class PlayerController : MonoBehaviour
         HandleRampSpawningAndDiscarding();
         
         //TODO: delete
-        if (Keyboard.current.rKey.wasPressedThisFrame){
-            ResetPlayer();
-        }
+        if (Keyboard.current.rKey.wasPressedThisFrame)
+            GameManager.Instance.PlayerRestart();
 
         //count the time on ground
         if (_isGrounded && !_rampPlayerIsOn)
