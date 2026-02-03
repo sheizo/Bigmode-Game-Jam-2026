@@ -130,19 +130,4 @@ public class World : MonoBehaviour
         Level level = Instantiate(_levelPrefab, pos, Quaternion.identity);
         level.gameObject.SetActive(true);
     }
-
-    private void StartWorld()
-    {
-        _currentWorld = Instantiate(_worldPrefab);
-    }
-
-    private void ResetWorld()
-    {
-        if (_currentWorld != null)
-        {
-            Destroy(_currentWorld);
-        }
-
-        _currentWorld = Instantiate(_worldPrefab);
-    }
 }

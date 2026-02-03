@@ -14,7 +14,9 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private PlayerController _playerController;
     [SerializeField] private Launcher _launcher;
     [SerializeField] private Shop _shop;
+    [SerializeField] private World _worldPrefab;
 
+    private World _currentWorld;
     private UIManager _UIManager;
     
     private RunStats _runStats;
@@ -70,7 +72,7 @@ public class GameManager : Singleton<GameManager>
     private void PlayerRestart(){
         print("restart");
         
-        
+        ResetWorld();
         _playerController.ResetPlayer();
         _launcher.ResetLauncher();
         
@@ -78,6 +80,20 @@ public class GameManager : Singleton<GameManager>
         _gameStateManager.SwitchGameState(GameState.LAUNCH);
     }
 
+    private void StartWorld()
+    {
+        _currentWorld = Instantiate(_worldPrefab);
+    }
+
+    private void ResetWorld()
+    {
+        if (_currentWorld != null)
+        {
+            Destroy(_currentWorld);
+        }
+
+        _currentWorld = Instantiate(_worldPrefab);
+    }
 
     public void SaveGame() {
         SaveSystem.Save(_playerStats);
