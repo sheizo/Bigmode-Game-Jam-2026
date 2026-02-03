@@ -15,7 +15,7 @@ public static class SaveSystem
     
     public static void Save(PlayerStats playerStats)
     {
-        PlayerUpgradeManager.Instance.SaveAllUpgrades();
+        GameManager.PlayerUpgradeManager.SaveAllUpgrades();
     
         string json = JsonConvert.SerializeObject(playerStats);
         PlayerPrefs.SetString(SavePlayerStatsKey, json);
@@ -25,7 +25,7 @@ public static class SaveSystem
     }
 
     public static PlayerStats LoadGame(){
-        PlayerUpgradeManager.Instance.LoadAllUpgrades();
+        GameManager.PlayerUpgradeManager.LoadAllUpgrades();
         string json = PlayerPrefs.GetString(SavePlayerStatsKey);
         PlayerStats stats = JsonConvert.DeserializeObject<PlayerStats>(json);
         

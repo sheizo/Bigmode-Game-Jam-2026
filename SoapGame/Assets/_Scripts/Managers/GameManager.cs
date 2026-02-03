@@ -7,48 +7,55 @@ using UnityEngine.InputSystem;
 
 public class GameManager : Singleton<GameManager>
 {
-    [SerializeField] CinemachineBrain _cinemachineBrain;
-    [SerializeField] private GameStateManager _gameStateManager;
+    [SerializeField] private CinemachineBrain _cinemachineBrain;
     [SerializeField] private PlayerStats _playerStats;
-
     [SerializeField] private PlayerController _playerController;
     [SerializeField] private Launcher _launcher;
     [SerializeField] private Shop _shop;
     [SerializeField] private World _worldPrefab;
 
-    private World _currentWorld;
-    private UIManager _UIManager;
-    
-    private RunStats _runStats;
-    
-    public GameState CurrentGameState => _cinemachineBrain.IsBlending ? GameState.NONE : _gameStateManager.CurrentGameState;
 
-    public PlayerStats PlayerStats => _playerStats;
+    [Header("Managers/Services")]
+    [SerializeField] private GameStateManager _gameStateManager;
+    [SerializeField] private UIManager _uiManager;
+    [SerializeField] private PlayerUpgradeManager _playerUpgradeManager;
+    [SerializeField] private AudioManager _audioManager;
+
+    public static GameStateManager GameStateManager => Instance._gameStateManager;
+    public static UIManager UIManager => Instance._uiManager;
+    public static PlayerUpgradeManager PlayerUpgradeManager => Instance._playerUpgradeManager;
+    public static AudioManager AudioManager => Instance._audioManager;
+
+    public static PlayerStats PlayerStats => Instance._playerStats;
+
+
+    private World _currentWorld;
+    private RunStats _runStats;
+    public static GameState CurrentGameState => Instance._cinemachineBrain.IsBlending ? GameState.NONE : Instance._gameStateManager.CurrentGameState;
     
     
 
     //giga spaghetti
     private void OnEnable(){
-        _UIManager = UIManager.Instance;
+        _gameStateManager.Init();
+        _uiManager.Init();
+        _playerUpgradeManager.Init();
+        _audioManager.Init();
         
         _launcher.OnLaunched += PlayerGotoGameplay;
         _playerController.OnSoapDeplete += PlayerEndRun;
         
-        _UIManager.OnPlayerExitShop += PlayerRestart;
-        _UIManager.OnPlayerRestart += PlayerRestart;
-        _UIManager.OnPlayerGotoShop += PlayerGotoShop;
-    }
+        _uiManager.OnPlayerExitShop += PlayerRestart;
+        _uiManager.OnPlayerRestart += PlayerRestart;
+        _uiManager.OnPlayerGotoShop += PlayerGotoShop;
 
-    protected override void Awake(){
-        base.Awake();
-        
-
+        _uiManager.UpdateGameStateCanvas(_gameStateManager.CurrentGameState);
+        _gameStateManager.OnGameStateChange += _uiManager.UpdateGameStateCanvas;
     }
 
     private void Start(){
         LoadGame();
         SaveGame(); 
-        
     }
 
     private void PlayerGotoShop(){
@@ -61,7 +68,7 @@ public class GameManager : Singleton<GameManager>
         _runStats = runStats;
         
         _gameStateManager.SwitchGameState(GameState.LOSSSCREEN);
-        _UIManager.ResetSoapMeter();
+        _uiManager.ResetSoapMeter();
         
     }
     private void PlayerGotoGameplay(float strength){
@@ -95,8 +102,8 @@ public class GameManager : Singleton<GameManager>
         _currentWorld = Instantiate(_worldPrefab);
     }
 
-    public void SaveGame() {
-        SaveSystem.Save(_playerStats);
+    public static void SaveGame() {
+        SaveSystem.Save(Instance._playerStats);
     }
 
     private void LoadGame(){
@@ -105,12 +112,12 @@ public class GameManager : Singleton<GameManager>
 
     
     [ContextMenu("Save Game")]
-    public void SaveGameContext(){
+    private void SaveGameContext(){
         SaveGame();
     }
 
     [ContextMenu("Add Money")]
-    public void AddMoney(){
+    private void AddMoney(){
         _playerStats.Money+=50;
         SaveGame();
     }
@@ -123,9 +130,9 @@ public class GameManager : Singleton<GameManager>
         _launcher.OnLaunched -= PlayerGotoGameplay;
         _playerController.OnSoapDeplete -= PlayerEndRun;
         
-        _UIManager.OnPlayerExitShop -= PlayerRestart;
-        _UIManager.OnPlayerRestart -= PlayerRestart;
-        _UIManager.OnPlayerGotoShop -= PlayerGotoShop;
+        _uiManager.OnPlayerExitShop -= PlayerRestart;
+        _uiManager.OnPlayerRestart -= PlayerRestart;
+        _uiManager.OnPlayerGotoShop -= PlayerGotoShop;
         
         
     }

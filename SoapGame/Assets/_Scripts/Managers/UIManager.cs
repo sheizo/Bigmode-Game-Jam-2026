@@ -12,7 +12,7 @@ public enum RampSelectionAnimation
     PLACE,
     DISCARD
 }
-public class UIManager : Singleton<UIManager>
+public class UIManager : MonoBehaviour
 {
     private static readonly int Fill = Shader.PropertyToID("_Fill");
     [SerializeField] private Volume _globalVolume;
@@ -54,9 +54,7 @@ public class UIManager : Singleton<UIManager>
     public Action OnPlayerExitShop;
     
 
-    protected override void Awake(){
-        base.Awake();
-        
+    public void Init(){
         _selectedRampOrigPos = _selectedRamp.anchoredPosition;
         _selectedRampOrigScale = _selectedRamp.localScale.x;
         _waitingRampOrigPos = _waitingRamp.anchoredPosition;
@@ -102,7 +100,7 @@ public class UIManager : Singleton<UIManager>
     }
     
     // giga spaghet
-    public void UpdateGameStateCanvas(GameState gameState){
+    public void UpdateGameStateCanvas(GameState gameState) {
         switch (gameState){
             case GameState.GAMEPLAY:
                 _lossCanvasGroup.FadeGroup(0, _canvasGroupFadeTime);

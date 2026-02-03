@@ -22,11 +22,12 @@ public class GameStateManager : MonoBehaviour
 
     private GameState _currentGameState;
 
-    public GameState CurrentGameState =>  _currentGameState ;
+    public GameState CurrentGameState =>  _currentGameState;
+
+    public Action<GameState> OnGameStateChange;
     
     
-    
-    void Awake()
+    public void Init()
     {
         _currentGameState = _initialGameState;
 
@@ -38,10 +39,6 @@ public class GameStateManager : MonoBehaviour
 
             _gameStateDict.Add(gameState.GameState, gameState);
         }
-    }
-
-    private void Start(){
-        UIManager.Instance.UpdateGameStateCanvas(_currentGameState);
     }
 
     public void SwitchGameState(GameState gameState)
@@ -60,12 +57,13 @@ public class GameStateManager : MonoBehaviour
         if (_gameStateDict.ContainsKey(_currentGameState))
         {
             _gameStateDict[_currentGameState].OnEntered();
-            UIManager.Instance.UpdateGameStateCanvas(_currentGameState);
         }
         else
         {
             Debug.LogError("Trying to enter invalid game state. (new gameState not present in dict)");
         }
+
+        OnGameStateChange?.Invoke(_currentGameState);
     }
     
 

@@ -30,7 +30,7 @@ public class Launcher : MonoBehaviour
     }
 
     private void Update(){
-        if (GameManager.Instance.CurrentGameState != GameState.LAUNCH) return;
+        if (GameManager.CurrentGameState != GameState.LAUNCH) return;
         
         _isLaunchPressed = Mouse.current.leftButton.isPressed;
         _wasLaunchReleased = Mouse.current.leftButton.wasReleasedThisFrame;
@@ -45,7 +45,7 @@ public class Launcher : MonoBehaviour
             
             _evaluatedChargeTimer = _chargeBarCurve.Evaluate(_chargeTimer/_timeToChargeLaunch);
             
-            UIManager.Instance.SetLaunchBar(_evaluatedChargeTimer);
+            GameManager.UIManager.SetLaunchBar(_evaluatedChargeTimer);
         }
         if (_wasLaunchReleased && _chargeTimer > 0){
             Launch();
@@ -67,14 +67,12 @@ public class Launcher : MonoBehaviour
         _reachedPeak = false;
         _chargeTimer = 0;
         UpdateUpgrades();
-        UIManager.Instance.SetLaunchBar(0);
+        GameManager.UIManager.SetLaunchBar(0);
     }
 
     private void UpdateUpgrades(){
         if (!_useUpgrades) return;
-        PlayerUpgradeManager upgrades = PlayerUpgradeManager.Instance;
-        
-        _maxLaunchForce = upgrades.LaunchForce.CurrentValue;
+        _maxLaunchForce = GameManager.PlayerUpgradeManager.LaunchForce.CurrentValue;
     }
     
 }

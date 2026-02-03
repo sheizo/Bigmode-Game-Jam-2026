@@ -5,7 +5,7 @@ using UnityEngine;
 using System;
 using System.Linq;
 
-public class AudioManager : Singleton<AudioManager>
+public class AudioManager : MonoBehaviour
 {
     public Sound[] soundEffects;
     public Sound[] music;
@@ -14,10 +14,8 @@ public class AudioManager : Singleton<AudioManager>
     
     private string _currentMusic = " ";
 
-    protected override void Awake()
+    public void Init()
     {
-        base.Awake();
-
         sounds = soundEffects.Concat(music).ToArray();
 
         foreach (Sound s in sounds) //grabs each sound and changes them accordingly on awake

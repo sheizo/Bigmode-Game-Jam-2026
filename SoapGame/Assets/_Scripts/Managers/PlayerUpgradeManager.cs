@@ -4,7 +4,7 @@ using System.Reflection;
 using Newtonsoft.Json;
 using UnityEngine;
 
-public class PlayerUpgradeManager : Singleton<PlayerUpgradeManager>
+public class PlayerUpgradeManager : MonoBehaviour
 {
     [Header("Float Upgrades")]
     public UpgradeFloat MaxAirSpeed;
@@ -27,9 +27,8 @@ public class PlayerUpgradeManager : Singleton<PlayerUpgradeManager>
 
     private const string SaveKey = "PlayerUpgrades";
 
-    protected override void Awake()
+    public void Init()
     {
-        base.Awake();
         DontDestroyOnLoad(this.gameObject);
     }
 

@@ -17,10 +17,9 @@ public class Shop : MonoBehaviour
     }
 
     private bool TryBuying(string upgradeID){
-        PlayerUpgradeManager upgradeManager = PlayerUpgradeManager.Instance;
-        GameManager gameManager = GameManager.Instance;
-        int money = gameManager.PlayerStats.Money;
+        int money = GameManager.PlayerStats.Money;
         
+        PlayerUpgradeManager upgradeManager = GameManager.PlayerUpgradeManager;
         UpgradeBase selectedUpgradeBase = null;
         foreach (FieldInfo upgradeBaseField in upgradeManager.GetAllUpgradeFields()){
             UpgradeBase upgradeBase = upgradeBaseField.GetValue(upgradeManager) as UpgradeBase;
@@ -29,9 +28,9 @@ public class Shop : MonoBehaviour
         int upgradeCost = selectedUpgradeBase.NextLevelCost();
         
         if(money < upgradeCost) print("broke ass nigga");
-        gameManager.PlayerStats.Money-= upgradeCost;
+        GameManager.PlayerStats.Money -= upgradeCost;
         
-        gameManager.SaveGame();
+        GameManager.SaveGame();
         return true;
     }
 

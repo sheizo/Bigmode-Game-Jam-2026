@@ -136,7 +136,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Update(){
-        if (GameManager.Instance.CurrentGameState != GameState.GAMEPLAY) return;
+        if (GameManager.CurrentGameState != GameState.GAMEPLAY) return;
         
         SetControlVariables();
         HandleGroundSoapDeplete();
@@ -171,7 +171,7 @@ public class PlayerController : MonoBehaviour
         
         if(!SoapDepleted) SetPlayerVisualPosition();
         
-        if (GameManager.Instance.CurrentGameState is GameState.LAUNCH) {
+        if (GameManager.CurrentGameState is GameState.LAUNCH) {
             _rb.linearVelocity = Vector3.zero; 
             _rb.angularVelocity = Vector3.zero;
         }
@@ -209,7 +209,7 @@ public class PlayerController : MonoBehaviour
         }
         _currentSoapPower-=amount;
 
-        UIManager.Instance.UpdateSoapMeter(_currentSoapPower/_maxSoapPower);
+        GameManager.UIManager.UpdateSoapMeter(_currentSoapPower/_maxSoapPower);
         UpdatePlayerSize(amount >= 1);
     }
     
@@ -350,7 +350,7 @@ public class PlayerController : MonoBehaviour
 
         if (!canPlaceRamp){
             DiscardRamp(); // discards automatically if you can't place
-            UIManager.Instance.CantPlaceRamp();
+            GameManager.UIManager.CantPlaceRamp();
             return;
         }
         
@@ -441,7 +441,7 @@ public class PlayerController : MonoBehaviour
     private void UpdateUpgrades(){
         if (!_useUpgrades) return;
         
-        PlayerUpgradeManager upgrades = PlayerUpgradeManager.Instance;
+        PlayerUpgradeManager upgrades = GameManager.PlayerUpgradeManager;
         
         _groundSoapUsageSecPercent = upgrades.GroundSoapUsage.CurrentValue;
         _badRampChance = upgrades.BadRampChance.CurrentValue;
@@ -462,7 +462,7 @@ public class PlayerController : MonoBehaviour
         _currentSoapPower = Mathf.Lerp(0, _maxSoapPower, normalizedAmount).CeilToInt();
         
         UpdatePlayerSize(true); //works right now but beware if added soap is too little
-        UIManager.Instance.UpdateSoapMeter(normalizedAmount);
+        GameManager.UIManager.UpdateSoapMeter(normalizedAmount);
     }
 
     private Ramp GetLastAttachedRamp(Ramp start){
@@ -499,7 +499,7 @@ public class PlayerController : MonoBehaviour
         Ramp ramp = ramps[randomIndex];
         
         _rampQueue.Enqueue(ramp);
-        UIManager.Instance.SetRampSprites(_rampQueue,discarding ? RampSelectionAnimation.DISCARD : RampSelectionAnimation.PLACE);
+        GameManager.UIManager.SetRampSprites(_rampQueue,discarding ? RampSelectionAnimation.DISCARD : RampSelectionAnimation.PLACE);
         _lastRampEndDirection = ramp.EndingDirection;
     }
 
