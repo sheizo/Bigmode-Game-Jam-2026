@@ -23,7 +23,9 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private Slider _launchBarSlider;
     [SerializeField] private Image _launchBarImage;
     [SerializeField] private Image _soapFill;
-
+    [SerializeField] private Button _restartButton, _enterShopButton, _exitShopButton;
+    
+    
     [Header("Effects")]
     [Range(0,1)][SerializeField] private float _soapFillDuration;
     [Range(0,1)][SerializeField] private float _vignetteSmoothTime = 0.5f;
@@ -49,7 +51,7 @@ public class UIManager : Singleton<UIManager>
 
     public Action OnPlayerRestart;
     public Action OnPlayerGotoShop;
-    public Action OnShopExit;
+    public Action OnPlayerExitShop;
     
 
     protected override void Awake(){
@@ -67,8 +69,10 @@ public class UIManager : Singleton<UIManager>
         CreateSequences();
     }
 
-    private void Update(){
-        
+    private void Start(){
+        _restartButton.onClick.AddListener(()=> OnPlayerRestart?.Invoke());
+        _enterShopButton.onClick.AddListener(()=> OnPlayerGotoShop?.Invoke());
+        _exitShopButton.onClick.AddListener(()=> OnPlayerExitShop?.Invoke());
     }
 
 
@@ -97,28 +101,36 @@ public class UIManager : Singleton<UIManager>
         _soapFillMat.SetFloat("_Fill", 1);
     }
     
+    // giga spaghet
     public void UpdateGameStateCanvas(GameState gameState){
         switch (gameState){
             case GameState.GAMEPLAY:
-                _gameplayCanvasGroup?.DOFade(1, _canvasGroupFadeTime);
-                _launchCanvasGroup?.DOFade(0, _canvasGroupFadeTime);
-                _shopCanvasGroup?.DOFade(0, _canvasGroupFadeTime);
+                _lossCanvasGroup.FadeGroup(0, _canvasGroupFadeTime);
+                _gameplayCanvasGroup?.FadeGroup(1, _canvasGroupFadeTime);
+                _launchCanvasGroup?.FadeGroup(0, _canvasGroupFadeTime);
+                _shopCanvasGroup?.FadeGroup(0, _canvasGroupFadeTime);
+                
                 break;
             case GameState.SHOP:
-                _gameplayCanvasGroup?.DOFade(0, _canvasGroupFadeTime);
-                _shopCanvasGroup?.DOFade(1, _canvasGroupFadeTime);
-                _launchCanvasGroup?.DOFade(0, _canvasGroupFadeTime);
+                _lossCanvasGroup?.FadeGroup(0, _canvasGroupFadeTime);
+                _gameplayCanvasGroup?.FadeGroup(0, _canvasGroupFadeTime);
+                _shopCanvasGroup?.FadeGroup(1, _canvasGroupFadeTime);
+                _launchCanvasGroup?.FadeGroup(0, _canvasGroupFadeTime);
+                
                 break;
             case GameState.LAUNCH:
-                _gameplayCanvasGroup?.DOFade(0, _canvasGroupFadeTime);
-                _shopCanvasGroup?.DOFade(0, _canvasGroupFadeTime);
-                _launchCanvasGroup?.DOFade(1, _canvasGroupFadeTime);
+                _lossCanvasGroup?.FadeGroup(0, _canvasGroupFadeTime);
+                _gameplayCanvasGroup?.FadeGroup(0, _canvasGroupFadeTime);
+                _shopCanvasGroup?.FadeGroup(0, _canvasGroupFadeTime);
+                _launchCanvasGroup?.FadeGroup(1, _canvasGroupFadeTime);
+                
                 break;
             case GameState.LOSSSCREEN:
-                _lossCanvasGroup?.DOFade(1, _canvasGroupFadeTime);
-                _gameplayCanvasGroup?.DOFade(0, _canvasGroupFadeTime);
-                _shopCanvasGroup?.DOFade(0, _canvasGroupFadeTime);
-                _launchCanvasGroup?.DOFade(0, _canvasGroupFadeTime);
+                _lossCanvasGroup?.FadeGroup(1, _canvasGroupFadeTime);
+                _gameplayCanvasGroup?.FadeGroup(0, _canvasGroupFadeTime);
+                _shopCanvasGroup?.FadeGroup(0, _canvasGroupFadeTime);
+                _launchCanvasGroup?.FadeGroup(0, _canvasGroupFadeTime);
+                
                 break;
         }
     }
@@ -190,7 +202,7 @@ public class UIManager : Singleton<UIManager>
     }
     [ContextMenu("Exit shop")]
     private void Test2(){
-        OnShopExit?.Invoke();
+        OnPlayerExitShop?.Invoke();
     }
 
     private void OnDisable(){

@@ -1,10 +1,13 @@
 using System;
+using System.Collections.Generic;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.InputSystem;
 
 public class GameManager : Singleton<GameManager>
 {
+    [SerializeField] CinemachineBrain _cinemachineBrain;
     [SerializeField] private GameStateManager _gameStateManager;
     [SerializeField] private PlayerStats _playerStats;
 
@@ -16,7 +19,7 @@ public class GameManager : Singleton<GameManager>
     
     private RunStats _runStats;
     
-    public GameState CurrentGameState => _gameStateManager.CurrentGameState;
+    public GameState CurrentGameState => _cinemachineBrain.IsBlending ? GameState.NONE : _gameStateManager.CurrentGameState;
 
     public PlayerStats PlayerStats => _playerStats;
     
@@ -26,10 +29,10 @@ public class GameManager : Singleton<GameManager>
     private void OnEnable(){
         _UIManager = UIManager.Instance;
         
-        _launcher.OnLaunched += PlayerLaunched;
+        _launcher.OnLaunched += PlayerGotoGameplay;
         _playerController.OnSoapDeplete += PlayerEndRun;
         
-        _UIManager.OnShopExit += PlayerRestart;
+        _UIManager.OnPlayerExitShop += PlayerRestart;
         _UIManager.OnPlayerRestart += PlayerRestart;
         _UIManager.OnPlayerGotoShop += PlayerGotoShop;
     }
@@ -47,22 +50,30 @@ public class GameManager : Singleton<GameManager>
     }
 
     private void PlayerGotoShop(){
+        print("shop");
         
         _gameStateManager.SwitchGameState(GameState.SHOP);
     }
     private void PlayerEndRun(RunStats runStats){
+        print("end run");
         _runStats = runStats;
         
         _gameStateManager.SwitchGameState(GameState.LOSSSCREEN);
+        _UIManager.ResetSoapMeter();
         
     }
-    private void PlayerLaunched(float strength){
-        _launcher.ResetLauncher();
+    private void PlayerGotoGameplay(float strength){
+        print("gameplay");
         
         _gameStateManager.SwitchGameState(GameState.GAMEPLAY);
     }
     private void PlayerRestart(){
+        print("restart");
+        
+        
         _playerController.ResetPlayer();
+        _launcher.ResetLauncher();
+        
         
         _gameStateManager.SwitchGameState(GameState.LAUNCH);
     }
@@ -76,6 +87,7 @@ public class GameManager : Singleton<GameManager>
         _playerStats = SaveSystem.LoadGame();
     }
 
+    
     [ContextMenu("Save Game")]
     public void SaveGameContext(){
         SaveGame();
@@ -92,11 +104,13 @@ public class GameManager : Singleton<GameManager>
     }
 
     private void OnDisable(){
-        _launcher.OnLaunched -= PlayerLaunched;
+        _launcher.OnLaunched -= PlayerGotoGameplay;
         _playerController.OnSoapDeplete -= PlayerEndRun;
         
-        _UIManager.OnShopExit -= PlayerRestart;
+        _UIManager.OnPlayerExitShop -= PlayerRestart;
         _UIManager.OnPlayerRestart -= PlayerRestart;
+        _UIManager.OnPlayerGotoShop -= PlayerGotoShop;
+        
         
     }
 }

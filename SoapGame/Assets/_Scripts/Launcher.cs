@@ -47,7 +47,7 @@ public class Launcher : MonoBehaviour
             
             UIManager.Instance.SetLaunchBar(_evaluatedChargeTimer);
         }
-        if (_wasLaunchReleased){
+        if (_wasLaunchReleased && _chargeTimer > 0){
             Launch();
         }
         
@@ -63,6 +63,7 @@ public class Launcher : MonoBehaviour
     }
 
     public void ResetLauncher(){
+        
         _reachedPeak = false;
         _chargeTimer = 0;
         UpdateUpgrades();

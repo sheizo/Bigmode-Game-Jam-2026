@@ -5,6 +5,7 @@ using UnityEngine;
 
 public enum GameState
 {
+    NONE = -1,
     LAUNCH = 0,
     SHOP = 1,
     GAMEPLAY = 2,
@@ -21,7 +22,9 @@ public class GameStateManager : MonoBehaviour
 
     private GameState _currentGameState;
 
-    public GameState CurrentGameState => _currentGameState;
+    public GameState CurrentGameState =>  _currentGameState ;
+    
+    
     
     void Awake()
     {
@@ -64,5 +67,6 @@ public class GameStateManager : MonoBehaviour
             Debug.LogError("Trying to enter invalid game state. (new gameState not present in dict)");
         }
     }
+    
 
 }

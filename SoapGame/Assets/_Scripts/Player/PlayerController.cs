@@ -170,9 +170,23 @@ public class PlayerController : MonoBehaviour
         HandleMovement();
         
         if(!SoapDepleted) SetPlayerVisualPosition();
+        
+        if (GameManager.Instance.CurrentGameState is GameState.LAUNCH) {
+            _rb.linearVelocity = Vector3.zero; 
+            _rb.angularVelocity = Vector3.zero;
+        }
     }
 
     public void ResetPlayer(){
+        _horizontalInput = 0;
+        
+        _rb.linearVelocity = Vector3.zero;
+        _rb.angularVelocity = Vector3.zero;
+        _rb.position = _originalPosition;
+        
+        _playerVisual.position = _rb.position;
+        _playerVisual.rotation = Quaternion.identity;
+        
         //populate ramp queue
         _rampQueue.Clear();
         for (int i = 0; i < _rampQueueSize; i++){
@@ -184,9 +198,7 @@ public class PlayerController : MonoBehaviour
         UpdateUpgrades();
         RefillSoap();
         
-        _rb.linearVelocity = Vector3.zero;
-        _rb.angularVelocity = Vector3.zero;
-        transform.position = _originalPosition;
+        
     }
     
     private void TakeSoap(float amount){
@@ -237,16 +249,13 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMovement(){
         // Horizontal control -  force based on if ground or air with a clamped multiplier by forward speed
-        float steerStrength = _steerStrength * (_isGrounded ? _groundSteerMultiplier : _airSteerMultiplier);
+        float steerStrength = _steerStrength * ((_isGrounded && !_isOnRamp) ? _groundSteerMultiplier : _airSteerMultiplier);
         float forwardSpeedSteerMult = Mathf.Max(Mathf.Max(0, _zSpeed), _minForwardSpeedSteerMultiplier);
         _rb.AddForce(new Vector3(_horizontalInput, 0, 0) * (forwardSpeedSteerMult * steerStrength), ForceMode.Force);
         // Slam Control, only when in air
         if (_isSlamPressed && !_isGrounded){
             _rb.AddForce(new Vector3(0, -1, _slamForwardMult) * _slamStrength, ForceMode.Force);
         }
-        // Good angle check -0.7 - to 0.7 +, good angle is anything above 0
-        // Vector3 normal = hit.normal;
-        // float dot = Vector3.Dot(normal, transform.forward);
         
         // Push along ramp
         if (Physics.Raycast(transform.position, -Vector3.up, out RaycastHit hit, _groundedThreshold) && _rampPlayerIsOn)
