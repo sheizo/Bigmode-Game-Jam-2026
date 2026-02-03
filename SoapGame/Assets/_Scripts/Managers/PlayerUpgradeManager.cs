@@ -94,4 +94,8 @@ public class PlayerUpgradeManager : MonoBehaviour
 
         PlayerPrefs.DeleteKey(SaveKey);
     }
+
+    // private void OnValidate(){
+    //     if(!Application.isPlaying) SaveAllUpgrades();
+    // }
 }

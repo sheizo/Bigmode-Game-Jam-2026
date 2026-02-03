@@ -15,19 +15,19 @@ MonoBehaviour:
   applyColor: 0
   topLeft:
     serializedVersion: 2
-    rgba: 4278190080
+    rgba: 4293743615
   topRight:
     serializedVersion: 2
-    rgba: 4278190080
+    rgba: 4294737151
   bottomLeft:
     serializedVersion: 2
-    rgba: 4278190080
+    rgba: 4294924536
   bottomRight:
     serializedVersion: 2
-    rgba: 4278190080
-  amplitude: 0.37
+    rgba: 4294935019
+  amplitude: 0.46
   byWord: 0
   everything: 0
   wiggly: 0
-  speed: 22.8
-  height: 40
+  speed: 13.5
+  height: 11.1

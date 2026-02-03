@@ -18,14 +18,16 @@ public abstract class UpgradeBase
     public abstract int NextLevelCost();
     public abstract int MaxLevel { get; }
 
-    public bool CanUpgrade => CurrentLevel < MaxLevel - 1;
+    public bool CanUpgrade => CurrentLevel < MaxLevel-1 ;
 
     public bool Upgrade()
     {
-        if (CanUpgrade)
+        if (CanUpgrade){
             CurrentLevel++;
+            return true;
+        }
         
-        return CanUpgrade;
+        return false;
     }
 }
 

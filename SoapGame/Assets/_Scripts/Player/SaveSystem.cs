@@ -31,7 +31,7 @@ public static class SaveSystem
         
         Debug.Log("Progress Loaded.");
         
-        return stats ?? new PlayerStats();
+        return stats ;
     }
 
     public static void SavePlayerStats(PlayerStats playerStats){

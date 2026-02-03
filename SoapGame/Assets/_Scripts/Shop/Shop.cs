@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
-    [SerializeField] private UpgradeValuesSO _upgradeValues;
     [SerializeField] private List<BuyableUpgrade> _buyableUpgrades;
 
     private void OnEnable(){
@@ -16,26 +15,30 @@ public class Shop : MonoBehaviour
         }
     }
 
-    private bool TryBuying(string upgradeID){
+    private bool TryBuying(BuyableUpgrade buyableUpgrade){
         int money = GameManager.PlayerStats.Money;
         
-        PlayerUpgradeManager upgradeManager = GameManager.PlayerUpgradeManager;
-        UpgradeBase selectedUpgradeBase = null;
-        foreach (FieldInfo upgradeBaseField in upgradeManager.GetAllUpgradeFields()){
-            UpgradeBase upgradeBase = upgradeBaseField.GetValue(upgradeManager) as UpgradeBase;
-            if(upgradeBase?.Id == upgradeID) selectedUpgradeBase = upgradeBase;
+        int upgradeCost = buyableUpgrade.UpgradeBase.NextLevelCost();
+
+        if (money < upgradeCost){
+            
+            return false;
         }
-        int upgradeCost = selectedUpgradeBase.NextLevelCost();
-        
-        if(money < upgradeCost) print("broke ass nigga");
         GameManager.PlayerStats.Money -= upgradeCost;
-        
-        GameManager.SaveGame();
-        return true;
+
+        bool success = buyableUpgrade.UpgradeBase.Upgrade();
+        if (success){
+            buyableUpgrade.UpdateUI();
+            GameManager.SaveGame();
+            GameManager.UIManager.UpdateMoney(GameManager.PlayerStats.Money);
+        }
+
+        return success;
     }
 
     [ContextMenu("Populate Buyable Upgrades")]
     private void PopulateBuyableUpgrades(){
+        _buyableUpgrades = new List<BuyableUpgrade>();
         foreach (Transform child in transform){
             if(child.TryGetComponent(out BuyableUpgrade buyableUpgrade))
                 _buyableUpgrades.Add(buyableUpgrade);
