@@ -9322,11 +9322,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 372920021074634092, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
       propertyPath: _segmentPoolCount
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 372920021074634092, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
       propertyPath: _minimumSegmentsAhead
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 372920021074634092, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
       propertyPath: _segmentDistanceDisappearance
