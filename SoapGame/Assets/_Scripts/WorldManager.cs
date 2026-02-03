@@ -4,21 +4,14 @@ using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.InputSystem;
 
-public class World : MonoBehaviour
+public class WorldManager : MonoBehaviour
 {
     [SerializeField] private Level _levelPrefab;
     [SerializeField] private GameObject _backWallPrefab;
-    [SerializeField] private GameObject _player;
-    [SerializeField] private GameObject _playerVisual;
-
-    
-    [SerializeField] private World _worldPrefab;
-
-    private World _currentWorld;
-
     [SerializeField] private int _copyAmount = 3;
     [SerializeField] private int _segmentDistanceDisappearance = 2;
 
+    private Transform _playerTransform;
     private List<Level> _levelInstances;
     private GameObject _backWall;
     private float _backWallPosZ;
@@ -29,9 +22,10 @@ public class World : MonoBehaviour
     private Bounds _levelBounds;
     public Bounds LevelBounds => _levelBounds;
 
-    void Awake()
+    public void Init()
     {
         _stainMask  = LayerMask.GetMask("Stain");
+        _playerTransform = GameManager.PlayerTransform;
 
         _levelInstances = new List<Level>();
         GameObject container = new GameObject("LevelCopies");
@@ -96,7 +90,7 @@ public class World : MonoBehaviour
     {
         for (int i = 0; i < _copyAmount; i++)
         {
-            if (_player.transform.position.z >= _levelInstances[i].transform.position.z + (_levelBounds.size.z * _segmentDistanceDisappearance))
+            if (_playerTransform.position.z >= _levelInstances[i].transform.position.z + (_levelBounds.size.z * _segmentDistanceDisappearance))
             {
                 // increase zPos by bounds so we know where to transition next level copy
                 _zPos += _levelBounds.size.z;
@@ -113,7 +107,7 @@ public class World : MonoBehaviour
     {
         RaycastHit hit;
 
-        if (Physics.Raycast(_player.transform.position, Vector3.down, out hit, 1f, _stainMask))
+        if (Physics.Raycast(_playerTransform.position, Vector3.down, out hit, 1f, _stainMask))
         {
             DecalProjector stainHit = hit.collider.gameObject.GetComponent<DecalProjector>();
             DOTween.To(() => stainHit.fadeFactor, x => stainHit.fadeFactor = x, 0f, 0.5f); 

@@ -12,7 +12,6 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private PlayerController _playerController;
     [SerializeField] private Launcher _launcher;
     [SerializeField] private Shop _shop;
-    [SerializeField] private World _worldPrefab;
 
 
     [Header("Managers/Services")]
@@ -20,19 +19,19 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private UIManager _uiManager;
     [SerializeField] private PlayerUpgradeManager _playerUpgradeManager;
     [SerializeField] private AudioManager _audioManager;
+    [SerializeField] private WorldManager _worldManager;
 
     public static GameStateManager GameStateManager => Instance._gameStateManager;
     public static UIManager UIManager => Instance._uiManager;
     public static PlayerUpgradeManager PlayerUpgradeManager => Instance._playerUpgradeManager;
     public static AudioManager AudioManager => Instance._audioManager;
-
     public static PlayerStats PlayerStats => Instance._playerStats;
+    public static WorldManager World => Instance._worldManager;
 
+    public static Transform PlayerTransform => Instance._playerController.transform;
 
-    private World _currentWorld;
     private RunStats _runStats;
     public static GameState CurrentGameState => Instance._cinemachineBrain.IsBlending ? GameState.NONE : Instance._gameStateManager.CurrentGameState;
-    
     
 
     //giga spaghetti
@@ -41,6 +40,7 @@ public class GameManager : Singleton<GameManager>
         _uiManager.Init();
         _playerUpgradeManager.Init();
         _audioManager.Init();
+        _worldManager.Init();
         
         _launcher.OnLaunched += PlayerGotoGameplay;
         _playerController.OnSoapDeplete += PlayerEndRun;
@@ -87,19 +87,9 @@ public class GameManager : Singleton<GameManager>
         _gameStateManager.SwitchGameState(GameState.LAUNCH);
     }
 
-    private void StartWorld()
-    {
-        _currentWorld = Instantiate(_worldPrefab);
-    }
-
     private void ResetWorld()
     {
-        if (_currentWorld != null)
-        {
-            Destroy(_currentWorld);
-        }
-
-        _currentWorld = Instantiate(_worldPrefab);
+        //TODO
     }
 
     public static void SaveGame() {
