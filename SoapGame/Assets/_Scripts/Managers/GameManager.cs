@@ -81,8 +81,8 @@ public class GameManager : Singleton<GameManager>
     public void PlayerRestart() { 
         print("restart");
         
-        _worldManager.ResetWorld();
         _playerController.ResetPlayer();
+        _worldManager.ResetWorld();
         _launcher.ResetLauncher();
         _gameStateManager.SwitchGameState(GameState.LAUNCH);
     }

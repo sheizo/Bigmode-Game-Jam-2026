@@ -181,7 +181,7 @@ public class PlayerController : MonoBehaviour
         
         _rb.linearVelocity = Vector3.zero;
         _rb.angularVelocity = Vector3.zero;
-        _rb.position = _originalPosition;
+        _rb.transform.position = _originalPosition;
         
         _playerVisual.position = _rb.position;
         _playerVisual.rotation = Quaternion.identity;
@@ -196,8 +196,6 @@ public class PlayerController : MonoBehaviour
         
         UpdateUpgrades();
         RefillSoap();
-        
-        
     }
     
     private void TakeSoap(float amount){

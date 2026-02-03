@@ -51,11 +51,11 @@ public class WorldManager : MonoBehaviour
         //Create x copies of _levelPrefab 
         for (int i = 1; i < _segmentPoolCount; i++)
         {
-            _maxZPos += _levelBounds.size.z;
-            WorldSegment level = Instantiate(_levelPrefab, new Vector3(0, 0, _maxZPos), Quaternion.identity, container.transform);
-            level.Init();
+            WorldSegment level = Instantiate(_levelPrefab, Vector3.zero, Quaternion.identity, container.transform);
             _worldSegmentPool.Enqueue(level);
         }
+
+        ResetWorld();
     }
 
     void Update()
@@ -70,14 +70,14 @@ public class WorldManager : MonoBehaviour
         {
             WorldSegment worldSegment = _worldSegmentPool.Dequeue();
             // increase zPos by bounds so we know where to transition next level copy
-            _maxZPos += _levelBounds.size.z;
             worldSegment.transform.position = new Vector3(worldSegment.transform.position.x, worldSegment.transform.position.y, _maxZPos);
             worldSegment.Reset();
-            worldSegment.Init();
 
             //Move the back wall
             Vector3 currWallPos = _backWall.transform.position;
             _backWall.transform.position = new Vector3(currWallPos.x, currWallPos.y, currWallPos.z + _levelBounds.size.z);
+
+            _maxZPos += _levelBounds.size.z;
         } 
     }
 
@@ -97,18 +97,12 @@ public class WorldManager : MonoBehaviour
         _backWall.transform.position = new Vector3(currWallPos.x, currWallPos.y, _backWallInitialZPos);
 
         _maxZPos = _segmentInitialZPos;
-        bool first = true;
+
         foreach(WorldSegment worldSegment in _worldSegmentPool)
         {
             worldSegment.Reset();
-            worldSegment.Init();
 
             worldSegment.transform.position = new Vector3(worldSegment.transform.position.x, worldSegment.transform.position.y, _maxZPos);
-            if (first)
-            {
-                first = false;
-                continue;
-            }
             _maxZPos += _levelBounds.size.z;
         }
     }

@@ -31,10 +31,7 @@ public class WorldSegment : MonoBehaviour
         {
             stainChild.gameObject.SetActive(false);
         }
-    }
 
-    public void Init()
-    {
         SpawnNpc();
         SpawnStains();
     }
