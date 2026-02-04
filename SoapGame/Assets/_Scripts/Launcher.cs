@@ -5,7 +5,8 @@ using UnityEngine.InputSystem;
 public class Launcher : MonoBehaviour
 {
     [SerializeField] private bool _useUpgrades;
-    
+
+    [SerializeField] private Transform _player;
     [SerializeField] private Rigidbody _playerRb;
     [SerializeField] private Vector3 _launchDirection = new Vector3(0,0.8f,1);
     [SerializeField] private float _maxLaunchForce = 3, _minLaunchForceMult = 0.3f;
@@ -63,7 +64,8 @@ public class Launcher : MonoBehaviour
     }
 
     public void ResetLauncher(){
-        
+        _player.position = transform.position;
+            
         _reachedPeak = false;
         _chargeTimer = 0;
         UpdateUpgrades();

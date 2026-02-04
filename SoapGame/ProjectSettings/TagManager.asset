@@ -7,6 +7,7 @@ TagManager:
   - Ramp
   - Ground
   - PlayerInteractable
+  - Ceiling
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - Water
   - UI
   - Stain
-  - 
+  - Shop
   - 
   - 
   - 

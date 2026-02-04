@@ -50,6 +50,8 @@ public class GameManager : Singleton<GameManager>
         _uiManager.OnExitShopClick += PlayerRestart;
         _uiManager.OnRestartClick += PlayerRestart;
         _uiManager.OnShopClick += PlayerGotoShop;
+        
+        
 
         _uiManager.UpdateGameStateCanvas(_gameStateManager.CurrentGameState);
         _gameStateManager.OnGameStateChange += _uiManager.UpdateGameStateCanvas;
@@ -62,7 +64,6 @@ public class GameManager : Singleton<GameManager>
 #endif
         
         LoadGame();
-        
     }
     
     private void Start(){
@@ -93,9 +94,9 @@ public class GameManager : Singleton<GameManager>
     public void PlayerRestart() { 
         print("restart");
         
-        _playerController.ResetPlayer();
         _worldManager.ResetWorld();
         _launcher.ResetLauncher();
+        _playerController.ResetPlayer();
         _gameStateManager.SwitchGameState(GameState.LAUNCH);
     }
 

@@ -35,8 +35,9 @@ public class NpcSpawnPoint : MonoBehaviour
         }
     }
 
-    public void SpawnRandom()
-    {
+    public void SpawnRandom(){
+        if (_weightedNpcList == null) return;
+        
         int randomNpc = Random.Range(0, _weightedNpcList.Count);
         _weightedNpcList[randomNpc].npcObject.SetActive(true);
     }

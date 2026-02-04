@@ -63,6 +63,15 @@ public class BuyableUpgrade : MonoBehaviour
 
     private void Update()
     {
+        bool inShop = (GameManager.CurrentGameState == GameState.SHOP);
+
+        if (!inShop)
+        {
+            _isMouseHovered = false;
+            _wasMouseHovered = false;
+            return;
+        }
+        
         // Perform raycast to detect mouse over the object.
         Ray ray = _mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
         RaycastHit hit;

@@ -30,6 +30,7 @@ public class UIManager : MonoBehaviour
     
     [Header("Effects")]
     [Range(0,1)][SerializeField] private float _soapFillDuration;
+    [Range(0, 1)] [SerializeField] private float _vignetteSoapStart = 0.5f;
     [Range(0,1)][SerializeField] private float _vignetteSmoothTime = 0.5f;
     [SerializeField] private float _maxVignetteIntensity;
     
@@ -86,11 +87,14 @@ public class UIManager : MonoBehaviour
     public void UpdateMoney(int money){
         _moneyCount.text = money.ToString();
     }
-    
+
     public void UpdateSoapMeter(float tNormalized){
+        
+        float vignetteT = Mathf.InverseLerp(0,_vignetteSoapStart, tNormalized);
+        
         _vignette.intensity.value = Mathf.SmoothDamp(
             _vignette.intensity.value,
-            Mathf.Lerp(_maxVignetteIntensity, _startingVignetteIntensity, tNormalized),
+            Mathf.Lerp(_maxVignetteIntensity, _startingVignetteIntensity, vignetteT),
             ref _vignetteSpeed,
             _vignetteSmoothTime
         );

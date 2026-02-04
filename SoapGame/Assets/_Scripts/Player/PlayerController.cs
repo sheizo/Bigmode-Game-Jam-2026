@@ -100,7 +100,12 @@ public class PlayerController : MonoBehaviour
     private RunStats _runStats;
     public Action<RunStats> OnSoapDeplete;
 
-    bool IsGrounded() => Physics.Raycast(transform.position, -Vector3.up, _groundedThreshold);
+    bool IsGrounded(){
+        if (Physics.Raycast(transform.position, -Vector3.up, out RaycastHit hit, _groundedThreshold)){
+            return hit.collider.CompareTag("Ground");
+        }
+        return false;
+    }
 
     Ramp IsOnRamp(){
         if (Physics.Raycast(transform.position, -Vector3.up, out RaycastHit hit, _groundedThreshold)){
@@ -290,10 +295,6 @@ public class PlayerController : MonoBehaviour
     }
 
     private void HandleSpeedCapping(){
-        // maybe not needed
-        if (_ySpeed < _minYSpeed)
-            _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, _minYSpeed, _rb.linearVelocity.z);
-        
         if (_currentSpeed > _maxGroundSpeed && (_isGrounded && !_isOnRamp)){
             _rb.linearVelocity = _rb.linearVelocity.normalized * _maxGroundSpeed;
             return; // exit early so maxSeed doesn't cap air speed
@@ -354,7 +355,7 @@ public class PlayerController : MonoBehaviour
             ? attachRamp.transform.rotation 
             : (_zSpeed < 0.1f) ? Quaternion.identity : Quaternion.LookRotation(moveDir, Vector3.up);
 
-        // final check if ramp will spawn under ground
+        // final check if ramp will spawn under or on smothing ground
         if (attachRamp){
             Vector3 attachPoint = attachRamp.transform.TransformPoint(attachRamp.EndPoint);
             Vector3 playerToAttachPoint = (attachPoint - transform.position);
@@ -497,9 +498,9 @@ public class PlayerController : MonoBehaviour
         
         
         //chance to queue a bad ramp
-        if (Random.Value < _badRampChance){ 
+        if (Random.Value <= _badRampChance){ 
             RampDirection[] values = (RampDirection[])System.Enum.GetValues(typeof(RampDirection));
-            _lastRampEndDirection = values[Random.Range(0, values.Length)];
+            _lastRampEndDirection = RampDirection.Down;
         } 
         
         if (_lastRampEndDirection == RampDirection.Down){
