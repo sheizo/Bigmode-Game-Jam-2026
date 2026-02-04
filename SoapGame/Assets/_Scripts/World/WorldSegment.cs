@@ -5,9 +5,7 @@ using UnityEngine.Rendering.Universal;
 public class WorldSegment : MonoBehaviour
 {
     [SerializeField] private List<NpcSpawnPoint> _npcSpawnPoints;
-
-    [SerializeField] private GameObject _stainSpawnPoints;
-    [SerializeField] private GameObject _stains;
+    [SerializeField] private List<StainSpawnPoint> _stainSpawnPoints;
     [SerializeField] private float decalSize = 5;
     
     private float _stainSpawnRate = 0.6f;
@@ -25,44 +23,46 @@ public class WorldSegment : MonoBehaviour
         }
 
         //disable all stains
-        foreach (Transform stainChild in _stains.transform)
+        foreach (StainSpawnPoint stainSpawnPoint in _stainSpawnPoints)
         {
-            stainChild.gameObject.SetActive(false);
+            stainSpawnPoint.Reset();
         }
 
         SpawnNpc();
-        SpawnStains();
+        SpawnStain();
     }
 
     public void SpawnNpc()
     {
-        // float spawnRate = Random.value;
-        // if (spawnRate < _npcSpawnRate)
-        // {
-        //     int randomSpawnPoint = Random.Range(0, _npcSpawnPoints.Count);
-        //     _npcSpawnPoints[randomSpawnPoint].SpawnRandom();
-        // }
+        float spawnRate = Random.value;
+        if (spawnRate < _npcSpawnRate)
+        {
+            int randomSpawnPoint = Random.Range(0, _npcSpawnPoints.Count);
+            _npcSpawnPoints[randomSpawnPoint].SpawnRandom();
+        }
+
         foreach (NpcSpawnPoint npcSpawnPoint in _npcSpawnPoints)
         {
-            npcSpawnPoint.SpawnRandom();
+            if (spawnRate < _npcSpawnRate)
+            {
+                npcSpawnPoint.SpawnRandom();
+            }
         }
+        
     }
 
-    public void SpawnStains()
+    public void SpawnStain()
     {
         float spawnRate = Random.value;
         if (spawnRate < _stainSpawnRate)
         {
-            int randomStainSpawnPointIndex = Random.Range(0, _stainSpawnPoints.transform.childCount);
-            Transform stainSpawnPoint = _stainSpawnPoints.transform.GetChild(randomStainSpawnPointIndex);
+            int randomStainSpawnPoint = Random.Range(0, _stainSpawnPoints.Count);
+            StainSpawnPoint stainSpawnPoint = _stainSpawnPoints[randomStainSpawnPoint];
+            stainSpawnPoint.SpawnRandom();
 
-            int randomStain = Random.Range(0, _stains.transform.childCount);
-
-            Transform stainTransform = _stains.transform.GetChild(randomStain);
-
-            // get collider/decal to change sizes & offset collider pos so it doesnt get above ground
-            BoxCollider stainCollider = stainTransform.GetComponent<BoxCollider>();
-            DecalProjector stainDecal = stainTransform.GetComponent<DecalProjector>();
+            Transform stainTransform = stainSpawnPoint.GetStainTransform();
+            BoxCollider stainCollider = stainSpawnPoint.GetStainCollider();
+            DecalProjector stainDecal = stainSpawnPoint.GetStainDecalProjector();
 
             int randomZRotation = Random.Range(0,360);
             
