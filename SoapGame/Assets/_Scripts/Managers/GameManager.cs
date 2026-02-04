@@ -76,12 +76,14 @@ public class GameManager : Singleton<GameManager>
         _uiManager.UpdateMoney(_playerStats.Money);
         _gameStateManager.SwitchGameState(GameState.SHOP);
     }
+
     private void PlayerEndRun(RunStats runStats){
         print("end run");
         _runStats = runStats;
         
         _gameStateManager.SwitchGameState(GameState.LOSSSCREEN);
         _uiManager.ResetSoapMeter();
+        _uiManager.SetRunStats(runStats);
         
     }
 

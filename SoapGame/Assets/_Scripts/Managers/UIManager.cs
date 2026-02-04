@@ -18,6 +18,9 @@ public class UIManager : MonoBehaviour
     private static readonly int Fill = Shader.PropertyToID("_Fill");
     [SerializeField] private Volume _globalVolume;
     
+    [Header("Displays")]
+    [SerializeField] StatsDisplay _statsDisplay;
+
     [Header("UI References")]
     [SerializeField] private RectTransform _selectedRamp, _waitingRamp;
     [SerializeField] private CanvasGroup _launchCanvasGroup, _gameplayCanvasGroup, _shopCanvasGroup, _lossCanvasGroup;
@@ -197,6 +200,12 @@ public class UIManager : MonoBehaviour
         _invalidSeq.AppendCallback(()=>_selectedRamp.anchoredPosition = Vector3.zero);
         _invalidSeq.Append(_selectedRamp.DOShakeAnchorPos(_invalidSelectionAnimDuration, new Vector2(1, 0)*_invalidSelectionShakeAmount, 10, 0, false, true,
             ShakeRandomnessMode.Harmonic));
+    }
+
+    public void SetRunStats(RunStats runStats)
+    {
+        runStats.TotalMoneyEarned = 6767;
+        _statsDisplay.ShowStats(runStats);
     }
     
     [ContextMenu("Player Restart")]
