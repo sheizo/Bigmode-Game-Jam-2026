@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Floor
+  m_Name: Shower
   m_Shader: {fileID: -6465566751694194690, guid: a566010c96746234e8fcd7d3010a07da, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -39,7 +39,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 6575516ef93cfbf4abf53dafb118fdf7, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1416cf965f4692a49a4f82bd80a7747b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_73f727a48de4494fa3f66715f2c992d7_Texture_1_Texture2D:
@@ -66,12 +66,12 @@ Material:
     - _BlendModePreserveSpecular: 1
     - _CastShadows: 1
     - _ColorAmount: 20
-    - _Cull: 0
+    - _Cull: 2
     - _DstBlend: 0
     - _DstBlendAlpha: 0
-    - _Edge: 0
+    - _Edge: -0.13
     - _Emission: 0.9
-    - _Fade: 0
+    - _Fade: -0.05
     - _Flip_Gradient: 0
     - _Gradient: 0
     - _Gradient_Noise_Strength: 0.1
@@ -95,6 +95,6 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Gradient_Axis_Mask: {r: 0, g: 0, b: 0, a: 0}
     - _Test: {r: 0, g: 0, b: 0, a: 0}
-    - _Tiling: {r: 2, g: 2, b: 0, a: 0}
+    - _Tiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
