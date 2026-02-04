@@ -34,17 +34,22 @@ public class WorldSegment : MonoBehaviour
 
     private float _colliderGroundOffset = 0.1f;
     
-    void Awake()
+    void CreateDictIfNotExist()
     {
-        _segmentsDict = new();
-        foreach(var a in _worldSegments)
+        if (_segmentsDict == null)
         {
-            _segmentsDict[a.SegmentType] = a;
+            _segmentsDict = new();
+            foreach(var a in _worldSegments)
+            {
+                _segmentsDict[a.SegmentType] = a;
+            }
         }
     }
 
     public void Reset()
     {
+        CreateDictIfNotExist();
+
         //Get a random room type.
         var values = (SegmentType[])System.Enum.GetValues(typeof(SegmentType));
         _currSegmentType = values[Random.Range(0, values.Length)];
