@@ -8,6 +8,7 @@ public class WorldManager : MonoBehaviour
     [SerializeField] private WorldSegment _levelPrefab;
     [SerializeField] private GameObject _backWall;
     [SerializeField] private int _segmentPoolCount;
+    [SerializeField] private float _segmentSpacing;
 
     [Range(2f, 5f)]
     [SerializeField] private int _minimumSegmentsAhead = 2;
@@ -77,7 +78,7 @@ public class WorldManager : MonoBehaviour
             Vector3 currWallPos = _backWall.transform.position;
             _backWall.transform.position = new Vector3(currWallPos.x, currWallPos.y, currWallPos.z + _levelBounds.size.z);
 
-            _maxZPos += _levelBounds.size.z;
+            _maxZPos += _levelBounds.size.z + _segmentSpacing;
         } 
     }
 
@@ -103,7 +104,7 @@ public class WorldManager : MonoBehaviour
             worldSegment.Reset();
 
             worldSegment.transform.position = new Vector3(worldSegment.transform.position.x, worldSegment.transform.position.y, _maxZPos);
-            _maxZPos += _levelBounds.size.z;
+            _maxZPos += _levelBounds.size.z + _segmentSpacing;
         }
     }
 
