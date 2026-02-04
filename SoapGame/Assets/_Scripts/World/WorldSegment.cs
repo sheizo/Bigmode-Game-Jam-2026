@@ -1,29 +1,72 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+
+public enum SegmentType
+{
+    BATHROOM,
+    SCHOOL,
+    GARDEN
+}
+
+[System.Serializable]
+public class SegmentTypeObject
+{
+    public SegmentType SegmentType;
+    public GameObject GameObject;
+    public List<NpcSpawnPoint> NpcSpawnPoints;
+    public List<StainSpawnPoint> StainSpawnPoints;
+}
+
 
 public class WorldSegment : MonoBehaviour
 {
-    [SerializeField] private List<NpcSpawnPoint> _npcSpawnPoints;
-    [SerializeField] private List<StainSpawnPoint> _stainSpawnPoints;
+    [SerializeField] private List<SegmentTypeObject> _worldSegments;
     [SerializeField] private float decalSize = 5;
     
+    private Dictionary<SegmentType, SegmentTypeObject> _segmentsDict;
+    
+    private SegmentType _currSegmentType;
+
     private float _stainSpawnRate = 0.6f;
     private float _npcSpawnRate = 0.75f;
 
     private float _colliderGroundOffset = 0.1f;
     
+    void Awake()
+    {
+        _segmentsDict = new();
+        foreach(var a in _worldSegments)
+        {
+            _segmentsDict[a.SegmentType] = a;
+        }
+    }
 
     public void Reset()
     {
+        //Get a random room type.
+        var values = (SegmentType[])System.Enum.GetValues(typeof(SegmentType));
+        _currSegmentType = values[Random.Range(0, values.Length)];
+
+        print("Random segment created: " + _currSegmentType.ToString());
+
+        //Disable all segment objects, enable the current one only
+        foreach(SegmentTypeObject seg in _worldSegments)
+        {
+            seg.GameObject.SetActive(seg.SegmentType == _currSegmentType);
+        }
+
         //disable all npcs
-        foreach (NpcSpawnPoint npcSpawnPoint in _npcSpawnPoints)
+        List<NpcSpawnPoint> npcSpawnPoints = _segmentsDict[_currSegmentType].NpcSpawnPoints;
+        foreach (NpcSpawnPoint npcSpawnPoint in npcSpawnPoints)
         {
             npcSpawnPoint.Reset();
         }
 
         //disable all stains
-        foreach (StainSpawnPoint stainSpawnPoint in _stainSpawnPoints)
+        List<StainSpawnPoint> stainSpawnPoints = _segmentsDict[_currSegmentType].StainSpawnPoints;
+        foreach (StainSpawnPoint stainSpawnPoint in stainSpawnPoints)
         {
             stainSpawnPoint.Reset();
         }
@@ -37,18 +80,11 @@ public class WorldSegment : MonoBehaviour
         float spawnRate = Random.value;
         if (spawnRate < _npcSpawnRate)
         {
-            int randomSpawnPoint = Random.Range(0, _npcSpawnPoints.Count);
-            _npcSpawnPoints[randomSpawnPoint].SpawnRandom();
-        }
+            List<NpcSpawnPoint> npcList = _segmentsDict[_currSegmentType].NpcSpawnPoints;
 
-        foreach (NpcSpawnPoint npcSpawnPoint in _npcSpawnPoints)
-        {
-            if (spawnRate < _npcSpawnRate)
-            {
-                npcSpawnPoint.SpawnRandom();
-            }
+            int randomSpawnPoint = Random.Range(0, npcList.Count);
+            npcList[randomSpawnPoint].SpawnRandom();
         }
-        
     }
 
     public void SpawnStain()
@@ -56,8 +92,9 @@ public class WorldSegment : MonoBehaviour
         float spawnRate = Random.value;
         if (spawnRate < _stainSpawnRate)
         {
-            int randomStainSpawnPoint = Random.Range(0, _stainSpawnPoints.Count);
-            StainSpawnPoint stainSpawnPoint = _stainSpawnPoints[randomStainSpawnPoint];
+            List<StainSpawnPoint> stainSpawnList = _segmentsDict[_currSegmentType].StainSpawnPoints;
+            int randomStainSpawnPoint = Random.Range(0, stainSpawnList.Count);
+            StainSpawnPoint stainSpawnPoint = stainSpawnList[randomStainSpawnPoint];
             stainSpawnPoint.SpawnRandom();
 
             Transform stainTransform = stainSpawnPoint.GetStainTransform();

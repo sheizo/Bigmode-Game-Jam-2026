@@ -105,7 +105,6 @@ public class BuyableUpgrade : MonoBehaviour
     private void CreateUI(){
         //for creating upgrade counts
         _upgradeCounters.Clear();
-        print(_upgradeBase.CurrentLevel);
         for (int i = 1; i < _upgradeBase?.MaxLevel; i++){
             UpgradeCounter upgradeCounter = Instantiate(_upgradeCounterPrefab, _upgradeCountContainer);
             upgradeCounter.SetEnabled(_upgradeBase.CurrentLevel >= i);
