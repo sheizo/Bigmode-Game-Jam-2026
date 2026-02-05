@@ -13,6 +13,7 @@ public class Npc
 {
     public NpcRarity rarity;
     public GameObject npcObject;
+    public bool npcRotates;
 }
 
 public class NpcSpawnPoint : MonoBehaviour
@@ -38,8 +39,15 @@ public class NpcSpawnPoint : MonoBehaviour
     public void SpawnRandom(){
         if (_weightedNpcList == null) return;
         
-        int randomNpc = Random.Range(0, _weightedNpcList.Count);
-        _weightedNpcList[randomNpc].npcObject.SetActive(true);
+        int randomNpcIndex = Random.Range(0, _weightedNpcList.Count);
+        Npc randomNpc = _weightedNpcList[randomNpcIndex];
+        randomNpc.npcObject.SetActive(true);
+        
+        if (randomNpc.npcRotates)
+        {
+            int randomZRotation = Random.Range(0,360);
+            randomNpc.npcObject.transform.rotation = Quaternion.Euler(0, randomZRotation, 0);
+        }
     }
 
     public void Reset()
