@@ -31,7 +31,7 @@ public class WorldSegment : MonoBehaviour
     private SegmentType _currSegmentType;
 
     private float _stainSpawnRate = 0.6f;
-    private float _npcSpawnRate = 0.75f;
+    private float _npcSpawnRate = 0.5f;
 
     private float _colliderGroundOffset = 0.1f;
     
@@ -83,14 +83,15 @@ public class WorldSegment : MonoBehaviour
 
     public void SpawnNpc()
     {
-        float spawnRate = Random.value;
-        if (spawnRate < _npcSpawnRate)
-        {
-            List<NpcSpawnPoint> npcList = _segmentsDict[_currSegmentType].NpcSpawnPoints;
+        List<NpcSpawnPoint> npcSpawnPointList = _segmentsDict[_currSegmentType].NpcSpawnPoints;
 
-            int randomSpawnPoint = Random.Range(0, npcList.Count);
-            NpcSpawnPoint npcSpawnPoint = npcList[randomSpawnPoint];
-            npcSpawnPoint.SpawnRandom();
+        foreach (NpcSpawnPoint npcSpawnPoint in npcSpawnPointList)
+        {
+            float spawnRate = Random.value;
+            if (spawnRate < _npcSpawnRate)
+            {
+                npcSpawnPoint.SpawnRandom();
+            }
         }
     }
 
