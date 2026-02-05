@@ -1,5 +1,6 @@
 using System;
-using System.Collections.Generic;
+using System.Collections;
+using System.Runtime.CompilerServices;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -7,6 +8,7 @@ using UnityEngine.InputSystem;
 
 public class GameManager : Singleton<GameManager>
 {
+    public static readonly int MasterMaterialDirtAmount  = Shader.PropertyToID("_Dirt_Amount");
     public const string InteractableTag = "PlayerInteractable";
 
     [SerializeField] private CinemachineBrain _cinemachineBrain;
@@ -109,6 +111,16 @@ public class GameManager : Singleton<GameManager>
         //_playerUpgradeManager.LoadAllUpgrades();
     }
 
+    public void HitStop(float time){
+        Time.timeScale = 1;
+        StartCoroutine(HitStopRoutine(time));
+    }
+
+    private IEnumerator HitStopRoutine(float time){
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(time);
+        Time.timeScale = 1;
+    }
     
     
     [ContextMenu("Save Stats")]

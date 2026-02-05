@@ -79,9 +79,9 @@ Material:
     - _CastShadows: 1
     - _ColorAmount: 20
     - _Cull: 2
-    - _Dirt_Amount: 1
+    - _Dirt_Amount: 0
     - _Dirt_Pixelize: 82.67
-    - _Dirt_Power: 0.09
+    - _Dirt_Power: 0.25
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _Edge: 0.31

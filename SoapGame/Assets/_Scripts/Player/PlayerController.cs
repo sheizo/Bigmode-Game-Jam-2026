@@ -27,6 +27,10 @@ public class PlayerController : MonoBehaviour
     [Header("Cleaning")]
     [SerializeField] private Vector3 _cleanBoostDirection;
     [SerializeField] private float _cleanBoostStrength = 20;
+    [SerializeField] private float _timeToClean = 2f;
+    [Range(0,1)] [SerializeField] private float _cleanSoapUsageSec = 0.1f;
+    [Range(0,1)] [SerializeField] private float _cleanSoapRefill = 0.1f;
+    [SerializeField] private float _cleanHitStopTime = 0.15f;
     
     [Header("Ramp Spawning")] 
     [SerializeField] private float _rampSpawnParticlesTravelTime = 0.2f; 
@@ -100,6 +104,7 @@ public class PlayerController : MonoBehaviour
     private List<Ramp> _straightFacingRamps = new List<Ramp>();
 
     public bool SoapDepleted => _currentSoapPower <= 0;
+    public float TimeToClean => _timeToClean;
     
     private RunStats _runStats;
     public Action<RunStats> OnSoapDeplete;
@@ -150,10 +155,6 @@ public class PlayerController : MonoBehaviour
         HandleCameraFOV();
         HandleRampSpawningAndDiscarding();
         
-        //TODO: delete
-        if (Keyboard.current.rKey.wasPressedThisFrame)
-            GameManager.Instance.PlayerRestart();
-
         //count the time on ground
         if (_isGrounded && !_rampPlayerIsOn)
             _timeOnGround += Time.deltaTime;
@@ -184,27 +185,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnClean(PlayerInteractable interactable) // MAYBE DONT NEED REFERENCE TO INTERACTABLE ?
     {
-        if (other.CompareTag(GameManager.InteractableTag))
-        {
-            PlayerInteractable interactable = other.GetComponent<PlayerInteractable>();
-            interactable.Interact(this);
-            HandleInteraction(interactable);
-        }
-    }
-
-    private void HandleInteraction(PlayerInteractable interactable)
-    {
-        print("TRIGGER ENTER INTERACTION TYPE: " + interactable.InteractionType);
-        switch(interactable.InteractionType)
-        {
-            case InteractionType.INSTANT_CLEAN:
-                _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, 0, _rb.linearVelocity.z);
-                _rb.AddForce(_cleanBoostDirection * _cleanBoostStrength + _rb.linearVelocity, ForceMode.Impulse);
-                break;
-            
-        }
+        GameManager.Instance.HitStop(_cleanHitStopTime);
+        _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, 0, _rb.linearVelocity.z);
+        _rb.AddForce(_cleanBoostDirection * _cleanBoostStrength, ForceMode.Impulse);
+        
+        AddSoapPower( _cleanSoapRefill);
     }
 
     public void ResetPlayer(){
@@ -237,6 +224,7 @@ public class PlayerController : MonoBehaviour
         }
         _currentSoapPower-=amount;
 
+        
         GameManager.UIManager.UpdateSoapMeter(_currentSoapPower/_maxSoapPower);
         UpdatePlayerSize(amount >= 1);
     }
@@ -259,7 +247,6 @@ public class PlayerController : MonoBehaviour
         _playerVisual.transform.position = transform.position;
     }
 
-    //TODO: Migrate to InputSystem, maybe
     private void SetControlVariables(){
         _horizontalInput = Keyboard.current.aKey.isPressed ? -1f : Keyboard.current.dKey.isPressed ? 1f : 0f;
         _isSlamPressed = Keyboard.current.spaceKey.isPressed;
@@ -481,12 +468,14 @@ public class PlayerController : MonoBehaviour
         _rampForceForward = upgrades.RampBoostSpeed.CurrentValue.y;
         _slamStrength = upgrades.SlamForce.CurrentValue;
         _physicsMaterial.bounciness = upgrades.Bounciness.CurrentValue;
+        _soapRefillOnClean = upgrades.SoapRefillOnClean.CurrentValue;
     }
 
     public void RefillSoap() => AddSoapPower(1);
 
     public void AddSoapPower(float normalizedAmount){
-        _currentSoapPower = Mathf.Lerp(0, _maxSoapPower, normalizedAmount).CeilToInt();
+        float amountToAdd = _maxSoapPower * normalizedAmount;
+        _currentSoapPower = Mathf.Clamp(_currentSoapPower + amountToAdd,0, _maxSoapPower);
         
         UpdatePlayerSize(true); //works right now but beware if added soap is too little
         GameManager.UIManager.UpdateSoapMeter(normalizedAmount);
@@ -529,12 +518,28 @@ public class PlayerController : MonoBehaviour
         GameManager.UIManager.SetRampSprites(_rampQueue,discarding ? RampSelectionAnimation.DISCARD : RampSelectionAnimation.PLACE);
         _lastRampEndDirection = ramp.EndingDirection;
     }
+    
+    private void ProcessInteraction(GameObject obj){
+        if (!obj.TryGetComponent(out PlayerInteractable interactable)) return;
+
+        interactable.Interact(this, OnClean);
+        TakeSoap(_maxSoapPower * _cleanSoapUsageSec * Time.deltaTime);
+    }
+    
+    private void OnTriggerStay(Collider other){
+        ProcessInteraction(other.gameObject);
+    }
+
+    private void OnCollisionStay(Collision collision){
+        ProcessInteraction(collision.gameObject);
+    }
 
     [ContextMenu("Force Update Upgrades")]
     private void ForceUpdateUpgrades(){
         if (!Application.isPlaying) return;
         UpdateUpgrades();
     }
+    
     
     private void OnDrawGizmos(){
         if(!Application.isPlaying) SetPlayerVisualPosition();

@@ -77,7 +77,7 @@ Material:
     - _Cull: 2
     - _Dirt_Amount: 0
     - _Dirt_Pixelize: 77.45
-    - _Dirt_Power: 0.2
+    - _Dirt_Power: 0.25
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _Edge: 10.3

@@ -80,15 +80,15 @@ Material:
     - _ColorAmount: 20
     - _Cull: 2
     - _Dirt_Amount: 0
-    - _Dirt_Pixelize: 77.45
-    - _Dirt_Power: 0.2
+    - _Dirt_Pixelize: 81.9
+    - _Dirt_Power: 0.25
     - _DstBlend: 0
     - _DstBlendAlpha: 0
-    - _Edge: 6.44
-    - _Edge_1: -1.16
+    - _Edge: 5.69
+    - _Edge_1: -2.07
     - _Emission: 0.9
-    - _Fade: 3.09
-    - _Fade_1: -7.27
+    - _Fade: 0.75
+    - _Fade_1: -6.2
     - _Flip_Gradient: 0
     - _Gradient: 1
     - _Gradient_1: 1
@@ -100,7 +100,7 @@ Material:
     - _Noise_Pixelize: 97.99
     - _Noise_Strength: 0.1
     - _PixelizeAmount: 80
-    - _Pixelize_Dirt: 0
+    - _Pixelize_Dirt: 1
     - _Pixelize_Texture: 0
     - _QueueControl: 0
     - _QueueOffset: 0
