@@ -52,8 +52,8 @@ public class WorldSegment : MonoBehaviour
         CreateDictIfNotExist();
 
         //Get a random room type.
-        var values = (SegmentType[])System.Enum.GetValues(typeof(SegmentType));
-        _currSegmentType = values[Random.Range(0, _worldSegments.Count)];
+        SegmentTypeObject randomSegmentType = _worldSegments[Random.Range(0, _worldSegments.Count)];
+        _currSegmentType = randomSegmentType.SegmentType;
 
         print("Random segment created: " + _currSegmentType.ToString());
 
