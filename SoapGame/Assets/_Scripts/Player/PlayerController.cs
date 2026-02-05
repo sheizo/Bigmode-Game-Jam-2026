@@ -199,20 +199,11 @@ public class PlayerController : MonoBehaviour
         print("TRIGGER ENTER INTERACTION TYPE: " + interactable.InteractionType);
         switch(interactable.InteractionType)
         {
-            case InteractionType.SPEED:
+            case InteractionType.INSTANT_CLEAN:
                 _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, 0, _rb.linearVelocity.z);
-                _rb.AddForce(_cleanBoostDirection * _cleanBoostStrength, ForceMode.Impulse);
+                _rb.AddForce(_cleanBoostDirection * _cleanBoostStrength + _rb.linearVelocity, ForceMode.Impulse);
                 break;
-            case InteractionType.STAIN:
-                _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, 0, _rb.linearVelocity.z);
-                _rb.AddForce(new Vector3(_cleanBoostDirection.x * _cleanBoostStrength, _cleanBoostDirection.y * 50, _cleanBoostDirection.z * _cleanBoostStrength), ForceMode.Impulse);
-                DecalProjector stainDecal = interactable.gameObject.GetComponent<DecalProjector>();
-                interactable._interacted = false;
-                DOTween.To(() => stainDecal.fadeFactor, x => stainDecal.fadeFactor = x, 0f, 0.5f).OnComplete(() =>
-                {
-                   interactable.gameObject.SetActive(false); 
-                });
-                break;
+            
         }
     }
 

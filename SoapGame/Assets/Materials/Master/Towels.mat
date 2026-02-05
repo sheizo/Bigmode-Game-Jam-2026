@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Wall 1
+  m_Name: Towels
   m_Shader: {fileID: -6465566751694194690, guid: a566010c96746234e8fcd7d3010a07da, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -38,8 +38,16 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Dirt_Texture:
+        m_Texture: {fileID: 2800000, guid: 377612384e1e8b949950b46911aa7a90, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 4e5a05b1c16f80a49b9f7953f104b2e7, type: 3}
+        m_Texture: {fileID: 2800000, guid: 00d95ff56317da746be19cdaa652bca9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Noise_Texture:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_73f727a48de4494fa3f66715f2c992d7_Texture_1_Texture2D:
@@ -67,18 +75,28 @@ Material:
     - _CastShadows: 1
     - _ColorAmount: 20
     - _Cull: 2
+    - _Dirt_Amount: 0
+    - _Dirt_Pixelize: 77.45
+    - _Dirt_Power: 0.2
     - _DstBlend: 0
     - _DstBlendAlpha: 0
-    - _Edge: 0
+    - _Edge: 10.3
+    - _Edge_1: 0
     - _Emission: 0.9
-    - _Fade: 0
-    - _Flip_Gradient: 0
-    - _Gradient: 0
+    - _Fade: 18.8
+    - _Fade_1: 0
+    - _Flip_Gradient: 1
+    - _Gradient: 1
+    - _Gradient_1: 0
     - _Gradient_Noise_Strength: 0.1
     - _Gradient_Noise_Tiling: 1
-    - _Gradient_Pixel_Steps: 20
+    - _Gradient_Pixel_Steps: 4.8
     - _HasTexture: 1
+    - _Noise: 0
+    - _Noise_Pixelize: 20
+    - _Noise_Strength: 0
     - _PixelizeAmount: 80
+    - _Pixelize_Dirt: 0
     - _Pixelize_Texture: 0
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -92,8 +110,16 @@ Material:
     - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Gradient_Axis_Mask: {r: 0, g: 0, b: 0, a: 0}
+    - _Color: {r: 0.514151, g: 1, b: 0.86498386, a: 1}
+    - _Dirt_Color_1: {r: 0.36792448, g: 0.15111175, b: 0, a: 0}
+    - _Dirt_Color_2: {r: 0.6603774, g: 0.26928857, b: 0, a: 0}
+    - _Dirt_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _EndColor: {r: 0, g: 0.30853224, b: 1, a: 0}
+    - _Gradient_Axis_Mask: {r: 0, g: 0, b: 1, a: 0}
+    - _Gradient_Axis_Mask_1: {r: 0, g: 1, b: 0, a: 0}
+    - _Noise_Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Noise_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _StartColor: {r: 1, g: 1, b: 1, a: 0}
     - _Test: {r: 0, g: 0, b: 0, a: 0}
     - _Tiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
