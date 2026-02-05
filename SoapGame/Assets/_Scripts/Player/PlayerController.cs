@@ -182,9 +182,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == GameManager.InteractableTag)
+        if (other.CompareTag(GameManager.InteractableTag))
         {
             PlayerInteractable interactable = other.GetComponent<PlayerInteractable>();
+            interactable.Interact(this);
             HandleInteraction(interactable);
         }
     }
