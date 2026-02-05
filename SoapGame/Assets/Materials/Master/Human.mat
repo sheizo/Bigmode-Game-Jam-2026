@@ -34,12 +34,20 @@ Material:
     RenderType: Opaque
   disabledShaderPasses:
   - MOTIONVECTORS
-  m_LockedProperties: 
+  m_LockedProperties: _Dirt_Texture
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Dirt_Texture:
+        m_Texture: {fileID: 2800000, guid: 377612384e1e8b949950b46911aa7a90, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 07fb9008407b39a4f817fb888f21c42d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Noise_Texture:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_0fc843edb7954757a074dbfc25ae3378_Texture_1_Texture2D:
@@ -71,18 +79,28 @@ Material:
     - _CastShadows: 1
     - _ColorAmount: 20
     - _Cull: 2
+    - _Dirt_Amount: 1
+    - _Dirt_Pixelize: 82.67
+    - _Dirt_Power: 0.09
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _Edge: 0.31
+    - _Edge_1: 0
     - _Emission: 0.9
     - _Fade: 0.41
+    - _Fade_1: 0
     - _Flip_Gradient: 0
     - _Gradient: 1
+    - _Gradient_1: 0
     - _Gradient_Noise_Strength: 0.1
     - _Gradient_Noise_Tiling: 1
     - _Gradient_Pixel_Steps: 20
     - _HasTexture: 1
+    - _Noise: 0
+    - _Noise_Pixelize: 20
+    - _Noise_Strength: 0
     - _PixelizeAmount: 80
+    - _Pixelize_Dirt: 1
     - _Pixelize_Texture: 0
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -97,8 +115,14 @@ Material:
     - _ZWriteControl: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Dirt_Color_1: {r: 0.3018868, g: 0.1252509, b: 0, a: 0}
+    - _Dirt_Color_2: {r: 0.6603774, g: 0.26928857, b: 0, a: 0}
+    - _Dirt_Tiling: {r: 1, g: 1, b: 0, a: 0}
     - _EndColor: {r: 0, g: 0, b: 0, a: 0}
     - _Gradient_Axis_Mask: {r: 0, g: 0, b: 0, a: 0}
+    - _Gradient_Axis_Mask_1: {r: 0, g: 1, b: 0, a: 0}
+    - _Noise_Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Noise_Tiling: {r: 1, g: 1, b: 0, a: 0}
     - _StartColor: {r: 1, g: 1, b: 1, a: 0}
     - _Test: {r: 0, g: 0, b: 0, a: 0}
     - _Tiling: {r: 1, g: 1, b: 0, a: 0}
