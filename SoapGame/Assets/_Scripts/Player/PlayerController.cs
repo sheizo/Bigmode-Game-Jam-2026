@@ -23,6 +23,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _scaleTweenDuration = 0.2f;
     [Range(0,1)] [SerializeField] private float _minSoapPercentForRamp = 0.1f;
     
+    [Header("Cleaning")]
+    [SerializeField] private Vector3 _cleanBoostDirection;
+    [SerializeField] private float _cleanBoostStrength = 20;
+    
+    [Header("Ramp Spawning")] 
+    [SerializeField] private float _rampSpawnParticlesTravelTime = 0.2f; 
+    [SerializeField] private Vector3 _rampSpawnOffset = new Vector3(0f, -1, 0f);
+    [SerializeField] private float _predictionTime = 0.25f;
+    [SerializeField] private int _rampQueueSize;
+    [SerializeField] private float _rampCheckRaycastLength = 20;
+    [SerializeField] private float _rampCheckRaycastRadius = 0.2f;
+    [Range(0,1)] [SerializeField] private float _badRampChance = 0.5f;
     
     [Header("Prefabs")]
     [SerializeField] private List<Ramp> _rampPrefabs;
@@ -40,7 +52,7 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")] 
     [SerializeField] private float _maxAirSpeed = 20;
     [SerializeField] private float _maxGroundSpeed = 10;
-    [SerializeField] private float _minYSpeed = -90;
+    [Tooltip("Brake speed for when player reaches a max speed")] [SerializeField] private float _maxSpeedBraking = 30f; 
     [SerializeField] private float _groundedThreshold = 0.5f;
     [SerializeField] private float _slamStrength = 10;
     [Range(0,1)] [SerializeField] private float _slamForwardMult = 0.1f;
@@ -49,15 +61,6 @@ public class PlayerController : MonoBehaviour
     [Range(0, 1)] [SerializeField] private float _groundSteerMultiplier = 10;
     [Range(0, 1)] [SerializeField] private float _minForwardSpeedSteerMultiplier = 0.1f;
     [SerializeField] private float _rampForceForward, _rampForceDown;
-
-    [Header("Ramp Spawning")] 
-    [SerializeField] private float _rampSpawnParticlesTravelTime = 0.2f; 
-    [SerializeField] private Vector3 _rampSpawnOffset = new Vector3(0f, -1, 0f);
-    [SerializeField] private float _predictionTime = 0.25f;
-    [SerializeField] private int _rampQueueSize;
-    [SerializeField] private float _rampCheckRaycastLength = 20;
-    [SerializeField] private float _rampCheckRaycastRadius = 0.2f;
-    [Range(0,1)] [SerializeField] private float _badRampChance = 0.5f;
 
     [Header("Visual rotations")] 
     [SerializeField] private float _maxXAngle = 20f;
@@ -102,7 +105,7 @@ public class PlayerController : MonoBehaviour
 
     bool IsGrounded(){
         if (Physics.Raycast(transform.position, -Vector3.up, out RaycastHit hit, _groundedThreshold)){
-            return hit.collider.CompareTag("Ground");
+            return !hit.collider.CompareTag("PlayerInteractable");
         }
         return false;
     }
@@ -193,14 +196,11 @@ public class PlayerController : MonoBehaviour
     private void HandleInteraction(PlayerInteractable interactable)
     {
         print("TRIGGER ENTER INTERACTION TYPE: " + interactable.InteractionType);
-        float forceAmount = 10f;
-        float upForceAmount = 20f;
         switch(interactable.InteractionType)
         {
             case InteractionType.SPEED:
                 _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, 0, _rb.linearVelocity.z);
-                Vector3 combinedForce = Vector3.forward * forceAmount + Vector3.up * upForceAmount;
-                _rb.AddForce(combinedForce, ForceMode.Impulse);
+                _rb.AddForce(_cleanBoostDirection * _cleanBoostStrength, ForceMode.Impulse);
                 break;
         }
     }
@@ -296,14 +296,17 @@ public class PlayerController : MonoBehaviour
     }
 
     private void HandleSpeedCapping(){
-        if (_currentSpeed > _maxGroundSpeed && (_isGrounded && !_isOnRamp)){
-            _rb.linearVelocity = _rb.linearVelocity.normalized * _maxGroundSpeed;
-            return; // exit early so maxSeed doesn't cap air speed
-        }
-
-        if (_currentSpeed > _maxAirSpeed){
-            _rb.linearVelocity = _rb.linearVelocity.normalized * _maxAirSpeed;
-            return;
+        float targetMax = (_isGrounded && !_isOnRamp) ? _maxGroundSpeed : _maxAirSpeed;
+        
+        
+        if (_currentSpeed > targetMax) {
+            
+            Vector3 targetVelocity = _rb.linearVelocity.normalized * targetMax;
+            _rb.linearVelocity = Vector3.MoveTowards(
+                _rb.linearVelocity, 
+                targetVelocity, 
+                _maxSpeedBraking * Time.fixedDeltaTime
+            );
         }
         
     }

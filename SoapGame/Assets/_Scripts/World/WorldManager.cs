@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
@@ -108,12 +109,30 @@ public class WorldManager : MonoBehaviour
         }
     }
 
+    private void OnValidate(){
+        Renderer[] renderers = _levelPrefab.GetComponentsInChildren<Renderer>();
+        
+        //define level maximum bounds
+        for (int i = 0; i < renderers.Length; ++i)
+        {
+            if (renderers[i] == null) continue;
+            _levelBounds.Encapsulate(renderers[i].bounds);
+        }
+    }
+
     private void OnDrawGizmos()
     {
-        // Set the Gizmo color
-        Gizmos.color = Color.red;
+        Gizmos.matrix = transform.localToWorldMatrix;
 
-        Vector3 planePosition = new Vector3(transform.position.x, transform.position.y, _zPosThreshold);
-        Gizmos.DrawWireCube(planePosition, new Vector3(100f, 100f, 0.1f));  // Z=0.1 to make it thin
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(new Vector3(0,0, _zPosThreshold + transform.position.z), new Vector3(100f, 100f, 0.1f));
+
+        Gizmos.color = Color.green;
+        Vector3 localCenter = transform.InverseTransformPoint(_levelBounds.center);
+        float zOffset = (_levelBounds.size.z / 2f) + _segmentSpacing;
+    //a
+        Vector3 levelBounds = _levelBounds.size;
+        Gizmos.DrawWireCube(localCenter + new Vector3(0, 0, zOffset), new Vector3(levelBounds.x, levelBounds.y, 0.01f));
+        Gizmos.DrawWireCube(localCenter - new Vector3(0, 0, zOffset), new Vector3(levelBounds.x, levelBounds.y, 0.01f));
     }
 }

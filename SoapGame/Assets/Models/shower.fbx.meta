@@ -3,7 +3,12 @@ guid: 0103632230c2621489cc2a5171cc210e
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shower Material
+    second: {fileID: 2100000, guid: 8f81594c84563d747b6b3f9c9f3f26e5, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

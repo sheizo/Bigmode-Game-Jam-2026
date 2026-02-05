@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Wall
+  m_Name: Wall 1
   m_Shader: {fileID: -6465566751694194690, guid: a566010c96746234e8fcd7d3010a07da, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -40,10 +40,6 @@ Material:
     m_TexEnvs:
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 4e5a05b1c16f80a49b9f7953f104b2e7, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_0fc843edb7954757a074dbfc25ae3378_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: 47e8eed1023ee3b4e89164a4a33bdef9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_73f727a48de4494fa3f66715f2c992d7_Texture_1_Texture2D:
@@ -97,9 +93,7 @@ Material:
     - _ZWriteControl: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EndColor: {r: 0.11639158, g: 0.0235849, b: 1, a: 0}
     - _Gradient_Axis_Mask: {r: 0, g: 0, b: 0, a: 0}
-    - _StartColor: {r: 1, g: 0, b: 0, a: 0}
     - _Test: {r: 0, g: 0, b: 0, a: 0}
     - _Tiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []

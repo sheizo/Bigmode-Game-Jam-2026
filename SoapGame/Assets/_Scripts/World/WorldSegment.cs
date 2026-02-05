@@ -6,6 +6,7 @@ using UnityEngine.Rendering.Universal;
 public enum SegmentType
 {
     BATHROOM,
+    LOCKER_ROOM,
     SCHOOL,
     GARDEN
 }
@@ -52,7 +53,7 @@ public class WorldSegment : MonoBehaviour
 
         //Get a random room type.
         var values = (SegmentType[])System.Enum.GetValues(typeof(SegmentType));
-        _currSegmentType = values[Random.Range(0, values.Length)];
+        _currSegmentType = values[Random.Range(0, _worldSegments.Count)];
 
         print("Random segment created: " + _currSegmentType.ToString());
 

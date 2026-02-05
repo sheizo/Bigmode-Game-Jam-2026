@@ -656,9 +656,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e53683cf407e36048b17b0c0aa2180fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickableObject
-  _allowedCameraLayers:
-    serializedVersion: 2
-    m_Bits: 128
   _upgradeVisual: {fileID: 3183476346917823619}
   _upgradeId: max_air_speed
   _inputActionAsset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
@@ -761,7 +758,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1861206466467328855, guid: 7d0a3217f3385d541b4bb741da9840ad, type: 3}
+  - {fileID: -7087222263741793292, guid: a10d9609330c90743940ce7870113c96, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -39,7 +39,15 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: ed70b55fa1fe2c7438d30b4450403df8, type: 3}
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Noise_Texture:
+        m_Texture: {fileID: 2800000, guid: 64684a863454d524984856074ab2afd1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_0fc843edb7954757a074dbfc25ae3378_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 47e8eed1023ee3b4e89164a4a33bdef9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_73f727a48de4494fa3f66715f2c992d7_Texture_1_Texture2D:
@@ -70,16 +78,22 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _Edge: 6.44
+    - _Edge_1: -1.16
     - _Emission: 0.9
     - _Fade: 3.09
+    - _Fade_1: -7.27
     - _Flip_Gradient: 0
     - _Gradient: 1
+    - _Gradient_1: 1
     - _Gradient_Noise_Strength: 0
     - _Gradient_Noise_Tiling: 1
-    - _Gradient_Pixel_Steps: 5.41
+    - _Gradient_Pixel_Steps: -2.5
     - _HasTexture: 0
+    - _Noise: 1
+    - _Noise_Pixelize: 97.99
+    - _Noise_Strength: 0.1
     - _PixelizeAmount: 80
-    - _Pixelize_Texture: 1
+    - _Pixelize_Texture: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
@@ -92,10 +106,13 @@ Material:
     - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
-    - _Color: {r: 1, g: 0.61760306, b: 0.2028302, a: 1}
-    - _EndColor: {r: 1, g: 0.8563993, b: 0.6745283, a: 0}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EndColor: {r: 0.8962264, g: 0.49670377, b: 0, a: 0}
     - _Gradient_Axis_Mask: {r: 0, g: 1, b: 0, a: 0}
-    - _StartColor: {r: 0, g: 0.06844139, b: 1, a: 0}
+    - _Gradient_Axis_Mask_1: {r: 0, g: 1, b: 0, a: 0}
+    - _Noise_Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Noise_Tiling: {r: 1, g: 8.9, b: 0, a: 0}
+    - _StartColor: {r: 0.10933607, g: 0.14166962, b: 0.5943396, a: 0}
     - _Test: {r: 0, g: 1, b: 0, a: 0}
     - _Tiling: {r: 2, g: 2, b: 0, a: 0}
   m_BuildTextureStacks: []

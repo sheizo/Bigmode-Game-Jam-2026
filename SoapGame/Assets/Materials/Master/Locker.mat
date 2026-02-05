@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Wall
+  m_Name: Locker
   m_Shader: {fileID: -6465566751694194690, guid: a566010c96746234e8fcd7d3010a07da, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -39,11 +39,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 4e5a05b1c16f80a49b9f7953f104b2e7, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_0fc843edb7954757a074dbfc25ae3378_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: 47e8eed1023ee3b4e89164a4a33bdef9, type: 3}
+    - _Noise_Texture:
+        m_Texture: {fileID: 2800000, guid: a1c4ef42c91b29746bed2b92a473a192, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_73f727a48de4494fa3f66715f2c992d7_Texture_1_Texture2D:
@@ -73,15 +73,21 @@ Material:
     - _Cull: 2
     - _DstBlend: 0
     - _DstBlendAlpha: 0
-    - _Edge: 0
+    - _Edge: 26.9
+    - _Edge_1: 0
     - _Emission: 0.9
-    - _Fade: 0
-    - _Flip_Gradient: 0
-    - _Gradient: 0
+    - _Fade: 30.3
+    - _Fade_1: 0
+    - _Flip_Gradient: 1
+    - _Gradient: 1
+    - _Gradient_1: 0
     - _Gradient_Noise_Strength: 0.1
     - _Gradient_Noise_Tiling: 1
-    - _Gradient_Pixel_Steps: 20
+    - _Gradient_Pixel_Steps: 1.07
     - _HasTexture: 1
+    - _Noise: 1
+    - _Noise_Pixelize: 47.93
+    - _Noise_Strength: 0.1
     - _PixelizeAmount: 80
     - _Pixelize_Texture: 0
     - _QueueControl: 0
@@ -97,9 +103,12 @@ Material:
     - _ZWriteControl: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EndColor: {r: 0.11639158, g: 0.0235849, b: 1, a: 0}
-    - _Gradient_Axis_Mask: {r: 0, g: 0, b: 0, a: 0}
-    - _StartColor: {r: 1, g: 0, b: 0, a: 0}
+    - _EndColor: {r: 0.017405052, g: 0, b: 0.3301887, a: 0}
+    - _Gradient_Axis_Mask: {r: 0, g: 1, b: 0, a: 0}
+    - _Gradient_Axis_Mask_1: {r: 0, g: 1, b: 0, a: 0}
+    - _Noise_Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Noise_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _StartColor: {r: 0.20198469, g: 0.2147102, b: 0.4811321, a: 0}
     - _Test: {r: 0, g: 0, b: 0, a: 0}
     - _Tiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
