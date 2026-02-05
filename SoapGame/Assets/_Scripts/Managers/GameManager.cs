@@ -20,13 +20,11 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private GameStateManager _gameStateManager;
     [SerializeField] private UIManager _uiManager;
     [SerializeField] private PlayerUpgradeManager _playerUpgradeManager;
-    [SerializeField] private AudioManager _audioManager;
     [SerializeField] private WorldManager _worldManager;
 
     public static GameStateManager GameStateManager => Instance._gameStateManager;
     public static UIManager UIManager => Instance._uiManager;
     public static PlayerUpgradeManager PlayerUpgradeManager => Instance._playerUpgradeManager;
-    public static AudioManager AudioManager => Instance._audioManager;
     public static PlayerStats PlayerStats => Instance._playerStats;
     public static WorldManager World => Instance._worldManager;
 
@@ -41,7 +39,6 @@ public class GameManager : Singleton<GameManager>
         _gameStateManager.Init();
         _uiManager.Init();
         _playerUpgradeManager.Init();
-        _audioManager.Init();
         _worldManager.Init();
         
         _launcher.OnLaunched += PlayerGotoGameplay;

@@ -5,8 +5,14 @@ using UnityEngine;
 using System;
 using System.Linq;
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : Singleton<AudioManager>
 {
+    [Range(0f, 1f)]
+    public float MusicVolume = 1f;
+
+    [Range(0f, 1f)]
+    public float SFXVolume = 1f;
+
     public Sound[] soundEffects;
     public Sound[] music;
 
@@ -14,8 +20,12 @@ public class AudioManager : MonoBehaviour
     
     private string _currentMusic = " ";
 
-    public void Init()
+    protected override void Awake()
     {
+        base.Awake();
+
+        DontDestroyOnLoad(gameObject);
+
         sounds = soundEffects.Concat(music).ToArray();
 
         foreach (Sound s in sounds) //grabs each sound and changes them accordingly on awake
@@ -27,10 +37,9 @@ public class AudioManager : MonoBehaviour
 
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
-            s.source.loop = s.loop; 
+            s.source.loop = s.loop;
         }
     }
-
 
 
     public void Play(string name)
