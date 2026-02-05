@@ -5,6 +5,7 @@ using Freya;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering.Universal;
 using Random = Freya.Random;
 using Sequence = DG.Tweening.Sequence;
 
@@ -201,6 +202,16 @@ public class PlayerController : MonoBehaviour
             case InteractionType.SPEED:
                 _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, 0, _rb.linearVelocity.z);
                 _rb.AddForce(_cleanBoostDirection * _cleanBoostStrength, ForceMode.Impulse);
+                break;
+            case InteractionType.STAIN:
+                _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, 0, _rb.linearVelocity.z);
+                _rb.AddForce(new Vector3(_cleanBoostDirection.x * _cleanBoostStrength, _cleanBoostDirection.y * 50, _cleanBoostDirection.z * _cleanBoostStrength), ForceMode.Impulse);
+                DecalProjector stainDecal = interactable.gameObject.GetComponent<DecalProjector>();
+                interactable._interacted = false;
+                DOTween.To(() => stainDecal.fadeFactor, x => stainDecal.fadeFactor = x, 0f, 0.5f).OnComplete(() =>
+                {
+                   interactable.gameObject.SetActive(false); 
+                });
                 break;
         }
     }

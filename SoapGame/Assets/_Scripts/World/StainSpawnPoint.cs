@@ -13,34 +13,24 @@ public class StainSpawnPoint : MonoBehaviour
 {
     [SerializeField] private List<Stain> _stainList;
 
-    private BoxCollider stainCollider;
-    private DecalProjector stainDecal;
-    private Transform stainTransform;
-
-    public void SpawnRandom()
+    public void SpawnRandom(StainSpawnPoint stainSpawnPoint, float decalSize)
     {
-        int randomStain = Random.Range(0, _stainList.Count);
-        _stainList[randomStain].stainObject.SetActive(true);
+        int randomStainIndex = Random.Range(0, _stainList.Count);
+        Stain randomStain = _stainList[randomStainIndex];
         
-        stainTransform = _stainList[randomStain].stainObject.transform;
+        DecalProjector stainDecal = randomStain.stainObject.GetComponent<DecalProjector>();
+        BoxCollider stainCollider = randomStain.stainObject.GetComponent<BoxCollider>();
+        int randomZRotation = Random.Range(0,360);
         
-        stainCollider = stainTransform.GetComponent<BoxCollider>();
-        stainDecal = stainTransform.GetComponent<DecalProjector>();
-    }
-    
-    public BoxCollider GetStainCollider()
-    {
-        return stainCollider;
-    }
+        stainDecal.size = new Vector3(decalSize, decalSize, 0.5f);
+        stainCollider.size = stainDecal.size;
+        // stainDecal.size.z / 2 => gets us on ground level (we offset to go below so we dont hit collider)
+        stainCollider.center = new Vector3(0, 0, stainDecal.size.z / 2);
 
-    public DecalProjector GetStainDecalProjector()
-    {
-        return stainDecal;
-    }
-
-    public Transform GetStainTransform()
-    {
-        return stainTransform;
+        randomStain.stainObject.transform.position = new Vector3(stainSpawnPoint.transform.position.x, 0.01f, stainSpawnPoint.transform.position.z);
+        randomStain.stainObject.transform.rotation = Quaternion.Euler(90,0,randomZRotation);
+        
+        randomStain.stainObject.SetActive(true);
     }
 
     public void Reset()

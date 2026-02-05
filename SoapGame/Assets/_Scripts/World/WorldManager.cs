@@ -22,13 +22,11 @@ public class WorldManager : MonoBehaviour
     private float _maxZPos;
 
     private Bounds _levelBounds;
-    private LayerMask _stainMask;
 
     private float _zPosThreshold => _maxZPos - ((_segmentPoolCount - _minimumSegmentsAhead) * _levelBounds.size.z) + _levelBounds.size.z/2;
 
     public void Init()
     {
-        _stainMask = LayerMask.GetMask("Stain");
         _playerTransform = GameManager.PlayerTransform;
 
         _worldSegmentPool = new MoveToEndFIFO<WorldSegment>();
@@ -62,7 +60,6 @@ public class WorldManager : MonoBehaviour
 
     void Update()
     {
-        HandleStainCollision();
         HandleSegmentPositions();
     }
 
@@ -81,15 +78,6 @@ public class WorldManager : MonoBehaviour
 
             _maxZPos += _levelBounds.size.z + _segmentSpacing;
         } 
-    }
-
-    public void HandleStainCollision() 
-    {
-        if (Physics.Raycast(_playerTransform.position, Vector3.down, out RaycastHit hit, 1f, _stainMask))
-        {
-            DecalProjector stainHit = hit.collider.gameObject.GetComponent<DecalProjector>();
-            DOTween.To(() => stainHit.fadeFactor, x => stainHit.fadeFactor = x, 0f, 0.5f); 
-        }
     }
 
     public void ResetWorld()
@@ -130,7 +118,7 @@ public class WorldManager : MonoBehaviour
         Gizmos.color = Color.green;
         Vector3 localCenter = transform.InverseTransformPoint(_levelBounds.center);
         float zOffset = (_levelBounds.size.z / 2f) + _segmentSpacing;
-    //a
+
         Vector3 levelBounds = _levelBounds.size;
         Gizmos.DrawWireCube(localCenter + new Vector3(0, 0, zOffset), new Vector3(levelBounds.x, levelBounds.y, 0.01f));
         Gizmos.DrawWireCube(localCenter - new Vector3(0, 0, zOffset), new Vector3(levelBounds.x, levelBounds.y, 0.01f));
