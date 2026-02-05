@@ -88,7 +88,8 @@ public class WorldSegment : MonoBehaviour
             List<NpcSpawnPoint> npcList = _segmentsDict[_currSegmentType].NpcSpawnPoints;
 
             int randomSpawnPoint = Random.Range(0, npcList.Count);
-            npcList[randomSpawnPoint].SpawnRandom();
+            NpcSpawnPoint npcSpawnPoint = npcList[randomSpawnPoint];
+            npcSpawnPoint.SpawnRandom();
         }
     }
 
