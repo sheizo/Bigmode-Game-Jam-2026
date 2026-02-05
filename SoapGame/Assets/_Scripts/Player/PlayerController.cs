@@ -249,7 +249,7 @@ public class PlayerController : MonoBehaviour
 
     private void SetControlVariables(){
         _horizontalInput = Keyboard.current.aKey.isPressed ? -1f : Keyboard.current.dKey.isPressed ? 1f : 0f;
-        _isSlamPressed = Keyboard.current.spaceKey.isPressed;
+        _isSlamPressed = Keyboard.current.spaceKey.isPressed || Keyboard.current.wKey.isPressed;
         
         _pressedSpawnRampThisFrame = Mouse.current.leftButton.wasPressedThisFrame;
         _pressedDiscardRampThisFrame = Mouse.current.rightButton.wasPressedThisFrame;
