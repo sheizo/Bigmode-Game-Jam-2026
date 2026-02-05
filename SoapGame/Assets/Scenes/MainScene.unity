@@ -5252,7 +5252,7 @@ MonoBehaviour:
   _rampQueueSize: 2
   _rampCheckRaycastLength: 20
   _rampCheckRaycastRadius: 0.2
-  _badRampChance: 1
+  _badRampChance: 0
   _maxXAngle: 30
   _maxYAngle: 70
   _maxZAngle: 20
@@ -13027,25 +13027,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineDeoccluder
   CollideAgainst:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 128
   IgnoreTag: 
   TransparentLayers:
     serializedVersion: 2
     m_Bits: 0
-  MinimumDistanceFromTarget: 0.3
+  MinimumDistanceFromTarget: 0.01
   AvoidObstacles:
     Enabled: 1
-    DistanceLimit: 0.76
-    MinimumOcclusionTime: 0.44
-    CameraRadius: 1.61
+    DistanceLimit: 2
+    MinimumOcclusionTime: 0.78
+    CameraRadius: 1
     UseFollowTarget:
-      Enabled: 0
-      YOffset: 0
-    Strategy: 0
-    MaximumEffort: 3
-    SmoothingTime: 2
+      Enabled: 1
+      YOffset: -100
+    Strategy: 1
+    MaximumEffort: 1
+    SmoothingTime: 0
     Damping: 5.06
-    DampingWhenOccluded: 9.04
+    DampingWhenOccluded: 0
   ShotQualityEvaluation:
     Enabled: 0
     OptimalDistance: 10

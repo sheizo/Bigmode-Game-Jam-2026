@@ -349,8 +349,8 @@ GameObject:
   - component: {fileID: 4656229319449150150}
   - component: {fileID: 6924627580586746193}
   - component: {fileID: 1724460245079077885}
-  - component: {fileID: 8667327266263226891}
-  m_Layer: 0
+  - component: {fileID: 320816105689199209}
+  m_Layer: 7
   m_Name: Ceil (2)
   m_TagString: Ceiling
   m_Icon: {fileID: 0}
@@ -429,8 +429,8 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8667327266263226891
-MeshCollider:
+--- !u!65 &320816105689199209
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -447,10 +447,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 3
+  m_Size: {x: 10, y: 2, z: 10}
+  m_Center: {x: 0, y: -1, z: 0}
 --- !u!1 &1690239224176530843
 GameObject:
   m_ObjectHideFlags: 0
@@ -774,8 +773,8 @@ GameObject:
   - component: {fileID: 8275272221442972367}
   - component: {fileID: 4641451895449102401}
   - component: {fileID: 87631012774753146}
-  - component: {fileID: 1595498136956303167}
-  m_Layer: 0
+  - component: {fileID: 988049387693636737}
+  m_Layer: 7
   m_Name: Ceil (1)
   m_TagString: Ceiling
   m_Icon: {fileID: 0}
@@ -854,8 +853,8 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1595498136956303167
-MeshCollider:
+--- !u!65 &988049387693636737
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -872,10 +871,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 3
+  m_Size: {x: 10, y: 2, z: 10}
+  m_Center: {x: 0, y: -1, z: 0}
 --- !u!1 &2683949601077324879
 GameObject:
   m_ObjectHideFlags: 0
@@ -1357,8 +1355,8 @@ GameObject:
   - component: {fileID: 5336096275288997230}
   - component: {fileID: 3296332213885574219}
   - component: {fileID: 2883048151864931495}
-  - component: {fileID: 4089312253858497859}
-  m_Layer: 0
+  - component: {fileID: 6796130628442794739}
+  m_Layer: 7
   m_Name: Ceil
   m_TagString: Ceiling
   m_Icon: {fileID: 0}
@@ -1374,7 +1372,7 @@ Transform:
   m_GameObject: {fileID: 3983641442086415224}
   serializedVersion: 2
   m_LocalRotation: {x: 1, y: -0, z: -0, w: 0.0000029504295}
-  m_LocalPosition: {x: 12.074558, y: 41.626343, z: -3.7471008}
+  m_LocalPosition: {x: 12.455214, y: 41.626343, z: -3.7615948}
   m_LocalScale: {x: 4.17, y: 4.1416, z: 4.162912}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1437,8 +1435,8 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4089312253858497859
-MeshCollider:
+--- !u!65 &6796130628442794739
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1455,10 +1453,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 3
+  m_Size: {x: 10, y: 2, z: 10}
+  m_Center: {x: 0, y: -1, z: 0}
 --- !u!1 &4574960075012907176
 GameObject:
   m_ObjectHideFlags: 0
@@ -2315,8 +2312,8 @@ GameObject:
   - component: {fileID: 4553832351686832774}
   - component: {fileID: 1482257389663840853}
   - component: {fileID: 3760987813715730431}
-  - component: {fileID: 8450568310851068196}
-  m_Layer: 0
+  - component: {fileID: 8958742666579856479}
+  m_Layer: 7
   m_Name: Ceil
   m_TagString: Ceiling
   m_Icon: {fileID: 0}
@@ -2395,8 +2392,8 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8450568310851068196
-MeshCollider:
+--- !u!65 &8958742666579856479
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2413,10 +2410,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 3
+  m_Size: {x: 10, y: 2, z: 10}
+  m_Center: {x: 0, y: -1, z: 0}
 --- !u!1 &7181399462426007311
 GameObject:
   m_ObjectHideFlags: 0
