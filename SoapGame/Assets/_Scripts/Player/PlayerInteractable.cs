@@ -59,11 +59,14 @@ public class PlayerInteractable : MonoBehaviour
         else{
             SetMaterialsDirty(0);
             SetTriggerCollider(false);
-            
             if (_dirtyChance > Random.value){
                 SetMaterialsDirty(1);
                 _cleanable = true;
                 SetTriggerCollider(true);
+            }
+            else{
+                _cleanable = false;
+                SetTriggerCollider(false);
             }
         }
     }
