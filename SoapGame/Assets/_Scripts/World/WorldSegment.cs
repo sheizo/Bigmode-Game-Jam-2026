@@ -10,22 +10,12 @@ public enum SegmentType
     BATH_HOUSE
 }
 
-[System.Serializable]
-public class SegmentTypeObject
-{
-    public SegmentType SegmentType;
-    public GameObject GameObject;
-    public List<NpcSpawnPoint> NpcSpawnPoints;
-    public List<StainSpawnPoint> StainSpawnPoints;
-}
-
-
 public class WorldSegment : MonoBehaviour
 {
-    [SerializeField] private List<SegmentTypeObject> _worldSegments;
+    [SerializeField] private List<WorldSegmentType> _worldSegments;
     [SerializeField] private float decalSize = 5;
     
-    private Dictionary<SegmentType, SegmentTypeObject> _segmentsDict;
+    private Dictionary<SegmentType, WorldSegmentType> _segmentsDict;
     
     private SegmentType _currSegmentType;
 
@@ -49,14 +39,13 @@ public class WorldSegment : MonoBehaviour
         CreateDictIfNotExist();
 
         //Get a random room type.
-        var oldSegmentType = _currSegmentType;
-        SegmentTypeObject randomSegmentType = _worldSegments[Random.Range(0, _worldSegments.Count)];
+        WorldSegmentType randomSegmentType = _worldSegments[Random.Range(0, _worldSegments.Count)];
         _currSegmentType = randomSegmentType.SegmentType;
 
         print("Random segment created: " + _currSegmentType.ToString());
 
         //Disable all segment objects, enable the current one only
-        foreach(SegmentTypeObject seg in _worldSegments)
+        foreach(WorldSegmentType seg in _worldSegments)
         {
             seg.GameObject.SetActive(seg.SegmentType == _currSegmentType);
         }
@@ -66,17 +55,9 @@ public class WorldSegment : MonoBehaviour
         {
             npcSpawnPoint.Reset();
         }
-        foreach (NpcSpawnPoint npcSpawnPoint in _segmentsDict[oldSegmentType].NpcSpawnPoints)
-        {
-            npcSpawnPoint.Reset();
-        }
 
         //disable all stains
         foreach (StainSpawnPoint stainSpawnPoint in _segmentsDict[_currSegmentType].StainSpawnPoints)
-        {
-            stainSpawnPoint.Reset();
-        }
-        foreach (StainSpawnPoint stainSpawnPoint in _segmentsDict[oldSegmentType].StainSpawnPoints)
         {
             stainSpawnPoint.Reset();
         }

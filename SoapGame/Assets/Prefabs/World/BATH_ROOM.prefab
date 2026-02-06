@@ -1819,8 +1819,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2693567228834294876}
+  - component: {fileID: 7558940578848931354}
   m_Layer: 0
-  m_Name: BATHROOM
+  m_Name: BATH_ROOM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1845,6 +1846,22 @@ Transform:
   - {fileID: 7490105944287867952}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7558940578848931354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4760575745052610980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b67d1a582d1dcb42b53e7015c518110, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldSegmentType
+  SegmentType: 0
+  GameObject: {fileID: 4760575745052610980}
+  NpcSpawnPoints: []
+  StainSpawnPoints: []
 --- !u!1 &5462124053424186579
 GameObject:
   m_ObjectHideFlags: 0
