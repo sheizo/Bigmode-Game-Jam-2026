@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
     [SerializeField] private List<BuyableUpgrade> _buyableUpgrades;
 
-    private void OnEnable(){
-        foreach (BuyableUpgrade buyableUpgrade in _buyableUpgrades){
+    public void Init()
+    {
+        foreach(BuyableUpgrade buyableUpgrade in _buyableUpgrades){
+            buyableUpgrade.Init();
             buyableUpgrade.OnClicked += TryBuying;
         }
     }
@@ -18,7 +16,7 @@ public class Shop : MonoBehaviour
     private bool TryBuying(BuyableUpgrade buyableUpgrade){
         int money = GameManager.PlayerStats.Money;
         
-        int upgradeCost = buyableUpgrade.UpgradeBase.NextLevelCost();
+        int upgradeCost = buyableUpgrade.Upgrade.NextLevelCost();
 
         if (money < upgradeCost){
             
@@ -26,7 +24,7 @@ public class Shop : MonoBehaviour
         }
         GameManager.PlayerStats.Money -= upgradeCost;
 
-        bool success = buyableUpgrade.UpgradeBase.Upgrade();
+        bool success = buyableUpgrade.Upgrade.Upgrade();
         if (success){
             buyableUpgrade.UpdateUI();
             GameManager.SaveGame();

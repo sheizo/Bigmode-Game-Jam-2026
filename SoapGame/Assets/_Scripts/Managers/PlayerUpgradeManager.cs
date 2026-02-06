@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Reflection;
 using Newtonsoft.Json;
@@ -6,41 +5,37 @@ using UnityEngine;
 
 public class PlayerUpgradeManager : MonoBehaviour
 {
-    [Header("Float Upgrades")]
-    public UpgradeFloat MaxAirSpeed;
-    public UpgradeFloat MaxGroundSpeed;
-    public UpgradeFloat LaunchForce;
-    public UpgradeFloat TurnStrength;
-    public UpgradeFloat SlamForce;
-
-    [Header("Range Upgrades")]
-    public UpgradeRange SoapRefillOnClean;
-    public UpgradeRange Bounciness;
-    public UpgradeRange BadRampChance;
-    public UpgradeRange GroundSoapUsage;
-    
-    [Header("Int Upgrades")]
-    public UpgradeInt MaxSoap;
-
-    [Header("Vector2 Upgrades")]
-    public UpgradeVector2 RampBoostSpeed;
+    [Header("New Upgrades")]
+    public SoapUpgrade SoapUpgrade;
+    public SpeedUpgrade SpeedUpgrade;
+    public RampUpgrade RampUpgrade;
+    public CleanUpgrade CleanUpgrade;
+    public FloatUpgrade LaunchForce;
+    public FloatUpgrade TurnStrength;
+    public FloatUpgrade SlamForce;
+    public RangeUpgrade Bounciness;
 
     private const string SaveKey = "PlayerUpgrades";
+
+    private List<IUpgrade> _allUpgrades;
+
+    public List<IUpgrade> AllUpgrades => _allUpgrades;
 
     public void Init()
     {
         DontDestroyOnLoad(this.gameObject);
-    }
 
-    // Automatically find all UpgradeBase fields
-    public IEnumerable<FieldInfo> GetAllUpgradeFields()
-    {
-        var fields = this.GetType().GetFields(BindingFlags.Public | BindingFlags.Instance);
-        foreach (var field in fields)
+        _allUpgrades = new()
         {
-            if (typeof(UpgradeBase).IsAssignableFrom(field.FieldType))
-                yield return field;
-        }
+            SoapUpgrade,
+            SpeedUpgrade,
+            RampUpgrade,
+            CleanUpgrade,
+            LaunchForce,
+            TurnStrength,
+            SlamForce,
+            Bounciness
+        };
     }
 
     [ContextMenu("Save")]
@@ -48,10 +43,9 @@ public class PlayerUpgradeManager : MonoBehaviour
     {
         Dictionary<string, int> levels = new();
 
-        foreach (var field in GetAllUpgradeFields())
+        foreach (var upgrade in _allUpgrades)
         {
-            var upgrade = field.GetValue(this) as UpgradeBase;
-            if (upgrade == null || string.IsNullOrEmpty(upgrade.Id)) continue;
+            if (string.IsNullOrEmpty(upgrade.Id)) continue;
 
             levels[upgrade.Id] = upgrade.CurrentLevel;
         }
@@ -64,19 +58,23 @@ public class PlayerUpgradeManager : MonoBehaviour
     [ContextMenu("Load Save")]
     public void LoadAllUpgrades()
     {
+        foreach (var upgrade in _allUpgrades)
+        {
+            upgrade.CurrentLevel = 0;
+        };
+
         if (!PlayerPrefs.HasKey(SaveKey)) return;
 
         string json = PlayerPrefs.GetString(SaveKey);
         Dictionary<string, int> levels = JsonConvert.DeserializeObject<Dictionary<string,int>>(json);
 
-        foreach (var field in GetAllUpgradeFields())
+        foreach (var upgrade in _allUpgrades)
         {
-            var upgrade = field.GetValue(this) as UpgradeBase;
-            if (upgrade == null || string.IsNullOrEmpty(upgrade.Id)) continue;
+            if (string.IsNullOrEmpty(upgrade.Id)) continue;
 
             if (levels.TryGetValue(upgrade.Id, out int level))
             {
-                upgrade.CurrentLevel = Mathf.Clamp(level, 0, upgrade.MaxLevel - 1);
+                upgrade.CurrentLevel = level;
             }
         }
     }
@@ -84,11 +82,8 @@ public class PlayerUpgradeManager : MonoBehaviour
     [ContextMenu("Reset all")]
     public void ResetAllUpgrades()
     {
-        foreach (var field in GetAllUpgradeFields())
+        foreach (var upgrade in _allUpgrades)
         {
-            var upgrade = field.GetValue(this) as UpgradeBase;
-            if (upgrade == null) continue;
-
             upgrade.CurrentLevel = 0;
         }
 

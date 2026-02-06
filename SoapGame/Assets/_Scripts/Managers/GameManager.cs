@@ -42,6 +42,7 @@ public class GameManager : Singleton<GameManager>
         _uiManager.Init();
         _playerUpgradeManager.Init();
         _worldManager.Init();
+        _shop.Init();
         
         _launcher.OnLaunched += PlayerGotoGameplay;
         _playerController.OnSoapDeplete += PlayerEndRun;
@@ -54,10 +55,7 @@ public class GameManager : Singleton<GameManager>
 
         _uiManager.UpdateGameStateCanvas(_gameStateManager.CurrentGameState);
         _gameStateManager.OnGameStateChange += _uiManager.UpdateGameStateCanvas;
-    }
 
-    protected override void Awake(){
-        base.Awake();
 #if DEVELOPMENT_BUILD
         PlayerPrefs.DeleteAll();
 #endif
@@ -107,8 +105,6 @@ public class GameManager : Singleton<GameManager>
 
     private void LoadGame(){
         _playerStats = SaveSystem.LoadGame() ?? _playerStats;
-        
-        //_playerUpgradeManager.LoadAllUpgrades();
     }
 
     public void HitStop(float time){

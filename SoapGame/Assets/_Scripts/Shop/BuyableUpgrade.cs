@@ -28,14 +28,12 @@ public class BuyableUpgrade : MonoBehaviour
     private Camera _mainCamera;
 
     public Func<BuyableUpgrade, bool> OnClicked;
-    private UpgradeBase _upgradeBase;
     private List<UpgradeCounter> _upgradeCounters = new List<UpgradeCounter>();
 
     private Tween _visualRotateTween;
     
-    public UpgradeBase UpgradeBase => _upgradeBase;
-    
-    
+    private IUpgrade _upgrade;
+    public IUpgrade Upgrade => _upgrade;
     
     void Awake()
     {
@@ -45,17 +43,18 @@ public class BuyableUpgrade : MonoBehaviour
         _outline.enabled = false;
         
         _mainCamera = Camera.main;
-        
-        
-        
     }
 
-    private void Start(){
+    public void Init()
+    {
         PlayerUpgradeManager upgradeManager = GameManager.PlayerUpgradeManager;
-        _upgradeBase = null;
-        foreach (FieldInfo upgradeBaseField in upgradeManager.GetAllUpgradeFields()){
-            UpgradeBase upgradeBase = upgradeBaseField.GetValue(upgradeManager) as UpgradeBase;
-            if(upgradeBase?.Id == _upgradeId) _upgradeBase = upgradeBase;
+        foreach (var upgrade in upgradeManager.AllUpgrades)
+        {
+            if (upgrade.Id == _upgradeId)
+            {
+                _upgrade = upgrade;
+                break;
+            }
         }
         
         CreateUI();
@@ -105,9 +104,9 @@ public class BuyableUpgrade : MonoBehaviour
     private void CreateUI(){
         //for creating upgrade counts
         _upgradeCounters.Clear();
-        for (int i = 1; i < _upgradeBase?.MaxLevel; i++){
+        for (int i = 1; i < _upgrade?.MaxLevel; i++){
             UpgradeCounter upgradeCounter = Instantiate(_upgradeCounterPrefab, _upgradeCountContainer);
-            upgradeCounter.SetEnabled(_upgradeBase.CurrentLevel >= i);
+            upgradeCounter.SetEnabled(_upgrade.CurrentLevel >= i);
             _upgradeCounters.Add(upgradeCounter);
         }
         
@@ -115,17 +114,17 @@ public class BuyableUpgrade : MonoBehaviour
     }
 
     public void UpdateUI(){
-        _upgradeText.text = _upgradeBase?.Name;
-        _costText.text = _upgradeBase?.NextLevelCost().ToString();
+        _upgradeText.text = _upgrade?.Name;
+        _costText.text = _upgrade?.NextLevelCost().ToString();
 
-        int level = _upgradeBase.CurrentLevel-1;
+        int level = _upgrade.CurrentLevel-1;
         if (level < 0) return;
         UpgradeCounter currentLevelCounter = _upgradeCounters[level];
         if (currentLevelCounter){
             currentLevelCounter.SetEnabled(true);
             currentLevelCounter.transform.DOPunchScale(Vector3.one * 1.2f, 0.1f).SetEase(Ease.OutBounce);
         }
-        _costCanvasGroup.alpha = _upgradeBase.CanUpgrade ? 1 : 0;
+        _costCanvasGroup.alpha = _upgrade.CanUpgrade ? 1 : 0;
     }
 
     private void OnFailedPurchase(){
@@ -133,7 +132,6 @@ public class BuyableUpgrade : MonoBehaviour
         transform.DOShakePosition(_failedPurchaseAnimDuration, new Vector2(1, 0)*_failedPurchaseShakeAmount, 15, 0, false, true,
             ShakeRandomnessMode.Harmonic);
     }
-    
     
     // Custom method to handle the click event
     private void OnObjectClicked()
@@ -144,8 +142,5 @@ public class BuyableUpgrade : MonoBehaviour
         if(!purchaseSuccessful) OnFailedPurchase();
         
         if(purchaseSuccessful) Debug.Log("Success on: " + _objectToHighlight.name);
-        
     }
-    
-    
 }

@@ -74,7 +74,7 @@ public class Launcher : MonoBehaviour
 
     private void UpdateUpgrades(){
         if (!_useUpgrades) return;
-        _maxLaunchForce = GameManager.PlayerUpgradeManager.LaunchForce.CurrentValue;
+        _maxLaunchForce = GameManager.PlayerUpgradeManager.LaunchForce.CurrentLevelData.Value;
     }
     
 }

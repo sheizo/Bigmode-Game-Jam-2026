@@ -1176,7 +1176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 563506671615703308, guid: 031143cf48be108499ac422163a27675, type: 3}
       propertyPath: _upgradeId
-      value: slam_force
+      value: slam
       objectReference: {fileID: 0}
     - target: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1406,8 +1406,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 158453792}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.24501885, y: -0.53396857, z: 0.16515264, w: 0.7921919}
-  m_LocalPosition: {x: -5.708, y: 21.45, z: -48.72}
+  m_LocalRotation: {x: 0.301917, y: -8.4814133e-10, z: 2.686028e-10, w: 0.9533343}
+  m_LocalPosition: {x: -8.79, y: 27.33, z: -50.19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3264,7 +3264,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 563506671615703308, guid: 031143cf48be108499ac422163a27675, type: 3}
       propertyPath: _upgradeId
-      value: max_ground_speed
+      value: clean
       objectReference: {fileID: 0}
     - target: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3736,115 +3736,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 456340700}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &461913383 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
-  m_PrefabInstance: {fileID: 1195676458}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &461913385 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 563506671615703308, guid: 031143cf48be108499ac422163a27675, type: 3}
-  m_PrefabInstance: {fileID: 1195676458}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e53683cf407e36048b17b0c0aa2180fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ClickableObject
---- !u!1001 &462212705
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1952253177}
-    m_Modifications:
-    - target: {fileID: 498188680317380646, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 498188680317380646, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 498188680317380646, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 498188680317380646, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 563506671615703308, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: _upgradeId
-      value: max_soap
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -4.4300003
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6438623371709973599, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_Name
-      value: Shop Item (8)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8033457816891209017, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8033457816891209017, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8033457816891209017, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8033457816891209017, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 031143cf48be108499ac422163a27675, type: 3}
 --- !u!1 &465860913 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ae4f122de2d1bf843a7270770dde3cf1, type: 3}
@@ -4860,7 +4751,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 563506671615703308, guid: 031143cf48be108499ac422163a27675, type: 3}
       propertyPath: _upgradeId
-      value: turn_strength
+      value: ramp
       objectReference: {fileID: 0}
     - target: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6306,6 +6197,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 563506671615703308, guid: 031143cf48be108499ac422163a27675, type: 3}
+      propertyPath: _upgradeId
+      value: bounciness
+      objectReference: {fileID: 0}
     - target: {fileID: 971733863920773021, guid: 031143cf48be108499ac422163a27675, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -6449,7 +6344,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 563506671615703308, guid: 031143cf48be108499ac422163a27675, type: 3}
       propertyPath: _upgradeId
-      value: bounciness
+      value: speed
       objectReference: {fileID: 0}
     - target: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7472,7 +7367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae09c4ba65f7ca34bab2c114c8ea102c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  _useUpgrades: 0
+  _useUpgrades: 1
   _soapRefillOnClean: 1
   _maxSoapPower: 100
   _rampSoapCost: 2
@@ -8598,6 +8493,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de190108afeb2a24ba89fdb238ddae1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  MusicVolume: 1
+  SFXVolume: 1
   soundEffects: []
   music: []
 --- !u!1 &943663999
@@ -10104,99 +10001,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 6.0736046, y: 23.305655, z: 5.1071367}
   m_Center: {x: -0.24322987, y: 11.43768, z: 0.0000032186508}
---- !u!1001 &1195676458
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1952253177}
-    m_Modifications:
-    - target: {fileID: 498188680317380646, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 498188680317380646, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 498188680317380646, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 498188680317380646, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 563506671615703308, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: _upgradeId
-      value: ramp_boost_speed
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -4.4300003
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6438623371709973599, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_Name
-      value: Shop Item (9)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8033457816891209017, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8033457816891209017, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8033457816891209017, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8033457816891209017, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 031143cf48be108499ac422163a27675, type: 3}
 --- !u!1 &1210745340
 GameObject:
   m_ObjectHideFlags: 0
@@ -10644,7 +10448,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 563506671615703308, guid: 031143cf48be108499ac422163a27675, type: 3}
       propertyPath: _upgradeId
-      value: bad_ramp_chance
+      value: turn
       objectReference: {fileID: 0}
     - target: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11984,7 +11788,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 563506671615703308, guid: 031143cf48be108499ac422163a27675, type: 3}
       propertyPath: _upgradeId
-      value: soap_refill
+      value: soap
       objectReference: {fileID: 0}
     - target: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16018,99 +15822,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1846224437}
   m_Mesh: {fileID: 4579454407841743219, guid: dc4e297eb92ba1c4aa9557abb099b926, type: 3}
---- !u!1001 &1846967477
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1952253177}
-    m_Modifications:
-    - target: {fileID: 498188680317380646, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 498188680317380646, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 498188680317380646, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 498188680317380646, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 563506671615703308, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: _upgradeId
-      value: ground_soap_usage
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 10.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -8.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6438623371709973599, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_Name
-      value: Shop Item (10)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8033457816891209017, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8033457816891209017, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8033457816891209017, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8033457816891209017, guid: 031143cf48be108499ac422163a27675, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 031143cf48be108499ac422163a27675, type: 3}
 --- !u!1001 &1885874639
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16137,7 +15848,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 563506671615703308, guid: 031143cf48be108499ac422163a27675, type: 3}
       propertyPath: _upgradeId
-      value: launch_force
+      value: launch
       objectReference: {fileID: 0}
     - target: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16568,9 +16279,6 @@ Transform:
   - {fileID: 375078664}
   - {fileID: 1363570827}
   - {fileID: 897442054}
-  - {fileID: 1955587434}
-  - {fileID: 461913383}
-  - {fileID: 2139939932}
   m_Father: {fileID: 1573831737}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1952253178
@@ -16594,9 +16302,6 @@ MonoBehaviour:
   - {fileID: 375078666}
   - {fileID: 1363570829}
   - {fileID: 897442056}
-  - {fileID: 2139939934}
-  - {fileID: 1955587436}
-  - {fileID: 461913385}
 --- !u!1 &1954378613
 GameObject:
   m_ObjectHideFlags: 0
@@ -16709,22 +16414,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1954378613}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1955587434 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
-  m_PrefabInstance: {fileID: 462212705}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1955587436 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 563506671615703308, guid: 031143cf48be108499ac422163a27675, type: 3}
-  m_PrefabInstance: {fileID: 462212705}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e53683cf407e36048b17b0c0aa2180fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ClickableObject
 --- !u!1 &1965477680
 GameObject:
   m_ObjectHideFlags: 0
@@ -17125,7 +16814,6 @@ MonoBehaviour:
   _gameStateManager: {fileID: 1908933153}
   _uiManager: {fileID: 1536258279}
   _playerUpgradeManager: {fileID: 2065819302}
-  _audioManager: {fileID: 941820197}
   _worldManager: {fileID: 87962342}
 --- !u!1 &2044541177 stripped
 GameObject:
@@ -17312,147 +17000,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e620bb96c38222c4fbc84ff146b51f68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerUpgrades
-  MaxAirSpeed:
-    Id: max_air_speed
-    Name: Air speed
-    CurrentLevel: 0
-    Levels:
-    - Value: 5
-      Cost: 0
-    - Value: 8
-      Cost: 0
-    - Value: 13
-      Cost: 0
-    - Value: 20
-      Cost: 0
-    - Value: 30
-      Cost: 0
-  MaxGroundSpeed:
-    Id: max_ground_speed
-    Name: Slipperiness
-    CurrentLevel: 0
-    Levels:
-    - Value: 5
-      Cost: 0
-    - Value: 10
-      Cost: 0
-    - Value: 30
-      Cost: 0
-    - Value: 67
-      Cost: 0
-  LaunchForce:
-    Id: launch_force
-    Name: Launch Force
-    CurrentLevel: 0
-    Levels:
-    - Value: 30
-      Cost: 0
-    - Value: 50
-      Cost: 0
-    - Value: 80
-      Cost: 0
-    - Value: 120
-      Cost: 0
-  TurnStrength:
-    Id: turn_strength
-    Name: Steering
-    CurrentLevel: 0
-    Levels:
-    - Value: 0.5
-      Cost: 0
-    - Value: 1
-      Cost: 0
-    - Value: 1.5
-      Cost: 0
-    - Value: 2
-      Cost: 0
-    - Value: 3
-      Cost: 0
-  SlamForce:
-    Id: slam_force
-    Name: Slam Force
-    CurrentLevel: 0
-    Levels:
-    - Value: 10
-      Cost: 0
-    - Value: 15
-      Cost: 0
-    - Value: 20
-      Cost: 0
-  SoapRefillOnClean:
-    Id: soap_refill
-    Name: Soap Gain
-    CurrentLevel: 0
-    Levels:
-    - Value: 0.05
-      Cost: 0
-    - Value: 0.1
-      Cost: 0
-    - Value: 0.2
-      Cost: 0
-  Bounciness:
-    Id: bounciness
-    Name: Bounciness
-    CurrentLevel: 0
-    Levels:
-    - Value: 0.1
-      Cost: 0
-    - Value: 0.3
-      Cost: 0
-    - Value: 0.6
-      Cost: 0
-  BadRampChance:
-    Id: bad_ramp_chance
-    Name: Bubble Luck
-    CurrentLevel: 0
-    Levels:
-    - Value: 0.8
-      Cost: 0
-    - Value: 0.5
-      Cost: 0
-    - Value: 0.3
-      Cost: 0
-    - Value: 0.1
-      Cost: 0
-    - Value: 0
-      Cost: 0
-  GroundSoapUsage:
-    Id: ground_soap_usage
-    Name: Ground Melting
-    CurrentLevel: 0
-    Levels:
-    - Value: 0.323
-      Cost: 0
-    - Value: 0.164
-      Cost: 0
-    - Value: 0.077
-      Cost: 0
-  MaxSoap:
-    Id: max_soap
-    Name: Max Soap
-    CurrentLevel: 0
-    Levels:
-    - Value: 10
-      Cost: 0
-    - Value: 20
-      Cost: 50
-    - Value: 35
-      Cost: 4
-    - Value: 50
-      Cost: 5
-  RampBoostSpeed:
-    Id: ramp_boost_speed
-    Name: Bubble Speed
-    CurrentLevel: 0
-    Levels:
-    - Value: {x: 10, y: 20}
-      Cost: 0
-    - Value: {x: 25, y: 50}
-      Cost: 0
-    - Value: {x: 37.5, y: 75}
-      Cost: 0
-    - Value: {x: 50, y: 100}
-      Cost: 0
+  SoapUpgrade: {fileID: 11400000, guid: 3477346cbebf6b94196c187628f0af34, type: 2}
+  SpeedUpgrade: {fileID: 11400000, guid: 60affa735cd69c24bb5184c6459ad911, type: 2}
+  RampUpgrade: {fileID: 11400000, guid: ad4a32d1add46004e816b9bf033aba25, type: 2}
+  CleanUpgrade: {fileID: 11400000, guid: 6a1ffdbce6f5921408d195009d46aabd, type: 2}
+  LaunchForce: {fileID: 11400000, guid: 70693bcb02841e14a9d9ab240cadd252, type: 2}
+  TurnStrength: {fileID: 11400000, guid: c0d1e6d13da470f488f8e2e90013a21b, type: 2}
+  SlamForce: {fileID: 11400000, guid: 2ecc659538360e8459e9ac89847e69e1, type: 2}
+  Bounciness: {fileID: 11400000, guid: d29b0ea6e56fa794f87c3516798ae793, type: 2}
 --- !u!1 &2078615705
 GameObject:
   m_ObjectHideFlags: 0
@@ -18157,22 +17712,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2113113782}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &2139939932 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3909891684588597994, guid: 031143cf48be108499ac422163a27675, type: 3}
-  m_PrefabInstance: {fileID: 1846967477}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2139939934 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 563506671615703308, guid: 031143cf48be108499ac422163a27675, type: 3}
-  m_PrefabInstance: {fileID: 1846967477}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e53683cf407e36048b17b0c0aa2180fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ClickableObject
 --- !u!222 &1043474124321028547
 CanvasRenderer:
   m_ObjectHideFlags: 0

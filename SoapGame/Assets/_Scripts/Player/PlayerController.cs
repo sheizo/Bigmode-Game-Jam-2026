@@ -457,18 +457,17 @@ public class PlayerController : MonoBehaviour
         
         PlayerUpgradeManager upgrades = GameManager.PlayerUpgradeManager;
         
-        _groundSoapUsageSecPercent = upgrades.GroundSoapUsage.CurrentValue;
-        _badRampChance = upgrades.BadRampChance.CurrentValue;
-        _maxAirSpeed = upgrades.MaxAirSpeed.CurrentValue;
-        _maxGroundSpeed = upgrades.MaxGroundSpeed.CurrentValue;
-        _steerStrength = upgrades.TurnStrength.CurrentValue;
-        _maxSoapPower = upgrades.MaxSoap.CurrentValue;
-        _soapRefillOnClean = upgrades.SoapRefillOnClean.CurrentValue;
-        _rampForceDown = upgrades.RampBoostSpeed.CurrentValue.x;
-        _rampForceForward = upgrades.RampBoostSpeed.CurrentValue.y;
-        _slamStrength = upgrades.SlamForce.CurrentValue;
-        _physicsMaterial.bounciness = upgrades.Bounciness.CurrentValue;
-        _soapRefillOnClean = upgrades.SoapRefillOnClean.CurrentValue;
+        _groundSoapUsageSecPercent = upgrades.SoapUpgrade.CurrentLevelData.GroundSoapUsage;
+        _badRampChance = upgrades.RampUpgrade.CurrentLevelData.BadRampChance;
+        _maxAirSpeed = upgrades.SpeedUpgrade.CurrentLevelData.MaxAirSpeed;
+        _maxGroundSpeed = upgrades.SpeedUpgrade.CurrentLevelData.MaxGroundSpeed;
+        _steerStrength = upgrades.TurnStrength.CurrentLevelData.Value;
+        _maxSoapPower = upgrades.SoapUpgrade.CurrentLevelData.MaxSoap;
+        _soapRefillOnClean = upgrades.CleanUpgrade.CurrentLevelData.SoapRefillOnClean;
+        _rampForceDown = upgrades.RampUpgrade.CurrentLevelData.RampSpeedBoost.x;
+        _rampForceForward = upgrades.RampUpgrade.CurrentLevelData.RampSpeedBoost.y;
+        _slamStrength = upgrades.SlamForce.CurrentLevelData.Value;
+        _physicsMaterial.bounciness = upgrades.Bounciness.CurrentLevelData.Value;
     }
 
     public void RefillSoap() => AddSoapPower(1);
