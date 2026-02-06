@@ -9,6 +9,7 @@ using UnityEngine.Rendering.Universal;
 using Random = Freya.Random;
 using Sequence = DG.Tweening.Sequence;
 
+
 public class PlayerController : MonoBehaviour
 {
 
@@ -108,10 +109,11 @@ public class PlayerController : MonoBehaviour
     
     private RunStats _runStats;
     public Action<RunStats> OnSoapDeplete;
+    private bool _isCleaning;
 
     bool IsGrounded(){
         if (Physics.Raycast(transform.position, -Vector3.up, out RaycastHit hit, _groundedThreshold)){
-            return !hit.collider.CompareTag("PlayerInteractable");
+            return true;
         }
         return false;
     }
@@ -234,6 +236,7 @@ public class PlayerController : MonoBehaviour
         scale += 0.01f;
         
         if (animate){
+            //this shit not working 
             transform.DOScale(scale, _scaleTweenDuration).SetEase(Ease.OutCubic);
             _playerVisual.transform.DOScale(scale, _scaleTweenDuration).SetEase(Ease.OutCubic);
         }
@@ -259,7 +262,8 @@ public class PlayerController : MonoBehaviour
         if (!_isGrounded || _isOnRamp) return;
         
         //Take soap percentage
-        TakeSoap(_maxSoapPower * _groundSoapUsageSecPercent * Time.deltaTime);
+        if(_isCleaning) TakeSoap(_maxSoapPower * _cleanSoapUsageSec * Time.deltaTime);
+        else TakeSoap(_maxSoapPower * _groundSoapUsageSecPercent * Time.deltaTime);
     }
 
     private void HandleMovement(){
@@ -470,14 +474,14 @@ public class PlayerController : MonoBehaviour
         _physicsMaterial.bounciness = upgrades.Bounciness.CurrentLevelData.Value;
     }
 
-    public void RefillSoap() => AddSoapPower(1);
+    private void RefillSoap() => AddSoapPower(1);
 
-    public void AddSoapPower(float normalizedAmount){
+    private void AddSoapPower(float normalizedAmount){
         float amountToAdd = _maxSoapPower * normalizedAmount;
         _currentSoapPower = Mathf.Clamp(_currentSoapPower + amountToAdd,0, _maxSoapPower);
         
         UpdatePlayerSize(true); //works right now but beware if added soap is too little
-        GameManager.UIManager.UpdateSoapMeter(normalizedAmount);
+        GameManager.UIManager.UpdateSoapMeter(_currentSoapPower/_maxSoapPower);
     }
 
     private Ramp GetLastAttachedRamp(Ramp start){
@@ -520,9 +524,9 @@ public class PlayerController : MonoBehaviour
     
     private void ProcessInteraction(GameObject obj){
         if (!obj.TryGetComponent(out PlayerInteractable interactable)) return;
-
-        interactable.Interact(this, OnClean);
-        TakeSoap(_maxSoapPower * _cleanSoapUsageSec * Time.deltaTime);
+        
+        
+        _isCleaning = interactable.Interact(this, OnClean);
     }
     
     private void OnTriggerStay(Collider other){
@@ -531,6 +535,14 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionStay(Collision collision){
         ProcessInteraction(collision.gameObject);
+    }
+
+    private void OnTriggerExit(Collider other){
+        _isCleaning = false;
+    }
+
+    private void OnCollisionExit(Collision other){
+        _isCleaning = false;
     }
 
     [ContextMenu("Force Update Upgrades")]

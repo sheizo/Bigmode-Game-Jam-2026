@@ -71,8 +71,14 @@ public class PlayerInteractable : MonoBehaviour
         }
     }
 
-    public void Interact(PlayerController player, Action<PlayerInteractable> onClean){
-        if (!_cleanable) return;
+    /// <summary>
+    /// Returns true if cleanable
+    /// </summary>
+    /// <param name="player"></param>
+    /// <param name="onClean"></param>
+    /// <returns></returns>
+    public bool Interact(PlayerController player, Action<PlayerInteractable> onClean){
+        if (!_cleanable) return false;
         switch (_interactionType){
             case InteractionType.INSTANT_CLEAN:
             {
@@ -107,6 +113,8 @@ public class PlayerInteractable : MonoBehaviour
             default:
                 throw new ArgumentOutOfRangeException();
         }
+
+        return _cleanable;
     }
 
     private void SetTriggerCollider(bool value){

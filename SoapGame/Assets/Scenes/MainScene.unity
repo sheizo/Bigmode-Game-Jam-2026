@@ -7367,7 +7367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae09c4ba65f7ca34bab2c114c8ea102c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  _useUpgrades: 1
+  _useUpgrades: 0
   _soapRefillOnClean: 1
   _maxSoapPower: 100
   _rampSoapCost: 2

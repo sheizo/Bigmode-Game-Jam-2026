@@ -101,7 +101,8 @@ public class UIManager : MonoBehaviour
             ref _vignetteSpeed,
             _vignetteSmoothTime
         );
-        
+
+        _soapFillMat.DOKill();
         _soapFillMat.DOFloat(tNormalized,"_Fill", _soapFillDuration).SetEase(Ease.OutExpo);    
         //_soapFill.SetMaterialDirty();
     }
