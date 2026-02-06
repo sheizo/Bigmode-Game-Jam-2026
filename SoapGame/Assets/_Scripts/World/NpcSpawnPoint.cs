@@ -34,6 +34,8 @@ public class NpcSpawnPoint : MonoBehaviour
                 _weightedNpcList.Add(npc);
             }
         }
+
+        Reset();
     }
 
     public void SpawnRandom(){

@@ -276,7 +276,7 @@ PrefabInstance:
       objectReference: {fileID: 1748403387}
     - target: {fileID: 771859334925965207, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
       propertyPath: m_VersionIndex
-      value: 4614
+      value: 4644
       objectReference: {fileID: 0}
     - target: {fileID: 884367036384749343, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
       propertyPath: m_Mesh
@@ -290,13 +290,129 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1529562797}
+    - target: {fileID: 3234871616794824951, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
+      propertyPath: decalSize
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234871616794824951, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
+      propertyPath: _worldSegments.Array.data[0].NpcSpawnPoints.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234871616794824951, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
+      propertyPath: _worldSegments.Array.data[1].NpcSpawnPoints.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234871616794824951, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
+      propertyPath: _worldSegments.Array.data[2].NpcSpawnPoints.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234871616794824951, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
+      propertyPath: _worldSegments.Array.data[3].NpcSpawnPoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234871616794824951, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
+      propertyPath: _worldSegments.Array.data[0].StainSpawnPoints.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234871616794824951, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
+      propertyPath: _worldSegments.Array.data[1].StainSpawnPoints.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234871616794824951, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
+      propertyPath: _worldSegments.Array.data[2].StainSpawnPoints.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234871616794824951, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
+      propertyPath: _worldSegments.Array.data[3].StainSpawnPoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234871616794824951, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
+      propertyPath: '_worldSegments.Array.data[0].NpcSpawnPoints.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1711868230}
+    - target: {fileID: 3234871616794824951, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
+      propertyPath: '_worldSegments.Array.data[0].NpcSpawnPoints.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1711868230}
+    - target: {fileID: 3234871616794824951, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
+      propertyPath: '_worldSegments.Array.data[0].NpcSpawnPoints.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1711868230}
+    - target: {fileID: 3234871616794824951, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
+      propertyPath: '_worldSegments.Array.data[0].NpcSpawnPoints.Array.data[4]'
+      value: 
+      objectReference: {fileID: 1711868230}
+    - target: {fileID: 3234871616794824951, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
+      propertyPath: '_worldSegments.Array.data[0].NpcSpawnPoints.Array.data[5]'
+      value: 
+      objectReference: {fileID: 1711868230}
+    - target: {fileID: 3234871616794824951, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
+      propertyPath: '_worldSegments.Array.data[1].NpcSpawnPoints.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1711868230}
+    - target: {fileID: 3234871616794824951, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
+      propertyPath: '_worldSegments.Array.data[1].NpcSpawnPoints.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1711868230}
+    - target: {fileID: 3234871616794824951, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
+      propertyPath: '_worldSegments.Array.data[1].NpcSpawnPoints.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1711868230}
+    - target: {fileID: 3234871616794824951, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
+      propertyPath: '_worldSegments.Array.data[2].NpcSpawnPoints.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1711868230}
+    - target: {fileID: 3234871616794824951, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
+      propertyPath: '_worldSegments.Array.data[2].NpcSpawnPoints.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1711868230}
+    - target: {fileID: 3234871616794824951, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
+      propertyPath: '_worldSegments.Array.data[3].NpcSpawnPoints.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1711868230}
+    - target: {fileID: 3234871616794824951, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
+      propertyPath: '_worldSegments.Array.data[0].StainSpawnPoints.Array.data[1]'
+      value: 
+      objectReference: {fileID: 698599628}
+    - target: {fileID: 3234871616794824951, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
+      propertyPath: '_worldSegments.Array.data[0].StainSpawnPoints.Array.data[2]'
+      value: 
+      objectReference: {fileID: 698599628}
+    - target: {fileID: 3234871616794824951, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
+      propertyPath: '_worldSegments.Array.data[0].StainSpawnPoints.Array.data[3]'
+      value: 
+      objectReference: {fileID: 698599628}
+    - target: {fileID: 3234871616794824951, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
+      propertyPath: '_worldSegments.Array.data[1].StainSpawnPoints.Array.data[1]'
+      value: 
+      objectReference: {fileID: 698599628}
+    - target: {fileID: 3234871616794824951, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
+      propertyPath: '_worldSegments.Array.data[1].StainSpawnPoints.Array.data[2]'
+      value: 
+      objectReference: {fileID: 698599628}
+    - target: {fileID: 3234871616794824951, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
+      propertyPath: '_worldSegments.Array.data[1].StainSpawnPoints.Array.data[3]'
+      value: 
+      objectReference: {fileID: 698599628}
+    - target: {fileID: 3234871616794824951, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
+      propertyPath: '_worldSegments.Array.data[2].StainSpawnPoints.Array.data[1]'
+      value: 
+      objectReference: {fileID: 698599628}
+    - target: {fileID: 3234871616794824951, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
+      propertyPath: '_worldSegments.Array.data[2].StainSpawnPoints.Array.data[2]'
+      value: 
+      objectReference: {fileID: 698599628}
+    - target: {fileID: 3234871616794824951, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
+      propertyPath: '_worldSegments.Array.data[3].StainSpawnPoints.Array.data[1]'
+      value: 
+      objectReference: {fileID: 698599628}
     - target: {fileID: 3813749556104416719, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 260916651}
     - target: {fileID: 3813749556104416719, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
       propertyPath: m_VersionIndex
-      value: 4614
+      value: 4644
       objectReference: {fileID: 0}
     - target: {fileID: 3896131798427243473, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
       propertyPath: m_Mesh
@@ -304,7 +420,7 @@ PrefabInstance:
       objectReference: {fileID: 1529562797}
     - target: {fileID: 3896131798427243473, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
       propertyPath: m_VersionIndex
-      value: 2717
+      value: 2747
       objectReference: {fileID: 0}
     - target: {fileID: 4126359955286698121, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
       propertyPath: m_LocalPosition.x
@@ -345,6 +461,10 @@ PrefabInstance:
     - target: {fileID: 4126359955286698121, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4870442696702581790, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 97.2
       objectReference: {fileID: 0}
     - target: {fileID: 4990779995032063340, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
       propertyPath: m_Name
@@ -4977,6 +5097,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 685400901}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &698599628 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 930268519361129685, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
+  m_PrefabInstance: {fileID: 87962341}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5725110a038ce9843b93b91e41a5f274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StainSpawnPoint
 --- !u!1 &717249806
 GameObject:
   m_ObjectHideFlags: 0
@@ -11906,6 +12037,17 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &1711868230 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 369167954781147553, guid: 5401adc27eaf4a04d8ec861c26881f84, type: 3}
+  m_PrefabInstance: {fileID: 87962341}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91369494417d0ec44b223e569c501234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NpcSpawnPoint
 --- !u!1 &1732469146
 GameObject:
   m_ObjectHideFlags: 0

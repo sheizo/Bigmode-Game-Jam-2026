@@ -49,6 +49,7 @@ public class WorldSegment : MonoBehaviour
         CreateDictIfNotExist();
 
         //Get a random room type.
+        var oldSegmentType = _currSegmentType;
         SegmentTypeObject randomSegmentType = _worldSegments[Random.Range(0, _worldSegments.Count)];
         _currSegmentType = randomSegmentType.SegmentType;
 
@@ -61,15 +62,21 @@ public class WorldSegment : MonoBehaviour
         }
 
         //disable all npcs
-        List<NpcSpawnPoint> npcSpawnPoints = _segmentsDict[_currSegmentType].NpcSpawnPoints;
-        foreach (NpcSpawnPoint npcSpawnPoint in npcSpawnPoints)
+        foreach (NpcSpawnPoint npcSpawnPoint in _segmentsDict[_currSegmentType].NpcSpawnPoints)
+        {
+            npcSpawnPoint.Reset();
+        }
+        foreach (NpcSpawnPoint npcSpawnPoint in _segmentsDict[oldSegmentType].NpcSpawnPoints)
         {
             npcSpawnPoint.Reset();
         }
 
         //disable all stains
-        List<StainSpawnPoint> stainSpawnPoints = _segmentsDict[_currSegmentType].StainSpawnPoints;
-        foreach (StainSpawnPoint stainSpawnPoint in stainSpawnPoints)
+        foreach (StainSpawnPoint stainSpawnPoint in _segmentsDict[_currSegmentType].StainSpawnPoints)
+        {
+            stainSpawnPoint.Reset();
+        }
+        foreach (StainSpawnPoint stainSpawnPoint in _segmentsDict[oldSegmentType].StainSpawnPoints)
         {
             stainSpawnPoint.Reset();
         }
