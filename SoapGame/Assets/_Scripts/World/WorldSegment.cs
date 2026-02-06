@@ -6,8 +6,8 @@ public enum SegmentType
 {
     BATHROOM,
     LOCKER_ROOM,
-    SCHOOL,
-    GARDEN
+    SHOWER_ROOM,
+    BATH_HOUSE
 }
 
 [System.Serializable]

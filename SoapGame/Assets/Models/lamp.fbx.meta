@@ -10,7 +10,7 @@ ModelImporter:
       name: lamp_mat
     second: {fileID: 2100000, guid: f85a772e312848242ba3924cadbce88e, type: 2}
   materials:
-    materialImportMode: 2
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
