@@ -4,7 +4,7 @@ using UnityEngine.Rendering.Universal;
 
 public enum SegmentType
 {
-    BATHROOM,
+    BATH_ROOM,
     LOCKER_ROOM,
     SHOWER_ROOM,
     BATH_HOUSE
