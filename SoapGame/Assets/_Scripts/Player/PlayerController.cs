@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private bool _useUpgrades; 
     
+    [SerializeField] private TrailRenderer _soapTrail;
+    
     [Header("Soap Usage")]
     [SerializeField] private float _soapRefillOnClean = 0.1f;
     [SerializeField] private float _maxSoapPower = 10;
@@ -109,15 +111,18 @@ public class PlayerController : MonoBehaviour
     
     private RunStats _runStats;
     public Action<RunStats> OnSoapDeplete;
-    private bool _isCleaning;
 
-    bool IsGrounded(){
+    bool IsGrounded()=>Physics.Raycast(transform.position, -Vector3.up, _groundedThreshold);
+
+    bool IsCleaning(){
         if (Physics.Raycast(transform.position, -Vector3.up, out RaycastHit hit, _groundedThreshold)){
-            return true;
+            if(hit.collider.TryGetComponent(out PlayerInteractable playerInteractable)){
+                return playerInteractable.Cleanable;
+            }
         }
         return false;
     }
-
+    
     Ramp IsOnRamp(){
         if (Physics.Raycast(transform.position, -Vector3.up, out RaycastHit hit, _groundedThreshold)){
             if(hit.collider.CompareTag("Ramp") && hit.collider.TryGetComponent(out Ramp ramp)){
@@ -126,6 +131,8 @@ public class PlayerController : MonoBehaviour
         }
         return null;
     }
+    
+    
 
     private void Awake(){
         _rb = GetComponent<Rigidbody>();
@@ -178,8 +185,14 @@ public class PlayerController : MonoBehaviour
         HandleVisualRotations();
         HandleMovement();
 
-        
-        if(!SoapDepleted) SetPlayerVisualPosition();
+
+        if (!SoapDepleted){
+            SetPlayerVisualPosition();
+            
+            //trail
+            _soapTrail.emitting = _isGrounded && !_isOnRamp;
+            _soapTrail.widthMultiplier = _currentSoapPower / _maxSoapPower;
+        }
         
         if (GameManager.CurrentGameState is GameState.LAUNCH) {
             _rb.linearVelocity = Vector3.zero; 
@@ -272,7 +285,7 @@ public class PlayerController : MonoBehaviour
         if (!_isGrounded || _isOnRamp) return;
         
         //Take soap percentage
-        if(_isCleaning) TakeSoap(_maxSoapPower * _cleanSoapUsageSec * Time.deltaTime);
+        if(IsCleaning()) TakeSoap(_maxSoapPower * _cleanSoapUsageSec * Time.deltaTime);
         else TakeSoap(_maxSoapPower * _groundSoapUsageSecPercent * Time.deltaTime);
     }
 
@@ -536,7 +549,7 @@ public class PlayerController : MonoBehaviour
         if (!obj.TryGetComponent(out PlayerInteractable interactable)) return;
         
         
-        _isCleaning = interactable.Interact(this, OnClean);
+        interactable.Interact(this, OnClean);
     }
     
     private void OnTriggerStay(Collider other){
@@ -547,13 +560,6 @@ public class PlayerController : MonoBehaviour
         ProcessInteraction(collision.gameObject);
     }
 
-    private void OnTriggerExit(Collider other){
-        _isCleaning = false;
-    }
-
-    private void OnCollisionExit(Collision other){
-        _isCleaning = false;
-    }
 
     [ContextMenu("Force Update Upgrades")]
     private void ForceUpdateUpgrades(){

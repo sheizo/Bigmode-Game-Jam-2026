@@ -29,6 +29,7 @@ public class PlayerInteractable : MonoBehaviour
     
     public UnityEvent onPlayerInteract; // TODO :  MAYBE DELETE AND HANDLE SOUNDS IN PLAYER ONCLEAN
     public InteractionType InteractionType => _interactionType;
+    public bool Cleanable => _cleanable; 
     
     void Awake()
     {
@@ -49,11 +50,12 @@ public class PlayerInteractable : MonoBehaviour
     }
 
     public void Reset(){
-        _cleanable = true;
+        _cleanable = false;
         _cleanTimer = 0;
         
         
         if (_decalProjector){
+            _cleanable = true;
             _decalProjector.fadeFactor = 1;
         }
         else{
@@ -71,14 +73,8 @@ public class PlayerInteractable : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Returns true if cleanable
-    /// </summary>
-    /// <param name="player"></param>
-    /// <param name="onClean"></param>
-    /// <returns></returns>
-    public bool Interact(PlayerController player, Action<PlayerInteractable> onClean){
-        if (!_cleanable) return false;
+    public void Interact(PlayerController player, Action<PlayerInteractable> onClean){
+        if (!_cleanable) return;
         switch (_interactionType){
             case InteractionType.INSTANT_CLEAN:
             {
@@ -114,12 +110,12 @@ public class PlayerInteractable : MonoBehaviour
                 throw new ArgumentOutOfRangeException();
         }
 
-        return _cleanable;
+        return;
     }
 
     private void SetTriggerCollider(bool value){
         if (!_isNpc) return;
-        _collider.isTrigger = value;
+        if(_collider) _collider.isTrigger = value;
     }
 
     private void Clean(Action<PlayerInteractable> onClean){

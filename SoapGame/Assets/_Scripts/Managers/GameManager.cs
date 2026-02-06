@@ -42,6 +42,8 @@ public class GameManager : Singleton<GameManager>
         _uiManager.Init();
         _playerUpgradeManager.Init();
         _worldManager.Init();
+        //shitty fix
+        _shop.Init();
         
         _launcher.OnLaunched += PlayerGotoGameplay;
         _playerController.OnSoapDeplete += PlayerEndRun;
@@ -50,11 +52,10 @@ public class GameManager : Singleton<GameManager>
         _uiManager.OnRestartClick += PlayerRestart;
         _uiManager.OnShopClick += PlayerGotoShop;
         
-        //shitty fix
-        _shop.Init();
 
         _uiManager.UpdateGameStateCanvas(_gameStateManager.CurrentGameState);
         _gameStateManager.OnGameStateChange += _uiManager.UpdateGameStateCanvas;
+        
 
 #if DEVELOPMENT_BUILD
         PlayerPrefs.DeleteAll();

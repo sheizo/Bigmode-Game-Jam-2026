@@ -55,6 +55,7 @@ public class NpcSpawnPoint : MonoBehaviour
         foreach (Npc npc in _npcList)
         {
             npc.npcObject.SetActive(false);
+            if (npc.npcObject.TryGetComponent(out PlayerInteractable playerInteractable)) playerInteractable.Reset();
         }
     }
 
