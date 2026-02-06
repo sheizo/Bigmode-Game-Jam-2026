@@ -19,7 +19,7 @@ public class PlayerInteractable : MonoBehaviour
     [SerializeField] private float _cleanFadeSpeed = 0.3f;
     [Range(0,1)] [SerializeField] private float _dirtyChance = 0.5f;
     [SerializeField] private bool _isNpc; 
-    
+    [SerializeField] private float _cleanEffectDuration = 0.4f;
     
     private Collider _collider;
     private List<Material> _materials = new List<Material>();
@@ -122,11 +122,22 @@ public class PlayerInteractable : MonoBehaviour
         onPlayerInteract?.Invoke();
         _cleanable = false;
         onClean?.Invoke(this);
+        
+        //fresnel effect
+        foreach (Material material in _materials){
+            Sequence cleanSequence = DOTween.Sequence();
+            cleanSequence.Append(material.DOFloat(1, GameManager.MasterMaterialFresnelAmount, _cleanEffectDuration)).SetEase(Ease.OutCirc);
+            cleanSequence.Append(material.DOFloat(0, GameManager.MasterMaterialFresnelAmount, _cleanEffectDuration)).SetEase(Ease.InCirc);
+        }
     }
 
     private void SetMaterialsDirty(float value){
         foreach (Material mat in _materials){
             mat.SetFloat(GameManager.MasterMaterialDirtAmount, value);
+            if(Mathf.Approximately(value, 1))
+                mat.SetFloat(GameManager.MasterMaterialFresnelAmount, 0);
         }
     }
+    
+    
 }

@@ -9,6 +9,8 @@ using UnityEngine.InputSystem;
 public class GameManager : Singleton<GameManager>
 {
     public static readonly int MasterMaterialDirtAmount  = Shader.PropertyToID("_Dirt_Amount");
+    public static readonly int MasterMaterialFresnelAmount = Shader.PropertyToID("_Fresnel_Clean_Amount");
+    
     public const string InteractableTag = "PlayerInteractable";
 
     [SerializeField] private CinemachineBrain _cinemachineBrain;

@@ -9,19 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 368a6b9e68c54fc49a6a7b5c68b5c78c, type: 3}
   m_Name: CleanUpgrade
   m_EditorClassIdentifier: Assembly-CSharp::CleanUpgrade
   _id: clean
   _name: Clean Upgrade
   _levels:
   - SoapRefillOnClean: 0.05
-    TimeToClean: 0
+    TimeToClean: 2
     cost: 0
   - SoapRefillOnClean: 0.1
-    TimeToClean: 0
+    TimeToClean: 1
     cost: 0
   - SoapRefillOnClean: 0.2
-    TimeToClean: 0
+    TimeToClean: 0.5
     cost: 0
-  _currentLevel: 0

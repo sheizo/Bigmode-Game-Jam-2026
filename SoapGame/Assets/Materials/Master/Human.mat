@@ -90,6 +90,8 @@ Material:
     - _Fade: 0.41
     - _Fade_1: 0
     - _Flip_Gradient: 0
+    - _Fresnel_Clean_Amount: 0
+    - _Fresnel_Clean_Power: 1.88
     - _Gradient: 1
     - _Gradient_1: 0
     - _Gradient_Noise_Strength: 0.1
@@ -119,6 +121,7 @@ Material:
     - _Dirt_Color_2: {r: 0.6603774, g: 0.26928857, b: 0, a: 0}
     - _Dirt_Tiling: {r: 1, g: 1, b: 0, a: 0}
     - _EndColor: {r: 0, g: 0, b: 0, a: 0}
+    - _Fresnel_Clean_Color: {r: 0, g: 1.742185, b: 1.164968, a: 0}
     - _Gradient_Axis_Mask: {r: 0, g: 0, b: 0, a: 0}
     - _Gradient_Axis_Mask_1: {r: 0, g: 1, b: 0, a: 0}
     - _Noise_Color: {r: 1, g: 1, b: 1, a: 1}

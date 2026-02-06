@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: e251f29b24344ae394d7ef4dd799c7d9, type: 3}
   m_Name: SoapUpgrade
   m_EditorClassIdentifier: Assembly-CSharp::SoapUpgrade
   _id: soap
@@ -27,4 +27,3 @@ MonoBehaviour:
   - MaxSoap: 50
     GroundSoapUsage: 0.1
     cost: 0
-  _currentLevel: 0

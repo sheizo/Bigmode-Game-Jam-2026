@@ -59,23 +59,6 @@ public abstract class UpgradeBase<TLevel> : ScriptableObject, IUpgrade
     public TLevel CurrentLevelData => _levels[CurrentLevel];
 }
 
-[CreateAssetMenu(menuName = "Upgrades/Soap Upgrade")]
-public class SoapUpgrade : UpgradeBase<SoapUpgradeLevel> { }
-
-[CreateAssetMenu(menuName = "Upgrades/Speed Upgrade")]
-public class SpeedUpgrade : UpgradeBase<SpeedUpgradeLevel> { }
-
-[CreateAssetMenu(menuName = "Upgrades/Ramp Upgrade")]
-public class RampUpgrade : UpgradeBase<RampUpgradeLevel> { }
-
-[CreateAssetMenu(menuName = "Upgrades/Clean Upgrade")]
-public class CleanUpgrade : UpgradeBase<CleanUpgradeLevel> { }
-
-[CreateAssetMenu(menuName = "Upgrades/Float Upgrade")]
-public class FloatUpgrade : UpgradeBase<FloatUpgradeLevel> { }
-
-[CreateAssetMenu(menuName = "Upgrades/Range Upgrade")]
-public class RangeUpgrade : UpgradeBase<RangeUpgradeLevel> { }
 
 [System.Serializable]
 public class SoapUpgradeLevel : IUpgradeLevel
@@ -111,7 +94,7 @@ public class RampUpgradeLevel : IUpgradeLevel
 public class CleanUpgradeLevel : IUpgradeLevel
 {
     [Range(0f, 1f)] public float SoapRefillOnClean;
-    [Range(0f, 1f)] public float TimeToClean;
+    public float TimeToClean;
 
     [SerializeField] private int cost;
     public int Cost => cost;

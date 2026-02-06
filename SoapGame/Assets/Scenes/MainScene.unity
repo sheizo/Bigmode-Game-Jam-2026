@@ -13872,7 +13872,7 @@ MonoBehaviour:
   LaunchForce: {fileID: 11400000, guid: 70693bcb02841e14a9d9ab240cadd252, type: 2}
   TurnStrength: {fileID: 11400000, guid: c0d1e6d13da470f488f8e2e90013a21b, type: 2}
   SlamForce: {fileID: 11400000, guid: 2ecc659538360e8459e9ac89847e69e1, type: 2}
-  Bounciness: {fileID: 11400000, guid: d29b0ea6e56fa794f87c3516798ae793, type: 2}
+  Bounciness: {fileID: 11400000, guid: c647483e3f6634f44a4dc80579cbf2cd, type: 2}
 --- !u!1 &2078615705
 GameObject:
   m_ObjectHideFlags: 0

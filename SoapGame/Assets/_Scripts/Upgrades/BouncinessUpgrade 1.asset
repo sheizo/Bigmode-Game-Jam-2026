@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: BouncinessUpgrade
+  m_Script: {fileID: 11500000, guid: 709605546a404fdb9c26f4437dc6adc6, type: 3}
+  m_Name: BouncinessUpgrade 1
   m_EditorClassIdentifier: Assembly-CSharp::RangeUpgrade
   _id: bounciness
-  _name: Bounciness
+  _name: Bounce
   _levels:
   - Value: 0.1
     cost: 0
@@ -21,4 +21,3 @@ MonoBehaviour:
     cost: 0
   - Value: 0.7
     cost: 0
-  _currentLevel: 0
