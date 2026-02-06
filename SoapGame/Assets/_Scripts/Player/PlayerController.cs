@@ -246,6 +246,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void UpdateCurrentRunDistance()
+    {
+        GameManager.UIManager.CurrentRunDistance((int) (transform.position.z - _startingPosition.z));
+    }
+
+    public void UpdateCurrentPlayerSpeed()
+    {
+        GameManager.UIManager.PlayerSpeed((int) _currentSpeed);
+    }
+
     private void SetPlayerVisualPosition(){
         _playerVisual.transform.position = transform.position;
     }

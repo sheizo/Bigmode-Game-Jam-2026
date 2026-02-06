@@ -62,7 +62,14 @@ public class GameManager : Singleton<GameManager>
         
         LoadGame();
     }
-    
+
+    void FixedUpdate()
+    {
+        _uiManager.CurrentRunMoney(_playerStats.Money);
+        _playerController.UpdateCurrentPlayerSpeed();
+        _playerController.UpdateCurrentRunDistance();
+    }
+
     private void Start(){
         _uiManager.UpdateMoney(_playerStats.Money);
     }

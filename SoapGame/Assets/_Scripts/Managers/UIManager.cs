@@ -29,6 +29,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Image _soapFill;
     [SerializeField] private Button _restartButton, _enterShopButton, _exitShopButton;
     [SerializeField] private TextMeshProUGUI _moneyCount;
+    [SerializeField] private TextMeshProUGUI _movementSpeed;
+    [SerializeField] private TextMeshProUGUI _currentDistanceTraveled;
+    [SerializeField] private TextMeshProUGUI _currentMoneyFarmed;
     
     
     [Header("Effects")]
@@ -89,6 +92,21 @@ public class UIManager : MonoBehaviour
 
     public void UpdateMoney(int money){
         _moneyCount.text = money.ToString();
+    }
+
+    public void CurrentRunMoney(int money)
+    {
+        _currentMoneyFarmed.text = money.ToString();
+    }
+
+    public void CurrentRunDistance(int distance)
+    {
+        _currentDistanceTraveled.text = distance.ToString();
+    }
+
+    public void PlayerSpeed(int speed)
+    {
+        _movementSpeed.text = $"{speed} m/s";
     }
 
     public void UpdateSoapMeter(float tNormalized){
