@@ -191,6 +191,9 @@ public class PlayerController : MonoBehaviour
         else
             _timeOnGround = 0;
         
+        //trail
+        _soapTrail.emitting = _isGrounded && !_isOnRamp;
+        _soapTrail.widthMultiplier = _currentSoapPower / _maxSoapPower;
         
         UpdateRunStats();
         
@@ -222,9 +225,7 @@ public class PlayerController : MonoBehaviour
         if (!SoapDepleted){
             SetPlayerVisualPosition();
             
-            //trail
-            _soapTrail.emitting = _isGrounded && !_isOnRamp;
-            _soapTrail.widthMultiplier = _currentSoapPower / _maxSoapPower;
+            
         }
         
         if (GameManager.CurrentGameState is GameState.LAUNCH) {
@@ -262,6 +263,7 @@ public class PlayerController : MonoBehaviour
         _playerVisual.rotation = Quaternion.identity;
         
         
+        
         //populate ramp queue
         _rampQueue.Clear();
         for (int i = 0; i < _rampQueueSize; i++){
@@ -276,6 +278,8 @@ public class PlayerController : MonoBehaviour
     
     private void TakeSoap(float amount){
         if (SoapDepleted){
+            _soapTrail.Clear();
+            _soapTrail.emitting = false;
             OnSoapDeplete?.Invoke(_runStats);
             return;
         }
