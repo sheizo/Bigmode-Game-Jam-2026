@@ -7,7 +7,8 @@ public enum SegmentType
     BATH_ROOM,
     LOCKER_ROOM,
     SHOWER_ROOM,
-    BATH_HOUSE
+    BATH_HOUSE,
+    KITCHEN
 }
 
 public class WorldSegment : MonoBehaviour

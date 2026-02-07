@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Black
+  m_Name: White
   m_Shader: {fileID: -6465566751694194690, guid: a566010c96746234e8fcd7d3010a07da, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -109,53 +109,55 @@ Material:
     - _Dirt_Power: 1
     - _DstBlend: 0
     - _DstBlendAlpha: 0
-    - _Edge: 0
+    - _Edge: 9.73
     - _Edge_1: 0
-    - _Emission: 1.2
+    - _Emission: 0.3
     - _EnvironmentReflections: 1
-    - _Fade: 0
+    - _Fade: 16.5
     - _Fade_1: 0
-    - _Flip_Gradient: 0
+    - _Flip_Gradient: 1
     - _Fresnel_Clean_Amount: 0
     - _Fresnel_Clean_Power: 3.17
-    - _GlossMapScale: 0
-    - _Glossiness: 0
-    - _GlossyReflections: 0
-    - _Gradient: 0
+    - _GlossMapScale: 1
+    - _Glossiness: 0.30996522
+    - _GlossyReflections: 1
+    - _Gradient: 1
     - _Gradient_1: 0
     - _Gradient_Pixel_Steps: 20
     - _Metallic: 0
+    - _Mode: 0
     - _Noise: 1
-    - _Noise_Pixelize: 23.2
-    - _Noise_Strength: 0.2
+    - _Noise_Pixelize: 93.1
+    - _Noise_Strength: 0.1
     - _OcclusionStrength: 1
-    - _Parallax: 0.005
+    - _Parallax: 0.02
     - _Pixelize_Dirt: 1
     - _Pixelize_Texture: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Smoothness: 0.5
+    - _Smoothness: 0.30996522
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
     - _Texture_Pixelize: 20
+    - _UVSec: 0
     - _WorkflowMode: 1
     - _XRMotionVectorsPass: 1
     - _ZTest: 4
     - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
-    - _BaseColor: {r: 0.035216685, g: 0.035216685, b: 0.035216685, a: 1}
-    - _Color: {r: 0.035216685, g: 0.035216685, b: 0.035216685, a: 1}
+    - _BaseColor: {r: 0.6999908, g: 0.696691, b: 0.6867915, a: 1}
+    - _Color: {r: 0.6999908, g: 0.696691, b: 0.6867915, a: 1}
     - _Dirt_Color_1: {r: 0.36792448, g: 0.15111175, b: 0, a: 0}
     - _Dirt_Tiling: {r: 1, g: 1, b: 0, a: 0}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _EndColor: {r: 0, g: 0, b: 0, a: 0}
     - _Fresnel_Clean_Color: {r: 0, g: 1.844302, b: 1.229535, a: 0}
-    - _Gradient_Axis_Mask: {r: 0, g: 0, b: 0, a: 0}
+    - _Gradient_Axis_Mask: {r: 0, g: 0, b: 1, a: 0}
     - _Gradient_Axis_Mask_1: {r: 0, g: 1, b: 0, a: 0}
     - _Noise_Color: {r: 1, g: 1, b: 1, a: 1}
     - _Noise_Tiling: {r: 1, g: 1, b: 0, a: 0}
@@ -164,7 +166,7 @@ Material:
     - _Tiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &4243883760192179279
+--- !u!114 &4310291009996091773
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
