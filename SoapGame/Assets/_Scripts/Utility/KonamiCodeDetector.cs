@@ -29,14 +29,6 @@ public class KonamiCodeDetector : MonoBehaviour
         }
     }
 
-     void OnEnable()
-    {
-        if (_audioSource != null)
-        {
-            _audioSource.Play();
-        }
-    }
-
      void OnDisable()
     {
         if (_audioSource != null)

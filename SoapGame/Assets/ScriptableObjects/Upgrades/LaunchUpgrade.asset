@@ -18,8 +18,8 @@ MonoBehaviour:
   - Value: 30
     cost: 0
   - Value: 40
-    cost: 0
+    cost: 10
   - Value: 60
-    cost: 0
+    cost: 200
   - Value: 90
-    cost: 0
+    cost: 1000

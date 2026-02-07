@@ -94,7 +94,7 @@ public class BuyableUpgrade : MonoBehaviour
         }
 
         _outline.enabled = _isMouseHovered;
-
+        if(_isMouseHovered && _upgrade.CanUpgrade) _costCanvasGroup.alpha = 1;
         if (_isMouseHovered != _wasMouseHovered){
             _canvasGroup.FadeGroup(_isMouseHovered ? 1 : 0 , _upgradeFadeDuration, ease: Ease.InOutCubic);
             
@@ -130,7 +130,7 @@ public class BuyableUpgrade : MonoBehaviour
             }
         }
         
-        _costCanvasGroup.alpha = _upgrade.CanUpgrade ? 1 : 0;
+        _costCanvasGroup.alpha = 1;
         _costText.text = _upgrade?.NextLevelCost().ToString();
     }
 

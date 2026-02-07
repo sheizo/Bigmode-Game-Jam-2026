@@ -20,13 +20,13 @@ MonoBehaviour:
     cost: 0
   - BadRampChance: 0.5
     RampSpeedBoost: {x: 20, y: 40}
-    cost: 0
+    cost: 10
   - BadRampChance: 0.3
     RampSpeedBoost: {x: 30, y: 60}
-    cost: 0
+    cost: 150
   - BadRampChance: 0.1
     RampSpeedBoost: {x: 40, y: 80}
-    cost: 0
+    cost: 1000
   - BadRampChance: 0
     RampSpeedBoost: {x: 67, y: 100}
-    cost: 0
+    cost: 3000

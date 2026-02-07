@@ -20,16 +20,16 @@ MonoBehaviour:
     cost: 0
   - MaxAirSpeed: 10
     MaxGroundSpeed: 5
-    cost: 0
+    cost: 5
   - MaxAirSpeed: 15
     MaxGroundSpeed: 10
-    cost: 0
+    cost: 120
   - MaxAirSpeed: 20
     MaxGroundSpeed: 15
-    cost: 0
+    cost: 400
   - MaxAirSpeed: 25
     MaxGroundSpeed: 20
-    cost: 0
+    cost: 1000
   - MaxAirSpeed: 30
     MaxGroundSpeed: 28
-    cost: 0
+    cost: 3000
