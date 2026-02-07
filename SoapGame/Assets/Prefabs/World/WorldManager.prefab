@@ -495,16 +495,275 @@ PrefabInstance:
       propertyPath: m_Name
       value: BATH_ROOM
       objectReference: {fileID: 0}
+    - target: {fileID: 7558940578848931354, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+      propertyPath: NpcSpawnPoints.Array.size
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7558940578848931354, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+      propertyPath: StainSpawnPoints.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7558940578848931354, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+      propertyPath: 'NpcSpawnPoints.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1580523360282847277}
+    - target: {fileID: 7558940578848931354, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+      propertyPath: 'NpcSpawnPoints.Array.data[1]'
+      value: 
+      objectReference: {fileID: 4998482110357279265}
+    - target: {fileID: 7558940578848931354, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+      propertyPath: 'NpcSpawnPoints.Array.data[2]'
+      value: 
+      objectReference: {fileID: 7619608112412157224}
+    - target: {fileID: 7558940578848931354, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+      propertyPath: 'NpcSpawnPoints.Array.data[3]'
+      value: 
+      objectReference: {fileID: 7805979361702495087}
+    - target: {fileID: 7558940578848931354, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+      propertyPath: 'NpcSpawnPoints.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2865145209279841569}
+    - target: {fileID: 7558940578848931354, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+      propertyPath: 'NpcSpawnPoints.Array.data[5]'
+      value: 
+      objectReference: {fileID: 1089706021750705371}
+    - target: {fileID: 7558940578848931354, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+      propertyPath: 'NpcSpawnPoints.Array.data[6]'
+      value: 
+      objectReference: {fileID: 267052473142800123}
+    - target: {fileID: 7558940578848931354, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+      propertyPath: 'NpcSpawnPoints.Array.data[7]'
+      value: 
+      objectReference: {fileID: 9077164256265038091}
+    - target: {fileID: 7558940578848931354, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+      propertyPath: 'NpcSpawnPoints.Array.data[8]'
+      value: 
+      objectReference: {fileID: 4294033742189575565}
+    - target: {fileID: 7558940578848931354, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+      propertyPath: 'NpcSpawnPoints.Array.data[9]'
+      value: 
+      objectReference: {fileID: 9073070938218906658}
+    - target: {fileID: 7558940578848931354, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+      propertyPath: 'NpcSpawnPoints.Array.data[10]'
+      value: 
+      objectReference: {fileID: 5951726556900271306}
+    - target: {fileID: 7558940578848931354, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+      propertyPath: 'NpcSpawnPoints.Array.data[11]'
+      value: 
+      objectReference: {fileID: 554235223722995842}
+    - target: {fileID: 7558940578848931354, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+      propertyPath: 'NpcSpawnPoints.Array.data[12]'
+      value: 
+      objectReference: {fileID: 2925922336688358412}
+    - target: {fileID: 7558940578848931354, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+      propertyPath: 'NpcSpawnPoints.Array.data[13]'
+      value: 
+      objectReference: {fileID: 888734780171411457}
+    - target: {fileID: 7558940578848931354, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+      propertyPath: 'StainSpawnPoints.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3031863052252478900}
+    - target: {fileID: 7558940578848931354, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+      propertyPath: 'StainSpawnPoints.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1056877393523280563}
+    - target: {fileID: 7558940578848931354, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+      propertyPath: 'StainSpawnPoints.Array.data[2]'
+      value: 
+      objectReference: {fileID: 981818100303027624}
+    - target: {fileID: 7558940578848931354, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+      propertyPath: 'StainSpawnPoints.Array.data[3]'
+      value: 
+      objectReference: {fileID: 9048015035630856694}
+    - target: {fileID: 8193476599388652823, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+      propertyPath: m_Name
+      value: FrameSpawnPoint5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4277637846265545298, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3685169734841946808}
+    - targetCorrespondingSourceObject: {fileID: 7156740424077552613, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3508780428827993644}
   m_SourcePrefab: {fileID: 100100000, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+--- !u!114 &267052473142800123 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1128300241518932314, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+  m_PrefabInstance: {fileID: 872649222919937953}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91369494417d0ec44b223e569c501234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NpcSpawnPoint
+--- !u!114 &554235223722995842 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 841412438488084259, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+  m_PrefabInstance: {fileID: 872649222919937953}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91369494417d0ec44b223e569c501234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NpcSpawnPoint
+--- !u!114 &888734780171411457 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 20598571448352672, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+  m_PrefabInstance: {fileID: 872649222919937953}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91369494417d0ec44b223e569c501234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NpcSpawnPoint
+--- !u!114 &981818100303027624 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 125075514287555081, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+  m_PrefabInstance: {fileID: 872649222919937953}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5725110a038ce9843b93b91e41a5f274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StainSpawnPoint
+--- !u!114 &1056877393523280563 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 195499470512805138, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+  m_PrefabInstance: {fileID: 872649222919937953}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5725110a038ce9843b93b91e41a5f274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StainSpawnPoint
+--- !u!114 &1089706021750705371 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 217065594978554746, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+  m_PrefabInstance: {fileID: 872649222919937953}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91369494417d0ec44b223e569c501234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NpcSpawnPoint
+--- !u!114 &1580523360282847277 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1869944128506460044, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+  m_PrefabInstance: {fileID: 872649222919937953}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91369494417d0ec44b223e569c501234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NpcSpawnPoint
+--- !u!114 &2865145209279841569 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3161333130105739904, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+  m_PrefabInstance: {fileID: 872649222919937953}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91369494417d0ec44b223e569c501234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NpcSpawnPoint
+--- !u!114 &2925922336688358412 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2631987864943532973, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+  m_PrefabInstance: {fileID: 872649222919937953}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91369494417d0ec44b223e569c501234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NpcSpawnPoint
 --- !u!4 &2989612556746028029 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2693567228834294876, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
   m_PrefabInstance: {fileID: 872649222919937953}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3031863052252478900 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2742431286764904981, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+  m_PrefabInstance: {fileID: 872649222919937953}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5725110a038ce9843b93b91e41a5f274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StainSpawnPoint
+--- !u!1 &3981601179171102195 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4277637846265545298, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+  m_PrefabInstance: {fileID: 872649222919937953}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3685169734841946808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3981601179171102195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a653e18d028d56b4eb7c527dad95d09d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
+  _cleanedType: 0
+  _interactionType: 0
+  _cleanFadeSpeed: 0.3
+  _dirtyChance: 1
+  _isNpc: 0
+  _cleanEffectDuration: 0.4
+  onPlayerInteract:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &4294033742189575565 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4002359937222697516, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+  m_PrefabInstance: {fileID: 872649222919937953}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91369494417d0ec44b223e569c501234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NpcSpawnPoint
+--- !u!114 &4998482110357279265 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5278897330703322496, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+  m_PrefabInstance: {fileID: 872649222919937953}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91369494417d0ec44b223e569c501234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NpcSpawnPoint
+--- !u!114 &5951726556900271306 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6810711599064906603, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+  m_PrefabInstance: {fileID: 872649222919937953}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91369494417d0ec44b223e569c501234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NpcSpawnPoint
 --- !u!114 &7276275139220251067 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7558940578848931354, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
@@ -516,6 +775,87 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b67d1a582d1dcb42b53e7015c518110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WorldSegmentType
+--- !u!114 &7619608112412157224 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7323430158078786185, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+  m_PrefabInstance: {fileID: 872649222919937953}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91369494417d0ec44b223e569c501234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NpcSpawnPoint
+--- !u!114 &7805979361702495087 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6937844735728360654, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+  m_PrefabInstance: {fileID: 872649222919937953}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91369494417d0ec44b223e569c501234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NpcSpawnPoint
+--- !u!1 &8020238753152627780 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7156740424077552613, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+  m_PrefabInstance: {fileID: 872649222919937953}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3508780428827993644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8020238753152627780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a653e18d028d56b4eb7c527dad95d09d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
+  _cleanedType: 0
+  _interactionType: 0
+  _cleanFadeSpeed: 0.3
+  _dirtyChance: 1
+  _isNpc: 0
+  _cleanEffectDuration: 0.4
+  onPlayerInteract:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &9048015035630856694 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8182271297653470807, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+  m_PrefabInstance: {fileID: 872649222919937953}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5725110a038ce9843b93b91e41a5f274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StainSpawnPoint
+--- !u!114 &9073070938218906658 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8211821520626686851, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+  m_PrefabInstance: {fileID: 872649222919937953}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91369494417d0ec44b223e569c501234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NpcSpawnPoint
+--- !u!114 &9077164256265038091 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8206918703240263338, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+  m_PrefabInstance: {fileID: 872649222919937953}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91369494417d0ec44b223e569c501234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NpcSpawnPoint
 --- !u!1001 &5038560592084611052
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -524,57 +864,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1086776391560095317}
     m_Modifications:
-    - target: {fileID: 1043244474412598147, guid: 2d88b509228125b499c088a1fef89af1, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1050767108436736483, guid: 2d88b509228125b499c088a1fef89af1, type: 3}
       propertyPath: m_Name
       value: BATH_HOUSE
       objectReference: {fileID: 0}
-    - target: {fileID: 2017148784905236418, guid: 2d88b509228125b499c088a1fef89af1, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2306696463393009213, guid: 2d88b509228125b499c088a1fef89af1, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5307904528999975155, guid: 2d88b509228125b499c088a1fef89af1, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5718060593716983931, guid: 2d88b509228125b499c088a1fef89af1, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 5718060593716983931, guid: 2d88b509228125b499c088a1fef89af1, type: 3}
       propertyPath: m_VersionIndex
-      value: 4803
-      objectReference: {fileID: 0}
-    - target: {fileID: 6005859097076345935, guid: 2d88b509228125b499c088a1fef89af1, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7084641419916215393, guid: 2d88b509228125b499c088a1fef89af1, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8142993192905892387, guid: 2d88b509228125b499c088a1fef89af1, type: 3}
-      propertyPath: m_Mesh
-      value: 
+      value: 4851
       objectReference: {fileID: 0}
     - target: {fileID: 8142993192905892387, guid: 2d88b509228125b499c088a1fef89af1, type: 3}
       propertyPath: m_VersionIndex
-      value: 4803
-      objectReference: {fileID: 0}
-    - target: {fileID: 8357914634109336637, guid: 2d88b509228125b499c088a1fef89af1, type: 3}
-      propertyPath: m_Mesh
-      value: 
+      value: 4851
       objectReference: {fileID: 0}
     - target: {fileID: 8357914634109336637, guid: 2d88b509228125b499c088a1fef89af1, type: 3}
       propertyPath: m_VersionIndex
-      value: 2906
+      value: 2954
       objectReference: {fileID: 0}
     - target: {fileID: 8854225027942280513, guid: 2d88b509228125b499c088a1fef89af1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -691,7 +995,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7353411392457239627, guid: 0a848f122e972984a8b850a58696871c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
