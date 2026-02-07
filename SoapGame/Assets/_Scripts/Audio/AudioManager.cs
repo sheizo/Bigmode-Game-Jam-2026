@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.Audio;
 using UnityEngine;
 using System;
@@ -7,11 +6,7 @@ using System.Linq;
 
 public class AudioManager : Singleton<AudioManager>
 {
-    [Range(0f, 1f)]
-    public float MusicVolume = 1f;
-
-    [Range(0f, 1f)]
-    public float SFXVolume = 1f;
+    public AudioMixer masterMixer;
 
     public Sound[] soundEffects;
     public Sound[] music;
@@ -64,7 +59,6 @@ public class AudioManager : Singleton<AudioManager>
             print(s + " sound not found");
             return;
         }
-
 
         s.source.PlayOneShot(s.clip[UnityEngine.Random.Range(0, s.clip.Length)]);
     }
@@ -166,5 +160,34 @@ public class AudioManager : Singleton<AudioManager>
         _currentMusic = music;
     }
 
-    
+    public void SetMasterVolume(float value)
+    {
+        SetVolume("MasterVolume", value);
+    }
+
+    public void SetMusicVolume(float value)
+    {
+        SetVolume("MusicVolume", value);
+    }
+
+    public void SetSFXVolume(float value)
+    {
+        SetVolume("SFXVolume", value);
+    }
+
+    private void SetVolume(string parameterName, float value)
+    {
+        // avoid log(0)
+        float db = Mathf.Log10(Mathf.Clamp(value, 0.0001f, 1f)) * 20f;
+        masterMixer.SetFloat(parameterName, db);
+    }
+
+    public float GetVolume(string parameterName)
+    {
+        if (masterMixer.GetFloat(parameterName, out float db))
+        {
+            return Mathf.Pow(10f, db / 20f);
+        }
+        return 1f;
+    }
 }

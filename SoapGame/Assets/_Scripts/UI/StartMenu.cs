@@ -25,8 +25,10 @@ public class StartMenu : MonoBehaviour
     [SerializeField] private Button _creditsBackButton;
 
     [Header("Settings Menu")]
+    [SerializeField] private Slider _masterVolumeSlider;
     [SerializeField] private Slider _musicVolumeSlider;
     [SerializeField] private Slider _sfxVolumeSlider;
+    [SerializeField] private TextMeshProUGUI _masterVolumeText;
     [SerializeField] private TextMeshProUGUI _musicVolumeText;
     [SerializeField] private TextMeshProUGUI _sfxVolumeText;
     [SerializeField] private TMP_InputField _playerNameInputField;
@@ -39,6 +41,7 @@ public class StartMenu : MonoBehaviour
             _screens[screen.Name] = screen.CanvasGroup;
         }
 
+        _masterVolumeSlider.onValueChanged.AddListener(OnMasterVolumeChanged);
         _musicVolumeSlider.onValueChanged.AddListener(OnMusicVolumeChanged);
         _sfxVolumeSlider.onValueChanged.AddListener(OnSFXVolumeChanged);
 
@@ -76,6 +79,7 @@ public class StartMenu : MonoBehaviour
 
     void OnDestroy()
     {
+        _masterVolumeSlider.onValueChanged.RemoveListener(OnMasterVolumeChanged);
         _musicVolumeSlider.onValueChanged.RemoveListener(OnMusicVolumeChanged);
         _sfxVolumeSlider.onValueChanged.RemoveListener(OnSFXVolumeChanged);
         _startButton.onClick.RemoveAllListeners();
@@ -87,11 +91,13 @@ public class StartMenu : MonoBehaviour
 
     void Start()
     {
-        _musicVolumeSlider.value = AudioManager.Instance.MusicVolume;
-        _sfxVolumeSlider.value = AudioManager.Instance.SFXVolume;
+        _masterVolumeSlider.value = AudioManager.Instance.GetVolume("MasterVolume");
+        _musicVolumeSlider.value = AudioManager.Instance.GetVolume("MusicVolume");
+        _sfxVolumeSlider.value = AudioManager.Instance.GetVolume("SFXVolume");
 
-        UpdateMusicVolumeText(AudioManager.Instance.MusicVolume);
-        UpdateSFXVolumeText(AudioManager.Instance.SFXVolume);
+        UpdateMasterVolumeText(AudioManager.Instance.GetVolume("MasterVolume"));
+        UpdateMusicVolumeText(AudioManager.Instance.GetVolume("MusicVolume"));
+        UpdateSFXVolumeText(AudioManager.Instance.GetVolume("SFXVolume"));
     }
 
     private void ShowScreen(string screenName)
@@ -128,16 +134,28 @@ public class StartMenu : MonoBehaviour
         screen.blocksRaycasts = true;
     }
 
+    public void OnMasterVolumeChanged(float value)
+    {
+        AudioManager.Instance.SetMasterVolume(value);
+        UpdateMasterVolumeText(value);
+    }
+
     public void OnMusicVolumeChanged(float value)
     {
-        AudioManager.Instance.MusicVolume = value;
+        AudioManager.Instance.SetMusicVolume(value);
         UpdateMusicVolumeText(value);
     }
 
     public void OnSFXVolumeChanged(float value)
     {
-        AudioManager.Instance.SFXVolume = value;
+        AudioManager.Instance.SetSFXVolume(value);
         UpdateSFXVolumeText(value);
+    }
+
+
+    private void UpdateMasterVolumeText(float value)
+    {
+        _masterVolumeText.text = $"{(int)(value * 100)}%";
     }
 
     private void UpdateMusicVolumeText(float value)

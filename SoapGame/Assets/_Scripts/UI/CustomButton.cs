@@ -29,6 +29,7 @@ public class CustomButton : MonoBehaviour,
     public void OnPointerEnter(PointerEventData eventData)
     {
         ScaleTo(hoverScale);
+        AudioManager.Instance.PlayOneShot("Button_Hover");
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -39,6 +40,7 @@ public class CustomButton : MonoBehaviour,
     public void OnPointerDown(PointerEventData eventData)
     {
         ScaleTo(clickScale);
+        AudioManager.Instance.PlayOneShot("Button_Click");
     }
 
     public void OnPointerUp(PointerEventData eventData)
