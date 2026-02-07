@@ -77,7 +77,7 @@ public class LeaderboardManager : Singleton<LeaderboardManager>
 
 public static class LeaderboardClient
 {
-    private static string BaseUrl = "http://82.165.198.31:3000";
+    private static string BaseUrl = "https://magicsoap.duckdns.org";
     private const string ApiKey = "SOAPYSOAP";
 
     public static async Task PostScore(string playerName, int score)
