@@ -212,7 +212,7 @@ public class PlayerController : MonoBehaviour
 
             _meltAudioSource.Stop();
         }
-        else if (_isGrounded && !_isOnRamp && GameManager.CurrentGameState == GameState.GAMEPLAY)
+        else if (_isGrounded && !_isOnRamp)
         {
             if (!_meltAudioSource.isPlaying)
                 _meltAudioSource.Play();
@@ -248,8 +248,6 @@ public class PlayerController : MonoBehaviour
         
         if (!SoapDepleted){
             SetPlayerVisualPosition();
-            
-            
         }
         
         if (GameManager.CurrentGameState is GameState.LAUNCH) {
@@ -308,6 +306,9 @@ public class PlayerController : MonoBehaviour
             _soapTrail.Clear();
             _soapTrail.emitting = false;
             OnSoapDeplete?.Invoke(_runStats);
+
+            _cleanAudioSource.Stop();
+            _meltAudioSource.Stop();
             return;
         }
         _currentSoapPower-=amount;
