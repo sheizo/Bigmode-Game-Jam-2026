@@ -44,8 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de190108afeb2a24ba89fdb238ddae1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
-  MusicVolume: 1
-  SFXVolume: 1
+  masterMixer: {fileID: 24100000, guid: dce1e024161c75045854a05b494b8b65, type: 2}
   soundEffects:
   - name: Swoosh_EndRamp
     audioGroup: {fileID: 1047990350325659588, guid: dce1e024161c75045854a05b494b8b65, type: 2}
