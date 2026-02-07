@@ -162,6 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a653e18d028d56b4eb7c527dad95d09d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
+  _cleanedType: 0
   _interactionType: 0
   _cleanFadeSpeed: 0.3
   _dirtyChance: 0.5
@@ -169,19 +170,7 @@ MonoBehaviour:
   _cleanEffectDuration: 0.4
   onPlayerInteract:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 899719816972606386}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!82 &899719816972606386
 AudioSource:
   m_ObjectHideFlags: 0
@@ -390,6 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a653e18d028d56b4eb7c527dad95d09d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
+  _cleanedType: 0
   _interactionType: 0
   _cleanFadeSpeed: 0.3
   _dirtyChance: 0.5
@@ -397,19 +387,7 @@ MonoBehaviour:
   _cleanEffectDuration: 0.4
   onPlayerInteract:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1659772774442917247}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!82 &1659772774442917247
 AudioSource:
   m_ObjectHideFlags: 0
@@ -618,6 +596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a653e18d028d56b4eb7c527dad95d09d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
+  _cleanedType: 0
   _interactionType: 0
   _cleanFadeSpeed: 0.3
   _dirtyChance: 0.5
@@ -625,19 +604,7 @@ MonoBehaviour:
   _cleanEffectDuration: 0.4
   onPlayerInteract:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3483524815022754587}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!82 &3483524815022754587
 AudioSource:
   m_ObjectHideFlags: 0
@@ -846,6 +813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a653e18d028d56b4eb7c527dad95d09d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
+  _cleanedType: 0
   _interactionType: 0
   _cleanFadeSpeed: 0.3
   _dirtyChance: 0.5
@@ -853,19 +821,7 @@ MonoBehaviour:
   _cleanEffectDuration: 0.4
   onPlayerInteract:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1158468559184202830}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!82 &1158468559184202830
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1074,6 +1030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a653e18d028d56b4eb7c527dad95d09d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
+  _cleanedType: 0
   _interactionType: 0
   _cleanFadeSpeed: 0.3
   _dirtyChance: 0.5
@@ -1081,19 +1038,7 @@ MonoBehaviour:
   _cleanEffectDuration: 0.4
   onPlayerInteract:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7506424118587132077}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!82 &7506424118587132077
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1302,6 +1247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a653e18d028d56b4eb7c527dad95d09d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
+  _cleanedType: 0
   _interactionType: 0
   _cleanFadeSpeed: 0.3
   _dirtyChance: 0.5
@@ -1309,19 +1255,7 @@ MonoBehaviour:
   _cleanEffectDuration: 0.4
   onPlayerInteract:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1120542030166052017}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!82 &1120542030166052017
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1530,6 +1464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a653e18d028d56b4eb7c527dad95d09d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
+  _cleanedType: 0
   _interactionType: 0
   _cleanFadeSpeed: 0.3
   _dirtyChance: 0.5
@@ -1537,19 +1472,7 @@ MonoBehaviour:
   _cleanEffectDuration: 0.4
   onPlayerInteract:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 830928102023840764}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!82 &830928102023840764
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1758,6 +1681,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a653e18d028d56b4eb7c527dad95d09d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
+  _cleanedType: 0
   _interactionType: 0
   _cleanFadeSpeed: 0.3
   _dirtyChance: 0.5
@@ -1765,19 +1689,7 @@ MonoBehaviour:
   _cleanEffectDuration: 0.4
   onPlayerInteract:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 93220981552343438}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!82 &93220981552343438
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1986,6 +1898,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a653e18d028d56b4eb7c527dad95d09d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
+  _cleanedType: 0
   _interactionType: 0
   _cleanFadeSpeed: 0.3
   _dirtyChance: 0.5
@@ -1993,19 +1906,7 @@ MonoBehaviour:
   _cleanEffectDuration: 0.4
   onPlayerInteract:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5306218575169924877}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!82 &5306218575169924877
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2214,6 +2115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a653e18d028d56b4eb7c527dad95d09d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
+  _cleanedType: 0
   _interactionType: 0
   _cleanFadeSpeed: 0.3
   _dirtyChance: 0.5
@@ -2221,19 +2123,7 @@ MonoBehaviour:
   _cleanEffectDuration: 0.4
   onPlayerInteract:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3596068355905410587}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!82 &3596068355905410587
 AudioSource:
   m_ObjectHideFlags: 0

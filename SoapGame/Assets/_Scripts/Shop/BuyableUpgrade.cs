@@ -43,6 +43,9 @@ public class BuyableUpgrade : MonoBehaviour
         _outline.enabled = false;
         
         _mainCamera = Camera.main;
+        
+        _canvasGroup.alpha = 0;
+        _costCanvasGroup.alpha = 0;
     }
 
     public void Init()
