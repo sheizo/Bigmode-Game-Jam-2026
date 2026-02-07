@@ -30,8 +30,6 @@ public class WorldManager : MonoBehaviour
         _playerTransform = GameManager.PlayerTransform;
 
         _worldSegmentPool = new MoveToEndFIFO<WorldSegment>();
-        GameObject container = new GameObject("LevelCopies");
-        
         //Store all _levelPrefab children components renderers
         Renderer[] renderers = _levelPrefab.GetComponentsInChildren<Renderer>();
         
@@ -45,13 +43,12 @@ public class WorldManager : MonoBehaviour
         _segmentInitialZPos = _levelPrefab.transform.position.z;
         _backWallInitialZPos = _backWall.transform.position.z;
 
-        _levelPrefab.transform.parent = container.transform;
         _worldSegmentPool.Enqueue(_levelPrefab);
 
         //Create x copies of _levelPrefab 
         for (int i = 1; i < _segmentPoolCount; i++)
         {
-            WorldSegment level = Instantiate(_levelPrefab, Vector3.zero, Quaternion.identity, container.transform);
+            WorldSegment level = Instantiate(_levelPrefab, Vector3.zero, Quaternion.identity, _levelPrefab.transform.parent);
             _worldSegmentPool.Enqueue(level);
         }
 

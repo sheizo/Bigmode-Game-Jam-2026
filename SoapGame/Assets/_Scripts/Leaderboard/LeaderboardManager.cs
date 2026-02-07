@@ -1,25 +1,26 @@
 using System;
 using System.Collections.Generic;
-using System.Net.Http;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class LeaderboardManager : MonoBehaviour
+public class LeaderboardManager : Singleton<LeaderboardManager>
 {
     [SerializeField] private LeaderboardEntryRow _entryRowPrefab;
     [SerializeField] private Transform _entriesContainer;
     [SerializeField] private int _topScoresCount = 20;
 
-    [SerializeField] private CanvasGroup _leaderboardCanvasGroup;
-
     public List<LeaderboardEntry> TopScores { get; private set; }
 
     private List<LeaderboardEntryRow> _entryRows = new List<LeaderboardEntryRow>();
+
+
+    protected override void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+        base.Awake();
+    }
 
     public void Start()
     {

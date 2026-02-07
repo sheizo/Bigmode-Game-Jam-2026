@@ -33,6 +33,10 @@ public class StartMenu : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _sfxVolumeText;
     [SerializeField] private TMP_InputField _playerNameInputField;
 
+
+    [Header("Text")]
+    [SerializeField] private TextMeshProUGUI _startButtonText;
+
     void Awake()
     {
         _screens = new Dictionary<string, CanvasGroup>();
@@ -49,9 +53,11 @@ public class StartMenu : MonoBehaviour
         {
             if (_playerNameInputField != null && !string.IsNullOrWhiteSpace(_playerNameInputField.text))
             {
-                GameManager.PlayerName = _playerNameInputField.text;
+                PlayerName.Name = _playerNameInputField.text;
             }
-            SceneManager.LoadScene("MainScene");
+
+            _startButtonText.text = "Resume";
+            SceneController.Instance.ShowGame();
         });
 
         _settingsButton.onClick.AddListener(() =>

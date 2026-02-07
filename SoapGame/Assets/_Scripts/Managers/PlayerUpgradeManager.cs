@@ -23,8 +23,6 @@ public class PlayerUpgradeManager : MonoBehaviour
 
     public void Init()
     {
-        DontDestroyOnLoad(this.gameObject);
-
         _allUpgrades = new()
         {
             SoapUpgrade,

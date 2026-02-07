@@ -86,7 +86,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 92534262021545250}
-  - component: {fileID: 3239385259062910181}
   m_Layer: 5
   m_Name: Leaderboard
   m_TagString: Untagged
@@ -114,23 +113,8 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0.000015259}
-  m_SizeDelta: {x: 667.6865, y: 791.34}
+  m_SizeDelta: {x: 667.6865, y: 791.3401}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &3239385259062910181
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2321814676844594998}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92d8401cc4666ab46965c1ec6f833871, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LeaderboardManager
-  _entryRowPrefab: {fileID: 7698529131758456529, guid: 9da9284630ac84d4581ac21ac1685a1f, type: 3}
-  _entriesContainer: {fileID: 6460123123844550508}
-  _topScoresCount: 20
 --- !u!1 &2643088168575926496
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,7 +217,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Score
+  m_text: Distance
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8373bacb1c55d4d47991ff7e745720a5, type: 2}
   m_sharedMaterial: {fileID: -607211404885202394, guid: 8373bacb1c55d4d47991ff7e745720a5, type: 2}
@@ -470,7 +454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.078431375, g: 0.078431375, b: 0.078431375, a: 1}
+  m_Color: {r: 0.078431375, g: 0.078431375, b: 0.078431375, a: 0.40392157}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -486,7 +470,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 0.5
+  m_PixelsPerUnitMultiplier: 0.2
 --- !u!1 &3661345170446768825
 GameObject:
   m_ObjectHideFlags: 0

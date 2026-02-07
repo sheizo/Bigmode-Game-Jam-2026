@@ -44,16 +44,13 @@ public class GameManager : Singleton<GameManager>
 
     public static GameState CurrentGameState => Instance._cinemachineBrain.IsBlending ? GameState.NONE : Instance._gameStateManager.CurrentGameState;
 
-    private string _playerName = null;
-    public static string PlayerName
-    {
-        get => Instance._playerName;
-        set => Instance._playerName = value;
-    }
-    
+
+    private bool _isInitialized = false;
 
     //giga spaghetti
     private void OnEnable(){
+        if (_isInitialized) return;
+
         _gameStateManager.Init();
         _uiManager.Init();
         _playerUpgradeManager.Init();
@@ -71,13 +68,15 @@ public class GameManager : Singleton<GameManager>
 
         _uiManager.UpdateGameStateCanvas(_gameStateManager.CurrentGameState);
         _gameStateManager.OnGameStateChange += _uiManager.UpdateGameStateCanvas;
-        
+
 
 #if DEVELOPMENT_BUILD
         PlayerPrefs.DeleteAll();
 #endif
         
         LoadGame();
+
+        _isInitialized = true;
     }
 
     private void Start(){
@@ -99,6 +98,11 @@ public class GameManager : Singleton<GameManager>
         _gameStateManager.SwitchGameState(GameState.LOSSSCREEN);
         _uiManager.ResetSoapMeter();
         _uiManager.SetRunStats(runStats);
+
+        if (!string.IsNullOrEmpty(PlayerName.Name))
+        {
+            LeaderboardManager.Instance.SubmitScore(PlayerName.Name, (int) runStats.DistanceTravelled);
+        }
         
     }
 
@@ -160,16 +164,12 @@ public class GameManager : Singleton<GameManager>
     //     }
     // }
 
-    private void OnDisable(){
+    private void OnDestroy() {
         _launcher.OnLaunched -= PlayerGotoGameplay;
         _playerController.OnSoapDeplete -= PlayerEndRun;
         
         _uiManager.OnExitShopClick -= PlayerRestart;
         _uiManager.OnRestartClick -= PlayerRestart;
         _uiManager.OnShopClick -= PlayerGotoShop;
-        
-        
     }
-    
-    
 }

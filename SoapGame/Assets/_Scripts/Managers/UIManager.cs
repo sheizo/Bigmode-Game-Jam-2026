@@ -237,7 +237,7 @@ public class UIManager : MonoBehaviour
         OnExitShopClick?.Invoke();
     }
 
-    private void OnDisable(){
+    private void OnDestroy() {
         _vignette.intensity.value = _startingVignetteIntensity;
         
         _soapFillMat.SetFloat(Fill, 1);

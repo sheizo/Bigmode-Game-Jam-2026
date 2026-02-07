@@ -49,7 +49,7 @@ public class Shop : MonoBehaviour
     }
 
     
-    private void OnDisable(){
+    private void OnDestroy() {
         foreach (BuyableUpgrade buyableUpgrade in _buyableUpgrades){
             buyableUpgrade.OnClicked -= TryBuying;
         }

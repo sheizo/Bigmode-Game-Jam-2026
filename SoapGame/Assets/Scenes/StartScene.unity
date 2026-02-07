@@ -119,6 +119,50 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &2527851
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2527853}
+  - component: {fileID: 2527852}
+  m_Layer: 0
+  m_Name: PlayerName
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2527852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2527851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d58671069cca56e4a81fb70503b03c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerName
+--- !u!4 &2527853
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2527851}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.15973, y: -0, z: 26.09203}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &52077923
 GameObject:
   m_ObjectHideFlags: 0
@@ -1072,6 +1116,97 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 238102228}
   m_CullTransparentMesh: 1
+--- !u!1 &289423289
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 289423291}
+  - component: {fileID: 289423290}
+  m_Layer: 0
+  m_Name: LeaderboardManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &289423290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289423289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92d8401cc4666ab46965c1ec6f833871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LeaderboardManager
+  _entryRowPrefab: {fileID: 7698529131758456529, guid: 9da9284630ac84d4581ac21ac1685a1f, type: 3}
+  _entriesContainer: {fileID: 1935343125}
+  _topScoresCount: 20
+--- !u!4 &289423291
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289423289}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.15973, y: -0, z: 26.09203}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &298506222
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 298506224}
+  - component: {fileID: 298506223}
+  m_Layer: 0
+  m_Name: SceneController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &298506223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298506222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b52208a8ff99fc4ba4ad185bb3ad559, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+--- !u!4 &298506224
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298506222}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.15973, y: -0, z: 26.09203}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &349630340
 GameObject:
   m_ObjectHideFlags: 0
@@ -2264,6 +2399,7 @@ MonoBehaviour:
   _musicVolumeText: {fileID: 176111325}
   _sfxVolumeText: {fileID: 1547234613}
   _playerNameInputField: {fileID: 1803720431}
+  _startButtonText: {fileID: 1917261854}
 --- !u!1 &1009075627
 GameObject:
   m_ObjectHideFlags: 0
@@ -3352,14 +3488,6 @@ PrefabInstance:
     - target: {fileID: 2321814676844594998, guid: 09ee87a5d3235fb4dbee1a1be82cc6b9, type: 3}
       propertyPath: m_Name
       value: Leaderboard
-      objectReference: {fileID: 0}
-    - target: {fileID: 6318475442609806849, guid: 09ee87a5d3235fb4dbee1a1be82cc6b9, type: 3}
-      propertyPath: m_Color.a
-      value: 0.40392157
-      objectReference: {fileID: 0}
-    - target: {fileID: 6318475442609806849, guid: 09ee87a5d3235fb4dbee1a1be82cc6b9, type: 3}
-      propertyPath: m_PixelsPerUnitMultiplier
-      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5111,8 +5239,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 113.27
-  m_fontSizeBase: 113.27
+  m_fontSize: 110
+  m_fontSizeBase: 110
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5303,6 +5431,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1933688881}
   m_CullTransparentMesh: 1
+--- !u!224 &1935343125 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6460123123844550508, guid: 09ee87a5d3235fb4dbee1a1be82cc6b9, type: 3}
+  m_PrefabInstance: {fileID: 1283379768}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1982195818
 GameObject:
   m_ObjectHideFlags: 0
@@ -5638,3 +5771,6 @@ SceneRoots:
   - {fileID: 203917051}
   - {fileID: 456482050}
   - {fileID: 200868160}
+  - {fileID: 2527853}
+  - {fileID: 289423291}
+  - {fileID: 298506224}
