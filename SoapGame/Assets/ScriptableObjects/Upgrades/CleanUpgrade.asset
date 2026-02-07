@@ -13,14 +13,21 @@ MonoBehaviour:
   m_Name: CleanUpgrade
   m_EditorClassIdentifier: Assembly-CSharp::CleanUpgrade
   _id: clean
-  _name: Clean Upgrade
+  _name: Better Cleaning
   _levels:
   - SoapRefillOnClean: 0.05
     TimeToClean: 2
+    CleanBoostStrength: 5
     cost: 0
   - SoapRefillOnClean: 0.1
     TimeToClean: 1
+    CleanBoostStrength: 10
     cost: 0
   - SoapRefillOnClean: 0.2
     TimeToClean: 0.5
+    CleanBoostStrength: 15
+    cost: 0
+  - SoapRefillOnClean: 0.25
+    TimeToClean: 0.3
+    CleanBoostStrength: 20
     cost: 0

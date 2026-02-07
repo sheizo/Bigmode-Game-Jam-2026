@@ -95,7 +95,8 @@ public class CleanUpgradeLevel : IUpgradeLevel
 {
     [Range(0f, 1f)] public float SoapRefillOnClean;
     public float TimeToClean;
-
+    public float CleanBoostStrength;
+    
     [SerializeField] private int cost;
     public int Cost => cost;
 }
