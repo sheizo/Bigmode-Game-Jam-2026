@@ -15,6 +15,8 @@ public class LeaderboardManager : MonoBehaviour
     [SerializeField] private Transform _entriesContainer;
     [SerializeField] private int _topScoresCount = 20;
 
+    [SerializeField] private CanvasGroup _leaderboardCanvasGroup;
+
     public List<LeaderboardEntry> TopScores { get; private set; }
 
     private List<LeaderboardEntryRow> _entryRows = new List<LeaderboardEntryRow>();
