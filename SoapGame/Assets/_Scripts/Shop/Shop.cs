@@ -26,6 +26,7 @@ public class Shop : MonoBehaviour
 
         bool success = buyableUpgrade.Upgrade.Upgrade();
         if (success){
+            AudioManager.Instance.PlayOneShot("ca_ching");
             buyableUpgrade.UpdateUI();
             GameManager.SaveGame();
             GameManager.UIManager.UpdateMoney(GameManager.PlayerStats.Money);

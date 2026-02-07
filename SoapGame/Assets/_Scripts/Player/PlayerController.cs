@@ -250,6 +250,9 @@ public class PlayerController : MonoBehaviour
         _cleanTween = _playerVisualAnims.DOPunchScale(_playerVisualAnims.localScale * _cleanAnimationScale, _cleanAnimationDuration).SetEase(_cleanAnimationEase);
         
         _runStats.AddCleaned(interactable.CleanedType);
+        
+        
+        AudioManager.Instance.PlayOneShot("Clean");
     }
 
     public void ResetPlayer(){

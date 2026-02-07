@@ -1,0 +1,169 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3846899226593553488
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 240400749350838571}
+  - component: {fileID: 1619088711194730985}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &240400749350838571
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3846899226593553488}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1619088711194730985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3846899226593553488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de190108afeb2a24ba89fdb238ddae1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  MusicVolume: 1
+  SFXVolume: 1
+  soundEffects:
+  - name: Swoosh_EndRamp
+    audioGroup: {fileID: 1047990350325659588, guid: dce1e024161c75045854a05b494b8b65, type: 2}
+    clip:
+    - {fileID: 8300000, guid: 7bb9b7788ac7b6248b8d5e941225991f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Swoosh_LongLoop
+    audioGroup: {fileID: 1047990350325659588, guid: dce1e024161c75045854a05b494b8b65, type: 2}
+    clip:
+    - {fileID: 8300000, guid: 07a54f4518ac3b54eb8df73f31aefa10, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Swoosh_Short
+    audioGroup: {fileID: 1047990350325659588, guid: dce1e024161c75045854a05b494b8b65, type: 2}
+    clip:
+    - {fileID: 8300000, guid: c94645c8c876005408f52187b32e2db3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Ramp_Create
+    audioGroup: {fileID: 1047990350325659588, guid: dce1e024161c75045854a05b494b8b65, type: 2}
+    clip:
+    - {fileID: 8300000, guid: 77d1ddfed084d574cbb1a7058f692e97, type: 3}
+    - {fileID: 8300000, guid: 44b9a27e354a39749be62d6d38a359d4, type: 3}
+    - {fileID: 8300000, guid: cac437d58f908594eb869364b63fcb62, type: 3}
+    - {fileID: 8300000, guid: c359ef29d422d7545999ef8bc0bd56a4, type: 3}
+    - {fileID: 8300000, guid: aa3d75c2f3980c641915831877462d3f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Clean
+    audioGroup: {fileID: 1047990350325659588, guid: dce1e024161c75045854a05b494b8b65, type: 2}
+    clip:
+    - {fileID: 8300000, guid: e6feb851f08e156479b6ee9cacd0b423, type: 3}
+    - {fileID: 8300000, guid: 8e56fedc540ac9e46a0d1a42f8cdda4d, type: 3}
+    - {fileID: 8300000, guid: 88a33f015b11ea348be1877fd53f1cab, type: 3}
+    - {fileID: 8300000, guid: 34ce4447fbd3045458e386d36e36f95b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Orchestra_Hit
+    audioGroup: {fileID: 1047990350325659588, guid: dce1e024161c75045854a05b494b8b65, type: 2}
+    clip:
+    - {fileID: 8300000, guid: f1bae5ec54e45214c9dad69597e8bb10, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Ca_ching
+    audioGroup: {fileID: 1047990350325659588, guid: dce1e024161c75045854a05b494b8b65, type: 2}
+    clip:
+    - {fileID: 8300000, guid: 7f8dffd4853a3f14297e625bcf53eddd, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Button_Hover
+    audioGroup: {fileID: 1047990350325659588, guid: dce1e024161c75045854a05b494b8b65, type: 2}
+    clip:
+    - {fileID: 8300000, guid: b56ca72e75caaf94896cb96df1073515, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Button_Click
+    audioGroup: {fileID: 1047990350325659588, guid: dce1e024161c75045854a05b494b8b65, type: 2}
+    clip:
+    - {fileID: 8300000, guid: 84069fb3c5e85ac4d8293cea546dad12, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Error_Buy
+    audioGroup: {fileID: 1047990350325659588, guid: dce1e024161c75045854a05b494b8b65, type: 2}
+    clip:
+    - {fileID: 8300000, guid: 35f8843889437244d8cc2ac16faa30aa, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Melting_Loop
+    audioGroup: {fileID: 1047990350325659588, guid: dce1e024161c75045854a05b494b8b65, type: 2}
+    clip:
+    - {fileID: 8300000, guid: 0e72653d667f8034799fd3a4254d97c7, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Slip
+    audioGroup: {fileID: 1047990350325659588, guid: dce1e024161c75045854a05b494b8b65, type: 2}
+    clip:
+    - {fileID: 8300000, guid: 793a5d2148e92cc408bb6c34b991dce9, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Cleaning_Loop
+    audioGroup: {fileID: 1047990350325659588, guid: dce1e024161c75045854a05b494b8b65, type: 2}
+    clip:
+    - {fileID: 8300000, guid: 315f73d0ca6168141847e84c74de382d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  music:
+  - name: Music
+    audioGroup: {fileID: -426505490407008096, guid: dce1e024161c75045854a05b494b8b65, type: 2}
+    clip:
+    - {fileID: 8300000, guid: 46da59870e2be554fa073ba1b0e5bb3d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
