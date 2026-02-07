@@ -3,7 +3,12 @@ guid: 511c99fb20a4ad842a2246f70442439f
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: soapHolder
+    second: {fileID: 2100000, guid: d818f3bc382c0c042bc321a1aa78325f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -30,11 +35,11 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
-    meshCompression: 0
+    meshCompression: 3
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
