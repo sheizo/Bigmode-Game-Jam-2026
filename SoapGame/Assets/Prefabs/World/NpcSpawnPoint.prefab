@@ -167,6 +167,8 @@ GameObject:
   - component: {fileID: 3890951312106411714}
   - component: {fileID: 1916278993322121045}
   - component: {fileID: 446075372224433571}
+  - component: {fileID: 7793315894744364885}
+  - component: {fileID: 1567999929797259778}
   m_Layer: 0
   m_Name: Human
   m_TagString: PlayerInteractable
@@ -211,7 +213,19 @@ MonoBehaviour:
   _cleanEffectDuration: 0.4
   onPlayerInteract:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1567999929797259778}
+        m_TargetAssemblyTypeName: RandomAudioClipPlayer, Assembly-CSharp
+        m_MethodName: PlayRandomClip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!33 &3996597237470735437
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -329,6 +343,123 @@ MonoBehaviour:
   lockX: 0
   lockY: 1
   lockZ: 1
+--- !u!82 &7793315894744364885
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833956732882352466}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 1047990350325659588, guid: dce1e024161c75045854a05b494b8b65, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1567999929797259778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833956732882352466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e44fbfea5f6a4e84dacc33df8a413fb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RandomAudioClipPlayer
+  _audioClips:
+  - {fileID: 8300000, guid: 879c46b7d2e4c2544acbbc213372b119, type: 3}
+  - {fileID: 8300000, guid: 620d7521084340241ba16441080e2250, type: 3}
+  - {fileID: 8300000, guid: 9fc7716a761fcfb4cbf2661407a6edb8, type: 3}
+  - {fileID: 8300000, guid: 90311eb1265af3b46aaf8577a002e564, type: 3}
+  - {fileID: 8300000, guid: a98991b714525b744ae146a1b7f6dedb, type: 3}
+  - {fileID: 8300000, guid: 3e214e3c6e63d9e48ae0a1fc5d81cf23, type: 3}
+  - {fileID: 8300000, guid: d880c2717aab9604ea1a3d56f6888ff9, type: 3}
 --- !u!1 &2481413024376716008
 GameObject:
   m_ObjectHideFlags: 0

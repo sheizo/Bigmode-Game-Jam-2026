@@ -631,6 +631,21 @@ public class PlayerController : MonoBehaviour
         ProcessInteraction(collision.gameObject);
     }
 
+    private float minImpactForce = 1f;               
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (_isOnRamp) return; // don't play if hitting ground while on ramp, only when landing on it or hitting other things
+
+        if (!collision.gameObject.TryGetComponent(out PlayerInteractable interactable))
+        {
+            float impactForce = collision.relativeVelocity.magnitude;
+            if (impactForce > minImpactForce)
+            {
+                AudioManager.Instance.PlayOneShot("Hit_Ground", Mathf.InverseLerp(minImpactForce, minImpactForce * 5, impactForce));
+            }
+        }
+    }
+
 
     [ContextMenu("Force Update Upgrades")]
     private void ForceUpdateUpgrades(){
