@@ -165,7 +165,7 @@ MonoBehaviour:
   - {fileID: 2811702334187526025}
   - {fileID: 7276275139220251067}
   - {fileID: 8244930159091407571}
-  decalSize: 5
+  decalSize: 12
 --- !u!1 &4990779995032063340
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,7 +215,7 @@ MonoBehaviour:
   _levelPrefab: {fileID: 3234871616794824951}
   _backWall: {fileID: 7181399462426007311}
   _segmentPoolCount: 8
-  _segmentSpacing: -0.2
+  _segmentSpacing: -0.02
   _minimumSegmentsAhead: 2
 --- !u!1 &7181399462426007311
 GameObject:
@@ -689,6 +689,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LOCKER_ROOM
       objectReference: {fileID: 0}
+    - target: {fileID: 7353411392457239627, guid: 0a848f122e972984a8b850a58696871c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -718,6 +722,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1086776391560095317}
     m_Modifications:
+    - target: {fileID: 863716057686313806, guid: 35ab65e064a9cac409cf5ebaf2f2ae04, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607157541855144309, guid: 35ab65e064a9cac409cf5ebaf2f2ae04, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692953660137924727, guid: 35ab65e064a9cac409cf5ebaf2f2ae04, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037354851273319900, guid: 35ab65e064a9cac409cf5ebaf2f2ae04, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931882945339557572, guid: 35ab65e064a9cac409cf5ebaf2f2ae04, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3937491236578051813, guid: 35ab65e064a9cac409cf5ebaf2f2ae04, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4404786250325796729, guid: 35ab65e064a9cac409cf5ebaf2f2ae04, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -758,12 +786,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5374278364882090532, guid: 35ab65e064a9cac409cf5ebaf2f2ae04, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5445425114992884487, guid: 35ab65e064a9cac409cf5ebaf2f2ae04, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6800979889776524297, guid: 35ab65e064a9cac409cf5ebaf2f2ae04, type: 3}
       propertyPath: m_Name
       value: SHOWER_ROOM
       objectReference: {fileID: 0}
+    - target: {fileID: 7658470409580385685, guid: 35ab65e064a9cac409cf5ebaf2f2ae04, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7673086603911386548, guid: 35ab65e064a9cac409cf5ebaf2f2ae04, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7732424075436889270, guid: 35ab65e064a9cac409cf5ebaf2f2ae04, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574390603724633741, guid: 35ab65e064a9cac409cf5ebaf2f2ae04, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6941516383914908761, guid: 35ab65e064a9cac409cf5ebaf2f2ae04, type: 3}
+    - {fileID: 2421851706176401788, guid: 35ab65e064a9cac409cf5ebaf2f2ae04, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35ab65e064a9cac409cf5ebaf2f2ae04, type: 3}
