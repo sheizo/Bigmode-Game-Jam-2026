@@ -55,12 +55,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StainSpawnPoint
   _stainList:
-  - stainObject: {fileID: 8988074292533347921}
-  - stainObject: {fileID: 1788643618106054336}
-  - stainObject: {fileID: 2700837074587359463}
-  - stainObject: {fileID: 5949398044739105175}
-  - stainObject: {fileID: 6323557870096500645}
-  - stainObject: {fileID: 4353015362660835855}
+  - {fileID: 8425260097716333325}
+  - {fileID: 6192697190068170540}
+  - {fileID: 2820888770464180046}
+  - {fileID: 5246623108726952465}
+  - {fileID: 7192581597058168953}
+  - {fileID: 8335098173599294942}
+  - {fileID: 5163915004646960106}
+  - {fileID: 6686021031847231654}
+  - {fileID: 6656373200956343733}
+  - {fileID: 6274101181213352252}
 --- !u!1 &1788643618106054336
 GameObject:
   m_ObjectHideFlags: 0
@@ -74,6 +78,7 @@ GameObject:
   - component: {fileID: 2318306420842860040}
   - component: {fileID: 8435969879525889616}
   - component: {fileID: 899719816972606386}
+  - component: {fileID: 6192697190068170540}
   m_Layer: 6
   m_Name: Stain2
   m_TagString: Untagged
@@ -158,7 +163,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
   _interactionType: 0
-  _isDecal: 1
+  _cleanFadeSpeed: 0.3
+  _dirtyChance: 0.5
+  _isNpc: 0
+  _cleanEffectDuration: 0.4
   onPlayerInteract:
     m_PersistentCalls:
       m_Calls:
@@ -174,7 +182,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _interacted: 0
 --- !u!82 &899719816972606386
 AudioSource:
   m_ObjectHideFlags: 0
@@ -272,6 +279,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6192697190068170540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788643618106054336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc204252a2e28d24c8b73faf660ed320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Stain
+  stainDecal: {fileID: 7862677705091092931}
+  stainCollider: {fileID: 2318306420842860040}
 --- !u!1 &2700837074587359463
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,6 +306,7 @@ GameObject:
   - component: {fileID: 5749289112244555719}
   - component: {fileID: 314490421555055008}
   - component: {fileID: 1659772774442917247}
+  - component: {fileID: 2820888770464180046}
   m_Layer: 6
   m_Name: Stain3
   m_TagString: Untagged
@@ -369,7 +391,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
   _interactionType: 0
-  _isDecal: 1
+  _cleanFadeSpeed: 0.3
+  _dirtyChance: 0.5
+  _isNpc: 0
+  _cleanEffectDuration: 0.4
   onPlayerInteract:
     m_PersistentCalls:
       m_Calls:
@@ -385,7 +410,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _interacted: 0
 --- !u!82 &1659772774442917247
 AudioSource:
   m_ObjectHideFlags: 0
@@ -483,6 +507,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2820888770464180046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2700837074587359463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc204252a2e28d24c8b73faf660ed320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Stain
+  stainDecal: {fileID: 2706438007290739825}
+  stainCollider: {fileID: 5749289112244555719}
 --- !u!1 &3503940114096973888
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,6 +534,7 @@ GameObject:
   - component: {fileID: 6438765273696798041}
   - component: {fileID: 5042199620604467096}
   - component: {fileID: 3483524815022754587}
+  - component: {fileID: 6686021031847231654}
   m_Layer: 6
   m_Name: Stain8
   m_TagString: Untagged
@@ -580,7 +619,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
   _interactionType: 0
-  _isDecal: 1
+  _cleanFadeSpeed: 0.3
+  _dirtyChance: 0.5
+  _isNpc: 0
+  _cleanEffectDuration: 0.4
   onPlayerInteract:
     m_PersistentCalls:
       m_Calls:
@@ -596,7 +638,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _interacted: 0
 --- !u!82 &3483524815022754587
 AudioSource:
   m_ObjectHideFlags: 0
@@ -694,6 +735,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6686021031847231654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3503940114096973888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc204252a2e28d24c8b73faf660ed320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Stain
+  stainDecal: {fileID: 1547923573404664142}
+  stainCollider: {fileID: 6438765273696798041}
 --- !u!1 &4088198491059127323
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,6 +762,7 @@ GameObject:
   - component: {fileID: 66959768505587608}
   - component: {fileID: 2218538573034422405}
   - component: {fileID: 1158468559184202830}
+  - component: {fileID: 6274101181213352252}
   m_Layer: 6
   m_Name: Stain10
   m_TagString: Untagged
@@ -791,7 +847,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
   _interactionType: 0
-  _isDecal: 1
+  _cleanFadeSpeed: 0.3
+  _dirtyChance: 0.5
+  _isNpc: 0
+  _cleanEffectDuration: 0.4
   onPlayerInteract:
     m_PersistentCalls:
       m_Calls:
@@ -807,7 +866,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _interacted: 0
 --- !u!82 &1158468559184202830
 AudioSource:
   m_ObjectHideFlags: 0
@@ -905,6 +963,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6274101181213352252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4088198491059127323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc204252a2e28d24c8b73faf660ed320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Stain
+  stainDecal: {fileID: 8139905284013747299}
+  stainCollider: {fileID: 66959768505587608}
 --- !u!1 &4353015362660835855
 GameObject:
   m_ObjectHideFlags: 0
@@ -918,6 +990,7 @@ GameObject:
   - component: {fileID: 3931465092544957803}
   - component: {fileID: 7419534313517036315}
   - component: {fileID: 7506424118587132077}
+  - component: {fileID: 8335098173599294942}
   m_Layer: 6
   m_Name: Stain6
   m_TagString: Untagged
@@ -1002,7 +1075,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
   _interactionType: 0
-  _isDecal: 1
+  _cleanFadeSpeed: 0.3
+  _dirtyChance: 0.5
+  _isNpc: 0
+  _cleanEffectDuration: 0.4
   onPlayerInteract:
     m_PersistentCalls:
       m_Calls:
@@ -1018,7 +1094,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _interacted: 0
 --- !u!82 &7506424118587132077
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1116,6 +1191,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8335098173599294942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4353015362660835855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc204252a2e28d24c8b73faf660ed320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Stain
+  stainDecal: {fileID: 6427355071818857361}
+  stainCollider: {fileID: 3931465092544957803}
 --- !u!1 &5604519002785456081
 GameObject:
   m_ObjectHideFlags: 0
@@ -1129,6 +1218,7 @@ GameObject:
   - component: {fileID: 6810439766846461792}
   - component: {fileID: 6345459969874199835}
   - component: {fileID: 1120542030166052017}
+  - component: {fileID: 6656373200956343733}
   m_Layer: 6
   m_Name: Stain9
   m_TagString: Untagged
@@ -1213,7 +1303,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
   _interactionType: 0
-  _isDecal: 1
+  _cleanFadeSpeed: 0.3
+  _dirtyChance: 0.5
+  _isNpc: 0
+  _cleanEffectDuration: 0.4
   onPlayerInteract:
     m_PersistentCalls:
       m_Calls:
@@ -1229,7 +1322,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _interacted: 0
 --- !u!82 &1120542030166052017
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1327,6 +1419,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6656373200956343733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5604519002785456081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc204252a2e28d24c8b73faf660ed320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Stain
+  stainDecal: {fileID: 3593404498724113703}
+  stainCollider: {fileID: 6810439766846461792}
 --- !u!1 &5949398044739105175
 GameObject:
   m_ObjectHideFlags: 0
@@ -1340,6 +1446,7 @@ GameObject:
   - component: {fileID: 3542351614544066551}
   - component: {fileID: 2833091115878912112}
   - component: {fileID: 830928102023840764}
+  - component: {fileID: 5246623108726952465}
   m_Layer: 6
   m_Name: Stain4
   m_TagString: Untagged
@@ -1424,7 +1531,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
   _interactionType: 0
-  _isDecal: 1
+  _cleanFadeSpeed: 0.3
+  _dirtyChance: 0.5
+  _isNpc: 0
+  _cleanEffectDuration: 0.4
   onPlayerInteract:
     m_PersistentCalls:
       m_Calls:
@@ -1440,7 +1550,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _interacted: 0
 --- !u!82 &830928102023840764
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1538,6 +1647,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5246623108726952465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5949398044739105175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc204252a2e28d24c8b73faf660ed320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Stain
+  stainDecal: {fileID: 2010660586814937220}
+  stainCollider: {fileID: 3542351614544066551}
 --- !u!1 &6323557870096500645
 GameObject:
   m_ObjectHideFlags: 0
@@ -1551,6 +1674,7 @@ GameObject:
   - component: {fileID: 4559580472966537257}
   - component: {fileID: 7254918383060299944}
   - component: {fileID: 93220981552343438}
+  - component: {fileID: 7192581597058168953}
   m_Layer: 6
   m_Name: Stain5
   m_TagString: Untagged
@@ -1635,7 +1759,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
   _interactionType: 0
-  _isDecal: 1
+  _cleanFadeSpeed: 0.3
+  _dirtyChance: 0.5
+  _isNpc: 0
+  _cleanEffectDuration: 0.4
   onPlayerInteract:
     m_PersistentCalls:
       m_Calls:
@@ -1651,7 +1778,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _interacted: 0
 --- !u!82 &93220981552343438
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1749,6 +1875,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7192581597058168953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6323557870096500645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc204252a2e28d24c8b73faf660ed320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Stain
+  stainDecal: {fileID: 4271969034520492688}
+  stainCollider: {fileID: 4559580472966537257}
 --- !u!1 &7619409391744157203
 GameObject:
   m_ObjectHideFlags: 0
@@ -1762,6 +1902,7 @@ GameObject:
   - component: {fileID: 8049615345440225665}
   - component: {fileID: 4976667024631141296}
   - component: {fileID: 5306218575169924877}
+  - component: {fileID: 5163915004646960106}
   m_Layer: 6
   m_Name: Stain7
   m_TagString: Untagged
@@ -1846,7 +1987,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
   _interactionType: 0
-  _isDecal: 1
+  _cleanFadeSpeed: 0.3
+  _dirtyChance: 0.5
+  _isNpc: 0
+  _cleanEffectDuration: 0.4
   onPlayerInteract:
     m_PersistentCalls:
       m_Calls:
@@ -1862,7 +2006,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _interacted: 0
 --- !u!82 &5306218575169924877
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1960,6 +2103,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5163915004646960106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7619409391744157203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc204252a2e28d24c8b73faf660ed320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Stain
+  stainDecal: {fileID: 393997298186961879}
+  stainCollider: {fileID: 8049615345440225665}
 --- !u!1 &8988074292533347921
 GameObject:
   m_ObjectHideFlags: 0
@@ -1973,6 +2130,7 @@ GameObject:
   - component: {fileID: 9101001084064555878}
   - component: {fileID: 6383610969201913956}
   - component: {fileID: 3596068355905410587}
+  - component: {fileID: 8425260097716333325}
   m_Layer: 6
   m_Name: Stain1
   m_TagString: Untagged
@@ -2057,7 +2215,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
   _interactionType: 0
-  _isDecal: 1
+  _cleanFadeSpeed: 0.3
+  _dirtyChance: 0.5
+  _isNpc: 0
+  _cleanEffectDuration: 0.4
   onPlayerInteract:
     m_PersistentCalls:
       m_Calls:
@@ -2073,7 +2234,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _interacted: 0
 --- !u!82 &3596068355905410587
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2171,3 +2331,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8425260097716333325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8988074292533347921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc204252a2e28d24c8b73faf660ed320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Stain
+  stainDecal: {fileID: 6472158068014648285}
+  stainCollider: {fileID: 9101001084064555878}
