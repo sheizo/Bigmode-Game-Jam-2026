@@ -2324,7 +2324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8109b9e2316fa094fa0e00ca100278d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RotateWithAxisLock
-  wobbleAmount: {x: 10, y: 20, z: 0}
+  wobbleAmount: {x: 10, y: 0, z: 0}
   speed: 2
   lockX: 0
   lockY: 1

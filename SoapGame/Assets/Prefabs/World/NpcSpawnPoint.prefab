@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1807502705952862681}
   - component: {fileID: 1512888245776931508}
   - component: {fileID: 3853621192018289295}
+  - component: {fileID: 7001021335456561149}
   m_Layer: 0
   m_Name: Doggers
   m_TagString: PlayerInteractable
@@ -134,6 +135,23 @@ MonoBehaviour:
   onPlayerInteract:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7001021335456561149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150156258627751948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8109b9e2316fa094fa0e00ca100278d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RotateWithAxisLock
+  wobbleAmount: {x: 10, y: 20, z: 0}
+  speed: 2
+  lockX: 0
+  lockY: 1
+  lockZ: 1
 --- !u!1 &833956732882352466
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,6 +166,7 @@ GameObject:
   - component: {fileID: 1194073247680878727}
   - component: {fileID: 3890951312106411714}
   - component: {fileID: 1916278993322121045}
+  - component: {fileID: 446075372224433571}
   m_Layer: 0
   m_Name: Human
   m_TagString: PlayerInteractable
@@ -293,6 +312,23 @@ MonoBehaviour:
   - {fileID: 2800000, guid: fdb0806d8d2a946478683b8ed7ffaaac, type: 3}
   - {fileID: 2800000, guid: 54bd0683750b89843a7d268eb2f287b6, type: 3}
   - {fileID: 2800000, guid: 975cba4fc7273b74f88cc306322c2791, type: 3}
+--- !u!114 &446075372224433571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833956732882352466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8109b9e2316fa094fa0e00ca100278d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RotateWithAxisLock
+  wobbleAmount: {x: 10, y: 20, z: 0}
+  speed: 2
+  lockX: 0
+  lockY: 1
+  lockZ: 1
 --- !u!1 &2481413024376716008
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,6 +563,7 @@ MonoBehaviour:
     rarity: 1
     npcObject: {fileID: 150156258627751948}
     npcRotates: 1
+  _npcSpawnRate: 0.5
 --- !u!1 &8414799678796071747
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,7 +573,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1452339029203096137}
-  - component: {fileID: 5895881508099994667}
   m_Layer: 0
   m_Name: NpcAnim
   m_TagString: Untagged
@@ -561,20 +597,3 @@ Transform:
   - {fileID: 61114801196049384}
   m_Father: {fileID: 6244871341384609257}
   m_LocalEulerAnglesHint: {x: 4.234, y: 0, z: 0}
---- !u!111 &5895881508099994667
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8414799678796071747}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Animation: {fileID: 7400000, guid: b0975620d80364f49a2cfa9f211574fc, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: b0975620d80364f49a2cfa9f211574fc, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_UpdateMode: 0
-  m_CullingType: 0
