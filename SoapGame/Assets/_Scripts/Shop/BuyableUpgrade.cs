@@ -42,10 +42,13 @@ public class BuyableUpgrade : MonoBehaviour
 
         _outline.enabled = false;
         
-        _mainCamera = Camera.main;
-        
         _canvasGroup.alpha = 0;
         _costCanvasGroup.alpha = 0;
+    }
+
+    void OnEnable()
+    {
+        _mainCamera = Camera.main;
     }
 
     public void Init()
@@ -84,8 +87,6 @@ public class BuyableUpgrade : MonoBehaviour
                 _isMouseHovered = true;
                 if (_clickAction.triggered)
                     OnObjectClicked();
-                
-                
             }
             else{
                 
@@ -114,6 +115,23 @@ public class BuyableUpgrade : MonoBehaviour
         }
         
         UpdateUI();
+    }
+
+    public void RefreshUI()
+    {
+        int level = _upgrade.CurrentLevel-1;
+        for (int i = 0; i < _upgradeCounters.Count; i++){
+            if (i == level){
+                _upgradeCounters[i].SetEnabled(true);
+                _upgradeCounters[i].transform.DOPunchScale(Vector3.one * 1.2f, 0.1f).SetEase(Ease.OutBounce);
+            }
+            else{
+                _upgradeCounters[i].SetEnabled(i < level);
+            }
+        }
+        
+        _costCanvasGroup.alpha = _upgrade.CanUpgrade ? 1 : 0;
+        _costText.text = _upgrade?.NextLevelCost().ToString();
     }
 
     public void UpdateUI(){

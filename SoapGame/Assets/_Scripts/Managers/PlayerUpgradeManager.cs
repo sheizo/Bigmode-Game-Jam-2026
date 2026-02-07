@@ -86,6 +86,19 @@ public class PlayerUpgradeManager : MonoBehaviour
         }
 
         PlayerPrefs.DeleteKey(SaveKey);
+
+        GameManager.Shop.Refresh();
+    }
+
+    [ContextMenu("Max all")]
+    public void MaxAllUpgrades()
+    {
+        foreach (var upgrade in _allUpgrades)
+        {
+            upgrade.CurrentLevel = upgrade.MaxLevel - 1;
+        }
+
+        SaveAllUpgrades();
     }
 
     // private void OnValidate(){

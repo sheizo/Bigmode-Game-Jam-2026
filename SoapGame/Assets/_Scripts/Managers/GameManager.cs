@@ -34,6 +34,7 @@ public class GameManager : Singleton<GameManager>
     public static PlayerUpgradeManager PlayerUpgradeManager => Instance._playerUpgradeManager;
     public static PlayerStats PlayerStats => Instance._playerStats;
     public static WorldManager World => Instance._worldManager;
+    public static Shop Shop => Instance._shop;
 
     public static float DistanceMValue => Instance._distanceMValue;
     public static int NpcValue => Instance._npcValue;
@@ -51,9 +52,12 @@ public class GameManager : Singleton<GameManager>
     private void OnEnable(){
         if (_isInitialized) return;
 
+        //Careful changing the order of inits/functions. Spaghett.
+        _playerUpgradeManager.Init();
+        LoadGame();
+
         _gameStateManager.Init();
         _uiManager.Init();
-        _playerUpgradeManager.Init();
         _worldManager.Init();
         //shitty fix
         _shop.Init();
@@ -74,7 +78,6 @@ public class GameManager : Singleton<GameManager>
         PlayerPrefs.DeleteAll();
 #endif
         
-        LoadGame();
 
         _isInitialized = true;
     }
