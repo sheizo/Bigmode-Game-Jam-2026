@@ -114,7 +114,7 @@ Material:
     - _DstBlendAlpha: 0
     - _EdgePixelizeAmount: 71.2
     - _EnvironmentReflections: 1
-    - _Fill: 0.38738608
+    - _Fill: 1
     - _FoamEdgeAmount: 0.09
     - _FoamSize: 0.06
     - _GlitterAmount: 1
