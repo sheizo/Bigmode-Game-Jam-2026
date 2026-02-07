@@ -1,34 +1,46 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using Freya;
 
 public struct RunStats
 {
     public float DistanceTravelled;
-    public int CommonNpcHit, UncommonNpcHit, RareNpcHit;
-    public int StainsHit;
+    public int Stains, NPCs, Objects;
 
     public int TotalMoneyEarned;
-
+    
     public void SetDistanceTravelled(float distance){
         DistanceTravelled = distance;
     }
     
-    public void AddNpcHit(NpcRarity rarity)
-    {
-        switch(rarity)
-        {
-            case NpcRarity.COMMON:
-                CommonNpcHit++;
+
+    public void AddCleaned(CleanedType cleanedType){
+        switch (cleanedType){
+            case CleanedType.NPC:
+                NPCs++;
                 break;
-            case NpcRarity.UNCOMMON:
-                UncommonNpcHit++;
+            case CleanedType.OBJECT:
+                Objects++;
                 break;
-            case NpcRarity.RARE:
-                RareNpcHit++;
+            case CleanedType.STAIN:
+                Stains++;
                 break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(cleanedType), cleanedType, null);
         }
+        
+        UpdateTotalMoneyEarned();
     }
 
-    public void AddStainHit(){
-        StainsHit++;
+    public void UpdateTotalMoneyEarned(){
+        
+        float moneyTotal = 
+            NPCs * GameManager.NpcValue +
+            Objects * GameManager.ObjectValue +
+            Stains * GameManager.StainValue +
+            DistanceTravelled * GameManager.DistanceMValue;
+        
+        TotalMoneyEarned = moneyTotal.CeilToInt();
     }
+
 }

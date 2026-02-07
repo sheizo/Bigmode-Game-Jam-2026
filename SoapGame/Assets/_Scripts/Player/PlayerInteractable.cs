@@ -13,8 +13,16 @@ public enum InteractionType
     SMOOTH_CLEAN = 1
 }
 
+public enum CleanedType
+{
+    OBJECT = 0,
+    NPC = 1,
+    STAIN = 2
+}
+
 public class PlayerInteractable : MonoBehaviour
 {
+    [SerializeField] private CleanedType _cleanedType;
     [SerializeField] private InteractionType _interactionType;
     [SerializeField] private float _cleanFadeSpeed = 0.3f;
     [Range(0,1)] [SerializeField] private float _dirtyChance = 0.5f;
@@ -30,6 +38,7 @@ public class PlayerInteractable : MonoBehaviour
     public UnityEvent onPlayerInteract; // TODO :  MAYBE DELETE AND HANDLE SOUNDS IN PLAYER ONCLEAN
     public InteractionType InteractionType => _interactionType;
     public bool Cleanable => _cleanable; 
+    public CleanedType CleanedType => _cleanedType;
     
     void Awake()
     {

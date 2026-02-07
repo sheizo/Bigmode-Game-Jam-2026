@@ -84,6 +84,20 @@ public class AudioManager : Singleton<AudioManager>
 
         s.source.volume = s.volume;
     }
+    
+    public void PlayOneShot(string name, float soundScale)
+    {
+        Sound s = Array.Find(sounds, s => s.name == name);
+
+        if (s == null)
+        {
+            print(s + " sound not found");
+            return;
+        }
+
+
+        s.source.PlayOneShot(s.clip[UnityEngine.Random.Range(0, s.clip.Length)], soundScale);
+    }
 
     public void Stop(string name)
     {
@@ -151,4 +165,6 @@ public class AudioManager : Singleton<AudioManager>
         Play(music);
         _currentMusic = music;
     }
+
+    
 }

@@ -33,7 +33,7 @@ public class WorldSegment : MonoBehaviour
             }
         }
     }
-
+    
     public void Reset()
     {
         CreateDictIfNotExist();

@@ -129,6 +129,8 @@ Material:
     - _Fade: 0
     - _Fade_1: 0
     - _Flip_Gradient: 0
+    - _Fresnel_Clean_Amount: 0
+    - _Fresnel_Clean_Power: 3.17
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
@@ -167,6 +169,7 @@ Material:
     - _Dirt_Tiling: {r: 1, g: 1, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _EndColor: {r: 0, g: 0, b: 0, a: 0}
+    - _Fresnel_Clean_Color: {r: 0, g: 1.844302, b: 1.229535, a: 0}
     - _Gradient_Axis_Mask: {r: 0, g: 0, b: 0, a: 0}
     - _Gradient_Axis_Mask_1: {r: 0, g: 1, b: 0, a: 0}
     - _Noise_Color: {r: 1, g: 1, b: 1, a: 1}

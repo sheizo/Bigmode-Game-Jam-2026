@@ -1,13 +1,16 @@
 using System;
 using System.Collections.Generic;
+using System.Numerics;
 using DG.Tweening;
-using Freya;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Rendering.Universal;
+using Matrix4x4 = UnityEngine.Matrix4x4;
+using Quaternion = UnityEngine.Quaternion;
 using Random = Freya.Random;
 using Sequence = DG.Tweening.Sequence;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 
 public class PlayerController : MonoBehaviour
@@ -34,6 +37,11 @@ public class PlayerController : MonoBehaviour
     [Range(0,1)] [SerializeField] private float _cleanSoapUsageSec = 0.1f;
     [Range(0,1)] [SerializeField] private float _cleanSoapRefill = 0.1f;
     [SerializeField] private float _cleanHitStopTime = 0.15f;
+    [SerializeField] private float _cleanAnimationDuration = 0.3f;
+    [SerializeField] private Ease _cleanAnimationEase;
+    [SerializeField] private float _cleanAnimationScale = 1.2f;
+    [Range(0,1)] [SerializeField] private float _cleaningMinYScale = 0.3f;
+
     
     [Header("Ramp Spawning")] 
     [SerializeField] private float _rampSpawnParticlesTravelTime = 0.2f; 
@@ -50,6 +58,7 @@ public class PlayerController : MonoBehaviour
     
     [Header("References")] 
     [SerializeField] private Transform _playerVisual;
+    [SerializeField] private Transform _playerVisualAnims;
     [SerializeField] private CinemachineCamera _playerCamera;
 
     [Header("Camera")] 
@@ -77,6 +86,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _extraSlamAirAngle = 10f;
     [Range(0, 0.5f)] [SerializeField] private float smoothTime = 0.05f;
 
+    [Header("Sounds")] 
+    [SerializeField] private AudioSource _rampStayAudioSource;
+    [SerializeField] private float _rampStayFadeSpeed = 1;
+    [SerializeField] private float _rampTimeForExitPlay = 0.1f;
+    [Tooltip("Compared to max speed")] [Range(0,1)] [SerializeField] private float _rampExitSpeedThreshold = 0.3f;
+    [SerializeField] private float _minimumRampCreationVolume = 0.3f;
+    [SerializeField] private float _maxRampCreationDistance = 30;
+
+    
     private Queue<Ramp> _rampQueue;
     private Rigidbody _rb;
     private SphereCollider _collider;
@@ -87,35 +105,39 @@ public class PlayerController : MonoBehaviour
     private float _currentFOV;
     private float _originalCameraFov;
     private Vector3 _originalPosition;
-
     private float _lastTimeOnGround, _timeOnGround;
-
+    
+    private float _timeCleaning;
     private bool _isMoving;
     private bool _isGrounded;
-    private bool _isOnRamp;
+    private bool _isOnRamp, _wasOnRamp;
+    private float _onRampAudioTimer;
+    private bool _hitRampSoundExit;
     private Ramp _rampPlayerIsOn;
     private bool _isSlamPressed, _pressedSpawnRampThisFrame, _pressedDiscardRampThisFrame;
     private float _horizontalInput;
     private float _currentSpeed;
-    private float _zSpeed;
-    private float _xSpeed;
-    private float _ySpeed;
+    private float _zSpeed, _xSpeed, _ySpeed;
 
+    private Tween _cleanTween;
+    
     private RampDirection _lastRampEndDirection = RampDirection.Down;
     private List<Ramp> _upFacingRamps = new List<Ramp>();
     private List<Ramp> _downFacingRamps = new List<Ramp>();
     private List<Ramp> _straightFacingRamps = new List<Ramp>();
 
-    public bool SoapDepleted => _currentSoapPower <= 0;
-    public float TimeToClean => _timeToClean;
-    
     private RunStats _runStats;
     public Action<RunStats> OnSoapDeplete;
 
-    bool IsGrounded()=>Physics.Raycast(transform.position, -Vector3.up, _groundedThreshold);
+    private float GroundedThresholdScaled => _groundedThreshold * transform.localScale.y;
+    public bool SoapDepleted => _currentSoapPower <= 0;
+    public float TimeToClean => _timeToClean;
+    
+
+    bool IsGrounded()=>Physics.Raycast(transform.position, -Vector3.up, GroundedThresholdScaled);
 
     bool IsCleaning(){
-        if (Physics.Raycast(transform.position, -Vector3.up, out RaycastHit hit, _groundedThreshold)){
+        if (Physics.Raycast(transform.position, -Vector3.up, out RaycastHit hit, GroundedThresholdScaled)){
             if(hit.collider.TryGetComponent(out PlayerInteractable playerInteractable)){
                 return playerInteractable.Cleanable;
             }
@@ -124,15 +146,13 @@ public class PlayerController : MonoBehaviour
     }
     
     Ramp IsOnRamp(){
-        if (Physics.Raycast(transform.position, -Vector3.up, out RaycastHit hit, _groundedThreshold)){
+        if (Physics.Raycast(transform.position, -Vector3.up, out RaycastHit hit, GroundedThresholdScaled)){
             if(hit.collider.CompareTag("Ramp") && hit.collider.TryGetComponent(out Ramp ramp)){
                 return ramp;
             }
         }
         return null;
     }
-    
-    
 
     private void Awake(){
         _rb = GetComponent<Rigidbody>();
@@ -159,6 +179,7 @@ public class PlayerController : MonoBehaviour
     private void Update(){
         if (GameManager.CurrentGameState != GameState.GAMEPLAY) return;
         
+        
         SetControlVariables();
         HandleGroundSoapDeplete();
         HandleCameraFOV();
@@ -169,7 +190,15 @@ public class PlayerController : MonoBehaviour
             _timeOnGround += Time.deltaTime;
         else
             _timeOnGround = 0;
+        
+        
+        UpdateRunStats();
+        
+        GameManager.UIManager.UpdateCurrentRunStats(_runStats);
+        GameManager.UIManager.UpdatePlayerSpeed((int) _currentSpeed);
+
     }
+
 
     private void FixedUpdate(){
         _currentSpeed = _rb.linearVelocity.magnitude;
@@ -178,14 +207,18 @@ public class PlayerController : MonoBehaviour
         _zSpeed = Vector3.Dot(_rb.linearVelocity, Vector3.forward);
         
         _isGrounded = IsGrounded();
+        _wasOnRamp = _isOnRamp;
         _rampPlayerIsOn = IsOnRamp();
         _isOnRamp = _rampPlayerIsOn;
         
         HandleSpeedCapping();
         HandleVisualRotations();
         HandleMovement();
-
-
+        HandleRampAudio();
+        
+        
+       
+        
         if (!SoapDepleted){
             SetPlayerVisualPosition();
             
@@ -199,14 +232,23 @@ public class PlayerController : MonoBehaviour
             _rb.angularVelocity = Vector3.zero;
         }
     }
+    private void UpdateRunStats(){
+        _runStats.SetDistanceTravelled((int) (transform.position.z - _startingPosition.z));
+        _runStats.UpdateTotalMoneyEarned();
+    }
 
-    private void OnClean(PlayerInteractable interactable) // MAYBE DONT NEED REFERENCE TO INTERACTABLE ?
+    private void OnClean(PlayerInteractable interactable) 
     {
         GameManager.Instance.HitStop(_cleanHitStopTime);
         _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, 0, _rb.linearVelocity.z);
         _rb.AddForce(_cleanBoostDirection * _cleanBoostStrength, ForceMode.Impulse);
         
-        AddSoapPower( _cleanSoapRefill);
+        AddSoapPower(_cleanSoapRefill);
+        _cleanTween?.Kill();
+        _playerVisualAnims.localScale = Vector3.one;
+        _cleanTween = _playerVisualAnims.DOPunchScale(_playerVisualAnims.localScale * _cleanAnimationScale, _cleanAnimationDuration).SetEase(_cleanAnimationEase);
+        
+        _runStats.AddCleaned(interactable.CleanedType);
     }
 
     public void ResetPlayer(){
@@ -218,6 +260,7 @@ public class PlayerController : MonoBehaviour
         
         _playerVisual.position = _rb.position;
         _playerVisual.rotation = Quaternion.identity;
+        
         
         //populate ramp queue
         _rampQueue.Clear();
@@ -233,7 +276,6 @@ public class PlayerController : MonoBehaviour
     
     private void TakeSoap(float amount){
         if (SoapDepleted){
-            _runStats.SetDistanceTravelled(transform.position.z - _startingPosition.z);
             OnSoapDeplete?.Invoke(_runStats);
             return;
         }
@@ -241,33 +283,19 @@ public class PlayerController : MonoBehaviour
 
         
         GameManager.UIManager.UpdateSoapMeter(_currentSoapPower/_maxSoapPower);
-        UpdatePlayerSize(amount >= 1);
+        UpdatePlayerSize();
     }
     
-    private void UpdatePlayerSize(bool animate){
+    private void UpdatePlayerSize(){
         float scale = _soapScaleCurve.Evaluate(_currentSoapPower/_maxSoapPower);
         scale += 0.01f;
-        
-        if (animate){
-            //this shit not working 
-            transform.DOScale(scale, _scaleTweenDuration).SetEase(Ease.OutCubic);
-            _playerVisual.transform.DOScale(scale, _scaleTweenDuration).SetEase(Ease.OutCubic);
-        }
-        else{
-            transform.localScale = Vector3.one * scale;
-            _playerVisual.transform.localScale = Vector3.one * scale;
-        }
+      
+        transform.localScale = Vector3.one * scale;
+        _playerVisual.transform.localScale = Vector3.one * scale;
+    
     }
 
-    public void UpdateCurrentRunDistance()
-    {
-        GameManager.UIManager.CurrentRunDistance((int) (transform.position.z - _startingPosition.z));
-    }
-
-    public void UpdateCurrentPlayerSpeed()
-    {
-        GameManager.UIManager.PlayerSpeed((int) _currentSpeed);
-    }
+  
 
     private void SetPlayerVisualPosition(){
         _playerVisual.transform.position = transform.position;
@@ -285,8 +313,21 @@ public class PlayerController : MonoBehaviour
         if (!_isGrounded || _isOnRamp) return;
         
         //Take soap percentage
-        if(IsCleaning()) TakeSoap(_maxSoapPower * _cleanSoapUsageSec * Time.deltaTime);
-        else TakeSoap(_maxSoapPower * _groundSoapUsageSecPercent * Time.deltaTime);
+        if (IsCleaning()){
+            TakeSoap(_maxSoapPower * _cleanSoapUsageSec * Time.deltaTime);
+            _timeCleaning += Time.deltaTime;
+            
+            //Animate scale - charge clean anim
+            float yScaleTarget = Mathf.Lerp(1, _cleaningMinYScale, _timeCleaning/_timeToClean);
+            _playerVisualAnims.localScale = new Vector3(1, yScaleTarget, 1);
+        }
+        else{
+            TakeSoap(_maxSoapPower * _groundSoapUsageSecPercent * Time.deltaTime);
+            _timeCleaning = 0;
+            _playerVisualAnims.localScale = Vector3.one;
+            
+        }
+        
     }
 
     private void HandleMovement(){
@@ -326,7 +367,7 @@ public class PlayerController : MonoBehaviour
         }
         
     }
-
+//
     private void DiscardRamp(){
         _rampQueue.Dequeue();
         EnqueueRandomRamp(true);
@@ -411,7 +452,6 @@ public class PlayerController : MonoBehaviour
         Vector3 startPos = transform.position;
         Vector3 endPos = spawnPosition;
 
-        TakeSoap(_rampSoapCost);
         
         ParticleSystem spawnedParticles = Instantiate(_rampSpawnParticlesPrefab, startPos, Quaternion.identity);
         
@@ -419,6 +459,11 @@ public class PlayerController : MonoBehaviour
         particleSequence.Append(spawnedParticles.transform.DOMove(endPos, _rampSpawnParticlesTravelTime));
         particleSequence.AppendInterval(spawnedParticles.main.startLifetime.constantMax  + _rampSpawnParticlesTravelTime);
         particleSequence.AppendCallback(() => Destroy(spawnedParticles.gameObject));
+        
+        float distanceToRamp = (transform.position - spawnPosition).magnitude;
+        float distanceT = Mathf.InverseLerp(_maxRampCreationDistance, 0, distanceToRamp);
+        AudioManager.Instance.PlayOneShot("Ramp_Create", Mathf.Lerp(_minimumRampCreationVolume, 1, distanceT));
+        TakeSoap(_rampSoapCost);
     }
 
     private void HandleCameraFOV(){
@@ -479,6 +524,24 @@ public class PlayerController : MonoBehaviour
             smoothTime, true);
     }
 
+    private void HandleRampAudio(){
+        if (_isOnRamp)
+            _onRampAudioTimer += Time.fixedDeltaTime;
+        else if (!_isOnRamp && _onRampAudioTimer >= _rampTimeForExitPlay && _currentSpeed >= _maxAirSpeed * _rampExitSpeedThreshold){
+            AudioManager.Instance.PlayOneShot("Swoosh_EndRamp");
+            _onRampAudioTimer = 0;
+        }      
+        
+        float targetVolume = _isOnRamp ? 1f : 0f;
+    
+        _rampStayAudioSource.volume = Mathf.MoveTowards(_rampStayAudioSource.volume, targetVolume, Time.deltaTime * _rampStayFadeSpeed);
+
+        if (_isOnRamp && !_rampStayAudioSource.isPlaying)
+            _rampStayAudioSource.Play();
+        else if (!_isOnRamp && _rampStayAudioSource.volume <= 0.01f)
+            _rampStayAudioSource.Stop();
+    }
+
     private void UpdateUpgrades(){
         if (!_useUpgrades) return;
         
@@ -503,7 +566,7 @@ public class PlayerController : MonoBehaviour
         float amountToAdd = _maxSoapPower * normalizedAmount;
         _currentSoapPower = Mathf.Clamp(_currentSoapPower + amountToAdd,0, _maxSoapPower);
         
-        UpdatePlayerSize(true); //works right now but beware if added soap is too little
+        UpdatePlayerSize(); //works right now but beware if added soap is too little
         GameManager.UIManager.UpdateSoapMeter(_currentSoapPower/_maxSoapPower);
     }
 
@@ -544,6 +607,7 @@ public class PlayerController : MonoBehaviour
         GameManager.UIManager.SetRampSprites(_rampQueue,discarding ? RampSelectionAnimation.DISCARD : RampSelectionAnimation.PLACE);
         _lastRampEndDirection = ramp.EndingDirection;
     }
+
     
     private void ProcessInteraction(GameObject obj){
         if (!obj.TryGetComponent(out PlayerInteractable interactable)) return;
@@ -572,7 +636,7 @@ public class PlayerController : MonoBehaviour
         if(!Application.isPlaying) SetPlayerVisualPosition();
     
         Gizmos.color = Color.red;
-        Gizmos.DrawRay(transform.position, -Vector3.up*_groundedThreshold);
+        Gizmos.DrawRay(transform.position, -Vector3.up*GroundedThresholdScaled);
         
         Gizmos.DrawSphere(transform.position + _rampSpawnOffset, 0.3f);
     }

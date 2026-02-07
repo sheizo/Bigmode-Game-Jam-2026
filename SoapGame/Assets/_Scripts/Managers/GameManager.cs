@@ -12,7 +12,7 @@ public class GameManager : Singleton<GameManager>
     public static readonly int MasterMaterialFresnelAmount = Shader.PropertyToID("_Fresnel_Clean_Amount");
     
     public const string InteractableTag = "PlayerInteractable";
-
+    
     [SerializeField] private CinemachineBrain _cinemachineBrain;
     [SerializeField] private PlayerStats _playerStats;
     [SerializeField] private PlayerController _playerController;
@@ -26,15 +26,26 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private PlayerUpgradeManager _playerUpgradeManager;
     [SerializeField] private WorldManager _worldManager;
 
+
+    [Header("Money")] 
+    [Tooltip("Money per meter")] [SerializeField] private float _distanceMValue; 
+    [SerializeField] private int _npcValue, _objectValue, _stainValue;
+    
+    private RunStats _runStats;
+    
     public static GameStateManager GameStateManager => Instance._gameStateManager;
     public static UIManager UIManager => Instance._uiManager;
     public static PlayerUpgradeManager PlayerUpgradeManager => Instance._playerUpgradeManager;
     public static PlayerStats PlayerStats => Instance._playerStats;
     public static WorldManager World => Instance._worldManager;
 
+    public static float DistanceMValue => Instance._distanceMValue;
+    public static int NpcValue => Instance._npcValue;
+    public static int ObjectValue => Instance._objectValue;
+    public static int StainValue => Instance._stainValue;
+
     public static Transform PlayerTransform => Instance._playerController.transform;
 
-    private RunStats _runStats;
     public static GameState CurrentGameState => Instance._cinemachineBrain.IsBlending ? GameState.NONE : Instance._gameStateManager.CurrentGameState;
     
 
@@ -66,13 +77,6 @@ public class GameManager : Singleton<GameManager>
         LoadGame();
     }
 
-    void FixedUpdate()
-    {
-        _uiManager.CurrentRunMoney(_playerStats.Money);
-        _playerController.UpdateCurrentPlayerSpeed();
-        _playerController.UpdateCurrentRunDistance();
-    }
-
     private void Start(){
         _uiManager.UpdateMoney(_playerStats.Money);
     }
@@ -87,6 +91,7 @@ public class GameManager : Singleton<GameManager>
     private void PlayerEndRun(RunStats runStats){
         print("end run");
         _runStats = runStats;
+        UpdatePlayerStats();
         
         _gameStateManager.SwitchGameState(GameState.LOSSSCREEN);
         _uiManager.ResetSoapMeter();
@@ -107,6 +112,11 @@ public class GameManager : Singleton<GameManager>
         _launcher.ResetLauncher();
         _playerController.ResetPlayer();
         _gameStateManager.SwitchGameState(GameState.LAUNCH);
+    }
+
+    private void UpdatePlayerStats(){
+        _playerStats.Money += _runStats.TotalMoneyEarned;
+        SaveGame();
     }
 
     public static void SaveGame() {

@@ -11,6 +11,7 @@ public enum NpcRarity
 [System.Serializable]
 public class Npc
 {
+    public CleanedType CleanedType;
     public NpcRarity rarity;
     public GameObject npcObject;
     public bool npcRotates;

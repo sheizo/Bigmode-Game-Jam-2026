@@ -21,24 +21,21 @@ public class StatsDisplay : MonoBehaviour
         _rows = new();
 
         StatsRow distanceStat = Instantiate(_statsRowPrefab, _statsRowParent);
-        distanceStat.Init("Distance", (int) runStats.DistanceTravelled, 10);
+        distanceStat.Init("Distance", (int) runStats.DistanceTravelled, GameManager.DistanceMValue);
         _rows.Add(distanceStat.gameObject);
 
         StatsRow npcStat1 = Instantiate(_statsRowPrefab, _statsRowParent);
-        npcStat1.Init("Common", runStats.CommonNpcHit, 2);
+        npcStat1.Init("Idiots Cleaned", runStats.NPCs, GameManager.NpcValue);
         _rows.Add(npcStat1.gameObject);
 
         StatsRow npcStat2 = Instantiate(_statsRowPrefab, _statsRowParent);
-        npcStat2.Init("Uncommon", runStats.UncommonNpcHit, 5);
+        npcStat2.Init("Objects Cleaned", runStats.Objects, GameManager.ObjectValue);
         _rows.Add(npcStat2.gameObject);
 
         StatsRow npcStat3 = Instantiate(_statsRowPrefab, _statsRowParent);
-        npcStat3.Init("Rare", runStats.RareNpcHit, 10);
+        npcStat3.Init("Stains Cleaned", runStats.Stains, GameManager.StainValue);
         _rows.Add(npcStat3.gameObject);
 
-        StatsRow stainStat = Instantiate(_statsRowPrefab, _statsRowParent);
-        stainStat.Init("Stains", runStats.StainsHit, 2);
-        _rows.Add(stainStat.gameObject);
 
         _separatorRow.transform.SetAsLastSibling();
         _totalMoneyRow.Init("Total Earned:", runStats.TotalMoneyEarned);

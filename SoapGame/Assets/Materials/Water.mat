@@ -120,12 +120,13 @@ Material:
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
+    - _Pixelize: 62.45
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _RippleDensity: 10
+    - _RippleDensity: 7.03
     - _RippleSlimness: 5
-    - _RippleSpeed: 0.5
+    - _RippleSpeed: 3.35
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1

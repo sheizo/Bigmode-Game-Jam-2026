@@ -94,17 +94,13 @@ public class UIManager : MonoBehaviour
         _moneyCount.text = money.ToString();
     }
 
-    public void CurrentRunMoney(int money)
+    public void UpdateCurrentRunStats(RunStats runStats)
     {
-        _currentMoneyFarmed.text = money.ToString();
+        _currentMoneyFarmed.text = runStats.TotalMoneyEarned.ToString(); 
+        _currentDistanceTraveled.text = runStats.DistanceTravelled.ToString("F0");
     }
 
-    public void CurrentRunDistance(int distance)
-    {
-        _currentDistanceTraveled.text = distance.ToString();
-    }
-
-    public void PlayerSpeed(int speed)
+    public void UpdatePlayerSpeed(int speed)
     {
         _movementSpeed.text = $"{speed} m/s";
     }
@@ -223,7 +219,7 @@ public class UIManager : MonoBehaviour
 
     public void SetRunStats(RunStats runStats)
     {
-        runStats.TotalMoneyEarned = 6767;
+        runStats.TotalMoneyEarned = runStats.TotalMoneyEarned;
         _statsDisplay.ShowStats(runStats);
     }
     
