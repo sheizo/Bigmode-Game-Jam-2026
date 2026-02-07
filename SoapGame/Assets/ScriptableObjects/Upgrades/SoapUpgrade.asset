@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SoapUpgrade
   m_EditorClassIdentifier: Assembly-CSharp::SoapUpgrade
   _id: soap
-  _name: Soap Upgrade
+  _name: Stronger Soap
   _levels:
   - MaxSoap: 10
     GroundSoapUsage: 0.5
