@@ -80,8 +80,8 @@ Material:
     - _ColorAmount: 20
     - _Cull: 2
     - _Dirt_Amount: 0
-    - _Dirt_Pixelize: 77.45
-    - _Dirt_Power: 0.25
+    - _Dirt_Pixelize: 364.4
+    - _Dirt_Power: 0.4
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _Edge: 4.58
@@ -102,7 +102,7 @@ Material:
     - _Noise_Pixelize: 300
     - _Noise_Strength: 0.1
     - _PixelizeAmount: 80
-    - _Pixelize_Dirt: 0
+    - _Pixelize_Dirt: 1
     - _Pixelize_Texture: 0
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -119,7 +119,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Dirt_Color_1: {r: 0.3018868, g: 0.08446443, b: 0, a: 0}
     - _Dirt_Color_2: {r: 0.6603774, g: 0.26928857, b: 0, a: 0}
-    - _Dirt_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _Dirt_Tiling: {r: 2, g: 2, b: 0, a: 0}
     - _EndColor: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 0}
     - _Fresnel_Clean_Color: {r: 0, g: 1.844302, b: 1.229535, a: 0}
     - _Gradient_Axis_Mask: {r: 0, g: 1, b: 0, a: 0}
