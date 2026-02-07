@@ -39,7 +39,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Dirt_Texture:
-        m_Texture: {fileID: 2800000, guid: d81d6fcf90861cf40974eaa08940c4d2, type: 3}
+        m_Texture: {fileID: 2800000, guid: ed70b55fa1fe2c7438d30b4450403df8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -70,9 +70,9 @@ Material:
     - _BlendModePreserveSpecular: 1
     - _CastShadows: 1
     - _Cull: 2
-    - _Dirt_Amount: 0
-    - _Dirt_Pixelize: 99
-    - _Dirt_Power: 1
+    - _Dirt_Amount: 1
+    - _Dirt_Pixelize: 155.35
+    - _Dirt_Power: 0.3
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _Edge: 0
@@ -81,6 +81,8 @@ Material:
     - _Fade: 0
     - _Fade_1: 0
     - _Flip_Gradient: 0
+    - _Fresnel_Clean_Amount: 0
+    - _Fresnel_Clean_Power: 3.17
     - _Gradient: 0
     - _Gradient_1: 0
     - _Gradient_Pixel_Steps: 20
@@ -102,9 +104,10 @@ Material:
     - _ZWriteControl: 0
     m_Colors:
     - _Color: {r: 0.8, g: 0.8, b: 0.8, a: 1}
-    - _Dirt_Color_1: {r: 0.36792448, g: 0.15111175, b: 0, a: 0}
+    - _Dirt_Color_1: {r: 0.23584908, g: 0.0776212, b: 0, a: 0}
     - _Dirt_Tiling: {r: 1, g: 1, b: 0, a: 0}
     - _EndColor: {r: 0, g: 0, b: 0, a: 0}
+    - _Fresnel_Clean_Color: {r: 0, g: 1.844302, b: 1.229535, a: 0}
     - _Gradient_Axis_Mask: {r: 0, g: 0, b: 0, a: 0}
     - _Gradient_Axis_Mask_1: {r: 0, g: 1, b: 0, a: 0}
     - _Noise_Color: {r: 1, g: 1, b: 1, a: 1}
