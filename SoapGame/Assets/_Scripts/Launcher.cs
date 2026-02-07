@@ -60,6 +60,9 @@ public class Launcher : MonoBehaviour
         
         _chargeTimer = 0;
 
+        float soundPitch = Mathf.Lerp(0.1f, 0.5f, _evaluatedChargeTimer);
+        AudioManager.Instance.PlayOneShot("Slip", soundPitch);
+
         OnLaunched?.Invoke(launchForce);
     }
 

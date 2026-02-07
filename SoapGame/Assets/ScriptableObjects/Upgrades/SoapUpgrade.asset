@@ -16,14 +16,14 @@ MonoBehaviour:
   _name: Stronger Soap
   _levels:
   - MaxSoap: 10
-    GroundSoapUsage: 0.5
-    cost: 0
-  - MaxSoap: 20
     GroundSoapUsage: 0.4
     cost: 0
+  - MaxSoap: 20
+    GroundSoapUsage: 0.35
+    cost: 15
   - MaxSoap: 35
-    GroundSoapUsage: 0.3
-    cost: 0
+    GroundSoapUsage: 0.25
+    cost: 300
   - MaxSoap: 50
-    GroundSoapUsage: 0.1
-    cost: 0
+    GroundSoapUsage: 0.2
+    cost: 2000
