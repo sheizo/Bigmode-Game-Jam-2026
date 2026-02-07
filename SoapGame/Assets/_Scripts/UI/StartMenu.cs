@@ -29,7 +29,6 @@ public class StartMenu : MonoBehaviour
     [SerializeField] private Slider _sfxVolumeSlider;
     [SerializeField] private TextMeshProUGUI _musicVolumeText;
     [SerializeField] private TextMeshProUGUI _sfxVolumeText;
-    [SerializeField] private TMP_InputField _playerNameInputField;
 
     void Awake()
     {
@@ -44,10 +43,6 @@ public class StartMenu : MonoBehaviour
 
         _startButton.onClick.AddListener(() =>
         {
-            if (_playerNameInputField != null && !string.IsNullOrWhiteSpace(_playerNameInputField.text))
-            {
-                GameManager.PlayerName = _playerNameInputField.text;
-            }
             SceneManager.LoadScene("MainScene");
         });
 

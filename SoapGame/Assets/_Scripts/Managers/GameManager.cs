@@ -1,6 +1,10 @@
+using System;
 using System.Collections;
+using System.Runtime.CompilerServices;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.InputSystem;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -32,13 +36,6 @@ public class GameManager : Singleton<GameManager>
 
     private RunStats _runStats;
     public static GameState CurrentGameState => Instance._cinemachineBrain.IsBlending ? GameState.NONE : Instance._gameStateManager.CurrentGameState;
-
-    private string _playerName = null;
-    public static string PlayerName
-    {
-        get => Instance._playerName;
-        set => Instance._playerName = value;
-    }
     
 
     //giga spaghetti
