@@ -21,9 +21,9 @@ public class WorldManager : MonoBehaviour
     private float _backWallInitialZPos;
     private float _maxZPos;
 
-    private Bounds _levelBounds;
+    private float _levelSizeZ = 83.27f;
 
-    private float _zPosThreshold => _maxZPos - ((_segmentPoolCount - _minimumSegmentsAhead) * _levelBounds.size.z) + _levelBounds.size.z/2;
+    private float _zPosThreshold => _maxZPos - ((_segmentPoolCount - _minimumSegmentsAhead) * _levelSizeZ) + _levelSizeZ/2;
 
     public void Init()
     {
@@ -33,13 +33,6 @@ public class WorldManager : MonoBehaviour
         //Store all _levelPrefab children components renderers
         Renderer[] renderers = _levelPrefab.GetComponentsInChildren<Renderer>();
         
-        //define level maximum bounds
-        for (int i = 0; i < renderers.Length; ++i)
-        {
-            if (renderers[i] == null) continue;
-            _levelBounds.Encapsulate(renderers[i].bounds);
-        }
-
         _segmentInitialZPos = _levelPrefab.transform.position.z;
         _backWallInitialZPos = _backWall.transform.position.z;
 
@@ -71,9 +64,9 @@ public class WorldManager : MonoBehaviour
 
             //Move the back wall
             Vector3 currWallPos = _backWall.transform.position;
-            _backWall.transform.position = new Vector3(currWallPos.x, currWallPos.y, currWallPos.z + _levelBounds.size.z);
+            _backWall.transform.position = new Vector3(currWallPos.x, currWallPos.y, currWallPos.z + _levelSizeZ);
 
-            _maxZPos += _levelBounds.size.z + _segmentSpacing;
+            _maxZPos += _levelSizeZ + _segmentSpacing;
         } 
     }
 
@@ -90,34 +83,7 @@ public class WorldManager : MonoBehaviour
             worldSegment.Reset();
 
             worldSegment.transform.position = new Vector3(worldSegment.transform.position.x, worldSegment.transform.position.y, _maxZPos);
-            _maxZPos += _levelBounds.size.z + _segmentSpacing;
+            _maxZPos += _levelSizeZ + _segmentSpacing;
         }
-    }
-
-    private void OnValidate(){
-        Renderer[] renderers = _levelPrefab.GetComponentsInChildren<Renderer>();
-        
-        //define level maximum bounds
-        for (int i = 0; i < renderers.Length; ++i)
-        {
-            if (renderers[i] == null) continue;
-            _levelBounds.Encapsulate(renderers[i].bounds);
-        }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.matrix = transform.localToWorldMatrix;
-
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(new Vector3(0,0, _zPosThreshold + transform.position.z), new Vector3(100f, 100f, 0.1f));
-
-        Gizmos.color = Color.green;
-        Vector3 localCenter = transform.InverseTransformPoint(_levelBounds.center);
-        float zOffset = (_levelBounds.size.z / 2f) + _segmentSpacing;
-
-        Vector3 levelBounds = _levelBounds.size;
-        Gizmos.DrawWireCube(localCenter + new Vector3(0, 0, zOffset), new Vector3(levelBounds.x, levelBounds.y, 0.01f));
-        Gizmos.DrawWireCube(localCenter - new Vector3(0, 0, zOffset), new Vector3(levelBounds.x, levelBounds.y, 0.01f));
     }
 }
