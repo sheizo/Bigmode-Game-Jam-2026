@@ -792,60 +792,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1 &1193459909459694807
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8857703738162417501}
-  - component: {fileID: 3925191933326510640}
-  m_Layer: 5
-  m_Name: HoverScaler
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &8857703738162417501
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1193459909459694807}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3474613617640056184}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &3925191933326510640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1193459909459694807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64309dabaab4ebf49a38447cda335d8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RectTransformScaler
-  target: {fileID: 3474613617640056184}
-  normalScale: {x: 1, y: 1, z: 1}
-  targetScale: {x: 1.1, y: 1.1, z: 1.1}
-  tweenDuration: 0.2
-  ease: 27
-  ignoreTimeScale: 1
 --- !u!1 &1465436055604079315
 GameObject:
   m_ObjectHideFlags: 0
@@ -1633,60 +1579,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!1 &3873822758314902977
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6580966154109595410}
-  - component: {fileID: 5527589463520887697}
-  m_Layer: 5
-  m_Name: ClickScaler
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &6580966154109595410
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3873822758314902977}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7819904603671000170}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &5527589463520887697
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3873822758314902977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64309dabaab4ebf49a38447cda335d8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RectTransformScaler
-  target: {fileID: 7819904603671000170}
-  normalScale: {x: 1, y: 1, z: 1}
-  targetScale: {x: 0.9, y: 0.9, z: 0.9}
-  tweenDuration: 0.2
-  ease: 27
-  ignoreTimeScale: 1
 --- !u!1 &4084184362587771529
 GameObject:
   m_ObjectHideFlags: 0
@@ -2208,60 +2100,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &4331625713511665450
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3337197195267670468}
-  - component: {fileID: 6353063278762026060}
-  m_Layer: 5
-  m_Name: HoverScaler
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &3337197195267670468
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4331625713511665450}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7819904603671000170}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &6353063278762026060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4331625713511665450}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64309dabaab4ebf49a38447cda335d8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RectTransformScaler
-  target: {fileID: 7819904603671000170}
-  normalScale: {x: 1, y: 1, z: 1}
-  targetScale: {x: 1.1, y: 1.1, z: 1.1}
-  tweenDuration: 0.2
-  ease: 27
-  ignoreTimeScale: 1
 --- !u!1 &4417442427855910719
 GameObject:
   m_ObjectHideFlags: 0
@@ -2596,7 +2434,7 @@ GameObject:
   - component: {fileID: 3955218706769518372}
   - component: {fileID: 4306986677916868597}
   - component: {fileID: 5029263321976646906}
-  - component: {fileID: 5505777115971297746}
+  - component: {fileID: 6250557026341063034}
   m_Layer: 5
   m_Name: Shop Button
   m_TagString: Untagged
@@ -2617,8 +2455,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9149428508889619964}
-  - {fileID: 8857703738162417501}
-  - {fileID: 1761336267786987892}
   m_Father: {fileID: 3320131166360530475}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2708,7 +2544,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &5505777115971297746
+--- !u!114 &6250557026341063034
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2717,69 +2553,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5417491133708840352}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39245dc8d8f3c69448749c8475042be9, type: 3}
+  m_Script: {fileID: 11500000, guid: 49f53455826d69342a58e496733bc8fa, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ButtonEventHandler
-  onHoverEnter:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3925191933326510640}
-        m_TargetAssemblyTypeName: RectTransformScaler, Assembly-CSharp
-        m_MethodName: ScaleToTarget
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onHoverExit:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3925191933326510640}
-        m_TargetAssemblyTypeName: RectTransformScaler, Assembly-CSharp
-        m_MethodName: ScaleToNormal
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onPointerDown:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3080277337770772282}
-        m_TargetAssemblyTypeName: RectTransformScaler, Assembly-CSharp
-        m_MethodName: ScaleToTarget
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onPointerUp:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3080277337770772282}
-        m_TargetAssemblyTypeName: RectTransformScaler, Assembly-CSharp
-        m_MethodName: ScaleToNormal
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  m_EditorClassIdentifier: Assembly-CSharp::CustomButton
+  hoverScale: {x: 1.1, y: 1.1, z: 1.1}
+  clickScale: {x: 0.9, y: 0.9, z: 0.9}
+  tweenDuration: 0.2
+  ease: 27
+  ignoreTimeScale: 1
 --- !u!1 &5463433726120195273
 GameObject:
   m_ObjectHideFlags: 0
@@ -2998,60 +2779,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!1 &5783230058426301610
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1761336267786987892}
-  - component: {fileID: 3080277337770772282}
-  m_Layer: 5
-  m_Name: ClickScaler
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1761336267786987892
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5783230058426301610}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3474613617640056184}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &3080277337770772282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5783230058426301610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64309dabaab4ebf49a38447cda335d8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RectTransformScaler
-  target: {fileID: 3474613617640056184}
-  normalScale: {x: 1, y: 1, z: 1}
-  targetScale: {x: 0.9, y: 0.9, z: 0.9}
-  tweenDuration: 0.2
-  ease: 27
-  ignoreTimeScale: 1
 --- !u!1 &6450489685369009601
 GameObject:
   m_ObjectHideFlags: 0
@@ -3537,7 +3264,7 @@ GameObject:
   - component: {fileID: 99611844259120917}
   - component: {fileID: 1383879717005509229}
   - component: {fileID: 3546421495738078867}
-  - component: {fileID: 2951618763602950435}
+  - component: {fileID: 3059971803376915420}
   m_Layer: 5
   m_Name: Restart Button
   m_TagString: Untagged
@@ -3558,8 +3285,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2872035293231994616}
-  - {fileID: 3337197195267670468}
-  - {fileID: 6580966154109595410}
   m_Father: {fileID: 3320131166360530475}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3649,7 +3374,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2951618763602950435
+--- !u!114 &3059971803376915420
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3658,69 +3383,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 7789066720202164087}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39245dc8d8f3c69448749c8475042be9, type: 3}
+  m_Script: {fileID: 11500000, guid: 49f53455826d69342a58e496733bc8fa, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ButtonEventHandler
-  onHoverEnter:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6353063278762026060}
-        m_TargetAssemblyTypeName: RectTransformScaler, Assembly-CSharp
-        m_MethodName: ScaleToTarget
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onHoverExit:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6353063278762026060}
-        m_TargetAssemblyTypeName: RectTransformScaler, Assembly-CSharp
-        m_MethodName: ScaleToNormal
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onPointerDown:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5527589463520887697}
-        m_TargetAssemblyTypeName: RectTransformScaler, Assembly-CSharp
-        m_MethodName: ScaleToTarget
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onPointerUp:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5527589463520887697}
-        m_TargetAssemblyTypeName: RectTransformScaler, Assembly-CSharp
-        m_MethodName: ScaleToNormal
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  m_EditorClassIdentifier: Assembly-CSharp::CustomButton
+  hoverScale: {x: 1.1, y: 1.1, z: 1.1}
+  clickScale: {x: 0.9, y: 0.9, z: 0.9}
+  tweenDuration: 0.2
+  ease: 27
+  ignoreTimeScale: 1
 --- !u!1 &8213210605530282443
 GameObject:
   m_ObjectHideFlags: 0
