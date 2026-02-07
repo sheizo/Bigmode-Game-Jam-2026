@@ -9999,6 +9999,14 @@ PrefabInstance:
       propertyPath: _npcList.Array.data[2].npcRotates
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
+      propertyPath: _npcList.Array.data[0].CleanedType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
+      propertyPath: _npcList.Array.data[1].CleanedType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6244871341384609257, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -42.5
@@ -10110,6 +10118,14 @@ PrefabInstance:
       propertyPath: _npcList.Array.data[2].npcRotates
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
+      propertyPath: _npcList.Array.data[0].CleanedType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
+      propertyPath: _npcList.Array.data[1].CleanedType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6244871341384609257, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -42.5
@@ -10219,6 +10235,14 @@ PrefabInstance:
       objectReference: {fileID: 6588041971488832662}
     - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
       propertyPath: _npcList.Array.data[2].npcRotates
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
+      propertyPath: _npcList.Array.data[0].CleanedType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
+      propertyPath: _npcList.Array.data[1].CleanedType
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6244871341384609257, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
@@ -10716,6 +10740,14 @@ PrefabInstance:
       propertyPath: _npcList.Array.data[2].npcRotates
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
+      propertyPath: _npcList.Array.data[0].CleanedType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
+      propertyPath: _npcList.Array.data[1].CleanedType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6244871341384609257, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -42.5
@@ -10831,6 +10863,14 @@ PrefabInstance:
       propertyPath: _npcList.Array.data[2].npcRotates
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
+      propertyPath: _npcList.Array.data[0].CleanedType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
+      propertyPath: _npcList.Array.data[1].CleanedType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6244871341384609257, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -42.5
@@ -10938,6 +10978,14 @@ PrefabInstance:
     - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
       propertyPath: _npcList.Array.data[2].npcRotates
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
+      propertyPath: _npcList.Array.data[0].CleanedType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
+      propertyPath: _npcList.Array.data[1].CleanedType
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6244871341384609257, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11050,6 +11098,14 @@ PrefabInstance:
       propertyPath: _npcList.Array.data[2].npcRotates
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
+      propertyPath: _npcList.Array.data[0].CleanedType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
+      propertyPath: _npcList.Array.data[1].CleanedType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6244871341384609257, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -42.5
@@ -11149,6 +11205,14 @@ PrefabInstance:
       propertyPath: _npcList.Array.data[1].npcObject
       value: 
       objectReference: {fileID: 3033504011744268029}
+    - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
+      propertyPath: _npcList.Array.data[0].CleanedType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
+      propertyPath: _npcList.Array.data[1].CleanedType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6244871341384609257, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -42.5
@@ -11260,6 +11324,14 @@ PrefabInstance:
     - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
       propertyPath: _npcList.Array.data[2].npcRotates
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
+      propertyPath: _npcList.Array.data[0].CleanedType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
+      propertyPath: _npcList.Array.data[1].CleanedType
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6244871341384609257, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11375,6 +11447,14 @@ PrefabInstance:
     - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
       propertyPath: _npcList.Array.data[2].npcRotates
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
+      propertyPath: _npcList.Array.data[0].CleanedType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
+      propertyPath: _npcList.Array.data[1].CleanedType
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6244871341384609257, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12281,6 +12361,14 @@ PrefabInstance:
       propertyPath: _npcList.Array.data[2].npcRotates
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
+      propertyPath: _npcList.Array.data[0].CleanedType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
+      propertyPath: _npcList.Array.data[1].CleanedType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6244871341384609257, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -42.5
@@ -12572,6 +12660,14 @@ PrefabInstance:
     - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
       propertyPath: _npcList.Array.data[2].npcRotates
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
+      propertyPath: _npcList.Array.data[0].CleanedType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
+      propertyPath: _npcList.Array.data[1].CleanedType
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6244871341384609257, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
       propertyPath: m_LocalPosition.x

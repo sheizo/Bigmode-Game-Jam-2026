@@ -2835,6 +2835,14 @@ PrefabInstance:
       propertyPath: _npcList.Array.data[2].npcRotates
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
+      propertyPath: _npcList.Array.data[0].CleanedType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
+      propertyPath: _npcList.Array.data[1].CleanedType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6244871341384609257, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.1
@@ -2988,18 +2996,39 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4955976788830112826}
+      addedObject: {fileID: 1729427162223721993}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1729427162223721993}
+      addedObject: {fileID: 2805038998503171376}
   m_SourcePrefab: {fileID: 100100000, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
 --- !u!1 &536892053727403801 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
   m_PrefabInstance: {fileID: 842742314771931720}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &4955976788830112826
-MeshCollider:
+--- !u!114 &1729427162223721993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536892053727403801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a653e18d028d56b4eb7c527dad95d09d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
+  _cleanedType: 0
+  _interactionType: 0
+  _cleanFadeSpeed: 0.3
+  _dirtyChance: 0.5
+  _isNpc: 1
+  _cleanEffectDuration: 0.4
+  onPlayerInteract:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!65 &2805038998503171376
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3013,34 +3042,12 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -8803937527578110353, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
---- !u!114 &1729427162223721993
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 536892053727403801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a653e18d028d56b4eb7c527dad95d09d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
-  _cleanedType: 1
-  _interactionType: 0
-  _cleanFadeSpeed: 0.3
-  _dirtyChance: 0.5
-  _isNpc: 0
-  _cleanEffectDuration: 0.4
-  onPlayerInteract:
-    m_PersistentCalls:
-      m_Calls: []
+  serializedVersion: 3
+  m_Size: {x: 5.7390127, y: 5.05962, z: 3.1202152}
+  m_Center: {x: 0.20950651, y: 0, z: 0.9593749}
 --- !u!4 &880661358412465571 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
@@ -3120,18 +3127,39 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7228616492391664339}
+      addedObject: {fileID: 112402825154159029}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 112402825154159029}
+      addedObject: {fileID: 1772272675815168285}
   m_SourcePrefab: {fileID: 100100000, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
 --- !u!1 &45707240007592556 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
   m_PrefabInstance: {fileID: 892570001563572029}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &7228616492391664339
-MeshCollider:
+--- !u!114 &112402825154159029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45707240007592556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a653e18d028d56b4eb7c527dad95d09d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
+  _cleanedType: 0
+  _interactionType: 0
+  _cleanFadeSpeed: 0.3
+  _dirtyChance: 0.5
+  _isNpc: 1
+  _cleanEffectDuration: 0.4
+  onPlayerInteract:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!65 &1772272675815168285
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3145,34 +3173,12 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -8803937527578110353, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
---- !u!114 &112402825154159029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 45707240007592556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a653e18d028d56b4eb7c527dad95d09d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
-  _cleanedType: 1
-  _interactionType: 0
-  _cleanFadeSpeed: 0.3
-  _dirtyChance: 0.5
-  _isNpc: 0
-  _cleanEffectDuration: 0.4
-  onPlayerInteract:
-    m_PersistentCalls:
-      m_Calls: []
+  serializedVersion: 3
+  m_Size: {x: 5.7390127, y: 5.05962, z: 3.1202152}
+  m_Center: {x: 0.20950651, y: 0, z: 0.9593749}
 --- !u!4 &858413821266538710 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
@@ -3472,10 +3478,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2176028919777740483}
+      addedObject: {fileID: 6533364410431654221}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6533364410431654221}
+      addedObject: {fileID: 1247522773917444531}
   m_SourcePrefab: {fileID: 100100000, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
 --- !u!4 &1386555425320264575 stripped
 Transform:
@@ -3487,8 +3493,29 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
   m_PrefabInstance: {fileID: 1492012734716806292}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &2176028919777740483
-MeshCollider:
+--- !u!114 &6533364410431654221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762552859379546565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a653e18d028d56b4eb7c527dad95d09d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
+  _cleanedType: 0
+  _interactionType: 0
+  _cleanFadeSpeed: 0.3
+  _dirtyChance: 0.5
+  _isNpc: 1
+  _cleanEffectDuration: 0.4
+  onPlayerInteract:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!65 &1247522773917444531
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3502,34 +3529,12 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -8803937527578110353, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
---- !u!114 &6533364410431654221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1762552859379546565}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a653e18d028d56b4eb7c527dad95d09d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
-  _cleanedType: 1
-  _interactionType: 0
-  _cleanFadeSpeed: 0.3
-  _dirtyChance: 0.5
-  _isNpc: 0
-  _cleanEffectDuration: 0.4
-  onPlayerInteract:
-    m_PersistentCalls:
-      m_Calls: []
+  serializedVersion: 3
+  m_Size: {x: 5.7390127, y: 5.05962, z: 3.1202152}
+  m_Center: {x: 0.20950651, y: 0, z: 0.9593749}
 --- !u!1001 &1892731445996927517
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4467,18 +4472,39 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4152179741971276874}
+      addedObject: {fileID: 5712512004606345537}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5712512004606345537}
+      addedObject: {fileID: 5465713083966908270}
   m_SourcePrefab: {fileID: 100100000, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
 --- !u!1 &2795286458534764836 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
   m_PrefabInstance: {fileID: 3029712986343316597}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &4152179741971276874
-MeshCollider:
+--- !u!114 &5712512004606345537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2795286458534764836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a653e18d028d56b4eb7c527dad95d09d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
+  _cleanedType: 0
+  _interactionType: 0
+  _cleanFadeSpeed: 0.3
+  _dirtyChance: 0.5
+  _isNpc: 1
+  _cleanEffectDuration: 0.4
+  onPlayerInteract:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!65 &5465713083966908270
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4492,34 +4518,12 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -8803937527578110353, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
---- !u!114 &5712512004606345537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2795286458534764836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a653e18d028d56b4eb7c527dad95d09d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
-  _cleanedType: 1
-  _interactionType: 0
-  _cleanFadeSpeed: 0.3
-  _dirtyChance: 0.5
-  _isNpc: 0
-  _cleanEffectDuration: 0.4
-  onPlayerInteract:
-    m_PersistentCalls:
-      m_Calls: []
+  serializedVersion: 3
+  m_Size: {x: 5.7390127, y: 5.05962, z: 3.1202152}
+  m_Center: {x: 0.20950651, y: 0, z: 0.9593749}
 --- !u!4 &3278913642205871006 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
@@ -5435,10 +5439,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4013840702089567347}
+      addedObject: {fileID: 5345239680040879163}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5345239680040879163}
+      addedObject: {fileID: 108119974984574669}
   m_SourcePrefab: {fileID: 100100000, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
 --- !u!4 &5175770298394752021 stripped
 Transform:
@@ -5450,8 +5454,29 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
   m_PrefabInstance: {fileID: 4638354486202160126}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &4013840702089567347
-MeshCollider:
+--- !u!114 &5345239680040879163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5521368086271651503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a653e18d028d56b4eb7c527dad95d09d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
+  _cleanedType: 0
+  _interactionType: 0
+  _cleanFadeSpeed: 0.3
+  _dirtyChance: 0.5
+  _isNpc: 1
+  _cleanEffectDuration: 0.4
+  onPlayerInteract:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!65 &108119974984574669
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5465,34 +5490,12 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -8803937527578110353, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
---- !u!114 &5345239680040879163
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5521368086271651503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a653e18d028d56b4eb7c527dad95d09d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
-  _cleanedType: 1
-  _interactionType: 0
-  _cleanFadeSpeed: 0.3
-  _dirtyChance: 0.5
-  _isNpc: 0
-  _cleanEffectDuration: 0.4
-  onPlayerInteract:
-    m_PersistentCalls:
-      m_Calls: []
+  serializedVersion: 3
+  m_Size: {x: 5.7390127, y: 5.05962, z: 3.1202152}
+  m_Center: {x: 0.20950651, y: 0, z: 0.9593749}
 --- !u!1001 &4657190481425683785
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6028,6 +6031,14 @@ PrefabInstance:
     - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
       propertyPath: _npcList.Array.data[2].npcRotates
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
+      propertyPath: _npcList.Array.data[0].CleanedType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
+      propertyPath: _npcList.Array.data[1].CleanedType
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6244871341384609257, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6967,10 +6978,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8945326712061507256}
+      addedObject: {fileID: 228112920152175998}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 228112920152175998}
+      addedObject: {fileID: 7134002605006601166}
   m_SourcePrefab: {fileID: 100100000, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
 --- !u!4 &5927346797668080967 stripped
 Transform:
@@ -6982,8 +6993,29 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
   m_PrefabInstance: {fileID: 6181353213891148460}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &8945326712061507256
-MeshCollider:
+--- !u!114 &228112920152175998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6415934222145308669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a653e18d028d56b4eb7c527dad95d09d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
+  _cleanedType: 0
+  _interactionType: 0
+  _cleanFadeSpeed: 0.3
+  _dirtyChance: 0.5
+  _isNpc: 1
+  _cleanEffectDuration: 0.4
+  onPlayerInteract:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!65 &7134002605006601166
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -6997,34 +7029,12 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -8803937527578110353, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
---- !u!114 &228112920152175998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6415934222145308669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a653e18d028d56b4eb7c527dad95d09d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
-  _cleanedType: 1
-  _interactionType: 0
-  _cleanFadeSpeed: 0.3
-  _dirtyChance: 0.5
-  _isNpc: 0
-  _cleanEffectDuration: 0.4
-  onPlayerInteract:
-    m_PersistentCalls:
-      m_Calls: []
+  serializedVersion: 3
+  m_Size: {x: 5.7390127, y: 5.05962, z: 3.1202152}
+  m_Center: {x: 0.20950651, y: 0, z: 0.9593749}
 --- !u!1001 &6420051607153295732
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7234,18 +7244,39 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 9046866248756485671}
+      addedObject: {fileID: 2461632174064218898}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2461632174064218898}
+      addedObject: {fileID: 8198999570525446031}
   m_SourcePrefab: {fileID: 100100000, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
 --- !u!1 &6192508041786036280 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
   m_PrefabInstance: {fileID: 6427019920393186665}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &9046866248756485671
-MeshCollider:
+--- !u!114 &2461632174064218898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6192508041786036280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a653e18d028d56b4eb7c527dad95d09d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
+  _cleanedType: 0
+  _interactionType: 0
+  _cleanFadeSpeed: 0.3
+  _dirtyChance: 0.5
+  _isNpc: 1
+  _cleanEffectDuration: 0.4
+  onPlayerInteract:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!65 &8198999570525446031
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -7259,34 +7290,12 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -8803937527578110353, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
---- !u!114 &2461632174064218898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6192508041786036280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a653e18d028d56b4eb7c527dad95d09d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
-  _cleanedType: 1
-  _interactionType: 0
-  _cleanFadeSpeed: 0.3
-  _dirtyChance: 0.5
-  _isNpc: 0
-  _cleanEffectDuration: 0.4
-  onPlayerInteract:
-    m_PersistentCalls:
-      m_Calls: []
+  serializedVersion: 3
+  m_Size: {x: 5.7390127, y: 5.05962, z: 3.1202152}
+  m_Center: {x: 0.20950651, y: 0, z: 0.9593749}
 --- !u!4 &6826302469129652866 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
@@ -7590,18 +7599,39 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4285753921734433586}
+      addedObject: {fileID: 83710555618294965}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 83710555618294965}
+      addedObject: {fileID: 3849276670960190100}
   m_SourcePrefab: {fileID: 100100000, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
 --- !u!1 &6208876330977550936 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
   m_PrefabInstance: {fileID: 6551389393858486025}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &4285753921734433586
-MeshCollider:
+--- !u!114 &83710555618294965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6208876330977550936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a653e18d028d56b4eb7c527dad95d09d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
+  _cleanedType: 0
+  _interactionType: 0
+  _cleanFadeSpeed: 0.3
+  _dirtyChance: 0.5
+  _isNpc: 1
+  _cleanEffectDuration: 0.4
+  onPlayerInteract:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!65 &3849276670960190100
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -7615,34 +7645,12 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -8803937527578110353, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
---- !u!114 &83710555618294965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6208876330977550936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a653e18d028d56b4eb7c527dad95d09d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
-  _cleanedType: 1
-  _interactionType: 0
-  _cleanFadeSpeed: 0.3
-  _dirtyChance: 0.5
-  _isNpc: 0
-  _cleanEffectDuration: 0.4
-  onPlayerInteract:
-    m_PersistentCalls:
-      m_Calls: []
+  serializedVersion: 3
+  m_Size: {x: 5.7390127, y: 5.05962, z: 3.1202152}
+  m_Center: {x: 0.20950651, y: 0, z: 0.9593749}
 --- !u!4 &6728813851603581154 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
@@ -8160,10 +8168,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5576580214820512980}
+      addedObject: {fileID: 733091625281247034}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 733091625281247034}
+      addedObject: {fileID: 9038242858664814378}
   m_SourcePrefab: {fileID: 100100000, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
 --- !u!4 &7051285101970538694 stripped
 Transform:
@@ -8175,8 +8183,29 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
   m_PrefabInstance: {fileID: 7372826955588577069}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &5576580214820512980
-MeshCollider:
+--- !u!114 &733091625281247034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7678886801238727292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a653e18d028d56b4eb7c527dad95d09d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
+  _cleanedType: 0
+  _interactionType: 0
+  _cleanFadeSpeed: 0.3
+  _dirtyChance: 0.5
+  _isNpc: 1
+  _cleanEffectDuration: 0.4
+  onPlayerInteract:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!65 &9038242858664814378
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -8190,34 +8219,12 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -8803937527578110353, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
---- !u!114 &733091625281247034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7678886801238727292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a653e18d028d56b4eb7c527dad95d09d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
-  _cleanedType: 1
-  _interactionType: 0
-  _cleanFadeSpeed: 0.3
-  _dirtyChance: 0.5
-  _isNpc: 0
-  _cleanEffectDuration: 0.4
-  onPlayerInteract:
-    m_PersistentCalls:
-      m_Calls: []
+  serializedVersion: 3
+  m_Size: {x: 5.7390127, y: 5.05962, z: 3.1202152}
+  m_Center: {x: 0.20950651, y: 0, z: 0.9593749}
 --- !u!1001 &7378493993376954903
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9076,10 +9083,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8687455223100844295}
+      addedObject: {fileID: 2492157784503601109}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2492157784503601109}
+      addedObject: {fileID: 2856712098223044499}
   m_SourcePrefab: {fileID: 100100000, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
 --- !u!4 &8438792713691827796 stripped
 Transform:
@@ -9091,8 +9098,29 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
   m_PrefabInstance: {fileID: 8256826816853764543}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &8687455223100844295
-MeshCollider:
+--- !u!114 &2492157784503601109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9103830863504856302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a653e18d028d56b4eb7c527dad95d09d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
+  _cleanedType: 0
+  _interactionType: 0
+  _cleanFadeSpeed: 0.3
+  _dirtyChance: 0.5
+  _isNpc: 1
+  _cleanEffectDuration: 0.4
+  onPlayerInteract:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!65 &2856712098223044499
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -9106,34 +9134,12 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -8803937527578110353, guid: 47cc74c17e45e6047b203e5602a6831a, type: 3}
---- !u!114 &2492157784503601109
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9103830863504856302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a653e18d028d56b4eb7c527dad95d09d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
-  _cleanedType: 1
-  _interactionType: 0
-  _cleanFadeSpeed: 0.3
-  _dirtyChance: 0.5
-  _isNpc: 0
-  _cleanEffectDuration: 0.4
-  onPlayerInteract:
-    m_PersistentCalls:
-      m_Calls: []
+  serializedVersion: 3
+  m_Size: {x: 5.7390127, y: 5.05962, z: 3.1202152}
+  m_Center: {x: 0.20950651, y: 0, z: 0.9593749}
 --- !u!1001 &8459127188068268173
 PrefabInstance:
   m_ObjectHideFlags: 0

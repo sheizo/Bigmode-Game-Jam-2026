@@ -686,11 +686,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NpcSpawnPoint
   _npcList:
-  - CleanedType: 0
+  - CleanedType: 1
     rarity: 0
     npcObject: {fileID: 833956732882352466}
     npcRotates: 1
-  - CleanedType: 0
+  - CleanedType: 1
     rarity: 1
     npcObject: {fileID: 150156258627751948}
     npcRotates: 1
