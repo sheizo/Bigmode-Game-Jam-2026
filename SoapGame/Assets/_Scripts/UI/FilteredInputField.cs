@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class NoSpacesInputField : MonoBehaviour
+public class FilteredInputField : MonoBehaviour
 {
     [SerializeField] private TMP_InputField inputField;
 
@@ -16,22 +16,19 @@ public class NoSpacesInputField : MonoBehaviour
 
     private void HandleInputChange(string text)
     {
-        // Remove any spaces from the input
-        if (text.Contains(" "))
+        // Filter out non-alphanumeric characters
+        string filteredText = System.Text.RegularExpressions.Regex.Replace(text, @"[^a-zA-Z0-9]", "");
+        
+        // Update the input field with the filtered text
+        if (filteredText != text)
         {
-            string newText = text.Replace(" ", "");
-            inputField.text = newText;
-
-            // Optional: move caret to the end
-            inputField.caretPosition = newText.Length;
+            inputField.text = filteredText;
         }
 
-        // trim the name to 10 characters
-        if (text.Length > 10)
+        //Limit the length of the input to 12 characters
+        if (filteredText.Length > 12)
         {
-            string newText = text.Substring(0, 10);
-            inputField.text = newText;
-            inputField.caretPosition = newText.Length;
+            inputField.text = filteredText.Substring(0, 12);
         }
     }
 

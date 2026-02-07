@@ -58,7 +58,7 @@ public class LeaderboardManager : MonoBehaviour
     [ContextMenu("Test Post Score")]
     public void TestPostScore()
     {
-        _ = LeaderboardClient.PostScore("Snigger", 100);
+        _ = LeaderboardClient.PostScore("Test Player", 100);
     }
 
     [ContextMenu("Test Get Scores")]
