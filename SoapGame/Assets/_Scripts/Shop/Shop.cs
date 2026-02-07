@@ -12,6 +12,13 @@ public class Shop : MonoBehaviour
             buyableUpgrade.OnClicked += TryBuying;
         }
     }
+    
+    public void Refresh()
+    {
+        foreach(BuyableUpgrade buyableUpgrade in _buyableUpgrades){
+            buyableUpgrade.RefreshUI();
+        }
+    }
 
     private bool TryBuying(BuyableUpgrade buyableUpgrade){
         int money = GameManager.PlayerStats.Money;

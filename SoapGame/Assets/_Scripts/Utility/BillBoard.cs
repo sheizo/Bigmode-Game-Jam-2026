@@ -6,7 +6,7 @@ public class BillBoard : MonoBehaviour
 {
     [SerializeField] private Camera _targetCamera;
 
-    void Awake()
+    void OnEnable()
     {
         if (!_targetCamera)
             _targetCamera = Camera.main;
