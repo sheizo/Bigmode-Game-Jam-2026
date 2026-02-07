@@ -20,7 +20,6 @@ public class WorldSegment : MonoBehaviour
     private SegmentType _currSegmentType;
 
     private float _stainSpawnRate = 0.6f;
-    private float _npcSpawnRate = 0.5f;
     
     void CreateDictIfNotExist()
     {
@@ -72,11 +71,7 @@ public class WorldSegment : MonoBehaviour
 
         foreach (NpcSpawnPoint npcSpawnPoint in npcSpawnPointList)
         {
-            float spawnRate = Random.value;
-            if (spawnRate < _npcSpawnRate)
-            {
-                npcSpawnPoint.SpawnRandom();
-            }
+            npcSpawnPoint.SpawnRandom();
         }
     }
 

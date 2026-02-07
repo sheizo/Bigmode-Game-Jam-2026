@@ -21,6 +21,7 @@ public class NpcSpawnPoint : MonoBehaviour
 {
     
     [SerializeField] private List<Npc> _npcList;
+    [SerializeField][Range(0,1)] private float _npcSpawnRate = 0.5f;
     private List<Npc> _weightedNpcList;
 
     void Awake()
@@ -41,6 +42,12 @@ public class NpcSpawnPoint : MonoBehaviour
 
     public void SpawnRandom(){
         if (_weightedNpcList == null) return;
+
+        float spawnRate = Random.value;
+        if (spawnRate > _npcSpawnRate)
+        {
+            return;
+        }
         
         int randomNpcIndex = Random.Range(0, _weightedNpcList.Count);
         Npc randomNpc = _weightedNpcList[randomNpcIndex];

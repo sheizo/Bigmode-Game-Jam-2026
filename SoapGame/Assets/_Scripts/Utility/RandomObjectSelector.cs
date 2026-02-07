@@ -7,6 +7,8 @@ public class RandomObjectSelector : MonoBehaviour
 
     void Awake()
     {
+        _objectList = new();
+
         foreach (Transform child in transform)
         {
             child.gameObject.SetActive(false);
@@ -14,7 +16,12 @@ public class RandomObjectSelector : MonoBehaviour
         }
     }
 
-    private void GetRandomObject()
+    void Start()
+    {
+        GetRandomObject();
+    }
+
+    public void GetRandomObject()
     {
         Transform randomObject = _objectList[Random.Range(0, _objectList.Count)];
         randomObject.gameObject.SetActive(true);
