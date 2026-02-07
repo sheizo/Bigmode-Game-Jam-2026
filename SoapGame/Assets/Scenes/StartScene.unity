@@ -709,7 +709,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 240400749350838571, guid: 5be1dd5459f12544ca0ac8dc026baf74, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 960
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 240400749350838571, guid: 5be1dd5459f12544ca0ac8dc026baf74, type: 3}
       propertyPath: m_LocalPosition.y
@@ -717,7 +717,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 240400749350838571, guid: 5be1dd5459f12544ca0ac8dc026baf74, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10200.686
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 240400749350838571, guid: 5be1dd5459f12544ca0ac8dc026baf74, type: 3}
       propertyPath: m_LocalRotation.w
@@ -747,10 +747,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1619088711194730985, guid: 5be1dd5459f12544ca0ac8dc026baf74, type: 3}
-      propertyPath: 'soundEffects.Array.data[8].clip.Array.data[0]'
-      value: 
-      objectReference: {fileID: 8300000, guid: adcc63a228653b843a882febbf7980b3, type: 3}
     - target: {fileID: 3846899226593553488, guid: 5be1dd5459f12544ca0ac8dc026baf74, type: 3}
       propertyPath: m_Name
       value: AudioManager

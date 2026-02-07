@@ -87,6 +87,9 @@ public class PlayerController : MonoBehaviour
     [Range(0, 0.5f)] [SerializeField] private float smoothTime = 0.05f;
 
     [Header("Sounds")] 
+    [SerializeField] private AudioSource _meltAudioSource;
+    [SerializeField] private AudioSource _cleanAudioSource;
+
     [SerializeField] private AudioSource _rampStayAudioSource;
     [SerializeField] private float _rampStayFadeSpeed = 1;
     [SerializeField] private float _rampTimeForExitPlay = 0.1f;
@@ -180,8 +183,9 @@ public class PlayerController : MonoBehaviour
         if (GameManager.CurrentGameState != GameState.GAMEPLAY) return;
         
         
+        bool isCleaning = IsCleaning();
         SetControlVariables();
-        HandleGroundSoapDeplete();
+        HandleGroundSoapDeplete(isCleaning);
         HandleCameraFOV();
         HandleRampSpawningAndDiscarding();
         
@@ -200,6 +204,26 @@ public class PlayerController : MonoBehaviour
         GameManager.UIManager.UpdateCurrentRunStats(_runStats);
         GameManager.UIManager.UpdatePlayerSpeed((int) _currentSpeed);
 
+        //Control the sounds
+        if (isCleaning)
+        {
+            if (!_cleanAudioSource.isPlaying)
+                _cleanAudioSource.Play();
+
+            _meltAudioSource.Stop();
+        }
+        else if (_isGrounded && !_isOnRamp && GameManager.CurrentGameState == GameState.GAMEPLAY)
+        {
+            if (!_meltAudioSource.isPlaying)
+                _meltAudioSource.Play();
+
+            _cleanAudioSource.Stop();
+        }
+        else
+        {
+            _cleanAudioSource.Stop();
+            _meltAudioSource.Stop();
+        }
     }
 
 
@@ -316,25 +340,26 @@ public class PlayerController : MonoBehaviour
         _pressedDiscardRampThisFrame = Mouse.current.rightButton.wasPressedThisFrame;
     }
 
-    private void HandleGroundSoapDeplete(){
+    private void HandleGroundSoapDeplete(bool isCleaning){
         if (!_isGrounded || _isOnRamp) return;
         
         //Take soap percentage
-        if (IsCleaning()){
+        if (isCleaning){
             TakeSoap(_maxSoapPower * _cleanSoapUsageSec * Time.deltaTime);
             _timeCleaning += Time.deltaTime;
             
             //Animate scale - charge clean anim
             float yScaleTarget = Mathf.Lerp(1, _cleaningMinYScale, _timeCleaning/_timeToClean);
             _playerVisualAnims.localScale = new Vector3(1, yScaleTarget, 1);
+
+            //set the volume of the cleanAudioSource based on the scale of the player
+            _cleanAudioSource.volume = 1 - (yScaleTarget - _cleaningMinYScale) / (1 - _cleaningMinYScale);
         }
         else{
             TakeSoap(_maxSoapPower * _groundSoapUsageSecPercent * Time.deltaTime);
             _timeCleaning = 0;
             _playerVisualAnims.localScale = Vector3.one;
-            
         }
-        
     }
 
     private void HandleMovement(){
