@@ -109,25 +109,25 @@ Material:
     - _Dirt_Power: 1
     - _DstBlend: 0
     - _DstBlendAlpha: 0
-    - _Edge: 0
-    - _Edge_1: 0
+    - _Edge: 8.9
+    - _Edge_1: 26.57
     - _Emission: 1.2
     - _EnvironmentReflections: 1
-    - _Fade: 0
-    - _Fade_1: 0
-    - _Flip_Gradient: 0
+    - _Fade: 5.31
+    - _Fade_1: 13.7
+    - _Flip_Gradient: 1
     - _Fresnel_Clean_Amount: 0
     - _Fresnel_Clean_Power: 3.17
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Gradient: 0
-    - _Gradient_1: 0
+    - _Gradient: 1
+    - _Gradient_1: 1
     - _Gradient_Pixel_Steps: 20
     - _Metallic: 0
-    - _Noise: 0
-    - _Noise_Pixelize: 20
-    - _Noise_Strength: 0
+    - _Noise: 1
+    - _Noise_Pixelize: 97.8
+    - _Noise_Strength: 0.1
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _Pixelize_Dirt: 1
@@ -153,9 +153,9 @@ Material:
     - _Dirt_Color_1: {r: 0.36792448, g: 0.15111175, b: 0, a: 0}
     - _Dirt_Tiling: {r: 1, g: 1, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _EndColor: {r: 0, g: 0, b: 0, a: 0}
+    - _EndColor: {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 0}
     - _Fresnel_Clean_Color: {r: 0, g: 1.844302, b: 1.229535, a: 0}
-    - _Gradient_Axis_Mask: {r: 0, g: 0, b: 0, a: 0}
+    - _Gradient_Axis_Mask: {r: 0, g: 1, b: 0, a: 0}
     - _Gradient_Axis_Mask_1: {r: 0, g: 1, b: 0, a: 0}
     - _Noise_Color: {r: 1, g: 1, b: 1, a: 1}
     - _Noise_Tiling: {r: 1, g: 1, b: 0, a: 0}

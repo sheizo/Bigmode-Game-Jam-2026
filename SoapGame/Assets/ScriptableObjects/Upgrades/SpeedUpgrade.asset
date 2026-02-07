@@ -13,20 +13,23 @@ MonoBehaviour:
   m_Name: SpeedUpgrade
   m_EditorClassIdentifier: Assembly-CSharp::SpeedUpgrade
   _id: speed
-  _name: Speed Upgrade
+  _name: Speed
   _levels:
-  - MaxAirSpeed: 5
+  - MaxAirSpeed: 8
+    MaxGroundSpeed: 3
+    cost: 0
+  - MaxAirSpeed: 10
     MaxGroundSpeed: 5
     cost: 0
-  - MaxAirSpeed: 8
+  - MaxAirSpeed: 15
     MaxGroundSpeed: 10
     cost: 0
-  - MaxAirSpeed: 13
-    MaxGroundSpeed: 30
-    cost: 0
   - MaxAirSpeed: 20
-    MaxGroundSpeed: 45
+    MaxGroundSpeed: 15
+    cost: 0
+  - MaxAirSpeed: 25
+    MaxGroundSpeed: 20
     cost: 0
   - MaxAirSpeed: 30
-    MaxGroundSpeed: 60
+    MaxGroundSpeed: 28
     cost: 0

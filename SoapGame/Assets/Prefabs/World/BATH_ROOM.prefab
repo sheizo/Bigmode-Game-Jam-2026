@@ -652,6 +652,7 @@ GameObject:
   - component: {fileID: 8289460079887953218}
   - component: {fileID: 846434596970777008}
   - component: {fileID: 2666939431048223767}
+  - component: {fileID: 4705968581217069295}
   m_Layer: 0
   m_Name: Houseplant_3
   m_TagString: Untagged
@@ -734,6 +735,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4705968581217069295
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094002455314377293}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.4257445, y: 3.382566, z: 8.449166}
+  m_Center: {x: -0.0215925, y: 0.0000073767437, z: 4.2387786}
 --- !u!1 &1110443691899573906
 GameObject:
   m_ObjectHideFlags: 0
@@ -859,6 +881,7 @@ GameObject:
   - component: {fileID: 2375888191098470074}
   - component: {fileID: 9139187163600156644}
   - component: {fileID: 2333220314724775131}
+  - component: {fileID: 2002367737850716831}
   m_Layer: 0
   m_Name: pothos_plant_large_potted
   m_TagString: Untagged
@@ -938,6 +961,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2002367737850716831
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145937062109586479}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5295877, y: 2.3969502, z: 2.405778}
+  m_Center: {x: 0.09232646, y: 0.8518302, z: 0.005812943}
 --- !u!1 &1221607304434481378
 GameObject:
   m_ObjectHideFlags: 0
@@ -2286,6 +2330,7 @@ GameObject:
   - component: {fileID: 5558103689784965218}
   - component: {fileID: 7612018485434018388}
   - component: {fileID: 2860639048506018866}
+  - component: {fileID: 4898059022285814410}
   m_Layer: 0
   m_Name: yucca_plant_large_potted
   m_TagString: Untagged
@@ -2365,6 +2410,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4898059022285814410
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2525278711310874380}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.0303698, y: 2.9972785, z: 1.7100271}
+  m_Center: {x: -0.14628917, y: 1.4986392, z: -0.09526974}
 --- !u!1 &2582473652526992319
 GameObject:
   m_ObjectHideFlags: 0
@@ -2600,6 +2666,7 @@ GameObject:
   - component: {fileID: 3673220311160800238}
   - component: {fileID: 8605062750529174088}
   - component: {fileID: 2165038350268338420}
+  - component: {fileID: 5374007734150763731}
   m_Layer: 0
   m_Name: Houseplant_3
   m_TagString: Untagged
@@ -2682,6 +2749,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5374007734150763731
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2810394282973263226}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.425744, y: 3.3825643, z: 8.449165}
+  m_Center: {x: -0.021589577, y: 0, z: 4.2387705}
 --- !u!1 &3033504011744268029
 GameObject:
   m_ObjectHideFlags: 0
@@ -5140,6 +5228,7 @@ GameObject:
   - component: {fileID: 8201498638017296310}
   - component: {fileID: 5164691290323904250}
   - component: {fileID: 1981518270082835392}
+  - component: {fileID: 6143693218615814367}
   m_Layer: 0
   m_Name: pothos_plant_large_potted
   m_TagString: Untagged
@@ -5219,6 +5308,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6143693218615814367
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5385104295517274053}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5295877, y: 2.3969502, z: 2.405778}
+  m_Center: {x: 0.092324555, y: 0.8518378, z: 0.005812943}
 --- !u!1 &5462124053424186579
 GameObject:
   m_ObjectHideFlags: 0
@@ -5265,6 +5375,7 @@ GameObject:
   - component: {fileID: 4560544121926827648}
   - component: {fileID: 358872908328107972}
   - component: {fileID: 5889214110882795521}
+  - component: {fileID: 6364466444175675174}
   m_Layer: 0
   m_Name: yucca_plant_large_potted
   m_TagString: Untagged
@@ -5344,6 +5455,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6364466444175675174
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5621455161207129205}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.0303698, y: 2.9972785, z: 1.7100271}
+  m_Center: {x: -0.14629108, y: 1.4986316, z: -0.0952701}
 --- !u!1 &5694550805848967497
 GameObject:
   m_ObjectHideFlags: 0
@@ -6092,6 +6224,7 @@ GameObject:
   - component: {fileID: 3426966809581438751}
   - component: {fileID: 2974292930827634286}
   - component: {fileID: 2915605714273135325}
+  - component: {fileID: 6790853597569789254}
   m_Layer: 0
   m_Name: yucca_plant_large_potted
   m_TagString: Untagged
@@ -6171,6 +6304,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6790853597569789254
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6521114667742860060}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.0303698, y: 2.9972782, z: 1.7100267}
+  m_Center: {x: -0.14629012, y: 1.4986391, z: -0.09527199}
 --- !u!1 &6588041971488832662
 GameObject:
   m_ObjectHideFlags: 0
@@ -7404,6 +7558,7 @@ GameObject:
   - component: {fileID: 1894470096999906027}
   - component: {fileID: 3252059522325330697}
   - component: {fileID: 445959971353062452}
+  - component: {fileID: 1864013616012236991}
   m_Layer: 0
   m_Name: yucca_plant_large_potted
   m_TagString: Untagged
@@ -7483,6 +7638,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1864013616012236991
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7339495358501877922}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.0303698, y: 2.9972785, z: 1.7100271}
+  m_Center: {x: -0.14628917, y: 1.4986469, z: -0.095270574}
 --- !u!1 &7448275540464914079
 GameObject:
   m_ObjectHideFlags: 0
@@ -7494,6 +7670,7 @@ GameObject:
   - component: {fileID: 5588054527387119781}
   - component: {fileID: 7567014377174537330}
   - component: {fileID: 5939027003138196071}
+  - component: {fileID: 1931555853849340118}
   m_Layer: 0
   m_Name: Houseplant_3
   m_TagString: Untagged
@@ -7576,6 +7753,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1931555853849340118
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7448275540464914079}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.425744, y: 3.3825643, z: 8.449165}
+  m_Center: {x: -0.021589577, y: -0.000000834465, z: 4.2387705}
 --- !u!1 &7517131271937455360
 GameObject:
   m_ObjectHideFlags: 0
@@ -7718,6 +7916,7 @@ GameObject:
   - component: {fileID: 7346873763359332928}
   - component: {fileID: 7363403220505582752}
   - component: {fileID: 2287788117378214662}
+  - component: {fileID: 2151889732312666657}
   m_Layer: 0
   m_Name: Houseplant_3
   m_TagString: Untagged
@@ -7800,6 +7999,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2151889732312666657
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7535798138101618084}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.425744, y: 3.3825643, z: 8.449165}
+  m_Center: {x: -0.021589577, y: 0, z: 4.238778}
 --- !u!1 &7679209060742026582
 GameObject:
   m_ObjectHideFlags: 0
@@ -8110,7 +8330,7 @@ Transform:
   m_GameObject: {fileID: 7907997811289496779}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.011344323, z: 0, w: 0.9999357}
-  m_LocalPosition: {x: 37, y: 44.4, z: -9.660001}
+  m_LocalPosition: {x: 25.5, y: 44.4, z: -25.62}
   m_LocalScale: {x: 0.38391998, y: 5.69238, z: 0.38391998}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8361,6 +8581,7 @@ GameObject:
   - component: {fileID: 1096015148855229737}
   - component: {fileID: 3369847670387040479}
   - component: {fileID: 4436989733371930377}
+  - component: {fileID: 3382515947812431560}
   m_Layer: 0
   m_Name: yucca_plant_large_potted
   m_TagString: Untagged
@@ -8440,6 +8661,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3382515947812431560
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8086816937409175964}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.0303698, y: 2.9972785, z: 1.7100271}
+  m_Center: {x: -0.14628917, y: 1.4986392, z: -0.095267236}
 --- !u!1 &8182807693081449536
 GameObject:
   m_ObjectHideFlags: 0
@@ -8451,6 +8693,7 @@ GameObject:
   - component: {fileID: 4765699566157509437}
   - component: {fileID: 8893219199100310151}
   - component: {fileID: 1378820725656044455}
+  - component: {fileID: 3545716736617340779}
   m_Layer: 0
   m_Name: pothos_plant_large_potted
   m_TagString: Untagged
@@ -8530,6 +8773,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3545716736617340779
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8182807693081449536}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5295877, y: 2.3969502, z: 2.405778}
+  m_Center: {x: 0.09232646, y: 0.8518302, z: 0.0058104396}
 --- !u!1 &8392367226559875710
 GameObject:
   m_ObjectHideFlags: 0
@@ -10044,9 +10308,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7490105944287867952}
     m_Modifications:
+    - target: {fileID: 393997298186961879, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
     - target: {fileID: 1367237836136771416, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
       propertyPath: m_Name
       value: StainSpawnPoint4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547923573404664142, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 2010660586814937220, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706438007290739825, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 3593404498724113703, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271969034520492688, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 5174160697076127568, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10087,6 +10375,22 @@ PrefabInstance:
     - target: {fileID: 5174160697076127568, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6427355071818857361, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 6472158068014648285, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 7862677705091092931, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 8139905284013747299, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10515,6 +10819,14 @@ PrefabInstance:
       propertyPath: _npcList.Array.data[1].npcObject
       value: 
       objectReference: {fileID: 8783917212194804003}
+    - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
+      propertyPath: _npcList.Array.data[0].npcRotates
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
+      propertyPath: _npcList.Array.data[1].npcRotates
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
       propertyPath: _npcList.Array.data[2].npcRotates
       value: 1
@@ -11151,9 +11463,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7490105944287867952}
     m_Modifications:
+    - target: {fileID: 393997298186961879, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
     - target: {fileID: 1367237836136771416, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
       propertyPath: m_Name
       value: StainSpawnPoint1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547923573404664142, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 2010660586814937220, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706438007290739825, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 3593404498724113703, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271969034520492688, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 5174160697076127568, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11194,6 +11530,22 @@ PrefabInstance:
     - target: {fileID: 5174160697076127568, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6427355071818857361, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 6472158068014648285, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 7862677705091092931, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 8139905284013747299, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11675,9 +12027,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7490105944287867952}
     m_Modifications:
+    - target: {fileID: 393997298186961879, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
     - target: {fileID: 1367237836136771416, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
       propertyPath: m_Name
       value: StainSpawnPoint2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547923573404664142, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 2010660586814937220, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706438007290739825, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 3593404498724113703, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271969034520492688, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 5174160697076127568, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11719,6 +12095,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6427355071818857361, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 6472158068014648285, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 7862677705091092931, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 8139905284013747299, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11748,9 +12140,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7490105944287867952}
     m_Modifications:
+    - target: {fileID: 393997298186961879, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
     - target: {fileID: 1367237836136771416, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
       propertyPath: m_Name
       value: StainSpawnPoint3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547923573404664142, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 2010660586814937220, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706438007290739825, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 3593404498724113703, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271969034520492688, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 5174160697076127568, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11791,6 +12207,22 @@ PrefabInstance:
     - target: {fileID: 5174160697076127568, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6427355071818857361, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 6472158068014648285, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 7862677705091092931, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 8139905284013747299, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12129,6 +12561,14 @@ PrefabInstance:
       propertyPath: _npcList.Array.data[1].npcObject
       value: 
       objectReference: {fileID: 6241839674916340218}
+    - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
+      propertyPath: _npcList.Array.data[0].npcRotates
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
+      propertyPath: _npcList.Array.data[1].npcRotates
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3704460029282056669, guid: 28327ec0503c0c646b3ffe9da25acea1, type: 3}
       propertyPath: _npcList.Array.data[2].npcRotates
       value: 1

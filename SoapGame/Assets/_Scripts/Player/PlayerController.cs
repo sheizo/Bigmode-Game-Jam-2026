@@ -586,10 +586,11 @@ public class PlayerController : MonoBehaviour
         _steerStrength = upgrades.TurnStrength.CurrentLevelData.Value;
         _maxSoapPower = upgrades.SoapUpgrade.CurrentLevelData.MaxSoap;
         _soapRefillOnClean = upgrades.CleanUpgrade.CurrentLevelData.SoapRefillOnClean;
+        _timeToClean = upgrades.CleanUpgrade.CurrentLevelData.TimeToClean;
+        _cleanBoostStrength = upgrades.CleanUpgrade.CurrentLevelData.CleanBoostStrength;
         _rampForceDown = upgrades.RampUpgrade.CurrentLevelData.RampSpeedBoost.x;
         _rampForceForward = upgrades.RampUpgrade.CurrentLevelData.RampSpeedBoost.y;
         _slamStrength = upgrades.SlamForce.CurrentLevelData.Value;
-        _physicsMaterial.bounciness = upgrades.Bounciness.CurrentLevelData.Value;
     }
 
     private void RefillSoap() => AddSoapPower(1);

@@ -109,19 +109,19 @@ Material:
     - _Dirt_Power: 1
     - _DstBlend: 0
     - _DstBlendAlpha: 0
-    - _Edge: 0
+    - _Edge: 1.62
     - _Edge_1: 0
     - _Emission: 1.2
     - _EnvironmentReflections: 1
-    - _Fade: 0
+    - _Fade: 1.74
     - _Fade_1: 0
-    - _Flip_Gradient: 0
+    - _Flip_Gradient: 1
     - _Fresnel_Clean_Amount: 0
     - _Fresnel_Clean_Power: 3.17
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Gradient: 0
+    - _Gradient: 1
     - _Gradient_1: 0
     - _Gradient_Pixel_Steps: 20
     - _Metallic: 0
@@ -149,13 +149,13 @@ Material:
     - _ZWriteControl: 0
     m_Colors:
     - _BaseColor: {r: 0.035216685, g: 0.035216685, b: 0.035216685, a: 1}
-    - _Color: {r: 0.035216685, g: 0.035216685, b: 0.035216685, a: 1}
+    - _Color: {r: 0.23540407, g: 0.25088444, b: 0.4339623, a: 1}
     - _Dirt_Color_1: {r: 0.36792448, g: 0.15111175, b: 0, a: 0}
     - _Dirt_Tiling: {r: 1, g: 1, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _EndColor: {r: 0, g: 0, b: 0, a: 0}
+    - _EndColor: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 0}
     - _Fresnel_Clean_Color: {r: 0, g: 1.844302, b: 1.229535, a: 0}
-    - _Gradient_Axis_Mask: {r: 0, g: 0, b: 0, a: 0}
+    - _Gradient_Axis_Mask: {r: 0, g: 0, b: 1, a: 0}
     - _Gradient_Axis_Mask_1: {r: 0, g: 1, b: 0, a: 0}
     - _Noise_Color: {r: 1, g: 1, b: 1, a: 1}
     - _Noise_Tiling: {r: 1, g: 1, b: 0, a: 0}

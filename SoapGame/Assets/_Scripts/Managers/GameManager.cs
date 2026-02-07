@@ -59,7 +59,6 @@ public class GameManager : Singleton<GameManager>
         _gameStateManager.Init();
         _uiManager.Init();
         _worldManager.Init();
-        //shitty fix
         _shop.Init();
         
         _launcher.OnLaunched += PlayerGotoGameplay;

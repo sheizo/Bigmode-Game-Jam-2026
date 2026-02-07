@@ -1753,7 +1753,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d7981b1848777bb4197f773359054391, type: 2}
+  - {fileID: 2100000, guid: bc330e4c0e85f4145ab94ea564be138a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3453,7 +3453,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d7981b1848777bb4197f773359054391, type: 2}
+  - {fileID: 2100000, guid: bc330e4c0e85f4145ab94ea564be138a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3678,7 +3678,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d7981b1848777bb4197f773359054391, type: 2}
+  - {fileID: 2100000, guid: bc330e4c0e85f4145ab94ea564be138a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3791,7 +3791,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d7981b1848777bb4197f773359054391, type: 2}
+  - {fileID: 2100000, guid: bc330e4c0e85f4145ab94ea564be138a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4060,9 +4060,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3697445561304513141}
     m_Modifications:
+    - target: {fileID: 393997298186961879, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
     - target: {fileID: 1367237836136771416, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
       propertyPath: m_Name
       value: StainSpawnPoint (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547923573404664142, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 2010660586814937220, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706438007290739825, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 3593404498724113703, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271969034520492688, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 5174160697076127568, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4103,6 +4127,22 @@ PrefabInstance:
     - target: {fileID: 5174160697076127568, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6427355071818857361, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 6472158068014648285, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 7862677705091092931, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 8139905284013747299, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4658,12 +4698,18 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8166404037579954430, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4299003950952147579}
+    - targetCorrespondingSourceObject: {fileID: 8166404037579954430, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2335487466019070194}
     - targetCorrespondingSourceObject: {fileID: -8701330983084583784, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2973694139231330558}
     - targetCorrespondingSourceObject: {fileID: 6697952276634547527, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 385740560473165084}
+    - targetCorrespondingSourceObject: {fileID: 6697952276634547527, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5378573947310062356}
   m_SourcePrefab: {fileID: 100100000, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
 --- !u!4 &1536473754924137221 stripped
 Transform:
@@ -4729,6 +4775,21 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4102011344074571232, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
+--- !u!114 &5378573947310062356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5632868281428339113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd171df1ef33ee34bb767ef6c31e5f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RandomizeColor
+  _colorPropertyId: _Color
+  _saturation: {x: 0.4, y: 0.6}
+  _value: {x: 0.9, y: 1}
 --- !u!1 &7173384233548710928 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8166404037579954430, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
@@ -4756,6 +4817,21 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8866461723278946005, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
+--- !u!114 &2335487466019070194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7173384233548710928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd171df1ef33ee34bb767ef6c31e5f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RandomizeColor
+  _colorPropertyId: _Color
+  _saturation: {x: 0.4, y: 0.6}
+  _value: {x: 0.9, y: 1}
 --- !u!1001 &1415858302009838482
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5321,12 +5397,18 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8166404037579954430, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8522641653669200843}
+    - targetCorrespondingSourceObject: {fileID: 8166404037579954430, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9051744896839326583}
     - targetCorrespondingSourceObject: {fileID: -8701330983084583784, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 868414028695554821}
     - targetCorrespondingSourceObject: {fileID: 6697952276634547527, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 59364601737041088}
+    - targetCorrespondingSourceObject: {fileID: 6697952276634547527, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7718734214282525491}
   m_SourcePrefab: {fileID: 100100000, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
 --- !u!1 &1446821976177646117 stripped
 GameObject:
@@ -5392,6 +5474,21 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4102011344074571232, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
+--- !u!114 &7718734214282525491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4910794007666430515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd171df1ef33ee34bb767ef6c31e5f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RandomizeColor
+  _colorPropertyId: _Color
+  _saturation: {x: 0.4, y: 0.6}
+  _value: {x: 0.9, y: 1}
 --- !u!1 &7602542426125107082 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8166404037579954430, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
@@ -5419,6 +5516,21 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8866461723278946005, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
+--- !u!114 &9051744896839326583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7602542426125107082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd171df1ef33ee34bb767ef6c31e5f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RandomizeColor
+  _colorPropertyId: _Color
+  _saturation: {x: 0.4, y: 0.6}
+  _value: {x: 0.9, y: 1}
 --- !u!1001 &2002789222908373435
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6373,12 +6485,18 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8166404037579954430, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4253291549694282951}
+    - targetCorrespondingSourceObject: {fileID: 8166404037579954430, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1976875788878658357}
     - targetCorrespondingSourceObject: {fileID: -8701330983084583784, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 177327454380696944}
     - targetCorrespondingSourceObject: {fileID: 6697952276634547527, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6453739676707283211}
+    - targetCorrespondingSourceObject: {fileID: 6697952276634547527, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6406626069851351193}
   m_SourcePrefab: {fileID: 100100000, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
 --- !u!1 &2357505485993139187 stripped
 GameObject:
@@ -6444,6 +6562,21 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8866461723278946005, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
+--- !u!114 &1976875788878658357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6710933379240312412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd171df1ef33ee34bb767ef6c31e5f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RandomizeColor
+  _colorPropertyId: _Color
+  _saturation: {x: 0.4, y: 0.6}
+  _value: {x: 0.9, y: 1}
 --- !u!1 &8107899305181369317 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6697952276634547527, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
@@ -6471,6 +6604,21 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4102011344074571232, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
+--- !u!114 &6406626069851351193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8107899305181369317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd171df1ef33ee34bb767ef6c31e5f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RandomizeColor
+  _colorPropertyId: _Color
+  _saturation: {x: 0.4, y: 0.6}
+  _value: {x: 0.9, y: 1}
 --- !u!1001 &3722882231547055893
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6808,12 +6956,18 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8166404037579954430, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5462880930851767276}
+    - targetCorrespondingSourceObject: {fileID: 8166404037579954430, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2234153091016075680}
     - targetCorrespondingSourceObject: {fileID: -8701330983084583784, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1060337444533684397}
     - targetCorrespondingSourceObject: {fileID: 6697952276634547527, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8649287966101368538}
+    - targetCorrespondingSourceObject: {fileID: 6697952276634547527, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3237618624157112856}
   m_SourcePrefab: {fileID: 100100000, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
 --- !u!1 &3792127742675422026 stripped
 GameObject:
@@ -6879,6 +7033,21 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8866461723278946005, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
+--- !u!114 &2234153091016075680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5275356677222919909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd171df1ef33ee34bb767ef6c31e5f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RandomizeColor
+  _colorPropertyId: _Color
+  _saturation: {x: 0.4, y: 0.6}
+  _value: {x: 0.9, y: 1}
 --- !u!1 &7247094295655449436 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6697952276634547527, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
@@ -6906,6 +7075,21 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4102011344074571232, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
+--- !u!114 &3237618624157112856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7247094295655449436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd171df1ef33ee34bb767ef6c31e5f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RandomizeColor
+  _colorPropertyId: _Color
+  _saturation: {x: 0.4, y: 0.6}
+  _value: {x: 0.9, y: 1}
 --- !u!1001 &4092468336757727523
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7588,12 +7772,18 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8166404037579954430, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5639209766259637746}
+    - targetCorrespondingSourceObject: {fileID: 8166404037579954430, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7020932887551660253}
     - targetCorrespondingSourceObject: {fileID: -8701330983084583784, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1471238728881166500}
     - targetCorrespondingSourceObject: {fileID: 6697952276634547527, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7721034930134105831}
+    - targetCorrespondingSourceObject: {fileID: 6697952276634547527, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1571041806789372590}
   m_SourcePrefab: {fileID: 100100000, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
 --- !u!1 &3557365073511696438 stripped
 GameObject:
@@ -7659,6 +7849,21 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8866461723278946005, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
+--- !u!114 &7020932887551660253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5533727992477527449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd171df1ef33ee34bb767ef6c31e5f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RandomizeColor
+  _colorPropertyId: _Color
+  _saturation: {x: 0.4, y: 0.6}
+  _value: {x: 0.9, y: 1}
 --- !u!1 &7020211755394842656 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6697952276634547527, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
@@ -7686,6 +7891,21 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4102011344074571232, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
+--- !u!114 &1571041806789372590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7020211755394842656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd171df1ef33ee34bb767ef6c31e5f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RandomizeColor
+  _colorPropertyId: _Color
+  _saturation: {x: 0.4, y: 0.6}
+  _value: {x: 0.9, y: 1}
 --- !u!1001 &4538641916652185970
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8737,12 +8957,21 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8166404037579954430, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1708266393667039373}
+    - targetCorrespondingSourceObject: {fileID: 8166404037579954430, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3139834543926442228}
+    - targetCorrespondingSourceObject: {fileID: 8166404037579954430, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5356735964905900721}
     - targetCorrespondingSourceObject: {fileID: -8701330983084583784, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3205521215592613336}
     - targetCorrespondingSourceObject: {fileID: 6697952276634547527, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8051609492130120654}
+    - targetCorrespondingSourceObject: {fileID: 6697952276634547527, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3143401824712899857}
   m_SourcePrefab: {fileID: 100100000, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
 --- !u!1 &1685178927478442225 stripped
 GameObject:
@@ -8771,6 +9000,21 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4102011344074571232, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
+--- !u!114 &3143401824712899857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685178927478442225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd171df1ef33ee34bb767ef6c31e5f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RandomizeColor
+  _colorPropertyId: _Color
+  _saturation: {x: 0.4, y: 0.6}
+  _value: {x: 0.9, y: 1}
 --- !u!1 &4235064122393584968 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8166404037579954430, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
@@ -8798,6 +9042,36 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8866461723278946005, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
+--- !u!114 &3139834543926442228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4235064122393584968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd171df1ef33ee34bb767ef6c31e5f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RandomizeColor
+  _colorPropertyId: _Color
+  _saturation: {x: 0.4, y: 0.6}
+  _value: {x: 0.9, y: 1}
+--- !u!114 &5356735964905900721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4235064122393584968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd171df1ef33ee34bb767ef6c31e5f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RandomizeColor
+  _colorPropertyId: _Color
+  _saturation: {x: 0, y: 0}
+  _value: {x: 0, y: 0}
 --- !u!1 &5138735285182169319 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
@@ -9197,9 +9471,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3697445561304513141}
     m_Modifications:
+    - target: {fileID: 393997298186961879, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
     - target: {fileID: 1367237836136771416, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
       propertyPath: m_Name
       value: StainSpawnPoint (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547923573404664142, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 2010660586814937220, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706438007290739825, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 3593404498724113703, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271969034520492688, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 5174160697076127568, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9240,6 +9538,22 @@ PrefabInstance:
     - target: {fileID: 5174160697076127568, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6427355071818857361, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 6472158068014648285, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 7862677705091092931, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 8139905284013747299, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10041,9 +10355,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3697445561304513141}
     m_Modifications:
+    - target: {fileID: 393997298186961879, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
     - target: {fileID: 1367237836136771416, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
       propertyPath: m_Name
       value: StainSpawnPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547923573404664142, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 2010660586814937220, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706438007290739825, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 3593404498724113703, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271969034520492688, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 5174160697076127568, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10084,6 +10422,22 @@ PrefabInstance:
     - target: {fileID: 5174160697076127568, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6427355071818857361, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 6472158068014648285, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 7862677705091092931, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 8139905284013747299, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11220,12 +11574,18 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8166404037579954430, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 820651825040387446}
+    - targetCorrespondingSourceObject: {fileID: 8166404037579954430, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4789383561280597603}
     - targetCorrespondingSourceObject: {fileID: -8701330983084583784, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3762091678477779680}
     - targetCorrespondingSourceObject: {fileID: 6697952276634547527, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7726003729652621881}
+    - targetCorrespondingSourceObject: {fileID: 6697952276634547527, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6890980016527944244}
   m_SourcePrefab: {fileID: 100100000, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
 --- !u!1 &1888749148386589533 stripped
 GameObject:
@@ -11254,6 +11614,21 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8866461723278946005, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
+--- !u!114 &4789383561280597603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888749148386589533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd171df1ef33ee34bb767ef6c31e5f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RandomizeColor
+  _colorPropertyId: _Color
+  _saturation: {x: 0.4, y: 0.6}
+  _value: {x: 0.9, y: 1}
 --- !u!1 &4004019443447469796 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6697952276634547527, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
@@ -11281,6 +11656,21 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4102011344074571232, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
+--- !u!114 &6890980016527944244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4004019443447469796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd171df1ef33ee34bb767ef6c31e5f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RandomizeColor
+  _colorPropertyId: _Color
+  _saturation: {x: 0.4, y: 0.6}
+  _value: {x: 0.9, y: 1}
 --- !u!1 &7467992593741029106 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
@@ -11381,12 +11771,18 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8166404037579954430, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9048595562597876230}
+    - targetCorrespondingSourceObject: {fileID: 8166404037579954430, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4500735824111135397}
     - targetCorrespondingSourceObject: {fileID: -8701330983084583784, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4282315598817103952}
     - targetCorrespondingSourceObject: {fileID: 6697952276634547527, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6224064034341534523}
+    - targetCorrespondingSourceObject: {fileID: 6697952276634547527, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 473736601003676733}
   m_SourcePrefab: {fileID: 100100000, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
 --- !u!1 &2258875830705428106 stripped
 GameObject:
@@ -11415,6 +11811,21 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8866461723278946005, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
+--- !u!114 &4500735824111135397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2258875830705428106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd171df1ef33ee34bb767ef6c31e5f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RandomizeColor
+  _colorPropertyId: _Color
+  _saturation: {x: 0.4, y: 0.6}
+  _value: {x: 0.9, y: 1}
 --- !u!1 &3674425706474863411 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6697952276634547527, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
@@ -11442,6 +11853,21 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4102011344074571232, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
+--- !u!114 &473736601003676733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3674425706474863411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd171df1ef33ee34bb767ef6c31e5f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RandomizeColor
+  _colorPropertyId: _Color
+  _saturation: {x: 0.4, y: 0.6}
+  _value: {x: 0.9, y: 1}
 --- !u!1 &7119258058422776613 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
@@ -11698,9 +12124,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3697445561304513141}
     m_Modifications:
+    - target: {fileID: 393997298186961879, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
     - target: {fileID: 1367237836136771416, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
       propertyPath: m_Name
       value: StainSpawnPoint (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547923573404664142, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 2010660586814937220, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706438007290739825, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 3593404498724113703, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271969034520492688, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 5174160697076127568, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11741,6 +12191,22 @@ PrefabInstance:
     - target: {fileID: 5174160697076127568, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6427355071818857361, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 6472158068014648285, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 7862677705091092931, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 8139905284013747299, guid: c450955b6e3b4364c896099b13775dd5, type: 3}
+      propertyPath: m_FadeFactor
+      value: 0.85
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12567,12 +13033,18 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8166404037579954430, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3905051679633112778}
+    - targetCorrespondingSourceObject: {fileID: 8166404037579954430, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1146491793400715310}
     - targetCorrespondingSourceObject: {fileID: -8701330983084583784, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5505818306098620024}
     - targetCorrespondingSourceObject: {fileID: 6697952276634547527, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3921772383006733213}
+    - targetCorrespondingSourceObject: {fileID: 6697952276634547527, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5552459513535622423}
   m_SourcePrefab: {fileID: 100100000, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
 --- !u!1 &1107740550443659048 stripped
 GameObject:
@@ -12601,6 +13073,21 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8866461723278946005, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
+--- !u!114 &1146491793400715310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107740550443659048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd171df1ef33ee34bb767ef6c31e5f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RandomizeColor
+  _colorPropertyId: _Color
+  _saturation: {x: 0.4, y: 0.6}
+  _value: {x: 0.9, y: 1}
 --- !u!1 &2519888264503722641 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6697952276634547527, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
@@ -12628,6 +13115,21 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4102011344074571232, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
+--- !u!114 &5552459513535622423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2519888264503722641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd171df1ef33ee34bb767ef6c31e5f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RandomizeColor
+  _colorPropertyId: _Color
+  _saturation: {x: 0.4, y: 0.6}
+  _value: {x: 0.9, y: 1}
 --- !u!1 &8271688428076436103 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c5c7ae4f58c5a854e82bc47faf7790b6, type: 3}
