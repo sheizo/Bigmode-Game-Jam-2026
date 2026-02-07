@@ -46,6 +46,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] private float _discardAnimStrength, _discardAnimDuration;
     
     [SerializeField] private float _invalidSelectionAnimDuration = 0.4f, _invalidSelectionShakeAmount = 30;
+
+    [SerializeField] private RectTransform _soapMeterTransform;
+
+    private Tween soapMeterTween;
+    private Vector3 _originalSoapMeterScale;
     
     
     private float _selectedRampOrigScale, _waitingRampOrigScale;
@@ -68,6 +73,7 @@ public class UIManager : MonoBehaviour
         _selectedRampOrigScale = _selectedRamp.localScale.x;
         _waitingRampOrigPos = _waitingRamp.anchoredPosition;
         _waitingRampOrigScale = _waitingRamp.localScale.x;
+        _originalSoapMeterScale = _soapMeterTransform.localScale;
         
         _globalVolume.profile.TryGet<Vignette>(out _vignette);
         _startingVignetteIntensity = _vignette.intensity.value;
@@ -119,6 +125,14 @@ public class UIManager : MonoBehaviour
         _soapFillMat.DOKill();
         _soapFillMat.DOFloat(tNormalized,"_Fill", _soapFillDuration).SetEase(Ease.OutExpo);    
         //_soapFill.SetMaterialDirty();
+
+        //animate soapMeter scale up and down, or down and up depending on if it increased or decreased
+            if (soapMeterTween != null && soapMeterTween.IsActive())
+                soapMeterTween.Kill();
+            
+            float targetScale = tNormalized > _soapFillMat.GetFloat(Fill) ? (_originalSoapMeterScale.x * 1.1f) : (_originalSoapMeterScale.x * 0.9f);
+            soapMeterTween = _soapMeterTransform.DOScale(Vector3.one * targetScale, 0.1f).SetEase(Ease.OutCubic)
+                .OnComplete(() => _soapMeterTransform.DOScale(_originalSoapMeterScale, 0.1f).SetEase(Ease.OutCubic));
     }
 
     public void ResetSoapMeter(){
