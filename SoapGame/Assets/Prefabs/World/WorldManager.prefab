@@ -491,6 +491,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3161333130105739904, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+      propertyPath: _npcList.Array.data[2].npcRotates
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4760575745052610980, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
       propertyPath: m_Name
       value: BATH_ROOM
@@ -870,15 +874,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5718060593716983931, guid: 2d88b509228125b499c088a1fef89af1, type: 3}
       propertyPath: m_VersionIndex
-      value: 4851
+      value: 4932
       objectReference: {fileID: 0}
     - target: {fileID: 8142993192905892387, guid: 2d88b509228125b499c088a1fef89af1, type: 3}
       propertyPath: m_VersionIndex
-      value: 4851
+      value: 4932
       objectReference: {fileID: 0}
     - target: {fileID: 8357914634109336637, guid: 2d88b509228125b499c088a1fef89af1, type: 3}
       propertyPath: m_VersionIndex
-      value: 2954
+      value: 3035
       objectReference: {fileID: 0}
     - target: {fileID: 8854225027942280513, guid: 2d88b509228125b499c088a1fef89af1, type: 3}
       propertyPath: m_LocalPosition.x

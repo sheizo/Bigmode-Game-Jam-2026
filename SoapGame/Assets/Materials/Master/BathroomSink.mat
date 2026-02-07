@@ -70,7 +70,7 @@ Material:
     - _BlendModePreserveSpecular: 1
     - _CastShadows: 1
     - _Cull: 2
-    - _Dirt_Amount: 1
+    - _Dirt_Amount: 0
     - _Dirt_Pixelize: 155.35
     - _Dirt_Power: 0.3
     - _DstBlend: 0
