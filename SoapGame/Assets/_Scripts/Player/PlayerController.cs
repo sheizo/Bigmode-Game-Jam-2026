@@ -111,6 +111,7 @@ public class PlayerController : MonoBehaviour
     private float _initialGroundMaxSpeed, _initialAirMaxSpeed;
     private float _initialRampForward, _initialCleanBoost;
     private float _initialRampDown;
+    private float _initialGroundDeplete;
     
     private Vector3 _startingPosition;
     private Quaternion _currentRotation;
@@ -230,8 +231,8 @@ public class PlayerController : MonoBehaviour
         _rampForceDown = _initialRampDown * currentMultiplier;
         _rampForceForward = _initialRampForward * currentMultiplier;
         _cleanBoostStrength = _initialCleanBoost * currentMultiplier;
-        
-        
+
+        _groundSoapUsageSecPercent = Mathf.Lerp(_initialGroundDeplete, 1, evaluatedT);
     }
 
 
@@ -333,6 +334,7 @@ public class PlayerController : MonoBehaviour
         _initialCleanBoost = _cleanBoostStrength;
         _initialRampForward = _rampForceForward;
         _initialRampDown = _rampForceDown;
+        _initialGroundDeplete = _groundSoapUsageSecPercent;
     }
     
     private void TakeSoap(float amount){
