@@ -603,15 +603,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5718060593716983931, guid: 2d88b509228125b499c088a1fef89af1, type: 3}
       propertyPath: m_VersionIndex
-      value: 4908
+      value: 4929
       objectReference: {fileID: 0}
     - target: {fileID: 8142993192905892387, guid: 2d88b509228125b499c088a1fef89af1, type: 3}
       propertyPath: m_VersionIndex
-      value: 4908
+      value: 4929
       objectReference: {fileID: 0}
     - target: {fileID: 8357914634109336637, guid: 2d88b509228125b499c088a1fef89af1, type: 3}
       propertyPath: m_VersionIndex
-      value: 3011
+      value: 3032
       objectReference: {fileID: 0}
     - target: {fileID: 8854225027942280513, guid: 2d88b509228125b499c088a1fef89af1, type: 3}
       propertyPath: m_LocalPosition.x
