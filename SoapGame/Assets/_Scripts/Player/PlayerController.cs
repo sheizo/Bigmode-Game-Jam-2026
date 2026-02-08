@@ -112,6 +112,7 @@ public class PlayerController : MonoBehaviour
     private float _initialRampForward, _initialCleanBoost;
     private float _initialRampDown;
     private float _initialGroundDeplete;
+    private Vector3 _initialCleanBoostDirection;
     
     private Vector3 _startingPosition;
     private Quaternion _currentRotation;
@@ -233,6 +234,9 @@ public class PlayerController : MonoBehaviour
         _cleanBoostStrength = _initialCleanBoost * currentMultiplier;
 
         _groundSoapUsageSecPercent = Mathf.Lerp(_initialGroundDeplete, 1, evaluatedT);
+        
+        
+        _cleanBoostDirection = Vector3.Lerp(_cleanBoostDirection, new Vector3(0, 0.5f,1), evaluatedT);
     }
 
 
@@ -294,6 +298,7 @@ public class PlayerController : MonoBehaviour
     {
         GameManager.Instance.HitStop(_cleanHitStopTime);
         _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, 0, _rb.linearVelocity.z);
+        
         _rb.AddForce(_cleanBoostDirection * _cleanBoostStrength, ForceMode.Impulse);
         
         AddSoapPower(_cleanSoapRefill);
@@ -335,6 +340,7 @@ public class PlayerController : MonoBehaviour
         _initialRampForward = _rampForceForward;
         _initialRampDown = _rampForceDown;
         _initialGroundDeplete = _groundSoapUsageSecPercent;
+        _initialCleanBoostDirection = _cleanBoostDirection;
     }
     
     private void TakeSoap(float amount){

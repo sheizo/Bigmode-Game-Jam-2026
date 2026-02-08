@@ -29,6 +29,7 @@ public class Shop : MonoBehaviour
             
             return false;
         }
+        GameManager.PlayerStats.Money -= upgradeCost;
 
         bool success = buyableUpgrade.Upgrade.Upgrade();
         if (success){
@@ -38,7 +39,6 @@ public class Shop : MonoBehaviour
             GameManager.UIManager.UpdateMoney(GameManager.PlayerStats.Money);
         }
         
-        GameManager.PlayerStats.Money -= upgradeCost;
 
         return success;
     }

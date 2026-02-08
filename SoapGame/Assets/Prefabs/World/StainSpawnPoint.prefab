@@ -2115,7 +2115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a653e18d028d56b4eb7c527dad95d09d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractable
-  _cleanedType: 0
+  _cleanedType: 2
   _interactionType: 0
   _cleanFadeSpeed: 0.3
   _dirtyChance: 0.5
