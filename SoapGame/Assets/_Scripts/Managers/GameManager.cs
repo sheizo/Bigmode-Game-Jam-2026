@@ -101,11 +101,17 @@ public class GameManager : Singleton<GameManager>
         _uiManager.ResetSoapMeter();
         _uiManager.SetRunStats(runStats);
 
+        SubmitScoreAndRefreshLeaderboard(runStats);
+        
+    }
+
+    private async void SubmitScoreAndRefreshLeaderboard(RunStats runStats)
+    {
         if (!string.IsNullOrEmpty(PlayerName.Name))
         {
-            LeaderboardManager.Instance.SubmitScore(PlayerName.Name, (int) runStats.DistanceTravelled);
+            await LeaderboardManager.Instance.SubmitScore(PlayerName.Name, (int) runStats.DistanceTravelled);
+            await LeaderboardManager.Instance.RefreshAndDisplayTopScores();
         }
-        
     }
 
     private void PlayerGotoGameplay(float strength){
