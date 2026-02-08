@@ -451,6 +451,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1086776391560095317}
     m_Modifications:
+    - target: {fileID: 20598571448352672, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+      propertyPath: _npcSpawnRate
+      value: 0.619
+      objectReference: {fileID: 0}
+    - target: {fileID: 217065594978554746, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+      propertyPath: _npcSpawnRate
+      value: 0.829
+      objectReference: {fileID: 0}
+    - target: {fileID: 841412438488084259, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+      propertyPath: _npcSpawnRate
+      value: 0.613
+      objectReference: {fileID: 0}
+    - target: {fileID: 1128300241518932314, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+      propertyPath: _npcSpawnRate
+      value: 0.58
+      objectReference: {fileID: 0}
     - target: {fileID: 2693567228834294876, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -491,9 +507,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3161333130105739904, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+      propertyPath: _npcSpawnRate
+      value: 0.74
+      objectReference: {fileID: 0}
     - target: {fileID: 4760575745052610980, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
       propertyPath: m_Name
       value: BATH_ROOM
+      objectReference: {fileID: 0}
+    - target: {fileID: 6810711599064906603, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+      propertyPath: _npcSpawnRate
+      value: 0.652
+      objectReference: {fileID: 0}
+    - target: {fileID: 8206918703240263338, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+      propertyPath: _npcSpawnRate
+      value: 0.624
+      objectReference: {fileID: 0}
+    - target: {fileID: 8211821520626686851, guid: 14cf4584eba23f448aff6dbf26ad1047, type: 3}
+      propertyPath: _npcSpawnRate
+      value: 0.735
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -603,15 +635,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5718060593716983931, guid: 2d88b509228125b499c088a1fef89af1, type: 3}
       propertyPath: m_VersionIndex
-      value: 4929
+      value: 4962
       objectReference: {fileID: 0}
     - target: {fileID: 8142993192905892387, guid: 2d88b509228125b499c088a1fef89af1, type: 3}
       propertyPath: m_VersionIndex
-      value: 4929
+      value: 4962
       objectReference: {fileID: 0}
     - target: {fileID: 8357914634109336637, guid: 2d88b509228125b499c088a1fef89af1, type: 3}
       propertyPath: m_VersionIndex
-      value: 3032
+      value: 3065
       objectReference: {fileID: 0}
     - target: {fileID: 8854225027942280513, guid: 2d88b509228125b499c088a1fef89af1, type: 3}
       propertyPath: m_LocalPosition.x
