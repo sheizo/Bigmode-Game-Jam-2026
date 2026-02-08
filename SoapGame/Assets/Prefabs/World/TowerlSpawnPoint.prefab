@@ -60,6 +60,7 @@ MonoBehaviour:
     rarity: 0
     npcObject: {fileID: 7369845375836394335}
     npcRotates: 1
+  _npcSpawnRate: 0.5
 --- !u!1001 &1402074318330683755
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -94,7 +95,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8958605029555403028, guid: 1ea42ff9e236f844db6db6d9ed055c20, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.57
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8958605029555403028, guid: 1ea42ff9e236f844db6db6d9ed055c20, type: 3}
       propertyPath: m_LocalPosition.z
@@ -189,11 +190,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8958605029555403028, guid: 1ea42ff9e236f844db6db6d9ed055c20, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.48
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8958605029555403028, guid: 1ea42ff9e236f844db6db6d9ed055c20, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.57
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8958605029555403028, guid: 1ea42ff9e236f844db6db6d9ed055c20, type: 3}
       propertyPath: m_LocalPosition.z
@@ -289,7 +290,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8958605029555403028, guid: 1ea42ff9e236f844db6db6d9ed055c20, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.72
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8958605029555403028, guid: 1ea42ff9e236f844db6db6d9ed055c20, type: 3}
       propertyPath: m_LocalPosition.z

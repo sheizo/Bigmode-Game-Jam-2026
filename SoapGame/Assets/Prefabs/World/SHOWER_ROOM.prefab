@@ -5960,6 +5960,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: TowerlSpawnPoint (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3732056712848526095, guid: 5ea05fc1876d71f4fbff913daa20d3ff, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 3732056712848526095, guid: 5ea05fc1876d71f4fbff913daa20d3ff, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 15.69
+      objectReference: {fileID: 0}
     - target: {fileID: 4227312672113901615, guid: 5ea05fc1876d71f4fbff913daa20d3ff, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -5967,6 +5975,14 @@ PrefabInstance:
     - target: {fileID: 7369845375836394335, guid: 5ea05fc1876d71f4fbff913daa20d3ff, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8009213123579943039, guid: 5ea05fc1876d71f4fbff913daa20d3ff, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -14.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 8009213123579943039, guid: 5ea05fc1876d71f4fbff913daa20d3ff, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.69
       objectReference: {fileID: 0}
     - target: {fileID: 8846457378612113510, guid: 5ea05fc1876d71f4fbff913daa20d3ff, type: 3}
       propertyPath: m_IsActive
@@ -6647,15 +6663,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1907117806292791198, guid: 5ea05fc1876d71f4fbff913daa20d3ff, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 2.4
       objectReference: {fileID: 0}
     - target: {fileID: 1907117806292791198, guid: 5ea05fc1876d71f4fbff913daa20d3ff, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -20.2
+      value: -30.2
       objectReference: {fileID: 0}
     - target: {fileID: 1907117806292791198, guid: 5ea05fc1876d71f4fbff913daa20d3ff, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -6.5
       objectReference: {fileID: 0}
     - target: {fileID: 1907117806292791198, guid: 5ea05fc1876d71f4fbff913daa20d3ff, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6689,6 +6705,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TowerlSpawnPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 3407237556599040054, guid: 5ea05fc1876d71f4fbff913daa20d3ff, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 12.7
+      objectReference: {fileID: 0}
     - target: {fileID: 4227312672113901615, guid: 5ea05fc1876d71f4fbff913daa20d3ff, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -6696,6 +6716,10 @@ PrefabInstance:
     - target: {fileID: 7369845375836394335, guid: 5ea05fc1876d71f4fbff913daa20d3ff, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8009213123579943039, guid: 5ea05fc1876d71f4fbff913daa20d3ff, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 15.9
       objectReference: {fileID: 0}
     - target: {fileID: 8846457378612113510, guid: 5ea05fc1876d71f4fbff913daa20d3ff, type: 3}
       propertyPath: m_IsActive
@@ -6838,7 +6862,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1907117806292791198, guid: 5ea05fc1876d71f4fbff913daa20d3ff, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.5
+      value: -24.39
       objectReference: {fileID: 0}
     - target: {fileID: 1907117806292791198, guid: 5ea05fc1876d71f4fbff913daa20d3ff, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6875,6 +6899,18 @@ PrefabInstance:
     - target: {fileID: 2729166117196801085, guid: 5ea05fc1876d71f4fbff913daa20d3ff, type: 3}
       propertyPath: m_Name
       value: TowerlSpawnPoint (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3407237556599040054, guid: 5ea05fc1876d71f4fbff913daa20d3ff, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3732056712848526095, guid: 5ea05fc1876d71f4fbff913daa20d3ff, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3732056712848526095, guid: 5ea05fc1876d71f4fbff913daa20d3ff, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.61
       objectReference: {fileID: 0}
     - target: {fileID: 4227312672113901615, guid: 5ea05fc1876d71f4fbff913daa20d3ff, type: 3}
       propertyPath: m_IsActive
@@ -8525,6 +8561,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: TowerlSpawnPoint (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3407237556599040054, guid: 5ea05fc1876d71f4fbff913daa20d3ff, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 3732056712848526095, guid: 5ea05fc1876d71f4fbff913daa20d3ff, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -12.43
+      objectReference: {fileID: 0}
     - target: {fileID: 4227312672113901615, guid: 5ea05fc1876d71f4fbff913daa20d3ff, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -8532,6 +8576,18 @@ PrefabInstance:
     - target: {fileID: 7369845375836394335, guid: 5ea05fc1876d71f4fbff913daa20d3ff, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8009213123579943039, guid: 5ea05fc1876d71f4fbff913daa20d3ff, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 8009213123579943039, guid: 5ea05fc1876d71f4fbff913daa20d3ff, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -7.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 8009213123579943039, guid: 5ea05fc1876d71f4fbff913daa20d3ff, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -16.96
       objectReference: {fileID: 0}
     - target: {fileID: 8846457378612113510, guid: 5ea05fc1876d71f4fbff913daa20d3ff, type: 3}
       propertyPath: m_IsActive
@@ -9255,7 +9311,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1907117806292791198, guid: 5ea05fc1876d71f4fbff913daa20d3ff, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.2
+      value: 13.22
       objectReference: {fileID: 0}
     - target: {fileID: 1907117806292791198, guid: 5ea05fc1876d71f4fbff913daa20d3ff, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9297,6 +9353,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: TowerlSpawnPoint (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3732056712848526095, guid: 5ea05fc1876d71f4fbff913daa20d3ff, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 3732056712848526095, guid: 5ea05fc1876d71f4fbff913daa20d3ff, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -15.69
+      objectReference: {fileID: 0}
     - target: {fileID: 4227312672113901615, guid: 5ea05fc1876d71f4fbff913daa20d3ff, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -9304,6 +9368,10 @@ PrefabInstance:
     - target: {fileID: 7369845375836394335, guid: 5ea05fc1876d71f4fbff913daa20d3ff, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8009213123579943039, guid: 5ea05fc1876d71f4fbff913daa20d3ff, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.63
       objectReference: {fileID: 0}
     - target: {fileID: 8846457378612113510, guid: 5ea05fc1876d71f4fbff913daa20d3ff, type: 3}
       propertyPath: m_IsActive
