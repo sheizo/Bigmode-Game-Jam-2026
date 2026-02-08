@@ -94,13 +94,21 @@ public class BuyableUpgrade : MonoBehaviour
         }
 
         _outline.enabled = _isMouseHovered;
-        if(_isMouseHovered && _upgrade.CanUpgrade) _costCanvasGroup.alpha = 1;
         if (_isMouseHovered != _wasMouseHovered){
-            _canvasGroup.FadeGroup(_isMouseHovered ? 1 : 0 , _upgradeFadeDuration, ease: Ease.InOutCubic);
+            float targetAlpha = _isMouseHovered ? 1 : 0;
+            _canvasGroup.FadeGroup(targetAlpha, _upgradeFadeDuration, ease: Ease.InOutCubic);
             
-            if(_isMouseHovered) _visualRotateTween = _upgradeVisual.DORotate(new Vector3(0,-360,0), 8, RotateMode.FastBeyond360).SetEase(Ease.Linear).SetLoops(-1);
-            else _visualRotateTween?.Rewind();
-            
+            if (_upgrade != null && _upgrade.CanUpgrade) {
+                _costCanvasGroup.FadeGroup(targetAlpha, _upgradeFadeDuration, ease: Ease.InOutCubic);
+            } else {
+                _costCanvasGroup.alpha = 0; // Hide if maxed out
+            }
+
+            if (_isMouseHovered) 
+                _visualRotateTween = _upgradeVisual.DORotate(new Vector3(0,-360,0), 8, RotateMode.FastBeyond360).SetEase(Ease.Linear).SetLoops(-1);
+            else 
+                _visualRotateTween?.Rewind();
+    
             _wasMouseHovered = _isMouseHovered;
         }
     }

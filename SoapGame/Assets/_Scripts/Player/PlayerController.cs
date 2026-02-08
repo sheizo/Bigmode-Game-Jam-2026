@@ -19,6 +19,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool _useUpgrades; 
     
     [SerializeField] private TrailRenderer _soapTrail;
+
+    [SerializeField] private AnimationCurve _speedCurve;
+    [SerializeField] private float _maxSpeedMultiplier;
+    [SerializeField] private float _maxDistanceSpeed;
     
     [Header("Soap Usage")]
     [SerializeField] private float _soapRefillOnClean = 0.1f;
@@ -180,14 +184,16 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Update(){
+        //Control the sounds
         if (GameManager.CurrentGameState != GameState.GAMEPLAY) return;
         
-        
         bool isCleaning = IsCleaning();
+        
         SetControlVariables();
         HandleGroundSoapDeplete(isCleaning);
         HandleCameraFOV();
         HandleRampSpawningAndDiscarding();
+        HandleSpeedRamping();
         
         //count the time on ground
         if (_isGrounded && !_rampPlayerIsOn)
@@ -204,26 +210,16 @@ public class PlayerController : MonoBehaviour
         GameManager.UIManager.UpdateCurrentRunStats(_runStats);
         GameManager.UIManager.UpdatePlayerSpeed((int) _currentSpeed);
 
-        //Control the sounds
-        if (isCleaning)
-        {
-            if (!_cleanAudioSource.isPlaying)
-                _cleanAudioSource.Play();
+        
+    }
 
-            _meltAudioSource.Stop();
-        }
-        else if (_isGrounded && !_isOnRamp)
-        {
-            if (!_meltAudioSource.isPlaying)
-                _meltAudioSource.Play();
-
-            _cleanAudioSource.Stop();
-        }
-        else
-        {
-            _cleanAudioSource.Stop();
-            _meltAudioSource.Stop();
-        }
+    private void HandleSpeedRamping(){
+        float distanceTravelled = Mathf.Max(0,transform.position.z - _startingPosition.z);
+        print(distanceTravelled);
+        float t = Mathf.InverseLerp(0, _maxDistanceSpeed,distanceTravelled);
+        float evaluatedT = _speedCurve.Evaluate(t);
+        float speed = Mathf.Lerp(1, _maxAirSpeed, evaluatedT);
+        print(speed);
     }
 
 
@@ -242,9 +238,7 @@ public class PlayerController : MonoBehaviour
         HandleVisualRotations();
         HandleMovement();
         HandleRampAudio();
-        
-        
-       
+        HandleMeltCleanAudio();
         
         if (!SoapDepleted){
             SetPlayerVisualPosition();
@@ -255,6 +249,29 @@ public class PlayerController : MonoBehaviour
             _rb.angularVelocity = Vector3.zero;
         }
     }
+
+    private void HandleMeltCleanAudio(){
+        if (GameManager.CurrentGameState != GameState.GAMEPLAY) return;
+        if (IsCleaning() && _currentSoapPower > 0)
+        {
+            if (!_cleanAudioSource.isPlaying)
+                _cleanAudioSource.Play();
+
+            _meltAudioSource.Stop();
+        }
+        if (_isGrounded && !_isOnRamp && _currentSoapPower > 0)
+        {
+            if (!_meltAudioSource.isPlaying)
+                _meltAudioSource.Play();
+
+            _cleanAudioSource.Stop();
+        }
+        else{
+            _cleanAudioSource.Stop();
+            _meltAudioSource.Stop();
+        }
+    }
+
     private void UpdateRunStats(){
         _runStats.SetDistanceTravelled((int) (transform.position.z - _startingPosition.z));
         _runStats.UpdateTotalMoneyEarned();
@@ -335,7 +352,7 @@ public class PlayerController : MonoBehaviour
 
     private void SetControlVariables(){
         _horizontalInput = Keyboard.current.aKey.isPressed ? -1f : Keyboard.current.dKey.isPressed ? 1f : 0f;
-        _isSlamPressed = Keyboard.current.spaceKey.isPressed || Keyboard.current.wKey.isPressed;
+        _isSlamPressed = Keyboard.current.spaceKey.isPressed;
         
         _pressedSpawnRampThisFrame = Mouse.current.leftButton.wasPressedThisFrame;
         _pressedDiscardRampThisFrame = Mouse.current.rightButton.wasPressedThisFrame;

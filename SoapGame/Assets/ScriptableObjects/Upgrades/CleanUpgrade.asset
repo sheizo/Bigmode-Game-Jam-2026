@@ -16,18 +16,18 @@ MonoBehaviour:
   _name: Better Cleaning
   _levels:
   - SoapRefillOnClean: 0.05
-    TimeToClean: 2
-    CleanBoostStrength: 5
+    TimeToClean: 1
+    CleanBoostStrength: 8
     cost: 0
   - SoapRefillOnClean: 0.1
-    TimeToClean: 1
-    CleanBoostStrength: 10
+    TimeToClean: 0.5
+    CleanBoostStrength: 13
     cost: 50
   - SoapRefillOnClean: 0.2
-    TimeToClean: 0.5
-    CleanBoostStrength: 15
+    TimeToClean: 0.3
+    CleanBoostStrength: 18
     cost: 350
   - SoapRefillOnClean: 0.25
-    TimeToClean: 0.3
-    CleanBoostStrength: 20
-    cost: 1500
+    TimeToClean: 0.1
+    CleanBoostStrength: 25
+    cost: 1200

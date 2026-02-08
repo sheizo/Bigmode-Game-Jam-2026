@@ -15,21 +15,21 @@ MonoBehaviour:
   _id: speed
   _name: Speed
   _levels:
-  - MaxAirSpeed: 8
-    MaxGroundSpeed: 3
-    cost: 0
   - MaxAirSpeed: 10
-    MaxGroundSpeed: 5
-    cost: 5
+    MaxGroundSpeed: 8
+    cost: 0
   - MaxAirSpeed: 15
     MaxGroundSpeed: 10
-    cost: 120
+    cost: 5
   - MaxAirSpeed: 20
     MaxGroundSpeed: 15
-    cost: 400
+    cost: 120
   - MaxAirSpeed: 25
     MaxGroundSpeed: 20
-    cost: 1000
+    cost: 400
   - MaxAirSpeed: 30
+    MaxGroundSpeed: 25
+    cost: 800
+  - MaxAirSpeed: 35
     MaxGroundSpeed: 28
-    cost: 3000
+    cost: 1200

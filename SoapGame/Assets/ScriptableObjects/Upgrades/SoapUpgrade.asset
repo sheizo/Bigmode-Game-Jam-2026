@@ -22,8 +22,8 @@ MonoBehaviour:
     GroundSoapUsage: 0.35
     cost: 15
   - MaxSoap: 35
-    GroundSoapUsage: 0.25
+    GroundSoapUsage: 0.3
     cost: 300
-  - MaxSoap: 50
-    GroundSoapUsage: 0.2
-    cost: 2000
+  - MaxSoap: 40
+    GroundSoapUsage: 0.3
+    cost: 1000

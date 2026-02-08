@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SlamUpgrade
   m_EditorClassIdentifier: Assembly-CSharp::FloatUpgrade
   _id: slam
-  _name: Better Slam
+  _name: Stronger Dive
   _levels:
   - Value: 10
     cost: 0
