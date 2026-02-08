@@ -173,6 +173,14 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
+  - name: Error_Purchase
+    audioGroup: {fileID: 1047990350325659588, guid: dce1e024161c75045854a05b494b8b65, type: 2}
+    clip:
+    - {fileID: 8300000, guid: 35f8843889437244d8cc2ac16faa30aa, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
   music:
   - name: Music
     audioGroup: {fileID: -426505490407008096, guid: dce1e024161c75045854a05b494b8b65, type: 2}

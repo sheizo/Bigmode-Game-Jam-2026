@@ -158,6 +158,7 @@ public class BuyableUpgrade : MonoBehaviour
 
     private void OnFailedPurchase(){
         //TODO: ADD SOUND TO THIS
+        AudioManager.Instance.PlayOneShot("Error_Purchase");
         transform.DOShakePosition(_failedPurchaseAnimDuration, new Vector2(1, 0)*_failedPurchaseShakeAmount, 15, 0, false, true,
             ShakeRandomnessMode.Harmonic);
     }
