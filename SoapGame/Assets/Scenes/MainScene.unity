@@ -5262,8 +5262,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _maxSpeedMultiplier: 10
-  _maxDistanceSpeed: 100
+  _maxSpeedMultiplier: 2.5
+  _maxDistanceSpeed: 5000
   _soapRefillOnClean: 1
   _maxSoapPower: 100
   _rampSoapCost: 2

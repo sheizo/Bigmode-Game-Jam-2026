@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Numerics;
 using DG.Tweening;
+using Freya;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -107,6 +108,10 @@ public class PlayerController : MonoBehaviour
     private SphereCollider _collider;
     private PhysicsMaterial _physicsMaterial;
 
+    private float _initialGroundMaxSpeed, _initialAirMaxSpeed;
+    private float _initialRampForward, _initialCleanBoost;
+    private float _initialRampDown;
+    
     private Vector3 _startingPosition;
     private Quaternion _currentRotation;
     private float _currentFOV;
@@ -215,11 +220,18 @@ public class PlayerController : MonoBehaviour
 
     private void HandleSpeedRamping(){
         float distanceTravelled = Mathf.Max(0,transform.position.z - _startingPosition.z);
-        print(distanceTravelled);
         float t = Mathf.InverseLerp(0, _maxDistanceSpeed,distanceTravelled);
         float evaluatedT = _speedCurve.Evaluate(t);
-        float speed = Mathf.Lerp(1, _maxAirSpeed, evaluatedT);
-        print(speed);
+        
+        float currentMultiplier = Mathf.Lerp(1f, _maxSpeedMultiplier, evaluatedT);
+    
+        _maxAirSpeed = _initialAirMaxSpeed * currentMultiplier;
+        _maxGroundSpeed = _initialGroundMaxSpeed * currentMultiplier;
+        _rampForceDown = _initialRampDown * currentMultiplier;
+        _rampForceForward = _initialRampForward * currentMultiplier;
+        _cleanBoostStrength = _initialCleanBoost * currentMultiplier;
+        
+        
     }
 
 
@@ -303,8 +315,7 @@ public class PlayerController : MonoBehaviour
         
         _playerVisual.position = _rb.position;
         _playerVisual.rotation = Quaternion.identity;
-        
-        
+
         
         //populate ramp queue
         _rampQueue.Clear();
@@ -316,6 +327,12 @@ public class PlayerController : MonoBehaviour
         
         UpdateUpgrades();
         RefillSoap();
+        
+        _initialGroundMaxSpeed = _maxGroundSpeed;
+        _initialAirMaxSpeed = _maxAirSpeed;
+        _initialCleanBoost = _cleanBoostStrength;
+        _initialRampForward = _rampForceForward;
+        _initialRampDown = _rampForceDown;
     }
     
     private void TakeSoap(float amount){
@@ -675,7 +692,8 @@ public class PlayerController : MonoBehaviour
         ProcessInteraction(collision.gameObject);
     }
 
-    private float minImpactForce = 1f;               
+    private float minImpactForce = 1f;
+
     private void OnCollisionEnter(Collision collision)
     {
         if (_isOnRamp) return; // don't play if hitting ground while on ramp, only when landing on it or hitting other things
