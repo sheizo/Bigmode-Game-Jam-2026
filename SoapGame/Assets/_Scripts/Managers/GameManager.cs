@@ -45,7 +45,6 @@ public class GameManager : Singleton<GameManager>
 
     public static GameState CurrentGameState => Instance._cinemachineBrain.IsBlending ? GameState.NONE : Instance._gameStateManager.CurrentGameState;
 
-
     private bool _isInitialized = false;
 
     //giga spaghetti
@@ -97,12 +96,20 @@ public class GameManager : Singleton<GameManager>
         _runStats = runStats;
         UpdatePlayerStats();
         
-        _gameStateManager.SwitchGameState(GameState.LOSSSCREEN);
+
+        if (!GameManager.PlayerUpgradeManager.HasAnyUpgradeBeenPurchased()){
+            PlayerGotoShop();
+        } 
+        else
+        {
+            _gameStateManager.SwitchGameState(GameState.LOSSSCREEN);
+        }
+
         _uiManager.ResetSoapMeter();
         _uiManager.SetRunStats(runStats);
+        _uiManager.RefreshShopNotification();
 
         SubmitScoreAndRefreshLeaderboard(runStats);
-        
     }
 
     private async void SubmitScoreAndRefreshLeaderboard(RunStats runStats)
@@ -127,6 +134,7 @@ public class GameManager : Singleton<GameManager>
         _launcher.ResetLauncher();
         _playerController.ResetPlayer();
         _gameStateManager.SwitchGameState(GameState.LAUNCH);
+        _uiManager.RefreshShopNotification();
     }
 
     private void UpdatePlayerStats(){

@@ -32,6 +32,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _movementSpeed;
     [SerializeField] private TextMeshProUGUI _currentDistanceTraveled;
     [SerializeField] private TextMeshProUGUI _currentMoneyFarmed;
+    [SerializeField] private GameObject _shopNotificationObject;
     
     
     [Header("Effects")]
@@ -235,6 +236,12 @@ public class UIManager : MonoBehaviour
     {
         runStats.TotalMoneyEarned = runStats.TotalMoneyEarned;
         _statsDisplay.ShowStats(runStats);
+    }
+
+    public void RefreshShopNotification()
+    {
+        bool hasUpgradesToPurchase = GameManager.PlayerUpgradeManager.IsAnyUpgradePurchasable();
+        _shopNotificationObject.SetActive(hasUpgradesToPurchase);
     }
     
     [ContextMenu("Player Restart")]

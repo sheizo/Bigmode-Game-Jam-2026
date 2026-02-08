@@ -6905,6 +6905,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
+--- !u!1 &1214930834 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8865676920697490201, guid: 5a3bd210e1f4adc478314ad3269e61f0, type: 3}
+  m_PrefabInstance: {fileID: 3147612151854854191}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1243775523
 GameObject:
   m_ObjectHideFlags: 0
@@ -8022,12 +8027,13 @@ MonoBehaviour:
   _launchBarImage: {fileID: 95152517}
   _soapFill: {fileID: 2058816897}
   _restartButton: {fileID: 1526412551}
-  _enterShopButton: {fileID: 3147612151854854192}
+  _enterShopButton: {fileID: 1790037729}
   _exitShopButton: {fileID: 1501890548}
   _moneyCount: {fileID: 289622641}
   _movementSpeed: {fileID: 119678956}
   _currentDistanceTraveled: {fileID: 1081863598}
   _currentMoneyFarmed: {fileID: 1608738923}
+  _shopNotificationObject: {fileID: 1214930834}
   _soapFillDuration: 0.431
   _vignetteSoapStart: 1
   _vignetteSmoothTime: 0.67
@@ -9386,6 +9392,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1788251646}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1790037729 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3218779785179605715, guid: 5a3bd210e1f4adc478314ad3269e61f0, type: 3}
+  m_PrefabInstance: {fileID: 3147612151854854191}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1 &1831772698
 GameObject:
   m_ObjectHideFlags: 0
@@ -11361,58 +11378,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7860420909337994500, guid: 5a3bd210e1f4adc478314ad3269e61f0, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860420909337994500, guid: 5a3bd210e1f4adc478314ad3269e61f0, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860420909337994500, guid: 5a3bd210e1f4adc478314ad3269e61f0, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860420909337994500, guid: 5a3bd210e1f4adc478314ad3269e61f0, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8115923745398136475, guid: 5a3bd210e1f4adc478314ad3269e61f0, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8115923745398136475, guid: 5a3bd210e1f4adc478314ad3269e61f0, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8115923745398136475, guid: 5a3bd210e1f4adc478314ad3269e61f0, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8115923745398136475, guid: 5a3bd210e1f4adc478314ad3269e61f0, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8920784243776638233, guid: 5a3bd210e1f4adc478314ad3269e61f0, type: 3}
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2369306807232772454, guid: 5a3bd210e1f4adc478314ad3269e61f0, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a3bd210e1f4adc478314ad3269e61f0, type: 3}
---- !u!114 &3147612151854854192 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5029263321976646906, guid: 5a3bd210e1f4adc478314ad3269e61f0, type: 3}
-  m_PrefabInstance: {fileID: 3147612151854854191}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!33 &3459735455077980720
 MeshFilter:
   m_ObjectHideFlags: 0

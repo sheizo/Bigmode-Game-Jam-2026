@@ -36,6 +36,28 @@ public class PlayerUpgradeManager : MonoBehaviour
         };
     }
 
+    public bool HasAnyUpgradeBeenPurchased()
+    {
+        foreach (var upgrade in _allUpgrades)
+        {
+            if (upgrade.CurrentLevel > 0) return true;
+        }
+
+        return false;
+    }
+
+    public bool IsAnyUpgradePurchasable()
+    {
+        int currentMoney = GameManager.PlayerStats.Money;
+        foreach (var upgrade in _allUpgrades)
+        {
+            int cost = upgrade.NextLevelCost();
+            if (cost <= currentMoney && cost != 0) return true;
+        }
+
+        return false;
+    }
+
     [ContextMenu("Save")]
     public void SaveAllUpgrades()
     {
